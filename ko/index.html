@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커넥팅 3초 가이드</title>
+<meta name="description" content="커넥팅 영상, 이 순서로 찍으면 됩니다">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{--display:"Black Han Sans","Apple SD Gothic Neo","Malgun Gothic",sans-serif;--body:"IBM Plex Sans KR","Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;--dw:400}
+
+:root{
+  --ground:#F2F4F9; --surface:#FFFFFF; --sunk:#E7EAF3; --ink:#151A2E; --muted:#5E6582; --line:#D9DDEA;
+  --accent:#2F5BEA; --accent-ink:#FFFFFF; --sticker:#FFD60A; --sticker-ink:#151A2E;
+  --good:#0E9F6E; --good-soft:#DDF3EA;
+  --r:16px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0E1120; --surface:#171B2E; --sunk:#20253B; --ink:#ECEEF7; --muted:#9BA2BF; --line:#2C3250;
+    --accent:#7D9BFF; --accent-ink:#0E1120; --good:#34C58E; --good-soft:#15352B;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0E1120; --surface:#171B2E; --sunk:#20253B; --ink:#ECEEF7; --muted:#9BA2BF; --line:#2C3250;
+  --accent:#7D9BFF; --accent-ink:#0E1120; --good:#34C58E; --good-soft:#15352B;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;padding-inline:20px}
+.wrap{max-width:1180px;margin-inline:auto;padding-block:40px 80px;display:flex;flex-direction:column;gap:88px}
+h1,h2,h3,h4{margin:0;text-wrap:balance}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible,input:focus-visible,video:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.tnum{font-variant-numeric:tabular-nums}
+
+.hero{display:flex;flex-direction:column;gap:28px}
+.brand{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px;color:var(--muted)}
+.brand i{width:22px;height:22px;border-radius:6px;background:var(--accent);display:grid;place-items:center;color:var(--accent-ink);font-style:normal;font-weight:900;font-size:14px}
+.hero h1{font-family:var(--display);font-weight:var(--dw);font-size:clamp(46px,9vw,96px);line-height:1.05}
+.hero h1 mark{background:var(--sticker);color:var(--sticker-ink);padding:0 .12em;border-radius:.12em}
+.nav{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.nav a{display:flex;flex-direction:column;gap:4px;height:100%;text-decoration:none;color:var(--ink);background:var(--surface);border-radius:var(--r);padding:18px 20px;border-top:6px solid var(--c)}
+.nav a:hover{box-shadow:0 0 0 2px var(--c) inset}
+.nav small{font-size:13px;font-weight:700;color:var(--muted)}
+.nav b{font-size:20px;line-height:1.35}
+
+.step{display:flex;flex-direction:column;gap:24px;scroll-margin-top:20px}
+.step-head{display:flex;flex-direction:column;gap:8px}
+.badge{align-self:flex-start;font-weight:700;font-size:15px;padding:4px 16px;border-radius:99px;background:var(--c);color:var(--on)}
+.step h2{font-family:var(--display);font-weight:var(--dw);font-size:clamp(30px,4.6vw,46px);line-height:1.2}
+.lede{font-size:19px;color:var(--muted);max-width:60ch}
+.lede b{color:var(--ink)}
+.c-bad{--c:#E0434A;--on:#fff} .card.bad .frame{box-shadow:0 0 0 4px #E0434A}
+.c-hook{--c:var(--sticker);--on:var(--sticker-ink)} .c-call{--c:#7C5CFA;--on:#fff} .c-fun{--c:var(--good);--on:#fff} .c-pitch{--c:var(--accent);--on:var(--accent-ink)}
+
+/* video frames */
+.frame{position:relative;border-radius:14px;overflow:hidden;background:#000;aspect-ratio:9/16;width:100%;max-width:100%}
+.frame video{width:100%;height:100%;object-fit:cover;display:block}
+.frame .tag{position:absolute;left:10px;top:10px;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.6);padding:2px 10px;border-radius:99px;pointer-events:none}
+.frame .timer{position:absolute;left:10px;right:10px;bottom:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.35);pointer-events:none}
+.frame .timer span{display:block;height:100%;width:0;border-radius:3px;background:var(--sticker)}
+.frame.scene video{object-fit:contain}
+
+.grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
+.grid.three{grid-template-columns:repeat(3,1fr)}
+.card{margin:0;background:var(--surface);border-radius:var(--r);padding:14px;display:flex;flex-direction:column;gap:12px}
+.card figcaption{display:flex;flex-direction:column;gap:4px;padding:0 4px 4px;font-size:16px;line-height:1.5}
+.card figcaption .who{font-size:14px;font-weight:700;color:var(--muted)}
+.card figcaption .when{align-self:flex-start;font-size:13px;font-weight:700;background:var(--sunk);border-radius:99px;padding:1px 10px}
+
+.hooks{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.hook{background:var(--surface);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:14px}
+.hook .num{align-self:flex-start;font-weight:700;font-size:15px;padding:3px 14px;border-radius:99px;background:var(--sticker);color:var(--sticker-ink)}
+.hook h3{font-size:24px;line-height:1.3}
+.hook p{color:var(--muted);font-size:16px}
+.hook .minis{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.hook .minis .frame .tag{font-size:11px}
+.hook .cap{font-size:15px;line-height:1.45}
+.hook .cap b{display:block;font-size:13.5px;color:var(--muted)}
+.face{background:var(--good-soft);border-radius:var(--r);padding:16px 24px;font-size:18px;font-weight:500}
+.face b{color:var(--good)}
+
+.checks{list-style:none;margin:0;padding:0;background:var(--surface);border-radius:var(--r);overflow:hidden}
+.checks li+li{border-top:1px solid var(--line)}
+.checks label{display:grid;grid-template-columns:28px 104px 1fr;gap:14px;align-items:center;padding:16px 22px;cursor:pointer;font-weight:500;font-size:19px}
+.checks input{width:24px;height:24px;accent-color:var(--good);margin:0}
+.checks .t{font-size:13px;font-weight:700;text-align:center;padding:2px 0;border-radius:99px;background:var(--c);color:var(--on)}
+.checks input:checked ~ span:last-child{color:var(--muted);text-decoration:line-through}
+
+.cases{display:flex;flex-direction:column;gap:20px}
+.case{background:var(--surface);border-radius:var(--r);padding:24px;display:grid;grid-template-columns:380px 1fr;gap:32px;align-items:start}
+.case .frame video{object-fit:contain}
+.case .info{display:flex;flex-direction:column;gap:18px;min-width:0}
+.case .top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 20px;align-items:flex-start}
+.case .id{display:flex;flex-direction:column;gap:4px;min-width:0}
+.rank{align-self:flex-start;font-size:13px;font-weight:700;background:var(--accent);color:var(--accent-ink);padding:2px 12px;border-radius:99px}
+.handle{font-size:26px;font-weight:700;line-height:1.25;overflow-wrap:anywhere}
+.meta{font-size:14px;color:var(--muted)}
+.views{text-align:right}
+.views small{display:block;font-size:13px;color:var(--muted);font-weight:700}
+.views b{font-family:var(--display);font-weight:var(--dw);font-size:52px;line-height:1}
+.go{display:inline-flex;align-items:center;gap:6px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid var(--accent);padding:6px 14px;border-radius:99px;align-self:flex-start}
+.go:hover{background:var(--accent);color:var(--accent-ink)}
+.story{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.story li{display:grid;grid-template-columns:72px 1fr;gap:12px;align-items:baseline;font-size:17px;line-height:1.5}
+.story .t{font-size:13px;font-weight:700;text-align:center;border-radius:99px;padding:1px 0;background:var(--c);color:var(--on)}
+footer{border-top:1px solid var(--line);padding-top:20px}
+
+@media (max-width:980px){
+  .nav{grid-template-columns:repeat(2,1fr)}
+  .nav li:last-child{grid-column:1/-1}
+  .grid{grid-template-columns:repeat(2,1fr)}
+  .grid.three{grid-template-columns:repeat(2,1fr)}
+  .hooks{grid-template-columns:1fr}
+  .hook .single{max-width:360px}
+  .case{grid-template-columns:1fr}
+  .case .frame{max-width:380px;margin-inline:auto}
+}
+@media (max-width:520px){
+  body{font-size:16px}
+  .grid,.grid.three{grid-template-columns:1fr}
+  .card .frame{max-width:340px;margin-inline:auto}
+  .views{text-align:left}
+  .checks label{grid-template-columns:24px 1fr;font-size:17px}
+  .checks .t{grid-column:2;justify-self:start;padding:1px 10px}
+  .checks label span:last-child{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .frame .timer{display:none} }
+
+</style>
+
+</head>
+<body>
+<div class="wrap" lang="ko">
+
+<header class="hero">
+  <span class="brand"><i>C</i>커넥팅 영상 가이드</span>
+  <h1>커넥팅 영상,<br>이 <mark>순서</mark>로 찍어요</h1>
+  <ol class="nav"><li><a href="#step1" class="c-hook"><small>1 · 0~3초</small><b>후킹</b></a></li><li><a href="#step2" class="c-call"><small>2 · 3초 뒤</small><b>바로 통화</b></a></li><li><a href="#step3" class="c-fun"><small>3 · 통화</small><b>재밌는 장면 위주</b></a></li><li><a href="#step4" class="c-pitch"><small>4 · 마지막</small><b>앱 자랑(소구점)</b></a></li><li><a href="#step5" class="c-bad"><small>X · 하지 마세요</small><b>이러면 넘겨요</b></a></li></ol>
+</header>
+
+<section class="step" id="step1" aria-labelledby="h1s">
+  <div class="step-head"><span class="badge c-hook">1 · 0~3초</span><h2 id="h1s">후킹: 셋 중 하나를 맨 앞에</h2><p class="lede">잘된 영상 6개가 전부 이 셋 중 하나로 시작했어요. 영상은 실제 0~3초예요.</p></div>
+  <div class="hooks"><div class="hook"><span class="num">① 결과 먼저</span><h3>끝에 나오는 결과를 맨 앞에</h3><p>"어떻게 저렇게 됐지?" 하고 끝까지 봐요.</p><div class="single"><div class="frame" data-clip="ryu_rai73"><span class="tag">0~3초</span><span class="timer"><span></span></span></div></div><p class="cap"><b>ryu_rai73 · 48.6만</b>88초에 나오는 '청혼'을 0초에</p></div><div class="hook"><span class="num">② 하이라이트 먼저</span><h3>제일 재밌는 장면을 맨 앞에</h3><p>영화 예고편처럼 제일 웃긴 장면을 먼저.</p><div class="single"><div class="frame" data-clip="momoonaaa"><span class="tag">0~3초</span><span class="timer"><span></span></span></div></div><p class="cap"><b>momoonaaa · 101만</b>62초에 나오는 "저 한국어로 말하는 건데요?"를 0초에</p></div><div class="hook"><span class="num">③ 뭐 할지 먼저</span><h3>오늘 뭐 할지 제목 한 줄</h3><div class="minis"><div class="frame" data-clip="nori.nori945"><span class="tag">0~3초</span><span class="timer"><span></span></span></div><div class="frame" data-clip="gentle_ph"><span class="tag">0~3초</span><span class="timer"><span></span></span></div><div class="frame" data-clip="ij.ae.i"><span class="tag">0~3초</span><span class="timer"><span></span></span></div><div class="frame" data-clip="yxxndoi_"><span class="tag">0~3초</span><span class="timer"><span></span></span></div></div><p class="cap"><b>nori · gentle_ph · ij.ae.i · yxxndoi_</b>예) "한국인 척해서 일본인과 전화하기"</p></div></div>
+  <p class="face"><b>+ 얼굴은 크게 찍어요.</b> 셋 중 무엇을 고르든, 잘된 영상 6개는 전부 얼굴을 화면 가운데에 크게 찍었어요.</p>
+</section>
+
+<section class="step" id="step2" aria-labelledby="h2s">
+  <div class="step-head"><span class="badge c-call">2 · 3초 뒤</span><h2 id="h2s">설명 없이 바로 통화로 넘어가요</h2><p class="lede">3초가 끝나면 바로 통화 화면. <b>잘된 영상 6개가 전부 17초 안에 통화를 시작했어요.</b> 빠른 영상은 1.5초.</p></div>
+  <div class="grid three"><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/call_nori.jpg" data-src="s/call_nori.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">nori.nori945 · 88.6만</span><span>0.5초 제목 → <b>2.2초에 바로 통화 화면</b></span><span class="when">통화 시작 2.2초</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/call_ryu.jpg" data-src="s/call_ryu.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">ryu_rai73 · 48.6만</span><span>'청혼' → <b>1.5초 (연결됨)</b> → "여보세요"</span><span class="when">통화 시작 1.5초</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/call_yxx.jpg" data-src="s/call_yxx.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">yxxndoi_ · 46.4만</span><span>제목 → 2초 매칭 → <b>3초에 바로 첫 문제</b></span><span class="when">통화 시작 2초</span></figcaption></figure></div>
+</section>
+
+<section class="step" id="step3" aria-labelledby="h3s">
+  <div class="step-head"><span class="badge c-fun">3 · 통화</span><h2 id="h3s">통화는 재밌는 장면 위주로</h2><p class="lede">장난 하나로 끝까지 웃겨요. <b>중간에 앱 설명은 하지 않아요.</b> 소리는 영상의 스피커 버튼을 눌러요.</p></div>
+  <div class="grid"><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/fun_momo.jpg" data-src="s/fun_momo.mp4"></video><span class="tag">42~59초</span></div><figcaption><span class="who">momoonaaa · 101만</span><span>"배 아프면 어떻게 해요?" "병원 데려가야죠" → <b>"완전 T네!"</b></span><span class="when">한국 남자 판타지 확인</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/fun_nori.jpg" data-src="s/fun_nori.mp4"></video><span class="tag">45~58초</span></div><figcaption><span class="who">nori.nori945 · 88.6만</span><span>한국인인 척하다 들킴 → "진짜 일본인이야?" <b>"아 개짜증나"</b></span><span class="when">한국인인 척하기</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/fun_gentle.jpg" data-src="s/fun_gentle.mp4"></video><span class="tag">36~45초</span></div><figcaption><span class="who">gentle_ph · 46.9만</span><span>"좋아한다고 말로 해줘요" → <b>"스키데스" "아이시테루"</b></span><span class="when">목소리 깔고 허세</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/fun_ryu.jpg" data-src="s/fun_ryu.mp4"></video><span class="tag">80~92초</span></div><figcaption><span class="who">ryu_rai73 · 48.6만</span><span>MBTI까지 똑같음 → "이거 운명 아니에요?" <b>"결혼하자"</b></span><span class="when">공통점 찾기</span></figcaption></figure></div>
+</section>
+
+<section class="step" id="step4" aria-labelledby="h4s">
+  <div class="step-head"><span class="badge c-pitch">4 · 마지막</span><h2 id="h4s">앱 자랑(소구점)은 맨 끝에</h2><p class="lede">"실시간 번역이라 외국어 몰라도 대화돼요"를 짧게. <b>'커넥팅' 이름도 여기서 말해요.</b></p></div>
+  <div class="grid"><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/pitch_momo.jpg" data-src="s/pitch_momo.mp4"></video><span class="tag">70~90초</span></div><figcaption><span class="who">momoonaaa · 101만</span><span>"이번에 쓴 앱이 커넥팅… <b>실시간 번역이라</b> 틀릴까 봐 겁나도 부담 없이"</span><span class="when">90초 중 70초부터</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/pitch_nori.jpg" data-src="s/pitch_nori.mp4"></video><span class="tag">57~62초</span></div><figcaption><span class="who">nori.nori945 · 88.6만</span><span>"이 앱은 <b>말하는 게 자동으로 번역돼</b>" "여러분도 커넥팅 해보세요"</span><span class="when">62초 중 58초부터</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/pitch_yxx.jpg" data-src="s/pitch_yxx.mp4"></video><span class="tag">43~50초</span></div><figcaption><span class="who">yxxndoi_ · 46.4만</span><span>"커넥팅 <b>번역 기능 진짜 정확해</b>" "외국인 친구 사귀기 쉬울 것 같아"</span><span class="when">63초 중 42초부터</span></figcaption></figure><figure class="card "><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/pitch_gentle.jpg" data-src="s/pitch_gentle.mp4"></video><span class="tag">46~50초</span></div><figcaption><span class="who">gentle_ph · 46.9만</span><span><b>"커넥팅 개좋네 진짜"</b> → 사진 교환은 안 되는구나</span><span class="when">58초 중 46초부터</span></figcaption></figure></div>
+</section>
+
+<section class="step" id="step5" aria-labelledby="h5s">
+  <div class="step-head"><span class="badge c-bad">X · 하지 마세요</span><h2 id="h5s">이렇게 하면 넘겨요</h2><p class="lede">잘 안된 영상은 이렇게 했어요. <b>이것만 피하세요.</b></p></div>
+  <div class="grid"><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_mike.jpg" data-src="s/bad_mike.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">mike850822 · 3.4만</span><span><b>X 인사로 시작</b> "안녕하세요" "오늘은 도전해 볼게" → 무슨 영상인지 몰라요</span><span class="when">첫 화면도 흐림</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_9i.jpg" data-src="s/bad_9i.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">9i.o_i · 1.3만</span><span><b>X 화면에 이것저것 한꺼번에</b> 로고·스티커·채팅·작은 얼굴 → 어디를 볼지 몰라요</span><span class="when">얼굴이 화면의 3%</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_fukawa.jpg" data-src="s/bad_fukawa.mp4"></video><span class="tag">2~10초</span></div><figcaption><span class="who">__fukawa · 4.5만</span><span><b>X 3초 뒤 바로 앱 소개</b> "오늘은 커넥팅이라는 앱의 문자통화를…" → 광고인 줄 알고 넘겨요</span><span class="when">앱 소개 25초, 통화는 28초에</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_rika.jpg" data-src="s/bad_rika.mp4"></video><span class="tag">18~31초</span></div><figcaption><span class="who">rika__bell · 18.9만</span><span><b>X 통화 전에 앱 기능 설명</b> "추천하는 앱이 있어요! 커넥팅!" → 통화가 늦어져요</span><span class="when">통화는 40초에 시작</span></figcaption></figure></div>
+  <p class="note">잘 안된 영상 조회수는 다른 기준(실측 문서)으로 잰 숫자라 잘된 영상 숫자와 나란히 비교하지 마세요.</p>
+</section>
+
+<section class="step" aria-labelledby="hcs">
+  <div class="step-head"><h2 id="hcs">올리기 전에 체크</h2><p class="lede" id="count">7개 중 0개 체크했어요.</p></div>
+  <ul class="checks" id="checks"></ul>
+</section>
+
+<section class="step" aria-labelledby="hvs">
+  <div class="step-head"><h2 id="hvs">잘된 영상 6편</h2><p class="lede">누르면 소리와 함께 처음부터 재생돼요. 한국어 자막본이에요.</p></div>
+  <div class="cases" id="cases"></div>
+</section>
+
+<footer><p class="note">조회수는 2026-09-13 같은 날 직접 확인한 숫자예요. 영상 위쪽의 작은 한국어 한 줄은 번역용으로 붙인 자막이에요.</p></footer>
+</div>
+
+<script>
+const T={"cases": [{"k": "momoonaaa", "rank": 1, "views": "101만", "meta": "일본 · 1:30", "link": "https://www.instagram.com/reels/DaP3GRKBc91/", "story": [["후킹", "62초 하이라이트 \"저 한국어로 말하는 건데요?\"를 맨 앞에"], ["통화", "\"배 아프면?\" \"병원 가야죠\" → \"완전 T네\""], ["마지막", "70초부터: 실시간 번역이라 틀릴까 봐 겁나도 부담 없이 대화"]]}, {"k": "nori.nori945", "rank": 2, "views": "88.6만", "meta": "일본 · 1:02", "link": "https://www.instagram.com/reels/Dc50c-nCNrj/", "story": [["후킹", "제목 \"한국인 척해서 일본인과 전화하기\""], ["통화", "한국인인 척하다 47초에 들킴 → \"아 개짜증나\""], ["마지막", "58초부터: \"말하는 게 자동으로 번역돼\""]]}, {"k": "ij.ae.i", "rank": 3, "views": "50만", "meta": "한국 · 1:15", "link": "https://www.instagram.com/reels/DaNSNirp_c-/", "story": [["후킹", "제목 \"남자랑 전화할 때마다 목소리가 바뀌는 여사친\""], ["통화", "\"오빠 목소리 좋아요\" 통역으로 배우기 → 상대가 여자면 목소리 톤이 바뀜"], ["마지막", "63초부터: 모르는 사람이라 걱정했는데 좋은 사람뿐"]]}, {"k": "ryu_rai73", "rank": 4, "views": "48.6만", "meta": "한국 · 1:34", "link": "https://www.instagram.com/p/DcS1LOJolBH/", "story": [["후킹", "88초 결과 '청혼'을 맨 앞에"], ["통화", "밴드 취향 같음 → 동갑 → MBTI까지 같음 → \"결혼하자\""], ["마지막", "92초 엔드카드 \"장소: 커넥팅\""]]}, {"k": "gentle_ph", "rank": 5, "views": "46.9만", "meta": "한국 · 0:58", "link": "https://www.instagram.com/reels/Da4vPzAPA30/", "story": [["후킹", "제목 \"POV 목소리 깔면 멋있는 줄 아는 한국인 남사친\""], ["통화", "동굴 저음 허세 → \"스키데스\" \"아이시테루\" 받아내기"], ["마지막", "46초부터: \"커넥팅 개좋네 진짜\""]]}, {"k": "yxxndoi_", "rank": 6, "views": "46.4만", "meta": "대만 · 1:03", "link": "https://www.instagram.com/reel/DbailzePvn4/", "story": [["후킹", "제목 \"교과서 중국어 VS 실제 중국어\""], ["통화", "진짜 대만 말(욕) 배우기 → 한국어를 물으면 전부 \"응\""], ["마지막", "42초부터: 번역 기능이 정확해서 외국인 친구 사귀기 쉬워"]]}], "checks": [["c-hook", "1 후킹", "0~3초에 결과 · 하이라이트 · 뭐 할지 중 하나가 나오고, 얼굴이 크게 보이나요?"], ["c-call", "2 바로 통화", "3초가 끝나면 설명 없이 바로 통화로 넘어가나요?"], ["c-fun", "3 통화", "통화는 재밌는 장면 위주이고, 중간에 앱 설명이 없나요?"], ["c-pitch", "4 마지막", "앱 자랑과 '커넥팅' 이름은 맨 끝에 나오나요?"], ["c-pitch", "4 마지막", "\"실시간 번역이라 외국어 몰라도 대화돼요\"가 들어갔나요?"], ["c-bad", "X 하지 마세요", "인사나 앱 소개로 시작하지 않았나요?"], ["c-bad", "X 하지 마세요", "화면에 글자·스티커·앱 화면을 한꺼번에 띄우지 않았나요?"]], "viewsLabel": "조회수", "goLabel": "인스타에서 보기 ↗"};
+T.rankLabel=r=>`조회 ${r}위`;
+T.countLabel=(n,k)=>`${n}개 중 ${k}개 체크했어요.`;
+
+const R=p=>(window.A?window.A(p):p);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+document.getElementById("cases").innerHTML=T.cases.map(c=>`
+<article class="case" aria-labelledby="h-${c.rank}">
+  <div class="frame"><video class="full" controls playsinline preload="none" data-poster="p/${c.k}_big.jpg" data-src="v/${c.k}.mp4"></video></div>
+  <div class="info">
+    <div class="top">
+      <div class="id"><span class="rank">${T.rankLabel(c.rank)}</span><span class="handle" id="h-${c.rank}">@${esc(c.k)}</span><span class="meta">${esc(c.meta)}</span></div>
+      <div class="views"><small>${T.viewsLabel}</small><b class="tnum">${c.views}</b></div>
+    </div>
+    <a class="go" href="${c.link}" target="_blank" rel="noopener">${T.goLabel}</a>
+    <ol class="story">${c.story.map(([t,x],i)=>`<li><span class="t ${["c-hook","c-fun","c-pitch"][i]}">${esc(t)}</span><span>${esc(x)}</span></li>`).join("")}</ol>
+  </div>
+</article>`).join("");
+
+const checks=document.getElementById("checks");
+checks.innerHTML=T.checks.map((c,i)=>`<li><label for="chk-${i}"><input type="checkbox" id="chk-${i}"><span class="t ${c[0]}">${esc(c[1])}</span><span>${esc(c[2])}</span></label></li>`).join("");
+const countEl=document.getElementById("count");
+checks.addEventListener("change",()=>{countEl.textContent=T.countLabel(T.checks.length,checks.querySelectorAll("input:checked").length);});
+
+/* hydrate media */
+document.querySelectorAll("[data-clip]").forEach(el=>{
+  el.insertAdjacentHTML("afterbegin",`<video muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"${reduce?" controls":""}></video>`);
+});
+document.querySelectorAll("video[data-poster]").forEach(v=>{v.poster=R(v.dataset.poster);});
+document.querySelectorAll("video:not(.full)[data-src]").forEach(v=>{v.src=R(v.dataset.src);});
+setTimeout(()=>document.querySelectorAll("video.full[data-src]").forEach(v=>{v.src=R(v.dataset.src);}),300);
+
+const loops=[...document.querySelectorAll(".frame video:not(.full)")];
+if(!reduce){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;if(e.isIntersecting){v.play().catch(()=>{});}else{v.pause();}}),{threshold:.3});
+  loops.forEach(v=>io.observe(v));
+  const timed=[...document.querySelectorAll("[data-clip]")];
+  (function tick(){timed.forEach(el=>{const v=el.querySelector("video"),b=el.querySelector(".timer span");if(v&&b&&!v.paused&&v.duration)b.style.width=Math.min(100,v.currentTime/Math.min(3,v.duration)*100)+"%";});requestAnimationFrame(tick);})();
+}
+document.querySelectorAll("video").forEach(v=>v.addEventListener("play",()=>{if(!v.muted||v.classList.contains("full"))document.querySelectorAll("video.full, .scene video").forEach(o=>{if(o!==v&&(!o.muted||o.classList.contains("full")))o.pause();});}));
+
+</script>
+
+</body>
+</html>
