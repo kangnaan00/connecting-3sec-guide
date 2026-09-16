@@ -36,6 +36,8 @@ p{margin:0}
 a{color:var(--accent)}
 a:focus-visible,input:focus-visible,video:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 .note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.rule{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:var(--r);padding:16px 18px;font-size:16px;line-height:1.5}
+.rule .t{flex:none;font-size:13px;font-weight:700;border-radius:99px;padding:3px 12px;background:var(--c);color:var(--on)}
 .tnum{font-variant-numeric:tabular-nums}
 
 .hero{display:flex;flex-direction:column;gap:28px}
@@ -64,6 +66,9 @@ a:focus-visible,input:focus-visible,video:focus-visible{outline:3px solid var(--
 .frame .tag{position:absolute;left:10px;top:10px;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.6);padding:2px 10px;border-radius:99px;pointer-events:none}
 .frame .timer{position:absolute;left:10px;right:10px;bottom:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.35);pointer-events:none}
 .frame .timer span{display:block;height:100%;width:0;border-radius:3px;background:var(--sticker)}
+.frame .snd{position:absolute;right:8px;top:8px;z-index:2;display:inline-flex;align-items:center;gap:4px;min-height:30px;padding:0 10px;border:0;border-radius:99px;background:rgba(0,0,0,.62);color:#fff;font-family:inherit;font-size:12px;font-weight:700;line-height:1;white-space:nowrap;cursor:pointer}
+.frame .snd:hover{background:rgba(0,0,0,.82)}
+.frame .snd:focus-visible{outline:2px solid var(--sticker);outline-offset:2px}
 .frame.scene video{object-fit:contain}
 
 .grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
@@ -168,6 +173,7 @@ footer{border-top:1px solid var(--line);padding-top:20px}
 <section class="step" id="step5" aria-labelledby="h5s">
   <div class="step-head"><span class="badge c-bad">X · 不要這樣做</span><h2 id="h5s">這樣做觀眾會滑走</h2><p class="lede">沒紅的影片是這樣做的。<b>只要避開這些就好。</b></p></div>
   <div class="grid"><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_mike.jpg" data-src="s/bad_mike.mp4"></video><span class="tag">0～5秒</span></div><figcaption><span class="who">mike850822 · 3.4萬</span><span><b>X 用打招呼開場</b>「안녕하세요（你好）」「今天要來挑戰」→ 看不出是什麼影片</span><span class="when">第一個畫面還模糊</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_9i.jpg" data-src="s/bad_9i.mp4"></video><span class="tag">0～5秒</span></div><figcaption><span class="who">9i.o_i · 1.3萬</span><span><b>X 畫面一次塞太多東西</b> Logo・貼圖・聊天畫面・很小的臉 → 不知道要看哪裡</span><span class="when">臉只佔畫面3%</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_fukawa.jpg" data-src="s/bad_fukawa.mp4"></video><span class="tag">2～10秒</span></div><figcaption><span class="who">__fukawa · 4.5萬</span><span><b>X 3秒後馬上介紹App</b>「今天要來試試Connecting這個App的文字通話…」→ 以為是廣告就滑走</span><span class="when">介紹App 25秒，28秒才通話</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_rika.jpg" data-src="s/bad_rika.mp4"></video><span class="tag">18～31秒</span></div><figcaption><span class="who">rika__bell · 18.9萬</span><span><b>X 通話前先講App功能</b>「推薦一個App給你！Connecting！」→ 通話變很晚</span><span class="when">40秒才開始通話</span></figcaption></figure></div>
+  <p class="rule"><span class="t c-bad">X 概念跑掉</span><span>只要抓定一個主題或內容，就<b>從頭到尾維持同一個概念。</b></span></p>
   <p class="note">沒紅影片的觀看次數是用另一個標準（實測文件）量的，不要跟爆紅影片的數字直接比較。</p>
 </section>
 
@@ -185,9 +191,10 @@ footer{border-top:1px solid var(--line);padding-top:20px}
 </div>
 
 <script>
-const T={"cases": [{"k": "momoonaaa", "rank": 1, "views": "101萬", "meta": "日本 · 1:30", "link": "https://www.instagram.com/reels/DaP3GRKBc91/", "story": [["開場", "把62秒的精華「我現在是在講韓文耶？」放最前面"], ["通話", "「肚子痛怎麼辦？」「帶去醫院啊」→「根本就是T耶」"], ["最後", "從70秒開始：有即時翻譯，怕講錯也能沒壓力地聊"]]}, {"k": "nori.nori945", "rank": 2, "views": "88.6萬", "meta": "日本 · 1:02", "link": "https://www.instagram.com/reels/Dc50c-nCNrj/", "story": [["開場", "標題「假裝韓國人跟日本人通電話」"], ["通話", "假裝韓國人，47秒被拆穿 →「啊超煩的」"], ["最後", "從58秒開始：「講的話會自動翻譯」"]]}, {"k": "ij.ae.i", "rank": 3, "views": "50萬", "meta": "韓國 · 1:15", "link": "https://www.instagram.com/reels/DaNSNirp_c-/", "story": [["開場", "標題「跟男生講電話就會變聲的女性朋友」"], ["通話", "用翻譯學說「歐巴聲音好好聽」→ 對象是女生聲音就變了"], ["最後", "從63秒開始：本來擔心是陌生人，結果都是好人"]]}, {"k": "ryu_rai73", "rank": 4, "views": "48.6萬", "meta": "韓國 · 1:34", "link": "https://www.instagram.com/p/DcS1LOJolBH/", "story": [["開場", "把88秒的結果「求婚」放最前面"], ["通話", "喜歡的樂團一樣 → 同年 → 連MBTI都一樣 →「我們結婚吧」"], ["最後", "92秒片尾字卡「地點：Connecting」"]]}, {"k": "gentle_ph", "rank": 5, "views": "46.9萬", "meta": "韓國 · 0:58", "link": "https://www.instagram.com/reels/Da4vPzAPA30/", "story": [["開場", "標題「POV 以為壓低聲音就很帥的韓國男性朋友」"], ["通話", "洞穴低音裝帥 → 讓對方說出「suki desu」「aishiteru」"], ["最後", "從46秒開始：「Connecting真的超讚」"]]}, {"k": "yxxndoi_", "rank": 6, "views": "46.4萬", "meta": "台灣 · 1:03", "link": "https://www.instagram.com/reel/DbailzePvn4/", "story": [["開場", "標題「課本中文 VS 真實中文」"], ["通話", "學真正的台灣講法（髒話）→ 問韓文怎麼說，答案全是「응（嗯）」"], ["最後", "從42秒開始：翻譯很準，交外國朋友變簡單"]]}], "checks": [["c-hook", "1 開場", "0～3秒有沒有放「結果・精華・要做什麼」其中一個，而且臉拍得夠大？"], ["c-call", "2 馬上通話", "3秒一結束，是不是不講解、直接進入通話？"], ["c-fun", "3 通話", "通話是不是以好笑的畫面為主，中間沒有介紹App？"], ["c-pitch", "4 最後", "App的好處和「Connecting」名字是不是放在最後？"], ["c-pitch", "4 最後", "有沒有講到「有即時翻譯，不會外語也能聊」？"], ["c-bad", "X 不要", "是不是沒有用打招呼或介紹App開場？"], ["c-bad", "X 不要", "是不是沒有把字幕・貼圖・App畫面一次全塞進來？"]], "viewsLabel": "觀看次數", "goLabel": "到Instagram看 ↗"};
+const T={"cases": [{"k": "momoonaaa", "rank": 1, "views": "101萬", "meta": "日本 · 1:30", "link": "https://www.instagram.com/reels/DaP3GRKBc91/", "story": [["開場", "把62秒的精華「我現在是在講韓文耶？」放最前面"], ["通話", "「肚子痛怎麼辦？」「帶去醫院啊」→「根本就是T耶」"], ["最後", "從70秒開始：有即時翻譯，怕講錯也能沒壓力地聊"]]}, {"k": "nori.nori945", "rank": 2, "views": "88.6萬", "meta": "日本 · 1:02", "link": "https://www.instagram.com/reels/Dc50c-nCNrj/", "story": [["開場", "標題「假裝韓國人跟日本人通電話」"], ["通話", "假裝韓國人，47秒被拆穿 →「啊超煩的」"], ["最後", "從58秒開始：「講的話會自動翻譯」"]]}, {"k": "ij.ae.i", "rank": 3, "views": "50萬", "meta": "韓國 · 1:15", "link": "https://www.instagram.com/reels/DaNSNirp_c-/", "story": [["開場", "標題「跟男生講電話就會變聲的女性朋友」"], ["通話", "用翻譯學說「歐巴聲音好好聽」→ 對象是女生聲音就變了"], ["最後", "從63秒開始：本來擔心是陌生人，結果都是好人"]]}, {"k": "ryu_rai73", "rank": 4, "views": "48.6萬", "meta": "韓國 · 1:34", "link": "https://www.instagram.com/p/DcS1LOJolBH/", "story": [["開場", "把88秒的結果「求婚」放最前面"], ["通話", "喜歡的樂團一樣 → 同歲 → 連MBTI都一樣 →「我們結婚吧」"], ["最後", "92秒片尾字卡「地點：Connecting」"]]}, {"k": "gentle_ph", "rank": 5, "views": "46.9萬", "meta": "韓國 · 0:58", "link": "https://www.instagram.com/reels/Da4vPzAPA30/", "story": [["開場", "標題「POV 以為壓低聲音就很帥的韓國男性朋友」"], ["通話", "洞穴低音裝帥 → 讓對方說出「suki desu」「aishiteru」"], ["最後", "從46秒開始：「Connecting真的超讚」"]]}, {"k": "yxxndoi_", "rank": 6, "views": "46.4萬", "meta": "台灣 · 1:03", "link": "https://www.instagram.com/reel/DbailzePvn4/", "story": [["開場", "標題「課本中文 VS 真實中文」"], ["通話", "學真正的台灣講法（髒話）→ 問韓文怎麼說，答案全是「응（嗯）」"], ["最後", "從42秒開始：翻譯很準，交外國朋友變簡單"]]}], "checks": [["c-hook", "1 開場", "0～3秒有沒有放「結果・精華・要做什麼」其中一個，而且臉拍得夠大？"], ["c-call", "2 馬上通話", "3秒一結束，是不是不講解、直接進入通話？"], ["c-fun", "3 通話", "通話是不是以好笑的畫面為主，中間沒有介紹App？"], ["c-pitch", "4 最後", "App的好處和「Connecting」名字是不是放在最後？"], ["c-pitch", "4 最後", "有沒有講到「有即時翻譯，不會外語也能聊」？"], ["c-bad", "X 不要", "是不是沒有用打招呼或介紹App開場？"], ["c-bad", "X 不要", "是不是沒有把字幕・貼圖・App畫面一次全擠在一起？"]], "viewsLabel": "觀看次數", "goLabel": "到Instagram看 ↗"};
 T.rankLabel=r=>`觀看第${r}名`;
 T.countLabel=(n,k)=>`${n}項中已勾選${k}項。`;
+T.sndOn="🔇 開啟聲音";T.sndOff="🔊 關閉聲音";
 
 const R=p=>(window.A?window.A(p):p);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -213,7 +220,13 @@ checks.addEventListener("change",()=>{countEl.textContent=T.countLabel(T.checks.
 
 /* hydrate media */
 document.querySelectorAll("[data-clip]").forEach(el=>{
-  el.insertAdjacentHTML("afterbegin",`<video controls muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"></video>`);
+  el.insertAdjacentHTML("afterbegin",`<video muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"${reduce?" controls":""}></video>`);
+  const v=el.querySelector("video"),b=document.createElement("button");
+  b.type="button";b.className="snd";
+  const sync=()=>{b.textContent=v.muted?T.sndOn:T.sndOff;b.setAttribute("aria-label",v.muted?T.sndOn:T.sndOff);b.setAttribute("aria-pressed",String(!v.muted));};
+  b.addEventListener("click",()=>{v.muted=!v.muted;if(!v.muted)v.play().catch(()=>{});});
+  v.addEventListener("volumechange",sync);
+  sync();el.appendChild(b);
 });
 document.querySelectorAll("video[data-poster]").forEach(v=>{v.poster=R(v.dataset.poster);});
 document.querySelectorAll("video:not(.full)[data-src]").forEach(v=>{v.src=R(v.dataset.src);});

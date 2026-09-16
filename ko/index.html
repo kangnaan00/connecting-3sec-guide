@@ -36,6 +36,8 @@ p{margin:0}
 a{color:var(--accent)}
 a:focus-visible,input:focus-visible,video:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
 .note{font-size:13.5px;color:var(--muted);line-height:1.5}
+.rule{display:flex;align-items:flex-start;gap:12px;background:var(--surface);border-radius:var(--r);padding:16px 18px;font-size:16px;line-height:1.5}
+.rule .t{flex:none;font-size:13px;font-weight:700;border-radius:99px;padding:3px 12px;background:var(--c);color:var(--on)}
 .tnum{font-variant-numeric:tabular-nums}
 
 .hero{display:flex;flex-direction:column;gap:28px}
@@ -64,6 +66,9 @@ a:focus-visible,input:focus-visible,video:focus-visible{outline:3px solid var(--
 .frame .tag{position:absolute;left:10px;top:10px;font-size:13px;font-weight:700;color:#fff;background:rgba(0,0,0,.6);padding:2px 10px;border-radius:99px;pointer-events:none}
 .frame .timer{position:absolute;left:10px;right:10px;bottom:10px;height:6px;border-radius:3px;background:rgba(255,255,255,.35);pointer-events:none}
 .frame .timer span{display:block;height:100%;width:0;border-radius:3px;background:var(--sticker)}
+.frame .snd{position:absolute;right:8px;top:8px;z-index:2;display:inline-flex;align-items:center;gap:4px;min-height:30px;padding:0 10px;border:0;border-radius:99px;background:rgba(0,0,0,.62);color:#fff;font-family:inherit;font-size:12px;font-weight:700;line-height:1;white-space:nowrap;cursor:pointer}
+.frame .snd:hover{background:rgba(0,0,0,.82)}
+.frame .snd:focus-visible{outline:2px solid var(--sticker);outline-offset:2px}
 .frame.scene video{object-fit:contain}
 
 .grid{display:grid;gap:16px;grid-template-columns:repeat(4,1fr)}
@@ -168,6 +173,7 @@ footer{border-top:1px solid var(--line);padding-top:20px}
 <section class="step" id="step5" aria-labelledby="h5s">
   <div class="step-head"><span class="badge c-bad">X · 하지 마세요</span><h2 id="h5s">이렇게 하면 넘겨요</h2><p class="lede">잘 안된 영상은 이렇게 했어요. <b>이것만 피하세요.</b></p></div>
   <div class="grid"><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_mike.jpg" data-src="s/bad_mike.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">mike850822 · 3.4만</span><span><b>X 인사로 시작</b> "안녕하세요" "오늘은 도전해 볼게" → 무슨 영상인지 몰라요</span><span class="when">첫 화면도 흐림</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_9i.jpg" data-src="s/bad_9i.mp4"></video><span class="tag">0~5초</span></div><figcaption><span class="who">9i.o_i · 1.3만</span><span><b>X 화면에 이것저것 한꺼번에</b> 로고·스티커·채팅·작은 얼굴 → 어디를 볼지 몰라요</span><span class="when">얼굴이 화면의 3%</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_fukawa.jpg" data-src="s/bad_fukawa.mp4"></video><span class="tag">2~10초</span></div><figcaption><span class="who">__fukawa · 4.5만</span><span><b>X 3초 뒤 바로 앱 소개</b> "오늘은 커넥팅이라는 앱의 문자통화를…" → 광고인 줄 알고 넘겨요</span><span class="when">앱 소개 25초, 통화는 28초에</span></figcaption></figure><figure class="card bad"><div class="frame scene"><video controls muted loop playsinline preload="metadata" data-poster="s/bad_rika.jpg" data-src="s/bad_rika.mp4"></video><span class="tag">18~31초</span></div><figcaption><span class="who">rika__bell · 18.9만</span><span><b>X 통화 전에 앱 기능 설명</b> "추천하는 앱이 있어요! 커넥팅!" → 통화가 늦어져요</span><span class="when">통화는 40초에 시작</span></figcaption></figure></div>
+  <p class="rule"><span class="t c-bad">X 컨셉 바뀜</span><span>1가지 주제나 내용을 잡았다면 <b>끝까지 컨셉을 유지하세요.</b></span></p>
   <p class="note">잘 안된 영상 조회수는 다른 기준(실측 문서)으로 잰 숫자라 잘된 영상 숫자와 나란히 비교하지 마세요.</p>
 </section>
 
@@ -188,6 +194,7 @@ footer{border-top:1px solid var(--line);padding-top:20px}
 const T={"cases": [{"k": "momoonaaa", "rank": 1, "views": "101만", "meta": "일본 · 1:30", "link": "https://www.instagram.com/reels/DaP3GRKBc91/", "story": [["후킹", "62초 하이라이트 \"저 한국어로 말하는 건데요?\"를 맨 앞에"], ["통화", "\"배 아프면?\" \"병원 가야죠\" → \"완전 T네\""], ["마지막", "70초부터: 실시간 번역이라 틀릴까 봐 겁나도 부담 없이 대화"]]}, {"k": "nori.nori945", "rank": 2, "views": "88.6만", "meta": "일본 · 1:02", "link": "https://www.instagram.com/reels/Dc50c-nCNrj/", "story": [["후킹", "제목 \"한국인 척해서 일본인과 전화하기\""], ["통화", "한국인인 척하다 47초에 들킴 → \"아 개짜증나\""], ["마지막", "58초부터: \"말하는 게 자동으로 번역돼\""]]}, {"k": "ij.ae.i", "rank": 3, "views": "50만", "meta": "한국 · 1:15", "link": "https://www.instagram.com/reels/DaNSNirp_c-/", "story": [["후킹", "제목 \"남자랑 전화할 때마다 목소리가 바뀌는 여사친\""], ["통화", "\"오빠 목소리 좋아요\" 통역으로 배우기 → 상대가 여자면 목소리 톤이 바뀜"], ["마지막", "63초부터: 모르는 사람이라 걱정했는데 좋은 사람뿐"]]}, {"k": "ryu_rai73", "rank": 4, "views": "48.6만", "meta": "한국 · 1:34", "link": "https://www.instagram.com/p/DcS1LOJolBH/", "story": [["후킹", "88초 결과 '청혼'을 맨 앞에"], ["통화", "밴드 취향 같음 → 동갑 → MBTI까지 같음 → \"결혼하자\""], ["마지막", "92초 엔드카드 \"장소: 커넥팅\""]]}, {"k": "gentle_ph", "rank": 5, "views": "46.9만", "meta": "한국 · 0:58", "link": "https://www.instagram.com/reels/Da4vPzAPA30/", "story": [["후킹", "제목 \"POV 목소리 깔면 멋있는 줄 아는 한국인 남사친\""], ["통화", "동굴 저음 허세 → \"스키데스\" \"아이시테루\" 받아내기"], ["마지막", "46초부터: \"커넥팅 개좋네 진짜\""]]}, {"k": "yxxndoi_", "rank": 6, "views": "46.4만", "meta": "대만 · 1:03", "link": "https://www.instagram.com/reel/DbailzePvn4/", "story": [["후킹", "제목 \"교과서 중국어 VS 실제 중국어\""], ["통화", "진짜 대만 말(욕) 배우기 → 한국어를 물으면 전부 \"응\""], ["마지막", "42초부터: 번역 기능이 정확해서 외국인 친구 사귀기 쉬워"]]}], "checks": [["c-hook", "1 후킹", "0~3초에 결과 · 하이라이트 · 뭐 할지 중 하나가 나오고, 얼굴이 크게 보이나요?"], ["c-call", "2 바로 통화", "3초가 끝나면 설명 없이 바로 통화로 넘어가나요?"], ["c-fun", "3 통화", "통화는 재밌는 장면 위주이고, 중간에 앱 설명이 없나요?"], ["c-pitch", "4 마지막", "앱 자랑과 '커넥팅' 이름은 맨 끝에 나오나요?"], ["c-pitch", "4 마지막", "\"실시간 번역이라 외국어 몰라도 대화돼요\"가 들어갔나요?"], ["c-bad", "X 하지 마세요", "인사나 앱 소개로 시작하지 않았나요?"], ["c-bad", "X 하지 마세요", "화면에 글자·스티커·앱 화면을 한꺼번에 띄우지 않았나요?"]], "viewsLabel": "조회수", "goLabel": "인스타에서 보기 ↗"};
 T.rankLabel=r=>`조회 ${r}위`;
 T.countLabel=(n,k)=>`${n}개 중 ${k}개 체크했어요.`;
+T.sndOn="🔇 소리 켜기";T.sndOff="🔊 소리 끄기";
 
 const R=p=>(window.A?window.A(p):p);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -213,7 +220,13 @@ checks.addEventListener("change",()=>{countEl.textContent=T.countLabel(T.checks.
 
 /* hydrate media */
 document.querySelectorAll("[data-clip]").forEach(el=>{
-  el.insertAdjacentHTML("afterbegin",`<video controls muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"></video>`);
+  el.insertAdjacentHTML("afterbegin",`<video muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"${reduce?" controls":""}></video>`);
+  const v=el.querySelector("video"),b=document.createElement("button");
+  b.type="button";b.className="snd";
+  const sync=()=>{b.textContent=v.muted?T.sndOn:T.sndOff;b.setAttribute("aria-label",v.muted?T.sndOn:T.sndOff);b.setAttribute("aria-pressed",String(!v.muted));};
+  b.addEventListener("click",()=>{v.muted=!v.muted;if(!v.muted)v.play().catch(()=>{});});
+  v.addEventListener("volumechange",sync);
+  sync();el.appendChild(b);
 });
 document.querySelectorAll("video[data-poster]").forEach(v=>{v.poster=R(v.dataset.poster);});
 document.querySelectorAll("video:not(.full)[data-src]").forEach(v=>{v.src=R(v.dataset.src);});
