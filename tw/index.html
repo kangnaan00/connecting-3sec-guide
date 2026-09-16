@@ -213,7 +213,7 @@ checks.addEventListener("change",()=>{countEl.textContent=T.countLabel(T.checks.
 
 /* hydrate media */
 document.querySelectorAll("[data-clip]").forEach(el=>{
-  el.insertAdjacentHTML("afterbegin",`<video muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"${reduce?" controls":""}></video>`);
+  el.insertAdjacentHTML("afterbegin",`<video controls muted loop playsinline preload="metadata" data-poster="p/${el.dataset.clip}.jpg" data-src="c/${el.dataset.clip}.mp4"></video>`);
 });
 document.querySelectorAll("video[data-poster]").forEach(v=>{v.poster=R(v.dataset.poster);});
 document.querySelectorAll("video:not(.full)[data-src]").forEach(v=>{v.src=R(v.dataset.src);});
@@ -226,7 +226,7 @@ if(!reduce){
   const timed=[...document.querySelectorAll("[data-clip]")];
   (function tick(){timed.forEach(el=>{const v=el.querySelector("video"),b=el.querySelector(".timer span");if(v&&b&&!v.paused&&v.duration)b.style.width=Math.min(100,v.currentTime/Math.min(3,v.duration)*100)+"%";});requestAnimationFrame(tick);})();
 }
-document.querySelectorAll("video").forEach(v=>v.addEventListener("play",()=>{if(!v.muted||v.classList.contains("full"))document.querySelectorAll("video.full, .scene video").forEach(o=>{if(o!==v&&(!o.muted||o.classList.contains("full")))o.pause();});}));
+document.querySelectorAll("video").forEach(v=>v.addEventListener("play",()=>{if(!v.muted||v.classList.contains("full"))document.querySelectorAll("video.full, .frame video").forEach(o=>{if(o!==v&&(!o.muted||o.classList.contains("full")))o.pause();});}));
 
 </script>
 
