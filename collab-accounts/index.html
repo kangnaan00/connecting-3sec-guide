@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커넥팅 협업 계정 분석</title>
+<meta name="description" content="커넥팅 협업 후보 인플루언서 4계정(@ian.black_, @mr._.0503, @mengqi.4454, @hl_yuan) 분석: 조회수·CPV, 시청자, 대표 영상 한국어 자막·해석, 협업 방향">
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f6f5f1;--fg:#1a1a1a;--fg2:#5b5b5b;--line:#e3e1da;
+  --accent:#f5c518;--accent-fg:#1a1a1a;--ok:#1f7a4d;--warn:#b4560c;--card:#ffffff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;
+  }
+}
+:root[data-theme="dark"]{--bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;line-height:1.6;font-size:16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px}
+header{padding:40px 0 24px;border-bottom:2px solid var(--fg)}
+.kicker{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:700;padding:2px 10px;border-radius:4px;font-size:13px;letter-spacing:.02em}
+h1{font-size:clamp(26px,5vw,40px);margin:12px 0 6px;line-height:1.2}
+.sub{color:var(--fg2);font-size:15px}
+h2{font-size:22px;margin:48px 0 14px;padding-left:12px;border-left:5px solid var(--accent)}
+h3{font-size:19px;margin:32px 0 10px;padding-left:10px;border-left:3px solid var(--line)}
+h4{font-size:17px;margin:26px 0 8px}
+p{margin:8px 0}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.stat .l{font-size:13px;color:var(--fg2)}
+.stat .v{font-size:26px;font-weight:700;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
+.stat .s{font-size:13px;color:var(--fg2);margin-top:2px}
+.callout{background:var(--bg2);border-left:5px solid var(--accent);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+.video-block{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:20px;align-items:start;margin:18px 0 8px}
+@media (max-width:640px){.video-block{grid-template-columns:1fr}}
+video{width:100%;max-width:300px;aspect-ratio:9/16;background:#000;border-radius:12px;border:1px solid var(--line);display:block;margin:0 auto}
+.meta{font-size:14px;color:var(--fg2);margin:6px 0 10px}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);margin-right:4px}
+.ok{color:var(--ok);font-weight:600}.warn{color:var(--warn);font-weight:600}
+ul{padding-left:20px}li{margin:4px 0}
+.bars{display:flex;gap:6px;align-items:flex-end;height:120px;margin:8px 0 4px}
+.bar{flex:1;background:var(--accent);border-radius:4px 4px 0 0;position:relative;min-width:18px}
+.bar.pin{background:var(--fg2);opacity:.55}
+.bar span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:11px;color:var(--fg2);white-space:nowrap;margin-bottom:2px}
+.barlbl{display:flex;gap:6px;font-size:11px;color:var(--fg2)}
+.barlbl div{flex:1;text-align:center;min-width:18px}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">커넥팅 · 협업 후보 계정 분석</span>
+  <h1>대만 인플루언서 4계정 비교</h1>
+  <div class="sub">분석일 2026-09-17 · <a href="#acct1">① 黑哥IAN @ian.black_</a> · <a href="#acct2">② 玉米 @mr._.0503</a> · <a href="#acct3">③ 陳孟祺 @mengqi.4454</a> · <a href="#acct4">④ Ally @hl_yuan</a></div>
+</header>
+
+<h2>네 계정 한눈에</h2>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:150px"></th><th>① @ian.black_ (黑哥IAN)</th><th>② @mr._.0503 (玉米)</th><th>③ @mengqi.4454 (陳孟祺)</th><th>④ @hl_yuan (Ally)</th></tr>
+<tr><td>팔로워</td><td class="num">5.8만</td><td class="num">7,227</td><td class="num">1.5만</td><td class="num">38.8만</td></tr>
+<tr><td>제안 가격</td><td class="num">800,000원</td><td class="num">341,030원</td><td class="num">606,183원</td><td class="num">3,000,000원</td></tr>
+<tr><td>조회수 최저 / 중간 / 최고</td><td class="num">3만 / 15만 / 40만</td><td class="num">4,000 / 4만 / 20만</td><td class="num">2만 / 10만 / 30만</td><td class="num">15만 / 35만 / 100만</td></tr>
+<tr><td>CPV 최저 / 중간 / 최고</td><td class="num">26.7 / 5.3 / 2.0원</td><td class="num">85.3 / 8.5 / 1.7원</td><td class="num">30.3 / 6.1 / 2.0원</td><td class="num">20.0 / 8.6 / 3.0원</td></tr>
+<tr><td>공유당 비용</td><td class="num">400원 (공유 약 2,000)</td><td class="num">6,821원 (공유 약 50)</td><td class="num">3,031원 (공유 약 200)</td><td class="num">10,000원 (공유 약 300)</td></tr>
+<tr><td>타겟 지역</td><td>대만 63.9% · 번체 64.3%</td><td>대만 73.5% · 홍콩·중국 4.9% · 싱가포르 2.9%</td><td>타겟층 56.2% · 중국어 번체 100%</td><td>대만 53.7%</td></tr>
+<tr><td>콘텐츠</td><td>학창시절 공감 밈 개그, 1인 다역 합성</td><td>치아미백·뷰티·패션·온라인 쇼핑·외모 관리 후기</td><td>학생(도쿄 어학교) 일상·연애·만화 썰 토크. 만화 소재가 조회수 잘 나옴</td><td>외부 촬영. 한국식 메이크업·뷰티, 한국에서 춤, 한국 브랜드, 챌린지·POV, 대만 여행</td></tr>
+<tr><td>업로드</td><td>평균 3일 간격, 토요일 성과 최고</td><td>주기적이지 않음</td><td><span class="warn">빈도 낮음</span>, 최근 게시물 3주 전. 화요일 콘텐츠 반응 최고</td><td>최근 게시물 2일 전. 현재 밴쿠버 체류</td></tr>
+<tr><td>유사 앱 광고 이력</td><td>없음 (공동구매 경험 있음)</td><td><span class="ok">있음</span> 他TA星球 음성 채팅, Ping 데이팅 앱</td><td><span class="ok">있음</span> Floze AI 채팅 앱(93.9만), WINNING+ 온라인 영어(5.6만)</td><td>앱 광고 없음. 맥도날드 챌린지, newmix 매장, 유학원 등 브랜드 협업 다수</td></tr>
+<tr><td>핏 맞는 커넥팅 성공사례</td><td>gentle_ph 남사친 POV 편 (조회 45.9만)</td><td>ryu_rai73 청혼 편 (조회 42.0만)</td><td>ryu_rai73 청혼 편 · momoonaaa 한국 남자 통화 편 (조회 85.4만, 1위)</td><td>담당자 지정 없음. 본인 편 "한국 가이드 첫 만남 POV"(영상 11)가 기획 출발점</td></tr>
+<tr><td>판정</td><td class="ok">개그 상황극 협업에 적합</td><td class="ok">후기형 앱 광고에 적합, 단 조회 편차 큼</td><td class="ok">외국어 소재 썰 토크에 적합, 단 업로드 빈도 낮음</td><td class="ok">기획안 제시 후 본인이 주제 선택. 실측 조회는 담당자 최저값 미만</td></tr>
+</table></div>
+<div class="callout">
+<p><strong>중간값 기준 CPV는 ① 5.3원 · ③ 6.1원 · ② 8.5원 · ④ 8.6원 순입니다.</strong> ①은 도달과 공유(2,000건)가 가장 큽니다. ③은 실측 최근 9편 평균조회수 27.4만으로 실제 조회 기대치가 가장 높고 앱 광고(Floze)로 93.9만을 냈지만 업로드가 3주째 없습니다. ②는 커넥팅과 같은 카테고리(익명 음성·데이팅) 앱 광고 경험이 있지만 최근 조회는 4,000대가 대부분입니다. ④는 팔로워 38.8만에 단가 300만원으로 가장 크고 "한국인 첫 만남 POV"를 이미 찍었지만, 실측 최근 9편 평균 8.6만이 담당자 최저값 15만보다 낮아 단가 재확인이 필요합니다.</p>
+</div>
+
+<h2 id="acct1">① 黑哥IAN <span style="font-weight:400;color:var(--fg2)">@ian.black_</span></h2>
+<p class="sub">대만 개그 밈 크리에이터 · <a href="https://www.instagram.com/ian.black_/reels/" target="_blank" rel="noopener">instagram.com/ian.black_</a></p>
+
+<h3>한 줄 결론</h3>
+<div class="callout">
+<p><strong>학창시절 공감 밈을 개그로 푸는 대만 계정.</strong> 표정과 1인 다역 합성이 무기이고, "국내에서 실패 → 해결책 → 자기 망신" 구조를 이미 쓰고 있어 커넥팅 성공사례(gentle_ph 편)와 뼈대가 같습니다. 협업 시 20초대 상황극 포맷(아래 영상 2)으로 가면 통화 장면을 넣을 여유가 있습니다.</p>
+<p>가격 80만원 기준 중간값 CPV는 <strong>5.3원</strong>, 최저 조회 시에도 26.7원입니다. 공유 1건당 비용은 <strong>400원</strong>입니다.</p>
+</div>
+
+<h3>계정 기본 정보</h3>
+<div class="grid">
+  <div class="stat"><div class="l">팔로워</div><div class="v">5.8만</div><div class="s">팔로우 595</div></div>
+  <div class="stat"><div class="l">평균 게시 간격</div><div class="v">3일</div><div class="s">최근 업로드 4일 전</div></div>
+  <div class="stat"><div class="l">성과 좋은 요일</div><div class="v">토요일</div><div class="s">업로드 성과 최고</div></div>
+  <div class="stat"><div class="l">팔로워 추세</div><div class="v ok">증가</div><div class="s">9/12 ~ 9/16</div></div>
+</div>
+<table>
+<tr><th style="width:160px">프로필 소개</th><td>Lock in to win 🏆 / 合作/代言/私訊 or 📬 Lan0088521@gmail.com (협업·광고 문의는 DM 또는 메일) / 中秋烤肉組合開團中 (추석 바비큐 세트 공동구매 진행 중) / linktr.ee/black_666</td></tr>
+<tr><th>콘텐츠 유형</th><td>학교·수업·숙제·친구 사귀기 같은 학창시절 공감 상황을 과장된 표정과 1인 다역 합성으로 푸는 짧은 개그 릴스. 대부분 9~25초.</td></tr>
+<tr><th>브랜드 협업 이력</th><td>프로필에 공동구매(추석 바비큐 세트) 진행 중. 상업 콘텐츠 경험 있음.</td></tr>
+</table>
+
+<h3>조회수와 CPV (가격 80만원)</h3>
+<table>
+<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
+<tr><td>최저</td><td class="num">30,000</td><td class="num">26.7원</td><td class="num">375회</td></tr>
+<tr><td>중간값</td><td class="num">150,000</td><td class="num">5.3원</td><td class="num">1,875회</td></tr>
+<tr><td>최고</td><td class="num">400,000</td><td class="num">2.0원</td><td class="num">5,000회</td></tr>
+</table>
+<table>
+<tr><th>공유 기준 (학창시절 공감 밈 편, 공유 약 2,000건)</th><th class="num">값</th></tr>
+<tr><td>공유 1건당 비용</td><td class="num">400원</td></tr>
+<tr><td>1만원당 공유 수</td><td class="num">25건</td></tr>
+</table>
+<p class="meta">CPV = 가격 ÷ 조회수. 조회 1회에 드는 비용이라 낮을수록 좋습니다. 1만원당 조회수는 같은 값을 반대로 본 것으로 높을수록 좋습니다.</p>
+
+<h4>참고: 로그아웃 상태 프로필에서 읽은 최근 12편 조회수</h4>
+<div class="bars">
+  <div class="bar pin" style="height:100%"><span>369.1만</span></div>
+  <div class="bar pin" style="height:69%"><span>254.4만</span></div>
+  <div class="bar pin" style="height:73%"><span>268.9만</span></div>
+  <div class="bar" style="height:11%"><span>8.6만</span></div>
+  <div class="bar" style="height:4%"><span>2.3만</span></div>
+  <div class="bar" style="height:16%"><span>13.1만</span></div>
+  <div class="bar" style="height:11%"><span>8.5만</span></div>
+  <div class="bar" style="height:7%"><span>5.5만</span></div>
+  <div class="bar" style="height:100%"><span>81.1만</span></div>
+  <div class="bar" style="height:2%"><span>8,616</span></div>
+  <div class="bar" style="height:5%"><span>3.9만</span></div>
+  <div class="bar" style="height:10%"><span>8.3만</span></div>
+</div>
+<div class="barlbl"><div>고정</div><div>고정</div><div>고정</div><div>최신</div><div></div><div>영상2</div><div></div><div></div><div>영상1</div><div></div><div></div><div>과거</div></div>
+<p class="meta">회색 3개는 고정 게시물(역대 최고 편)이라 평균에서 뺍니다. 고정 3개의 막대는 별도 척도입니다. 고정 제외 9편 중 81.1만(영상 1)을 튄 값으로 빼면 8편 평균조회수는 <strong>63,827회</strong>, 80만원 기준 CPV 12.5원, 1만원당 798회입니다. 위 표의 최저·중간·최고 값은 담당자가 별도로 확인한 수치이며, 두 값이 다른 이유는 로그아웃 화면에 최근 12편만 보이기 때문입니다.</p>
+
+<h3>시청자</h3>
+<div class="grid">
+  <div class="stat"><div class="l">타겟 지역</div><div class="v">대만 63.9%</div></div>
+  <div class="stat"><div class="l">언어</div><div class="v">번체 64.3%</div><div class="s">중국어 번체 사용자</div></div>
+</div>
+<ul>
+  <li><strong>黑哥(검은 형)</strong> 캐릭터로 통하며 웃긴 영상에 강합니다. 시청자 관심사가 "ian"이라는 개인 이름에도 높게 잡혀 팔로워 충성도가 강한 편입니다.</li>
+  <li>학창시절 공감 밈을 개그 요소로 풀었을 때 조회수가 가장 좋고, 그런 편에서 공유가 2,000건 정도 나옵니다.</li>
+  <li>웃긴 개그 밈 형태의 협업에 적합합니다. 정보 전달형·진지한 톤은 이 계정의 문법이 아닙니다.</li>
+</ul>
+
+<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
+<p class="meta">자막은 화면 가운데에 한국어로 태웠습니다. 위쪽 노란 띠와 아래쪽 원문 자막은 원본 그대로입니다. 대만 계정이라 원문은 중국어 번체이며, 괄호 안이 한국어 해석입니다.</p>
+
+<h4>영상 1 · 那個一直不寫暑假作業的朋友 (여름방학 숙제를 끝까지 안 하는 그 친구)</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/01.jpg" src="videos/01_homework.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">9초</span><span class="tag">2026-08-30</span><span class="tag">조회 81.1만</span><span class="tag">좋아요 6.1만</span><span class="tag">댓글 255</span> · <a href="https://www.instagram.com/ian.black_/reel/DcqCRpMz4Ew/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 개학까지 두 달 → 한 달 → 일주일 → 하루, 매번 헤드셋 쓰고 게임하며 "아이고, 내일 하지 뭐". 개학 전날 밤에 울면서 "선생님은 왜 숙제를 이렇게 많이 내주신 거야, 두 달치를 어떻게 하루에 다 해". 캡션은 快樂的時光總是特別短暫 (즐거운 시간은 항상 유난히 짧다).</p>
+    <p><strong>왜 잘됐나.</strong> 상황·시간·태도 세 요소가 첫 프레임에 한꺼번에 도착해 0.5초 안에 "이거 나잖아"가 됩니다. 같은 대사를 네 번 반복하니 시청자가 다음 컷을 예측하고, 예측이 맞을 때마다 웃습니다. 마지막에 잘못을 선생님 탓으로 돌리는 뻔뻔함이 공유를 만듭니다. 최근 30일 조회수 1위.</p>
+    <p><strong>커넥팅 관점.</strong> "외국인 친구 사귀기로 결심한 지 두 달/한 달/일주일 → 아직도 말 못 검" → 마지막에 앱 켜서 통화, 로 그대로 옮길 수 있는 포맷입니다. 다만 9초라 광고 삽입 여유가 없어 20초대 편(영상 2)이 더 맞습니다.</p>
+  </div>
+</div>
+<table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>距離開學兩個月 / 哎呀 明天再寫啦</td><td>개학까지 두 달 / 아이고, 내일 하지 뭐</td></tr>
+<tr><td>0:01</td><td>距離開學一個月</td><td>개학까지 한 달</td></tr>
+<tr><td>0:03</td><td>距離開學一個禮拜</td><td>개학까지 일주일</td></tr>
+<tr><td>0:04</td><td>距離開學一天</td><td>개학까지 하루</td></tr>
+<tr><td>0:06</td><td>開學前一天的晚上 / 老師怎麼出這麼多作業啊</td><td>개학 전날 밤 / 선생님은 왜 숙제를 이렇게 많이 내주신 거야</td></tr>
+<tr><td>0:08</td><td>兩個月怎麼可能寫得完啊</td><td>두 달치를 어떻게 하루에 다 해</td></tr>
+</table>
+
+<h4>영상 2 · 2026美式男孩如何在大學交朋友 (2026년 미국식 남자애는 대학에서 친구를 어떻게 사귀나)</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/02.jpg" src="videos/02_college.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">24초</span><span class="tag">2026-09-09</span><span class="tag">조회 13.1만</span><span class="tag">좋아요 1.1만</span><span class="tag">댓글 39</span> · <a href="https://www.instagram.com/ian.black_/reel/DdENZcRSp3m/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 교실에서 "하, 대학 가면 친구를 다시 사귀어야 하네" 한숨. 어색하게 말을 걸어 보지만 "아무도 안 들어주네, 너무 민망해". "그럼 이 방법으로" 하고는 후드티에 혀 내밀고 손가락 총 쏘는 미국식 인싸 분신 셋으로 변신해 같은 춤. "OMG 잠깐, 너잖아?" 하고 보니 셔츠·넥타이 차림의 선생님도 똑같이 혀 내밀며 춤. "선생님, 어떻게 이러실 수가". 캡션은 為什麼班上同學跟老師長得好像 (왜 반 친구들이랑 선생님이 다 닮았지).</p>
+    <p><strong>왜 잘됐나.</strong> 대만 대학 신입생 시즌(9월)을 정확히 겨냥했습니다. 실패(민망함)를 먼저 보여준 뒤 변신하니 통쾌하고, 1인 다역 합성으로 본인 얼굴이 반복되는 것 자체가 개그입니다. 권위자인 선생님이 같은 짓을 하는 마지막 반전이 웃음을 한 단계 더 올립니다.</p>
+    <p><strong>커넥팅 관점. <span class="ok">가장 잘 맞는 포맷.</span></strong> "친구를 못 사귀는 나 → 해결책" 구조가 이미 있어서, 해결책 자리에 "커넥팅으로 외국인 친구와 통화"를 넣으면 흐름이 그대로 삽니다. 24초라 통화 장면 5~8초를 넣을 수 있고, 마지막 반전(선생님 합류)은 "알고 보니 통화 상대가…"로 바꿀 수 있습니다.</p>
+  </div>
+</div>
+<table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>唉 上大學要重新交朋友</td><td>하, 대학 가면 친구를 다시 사귀어야 하네</td></tr>
+<tr><td>0:02</td><td>嘖嘖嘖 試試看這招好了</td><td>쯧… 이 방법 한번 써볼까</td></tr>
+<tr><td>0:07</td><td>沒人聽 太尷尬了</td><td>아무도 안 들어주네, 너무 민망해</td></tr>
+<tr><td>0:09</td><td>用這招</td><td>그럼 이 방법으로 가자</td></tr>
+<tr><td>0:18</td><td>OMG等等 是你</td><td>OMG 잠깐, 너잖아?</td></tr>
+<tr><td>0:19</td><td>老師您怎麼可以這樣</td><td>선생님, 어떻게 이러실 수가</td></tr>
+</table>
+
+<h4>영상 3 · 當我去學然後用眼神讓我的crush愛上我 (학교에서 눈빛으로 내 crush를 반하게 만들기)</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/03.jpg" src="videos/03_eyes.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">17초</span><span class="tag">2025-11-20</span><span class="tag">조회 369.1만 (고정)</span><span class="tag">좋아요 28.2만</span><span class="tag">댓글 973</span> · <a href="https://www.instagram.com/ian.black_/reel/DRRZfIIEwCm/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 중국 여성 크리에이터의 "눈빛 튜토리얼" 클립을 붙인 듀엣. "첫 번째, 누가 널 부를 때 고개를 먼저 돌리고 그다음 눈빛" 시범 뒤에 이안이 따라 하는데 눈알이 튀어나옵니다. "두 번째, 눈빛을 먼저, 그다음 고개" 시범 뒤에는 눈만 굴리다 고개 돌리고 그대로 정지. 캡션은 當我學會擺眼神 (내가 눈빛 짓는 법을 배웠을 때). 계정 역대 최고 조회수.</p>
+    <p><strong>왜 잘됐나.</strong> 예쁜 시범과 못생긴 따라 하기의 낙차가 전부입니다. 이안은 0~5초에 아예 나오지 않아 "언제 나오지"가 후킹이 되고, 같은 구조를 두 번 반복해 두 번째 낙차를 기다리게 만듭니다. 대사 없이 표정 하나로 웃깁니다.</p>
+    <p><strong>커넥팅 관점.</strong> 이 계정의 최대 무기가 <strong>표정만으로 웃기는 능력</strong>임을 보여주는 편입니다. 통화 상황극에서 상대 말에 리액션하는 장면이 살 것입니다. 다만 타인 클립 재사용 포맷이라 광고 포맷으로 직접 쓰기는 어렵습니다.</p>
+  </div>
+</div>
+<table>
+<tr><th style="width:60px">시각</th><th>원문 (간체, 원본 클립)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>第一种 当别人叫你的时候</td><td>첫 번째, 누가 널 부를 때</td></tr>
+<tr><td>0:02</td><td>先回头再回眼神</td><td>고개를 먼저 돌리고, 그다음 눈빛</td></tr>
+<tr><td>0:09</td><td>第二种 先回眼神再回头</td><td>두 번째, 눈빛을 먼저, 그다음 고개</td></tr>
+</table>
+
+<h3>핏이 맞는 커넥팅 성공사례</h3>
+<div class="callout">
+<p><strong>POV 목소리 깔면 멋있는 줄 아는 한국인 남사친</strong> · @gentle_ph · <a href="https://www.instagram.com/reels/Da4vPzAPA30/" target="_blank" rel="noopener">instagram.com/reels/Da4vPzAPA30</a></p>
+<p>58초 · 2026-07-17 · 조회 458,901 (실측) · 커넥팅 실측 15편 중 3위</p>
+<p>한국 여자에게 거절당한 남자가 앱으로 일본 여성과 통화하는 상황극. 국내 실패 → 앱으로 해외 상대 연결 → 고백 단어를 배우는 절정 → 47.5초에 "커넥팅 개좋네" → 불량 유저로 신고당하는 자기 망신으로 마무리.</p>
+<p><strong>이안 계정과 겹치는 점.</strong> 실패를 먼저 보여주고 해결책으로 넘어가는 구조, 허세가 웃음 지점인 것, 자기 망신으로 닫는 것. 영상 1·2가 정확히 같은 뼈대입니다. 다른 점은 이안이 대사보다 표정과 합성으로 웃긴다는 것이라, 통화 상대의 말에 리액션하는 컷을 길게 잡아야 합니다.</p>
+</div>
+
+<h3>협업 제안 방향</h3>
+<ul>
+  <li><strong>포맷.</strong> 영상 2 구조로 20~30초. 학교·기숙사 배경에서 "외국인 친구 사귀고 싶은데 말을 못 걸겠다" → 커넥팅으로 한국인(또는 일본인)과 통화 → 표정 리액션 → 자기 망신 마무리.</li>
+  <li><strong>브랜드 노출.</strong> gentle_ph 편처럼 절정 직후 육성 한 마디 + 화면 자막. 앱 화면은 대사 한 줄로 처리해도 됩니다.</li>
+  <li><strong>업로드.</strong> 토요일. 평균 게시 간격이 3일이라 앞뒤 편과 3일 간격 유지.</li>
+  <li><strong>기대치.</strong> 중간값 15만 조회 기준 CPV 5.3원. 공감 밈 편이면 공유 2,000건대 기대 가능.</li>
+</ul>
+
+<h2 id="acct2">② 玉米˙Ⱉ˙ <span style="font-weight:400;color:var(--fg2)">@mr._.0503</span></h2>
+<p class="sub">대만 뷰티·쇼핑 후기 크리에이터 · <a href="https://www.instagram.com/mr._.0503/reels/" target="_blank" rel="noopener">instagram.com/mr._.0503</a></p>
+
+<h3>한 줄 결론</h3>
+<div class="callout">
+<p><strong>치아미백·뷰티·쇼핑 후기가 주력인 대만 여성 계정.</strong> 커넥팅과 같은 카테고리 앱(익명 음성 채팅 他TA星球, 데이팅 Ping) 광고를 이미 두 번 했고, Ping 편은 최근 오가닉 조회수의 8배(32.6만)를 냈습니다. 후기형 브이로그 문법이라 "써 봤더니 이랬다" 구조의 커넥팅 통화 후기에 맞습니다.</p>
+<p>가격 341,030원 기준 중간값 CPV는 <strong>8.5원</strong>이지만 최근 게시물은 최저값(4,000대)에 가까운 편이 더 많아 편차가 큽니다. 공유는 50건 수준이라 공유 1건당 6,821원입니다.</p>
+</div>
+
+<h3>계정 기본 정보</h3>
+<div class="grid">
+  <div class="stat"><div class="l">팔로워</div><div class="v">7,227</div><div class="s">팔로우 347</div></div>
+  <div class="stat"><div class="l">업로드 빈도</div><div class="v warn">불규칙</div><div class="s">주기적이지 않음</div></div>
+  <div class="stat"><div class="l">주력 콘텐츠</div><div class="v" style="font-size:18px">뷰티 · 쇼핑 후기</div><div class="s">치아미백, 패션, 외모 관리</div></div>
+  <div class="stat"><div class="l">유사 앱 광고</div><div class="v ok">2편</div><div class="s">他TA星球, Ping</div></div>
+</div>
+<table>
+<tr><th style="width:160px">프로필 소개</th><td>玉米˙Ⱉ˙ · 虎牙🦷 (덧니) · 👾商業合作請洽：mppen0503@gmail.com (비즈니스 협업 문의 메일) · 하이라이트: mr🌸, gxh2, 阿嬤廚房👵🏻(할머니 주방), 飛利浦🎧(필립스), 2026📅, 🇯🇵, 🇰🇷🇰🇷</td></tr>
+<tr><th>콘텐츠 유형</th><td>얼굴 정면 토크로 제품을 들어 보이며 추천하는 후기형. 쇼피(蝦皮) 제휴, 뷰티 매장(寶雅), 쿠션(hince) 등 상업 콘텐츠 비중이 높음. 대부분 60~80초.</td></tr>
+<tr><th>브랜드 협업 이력</th><td>쇼피 양말(101.4만, 고정), 필립스 하이라이트, 他TA星球 음성 채팅 앱(2025-12), Ping 데이팅 앱(2026-08, 32.6만).</td></tr>
+</table>
+
+<h3>조회수와 CPV (가격 341,030원)</h3>
+<table>
+<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
+<tr><td>최저</td><td class="num">4,000</td><td class="num">85.3원</td><td class="num">117회</td></tr>
+<tr><td>중간값</td><td class="num">40,000</td><td class="num">8.5원</td><td class="num">1,173회</td></tr>
+<tr><td>최고</td><td class="num">200,000</td><td class="num">1.7원</td><td class="num">5,865회</td></tr>
+</table>
+<table>
+<tr><th>공유 기준 (공유 약 50건)</th><th class="num">값</th></tr>
+<tr><td>공유 1건당 비용</td><td class="num">6,821원</td></tr>
+<tr><td>1만원당 공유 수</td><td class="num">1.5건</td></tr>
+</table>
+<p class="meta"><span class="warn">참고사항:</span> 최근 게시물 기준으로는 최저값 쪽이 더 많이 나옵니다. 중간값 CPV 8.5원보다 실제 집행 결과는 나쁠 가능성이 있습니다.</p>
+
+<h4>참고: 로그아웃 상태 프로필에서 읽은 최근 16편 조회수</h4>
+<div class="bars">
+  <div class="bar pin" style="height:68%"><span>69.3만</span></div>
+  <div class="bar pin" style="height:100%"><span>101.4만</span></div>
+  <div class="bar pin" style="height:21%"><span>21.7만</span></div>
+  <div class="bar" style="height:9%"><span>2.8만</span></div>
+  <div class="bar" style="height:18%"><span>5.8만</span></div>
+  <div class="bar" style="height:2%"><span>4,487</span></div>
+  <div class="bar" style="height:2%"><span>4,146</span></div>
+  <div class="bar" style="height:2%"><span>3,877</span></div>
+  <div class="bar" style="height:2%"><span>4,633</span></div>
+  <div class="bar" style="height:2%"><span>3,329</span></div>
+  <div class="bar" style="height:100%"><span>32.6만</span></div>
+  <div class="bar" style="height:2%"><span>3,792</span></div>
+  <div class="bar" style="height:4%"><span>1.2만</span></div>
+  <div class="bar" style="height:2%"><span>3,255</span></div>
+  <div class="bar" style="height:2%"><span>4,260</span></div>
+  <div class="bar" style="height:2%"><span>3,980</span></div>
+</div>
+<div class="barlbl"><div>고정</div><div>고정</div><div>고정</div><div>최신</div><div></div><div></div><div></div><div></div><div></div><div></div><div>Ping</div><div></div><div></div><div></div><div></div><div>과거</div></div>
+<p class="meta">회색 3개는 고정 게시물이라 평균에서 뺍니다. 고정 3개의 막대는 별도 척도입니다. 고정 제외 13편 중 Ping 광고(32.6만)를 튄 값으로 빼면 12편 평균조회수는 <strong>11,147회</strong>, 341,030원 기준 CPV 30.6원, 1만원당 327회입니다. 13편 중 9편이 3,000~5,000 사이라 "최저값이 더 많이 나온다"는 담당자 메모와 일치합니다.</p>
+
+<h3>시청자</h3>
+<div class="grid">
+  <div class="stat"><div class="l">타겟 지역</div><div class="v">대만 73.5%</div></div>
+  <div class="stat"><div class="l">그 외</div><div class="v" style="font-size:20px">홍콩·중국 4.9%</div><div class="s">싱가포르 2.9%</div></div>
+</div>
+<ul>
+  <li>뷰티·패션·온라인 쇼핑·외모 관리에 반응하는 여성 시청층. 역대 최고 편(101.4만)이 쇼피 제휴 양말 추천이라 광고성 콘텐츠에 대한 거부감이 낮습니다.</li>
+  <li>댓글 반응은 오가닉 후기(양말 편 댓글 1,793)에서 크고, 앱 광고 2편은 댓글 4·7로 약합니다. 앱 광고는 조회는 나와도 대화가 안 붙는 편입니다.</li>
+</ul>
+
+<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
+<p class="meta">자막은 화면 위쪽에 한국어로 태웠습니다. 앱 화면이 뜨는 구간에서는 원본 글자와 일부 겹칩니다. 원문은 중국어 번체이며, 괄호 안이 한국어 해석입니다.</p>
+
+<h4>영상 4 · Ping 데이팅 앱 광고 — 친구한테 바람맞고 앱으로 카페 갈 사람 구하기</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/05.jpg" src="videos/05_ping.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">76초</span><span class="tag">2026-08-14</span><span class="tag">조회 32.6만</span><span class="tag">좋아요 2,328</span><span class="tag">댓글 7</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/reel/DcBDLUxyIvX/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 화장 완벽하게 하고 옷도 예쁘게 입었는데 친구가 약속을 깸. "일찍 일어나 꾸민 나에 대한 모욕"이라며 Ping 프로필에 "2시간 안에 신뎬에서 나랑 카페 갈 수 있어?" 태그를 걸고 도전. 매칭 성공 화면, 밖에서 "사진이랑 다르면 어떡해" 긴장, Ping 실물 인증 화면, 실물 확인 "사진이랑 완전 똑같아, Ping은 거짓말 안 해", 2시간 후 집에서 후기 "짐 들어 주고 돈 한 푼 안 냈어, 너무 다정해", "Ping 도전 대성공, 바람맞았다면 Ping 받아 봐".</p>
+    <p><strong>왜 잘됐나.</strong> 최근 13편 중 1위(32.6만, 평소의 8배). 첫 14초를 공감 불만에 쓰고, 앱을 "도전"으로 포장하고, 만남 전 불안을 서사로 만든 3단 구조입니다. 상대 얼굴은 모자이크로 가려 본인 리액션만 보여 줍니다. 좋아요 2,328·댓글 7로 조회 대비 반응률은 낮아 광고 도달 확대 가능성이 있습니다.</p>
+    <p><strong>커넥팅 관점. <span class="ok">가장 잘 맞는 포맷.</span></strong> ryu_rai73 청혼 편(DcS1LOJolBH)과 같은 "모르는 사람과 처음 만나는 과정을 그대로 보여주고 상대의 좋은 점을 나열해 신뢰로 연결"하는 구조입니다. 차이는 ryu_rai73이 앱 이름을 육성으로 한 번도 안 부른 반면 이 편은 Ping을 여섯 번 부른다는 점이라, 커넥팅 협업 시 브랜드 호출 횟수를 조율해야 합니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>我今天妝化的超完美 衣服穿得這麼漂亮 結果我朋友臨時給我放鳥 超不爽</td><td>오늘 화장 완벽하고 옷도 예쁘게 입었는데 친구가 갑자기 약속을 깼어, 완전 짜증</td></tr>
+<tr><td>0:08</td><td>打扮這麼好看結果在家看動漫 真的是對早起打扮的我非常不尊重</td><td>이렇게 꾸미고 집에서 만화 보라고? 일찍 일어나 꾸민 나에 대한 모욕</td></tr>
+<tr><td>0:14</td><td>所以我現在決定挑戰 用Ping約人出來見面 · 個人資料卡 兩個小時內可以跟我在新店去跑咖嗎</td><td>Ping으로 사람 불러내서 만나기 도전 · 프로필 카드 태그 "2시간 안에 신뎬에서 나랑 카페 갈 수 있어?"</td></tr>
+<tr><td>0:25</td><td>恭喜你！配對成功啦！他也喜歡你！· 非常期待</td><td>축하해요! 매칭 성공! 상대도 당신을 좋아해요 · 너무 기대돼</td></tr>
+<tr><td>0:30</td><td>我現在很緊張 我在等他 怕他跟照片長得差很多 · Ping有真人驗證</td><td>긴장돼, 기다리는 중, 사진이랑 다르면 어떡해 · Ping은 실물 인증이 있어</td></tr>
+<tr><td>0:47</td><td>我好像看到本人了 跟照片完全沒有差 Ping沒有騙人</td><td>실물 봤는데 사진이랑 완전 똑같아, Ping은 거짓말 안 해</td></tr>
+<tr><td>0:56</td><td>他人真的超級好 看我東西拿很多他幫我拿 今天都沒有出到錢 太貼心了</td><td>사람 진짜 좋아, 짐 들어 주고, 오늘 돈 한 푼 안 냈어, 너무 다정해</td></tr>
+<tr><td>1:09</td><td>我宣布Ping挑戰大成功 如果你也想認識新朋友 或是被朋友放鳥 歡迎下載Ping試試看</td><td>Ping 도전 대성공 선언, 새 친구 사귀고 싶거나 바람맞았다면 Ping 받아 봐</td></tr>
+</table></div>
+
+<h4>영상 5 · 他TA星球 음성 채팅 앱 광고 — 잠 안 오는 밤에 웃긴 얘기 듣기</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/04.jpg" src="videos/04_ta_planet.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">65초</span><span class="tag">2025-12-30</span><span class="tag">조회 미확인</span><span class="tag">좋아요 2,046</span><span class="tag">댓글 4</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/reel/DS35YaJCdHz/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 태블릿으로 앱에서 모르는 사람과 음성 매칭해 "웃긴 얘기 해 줘"라고 조름. 상대가 지각 아재개그(차 막혔다더니 얼굴에 베개 자국)를 하고 본인은 웃음을 참는 장면이 42초. 이어 "요즘 TA행성이 자꾸 떠, 여자들을 위해 만든 거래, 오늘 잠이 안 와서 써 봤어", "얼굴 안 보이고 목소리로만 대화하니까 오히려 편해, 진짜 누가 곁에 있는 느낌", "미니게임, 익명 고민 상담도 돼", 앱 아이콘과 다운로드 권유. 캡션은 晚上一個人睡不著…用他TA星球讓你隨時隨地都有人陪你聊天 (밤에 혼자 잠이 안 올 때, TA행성으로 언제 어디서나 대화 상대를).</p>
+    <p><strong>어떻게 짰나.</strong> 앱의 핵심 경험(모르는 사람과의 음성 대화가 재밌다)을 설명 없이 체험시키고, 광고 전환을 개인 상황(불면)으로 자연스럽게 넘깁니다. 상대 목소리가 작아 자막 의존이 크고, 좋아요 2,046·댓글 4로 반응은 약합니다.</p>
+    <p><strong>커넥팅 관점.</strong> 커넥팅과 가장 가까운 카테고리(익명 음성 대화) 광고 경험입니다. 통화 상대 리액션으로 영상 절반을 채우는 구성은 커넥팅 성공사례와 같은 문법이고, 커넥팅은 통역 자막이 화면에 뜨므로 이 편의 약점(상대 말이 안 들림)이 오히려 해결됩니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>(笑) (配對ing) 不可能講到自己笑話 · 我想聽別人講笑話 好笑的笑話 (有夠為難人)</td><td>(웃음) (매칭 중) 스스로 웃긴 얘기는 못 하겠어 · 남이 해 주는 웃긴 얘기 듣고 싶어 (정말 곤란하게 하네)</td></tr>
+<tr><td>0:13</td><td>早上上班遲到了一個小時…老闆問他為什麼遲到…路上堵車 堵了一個半小時…老闆還是發他錢了 知道為什麼嗎</td><td>아침에 한 시간 지각…사장이 왜 늦었냐…차가 한 시간 반 막혔다…그래도 월급은 줬대, 왜인지 알아?</td></tr>
+<tr><td>0:29</td><td>老闆讓他去照一下鏡子 滿臉的印子 / 哦我懂了 他說他塞車 結果臉上都是那個印子 · 哦這個還不錯啦</td><td>사장이 거울 보라고 했대, 얼굴에 자국이 가득 / 아 알겠다, 차 막혔다더니 얼굴에 베개 자국 · 오 이건 꽤 괜찮네</td></tr>
+<tr><td>0:42</td><td>最近我總刷到他TA星球 聽說是專為我們女生設計的 今天失眠 剛好試試看</td><td>요즘 TA행성이 자꾸 떠, 여자들을 위해 만든 거래, 오늘 잠이 안 와서 마침 써 봤어</td></tr>
+<tr><td>0:50</td><td>不用露臉只用聲音聊天 反而更放鬆 好像真的在被陪伴</td><td>얼굴 안 보이고 목소리만이라 오히려 편해, 진짜 누가 곁에 있는 느낌</td></tr>
+<tr><td>0:56</td><td>不只能聊天還能玩小遊戲 匿名講心事 超多模式任你挑選 · 想找人聊天 試試他TA星球 讓你隨時隨地都有人陪你聊天</td><td>대화만이 아니라 미니게임, 익명 고민 상담, 모드가 엄청 많아 · 대화 상대 찾고 싶으면 TA행성, 언제 어디서나 대화 상대가 있어</td></tr>
+</table></div>
+
+<h4>영상 6 · 쇼피 긴 양말 추천 — 계정 역대 최고 조회수</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/06.jpg" src="videos/06_socks.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">68초</span><span class="tag">2026-07-28</span><span class="tag">조회 101.4만 (고정)</span><span class="tag">좋아요 5.2만</span><span class="tag">댓글 1,793</span><span class="tag">쇼피 제휴</span> · <a href="https://www.instagram.com/mr._.0503/reel/DbUvTUjSoqd/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> "고등학교 때부터 긴 양말 신은 사람으로서" 50켤레 가까이 사 봤다는 자격 선언으로 시작. 나이키 얇은 양말은 구멍 나서 단색 타월지만 산다, 쇼피에서 산 이 양말은 한 켤레 39대만달러(약 1,700원)에 오래 신고 재질 좋고 낱개 포장, 흰색 3켤레·검은색 1켤레 쟁여 뒀다, 망가져도 안 아까운 가격, 여자들 다 샀고 남자도 운동용으로 좋다, 링크는 댓글에. 캡션은 性價比最高的長襪 便宜又好穿 (가성비 최고 긴 양말, 싸고 잘 신어짐).</p>
+    <p><strong>왜 잘됐나.</strong> 제품 등장 전 18초를 실패담(50켤레, 구멍 난 나이키)에 써서 신뢰를 쌓고, 가격을 화면 글자로 두 번 박고, 실사용 맥락(쟁여 두기, 누가 가져감)으로 수량 구매를 유도합니다. 댓글 1,793으로 이 계정에서 가장 대화가 붙은 편입니다.</p>
+    <p><strong>커넥팅 관점.</strong> 이 계정의 시청자는 "이 사람이 써 보고 추천하는 것"에 반응합니다. 커넥팅도 개그·상황극보다 "써 봤더니 이랬다" 후기형이 이 계정 문법에 맞고, 역대 최고 편이 제휴 콘텐츠라는 점에서 광고 거부감이 낮습니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>身為高中就在穿長襪的人 長襪哪裡買 我就對了 · 從高中到現在買過的長襪快50雙</td><td>고등학교 때부터 긴 양말 신은 사람으로서, 어디서 사냐면 나만 따라와 · 지금까지 50켤레 가까이</td></tr>
+<tr><td>0:10</td><td>Nike襪薄款很容易破掉 所以我都買純色毛巾布 · 推薦你們一家 我在蝦皮買的</td><td>나이키 얇은 건 금방 구멍, 그래서 단색 타월지 · 한 곳 추천, 쇼피에서 샀어</td></tr>
+<tr><td>0:21</td><td>白色超級容易染色 所以買超多雙 目前囤了三雙 · 還買了黑色 近期很流行黑色長襪</td><td>흰색은 물이 잘 들어 여러 켤레, 지금 세 켤레 쟁여 둠 · 검은색도 샀어, 요즘 유행</td></tr>
+<tr><td>0:35</td><td>它只要39塊一雙 可以穿超久 材質又好 · 沒看過長襪用獨立包裝的 真的很誇張</td><td>한 켤레 39달러, 오래 신고 재질 좋아 · 낱개 포장 긴 양말은 처음, 대단해</td></tr>
+<tr><td>0:47</td><td>厚厚的材質 可以穿很久 就算壞掉了 39塊丟了也不心疼</td><td>두툼한 재질인데 오래 신어, 망가져도 39달러면 버려도 안 아까워</td></tr>
+<tr><td>0:57</td><td>女生們都有去買 超級好搭的穿搭單品 男生們也可以買 · 鏈接放在留言</td><td>여자들 다 샀어, 코디하기 좋은 아이템, 남자도 사도 돼 · 링크는 댓글에</td></tr>
+</table></div>
+
+<h3>핏이 맞는 커넥팅 성공사례</h3>
+<div class="callout">
+<p><strong>청혼 — 커넥팅 통역 통화</strong> · @ryu_rai73 · <a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">instagram.com/p/DcS1LOJolBH</a></p>
+<p>1분 34초 · 2026-08-21 · 조회 419,958 (실측) · 커넥팅 실측 15편 중 4위</p>
+<p>앱 이름을 육성으로 한 번도 부르지 않고, 처음 만난 두 사람이 취향과 나이와 성격까지 겹치는 과정을 그대로 보여주는 통역 통화 광고. 결말(청혼)을 0초에 글자로 박고 시작합니다.</p>
+<p><strong>mr._.0503 계정과 겹치는 점.</strong> Ping 편과 같은 "처음 만나는 과정을 그대로 보여주고 상대의 좋은 점을 나열해 신뢰로 연결"하는 후기형 구조입니다. 다른 점은 브랜드 호출 방식(ryu_rai73 0회 vs Ping 6회)이라 협업 시 어느 쪽으로 갈지 정해야 합니다.</p>
+</div>
+
+<h3>협업 제안 방향</h3>
+<ul>
+  <li><strong>포맷.</strong> Ping 편 구조로 60~80초 후기형. "친구한테 바람맞음 / 잠이 안 옴" 같은 공감 불만 → 커넥팅으로 한국인과 통역 통화 → 통화 중 리액션 → 후기. 통화 상대 얼굴은 안 보여줘도 됩니다.</li>
+  <li><strong>브랜드 노출.</strong> Ping 편처럼 앱 화면 캡처(프로필, 매칭, 통역 자막)를 그대로 넣는 방식이 이 계정 시청자에게 익숙합니다. 육성 호출은 2~3회로 줄이는 것을 권합니다.</li>
+  <li><strong>기대치.</strong> 중간값 4만 조회 기준 CPV 8.5원이지만 최근 편은 3,000~5,000대가 대부분입니다. Ping 편처럼 32.6만이 나올 수도, 4,000대에 그칠 수도 있어 편차를 감안해야 합니다. 앱 광고 2편 모두 댓글이 10건 미만이라 대화 유도는 기대하기 어렵습니다.</li>
+  <li><strong>업로드.</strong> 주기가 불규칙하므로 업로드 일정을 계약에 명시하는 것이 좋습니다.</li>
+</ul>
+
+<h2 id="acct3">③ 陳孟祺 <span style="font-weight:400;color:var(--fg2)">@mengqi.4454</span></h2>
+<p class="sub">대만 출신 도쿄 어학교 학생 · 일상·연애·만화 썰 토크 · <a href="https://www.instagram.com/mengqi.4454/reels/" target="_blank" rel="noopener">instagram.com/mengqi.4454</a></p>
+
+<h3>한 줄 결론</h3>
+<div class="callout">
+<p><strong>만화·소설·연애 썰을 정면 토크로 푸는 대만 학생 계정.</strong> 현재 도쿄 어학교 재학 중이라 "외국어 못 해서 생기는 웃긴 상황"이 본인 소재이고, 이미 일본 소개팅 앱 영어 채팅 썰로 영어 학원 광고를 했습니다. 커넥팅의 통역 통화는 이 계정이 광고에서 정의한 문제("틀릴까 봐 말을 못 한다")를 정면으로 푸는 제품이라 소재 핏이 세 계정 중 가장 정확합니다.</p>
+<p>가격 606,183원 기준 중간값 CPV <strong>6.1원</strong>. 실측 최근 9편 평균조회수는 27.4만으로 CPV 2.2원까지 내려갑니다. 약점은 업로드 빈도입니다. 최근 게시물이 3주 전이고, 화요일 콘텐츠 반응이 제일 좋습니다.</p>
+</div>
+
+<h3>계정 기본 정보</h3>
+<div class="grid">
+  <div class="stat"><div class="l">팔로워</div><div class="v">1.5만</div><div class="s">팔로우 899</div></div>
+  <div class="stat"><div class="l">업로드 빈도</div><div class="v warn">낮음</div><div class="s">최근 게시물 3주 전</div></div>
+  <div class="stat"><div class="l">반응 좋은 요일</div><div class="v">화요일</div><div class="s">콘텐츠 반응 최고</div></div>
+  <div class="stat"><div class="l">앱 광고 이력</div><div class="v ok">2편</div><div class="s">Floze, WINNING+</div></div>
+</div>
+<table>
+<tr><th style="width:160px">프로필 소개</th><td>陳孟祺 · 𝑇𝐶𝐺𝑆/𝑁𝑇𝐻𝑈 (타이중여고 / 국립칭화대) · 一些購物狂紀錄還有碎碎念 (쇼핑광 기록과 혼잣말) · 📍現在在東京語言學校就讀中 (현재 도쿄 어학교 재학 중) · 📧 kurokomengi@gmail.com · 하이라이트: 東京黑白大廚🧑‍🍳(도쿄 흑백요리사)</td></tr>
+<tr><th>콘텐츠 유형</th><td>침대·방에서 마이크 달고 정면 토크. 일상, 연애관, 만화·소설(BL 포함) 취향을 썰로 풀고 반전 한 방과 친구 대화 인용으로 닫음. 만화 소재 편의 조회수가 잘 나옴. 대부분 45~90초.</td></tr>
+<tr><th>브랜드 협업 이력</th><td>Floze AI 채팅 앱(2026-07, 93.9만), WINNING+ 온라인 영어 학원(2026-08, 5.6만, 고정), GU 의류 태그.</td></tr>
+</table>
+
+<h3>조회수와 CPV (가격 606,183원)</h3>
+<table>
+<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
+<tr><td>최저</td><td class="num">20,000</td><td class="num">30.3원</td><td class="num">330회</td></tr>
+<tr><td>중간값</td><td class="num">100,000</td><td class="num">6.1원</td><td class="num">1,650회</td></tr>
+<tr><td>최고</td><td class="num">300,000</td><td class="num">2.0원</td><td class="num">4,949회</td></tr>
+</table>
+<table>
+<tr><th>공유 기준 (공유 약 200건)</th><th class="num">값</th></tr>
+<tr><td>공유 1건당 비용</td><td class="num">3,031원</td></tr>
+<tr><td>1만원당 공유 수</td><td class="num">3.3건</td></tr>
+</table>
+
+<h4>참고: 로그아웃 상태 프로필에서 읽은 최근 12편 조회수</h4>
+<div class="bars">
+  <div class="bar pin" style="height:87%"><span>121.9만</span></div>
+  <div class="bar pin" style="height:100%"><span>140.9만</span></div>
+  <div class="bar pin" style="height:4%"><span>5.6만</span></div>
+  <div class="bar" style="height:33%"><span>31.2만</span></div>
+  <div class="bar" style="height:4%"><span>3.3만</span></div>
+  <div class="bar" style="height:2%"><span>2.2만</span></div>
+  <div class="bar" style="height:4%"><span>3.3만</span></div>
+  <div class="bar" style="height:9%"><span>8.5만</span></div>
+  <div class="bar" style="height:100%"><span>93.9만</span></div>
+  <div class="bar" style="height:21%"><span>19.9만</span></div>
+  <div class="bar" style="height:80%"><span>75.4만</span></div>
+  <div class="bar" style="height:9%"><span>8.7만</span></div>
+</div>
+<div class="barlbl"><div>고정</div><div>고정</div><div>고정·영상7</div><div>최신·영상8</div><div></div><div></div><div></div><div></div><div>Floze·영상9</div><div></div><div></div><div>과거</div></div>
+<p class="meta">회색 3개는 고정 게시물(WINNING+ 광고 포함)이라 평균에서 뺍니다. 고정 3개의 막대는 별도 척도입니다. 고정 제외 9편은 튄 값 없이 평균조회수 <strong>273,778회</strong>, 606,183원 기준 CPV 2.2원, 1만원당 4,516회입니다. 담당자가 준 중간값 10만보다 실측이 높습니다. 9편 중 4편이 19만 이상이고 5편이 2만~9만이라 편차는 있습니다.</p>
+
+<h3>시청자</h3>
+<div class="grid">
+  <div class="stat"><div class="l">타겟층</div><div class="v">56.2%</div></div>
+  <div class="stat"><div class="l">언어</div><div class="v">번체 100%</div><div class="s">중국어 번체 사용자</div></div>
+</div>
+<ul>
+  <li>일상·연애·만화 소재에 반응하는 학생·20대 시청층. 만화 소재 편이 조회수가 잘 나오고, BL·막장 전개 같은 팬덤 용어를 쓰는 편(Floze)이 93.9만을 냈습니다.</li>
+  <li>오가닉 썰(이상형 편 31.2만에 좋아요 2.2만)의 반응률이 앱 광고(93.9만에 좋아요 1.0만)보다 높습니다. 광고는 도달은 크지만 반응은 절반 수준입니다.</li>
+  <li>협업 시 통화 상대와 MBTI나 만화 공통점을 찾는 대화로 가야 이 계정 시청자가 붙습니다.</li>
+</ul>
+
+<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
+<p class="meta">자막은 화면 위쪽에 한국어로 태웠습니다. 원문은 중국어 번체이며, 괄호 안이 한국어 해석 또는 화면 글자입니다.</p>
+
+<h4>영상 7 · WINNING+ 온라인 영어 학원 광고 — 일본 소개팅 앱 엉터리 영어 채팅</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/07.jpg" src="videos/07_winning.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">83초</span><span class="tag">2026-08-25</span><span class="tag">조회 5.6만 (고정)</span><span class="tag">좋아요 3,464</span><span class="tag">댓글 41</span><span class="tag ok">광고</span> · <a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 일본 와서 다들 해 보라는 소개팅 앱을 했는데 일본어가 엉망이라 프로필에 "영어로 소통 희망"을 써 놨더니 채팅방이 볼만해짐. "hi! konbanwa~", "Can you speak English? a little… Bad no problem!", "U Korean? No I am Taiwanese", "best country? Taiwan". 내 인생 가장 성공한 국민외교. 그래도 틀리는 것보다 말하는 게 중요하고, 내 진짜 문제는 '영어 막힘(卡到英)'. 그래서 필리핀 온라인 영어 학원 WINNING+ 1대1 수업(300대만달러부터) 듣는 중. 댓글에 英文이라 달면 무료 수업 DM. 캡션은 我即將幫交友軟體上的人們都報名一堂免費試聽（開玩笑）(소개팅 앱 사람들 전부 무료 체험에 등록시켜 줄 참, 농담).</p>
+    <p><strong>어떻게 짰나.</strong> 실제 채팅 캡처 5장이 증거이자 개그이고, 웃긴 상대를 깎지 않고 "그 사람들이 나보다 낫다"는 자기 반성으로 돌린 뒤 제품이 풀 문제를 정의합니다. 댓글 유도형 CTA로 댓글 41건. 다만 고정 게시물 중 조회수가 가장 낮고, 정지 화면 캡처가 많아 오가닉 썰보다 약했습니다.</p>
+    <p><strong>커넥팅 관점. <span class="ok">소재가 정확히 겹침.</span></strong> "외국어 못 해서 생기는 웃긴 상황 → 해결책" 구조를 이미 광고로 만들었고, 커넥팅은 이 편이 정의한 문제("틀릴까 봐 못 말한다")를 통역 통화로 직접 푸는 제품입니다. 일본 거주, 소개팅 앱 경험, 영어 채팅 소재가 커넥팅의 "해외 상대와 대화" 소재와 겹칩니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>我來日本後體驗了大家說來日本一定要做的事情 那就是滑交友軟體</td><td>일본 와서 다들 꼭 해 보라는 걸 해 봤어, 소개팅 앱</td></tr>
+<tr><td>0:06</td><td>我的日文爛到沒辦法溝通 所以在自介打說希望可以用英文溝通 (悲劇的開始)</td><td>일본어가 엉망이라 프로필에 영어로 소통하고 싶다고 써 놨어 (비극의 시작)</td></tr>
+<tr><td>0:20</td><td>hi! konbanwa~ · Can you speak English? a little… Bad no problem! · U Korean? No I am Taiwanese · Taiwan is the best country in the world</td><td>(채팅 캡처) 히라가나를 알파벳으로 쓴다고 영어가 되는 게 아니잖아 · 듣기엔 문제가 아주 커 보이는데</td></tr>
+<tr><td>0:38</td><td>這是我這輩子最成功的國民外交 · 敢講比正確更重要 雖然溝通亂七八糟但我也是聽懂啦</td><td>내 인생 가장 성공한 국민 외교 · 틀리는 것보다 말하는 게 중요, 엉망이어도 알아들었으니까</td></tr>
+<tr><td>0:52</td><td>我真正的問題是卡到英 腦袋裡有很多句子但太害怕講錯了不敢講 很多台灣人的通病</td><td>내 진짜 문제는 '영어 막힘', 문장은 많은데 틀릴까 봐 못 말해, 대만인 고질병</td></tr>
+<tr><td>0:58</td><td>現在都在來自菲律賓的線上國際語言學校上課 一對一全英環境 每堂只要300元起 講錯也不用怕被Judge</td><td>필리핀 온라인 국제어학원 WINNING+, 1대1 영어 환경, 한 수업 300대만달러부터, 틀려도 지적 걱정 없음</td></tr>
+<tr><td>1:11</td><td>現在免費試聽就能獲得英文檢測 在底下留言英文 我私訊你免費領取一堂一對一線上英文課程</td><td>무료 체험하면 영어 진단, 댓글에 英文 남기면 1대1 수업 한 회 무료 DM</td></tr>
+</table></div>
+
+<h4>영상 8 · 이상형 QA — 정리하면 게이</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/08.jpg" src="videos/08_idealtype.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">48초</span><span class="tag">2026-08-21</span><span class="tag">조회 31.2만</span><span class="tag">좋아요 2.2만</span><span class="tag">댓글 65</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DcTa1akSdfF/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 팔로워 QA "이상형이 궁금해요(현실적으로)"에 답합니다. 부드럽고 약간 수줍고 꾸밀 줄 알고 소통 잘하는 남자, 좋은 친구가 됐으면… 정리하면 게이. 농담 아니고 여자 친구들 다 겪어 봤다, 게이는 무섭다. 귀여운 남자가 있어 공통 친구한테 알아봐 달랬더니 정보보다 남자친구 이름이 먼저 왔다. 그 뒤로 친구들이 날 '분류 모자'(해리포터 기숙사 배정 모자)라 부른다. 친구 카톡 인용 "네가 옆자리 남자 귀엽다고 하는 순간 게이인 줄 알았지". 캡션은 我完全麻瓜一個 為什麼最迷人的最危險 (난 완전 머글, 왜 제일 매력적인 사람이 제일 위험해).</p>
+    <p><strong>왜 잘됐나.</strong> 최근 고정 제외 9편 중 3위이자 좋아요 반응률 최고(7%). 정상적인 이상형 답변처럼 쌓다가 한 단어(gay)로 뒤집고, 개인 썰을 "여자들 다 겪어 봤다"는 집단 공감으로 넓힌 뒤 친구 대사로 자기 망신 마무리. 이 계정의 기본 문법입니다.</p>
+    <p><strong>커넥팅 관점.</strong> 연애 썰 + 반전 + 자기 망신 마무리는 커넥팅 성공사례(momoonaaa, ryu_rai73)의 마무리 방식과 같습니다. 이상형·연애관을 QA로 받아 답하는 형식이라, 통화 상대에게 MBTI나 만화 취향 같은 공통점을 묻는 대화로 자연스럽게 이어집니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:03</td><td>這個你就問對人了 我喜歡那種溫柔然後有點腼腆 會打扮自己會表達的那種男生 希望我們可以當彼此的好朋友</td><td>제대로 물어봤네. 부드럽고 약간 수줍고 꾸밀 줄 알고 표현 잘하는 남자, 서로 좋은 친구가 됐으면</td></tr>
+<tr><td>0:12</td><td>所以我喜歡的類型應該可以統整為 gay</td><td>그래서 내 취향을 정리하면… 게이</td></tr>
+<tr><td>0:17</td><td>我真的沒有在開玩笑 每個人都或多或少為gay著迷過 gay是很可怕的</td><td>진짜 농담 아냐, 다들 게이한테 빠져 봤어, 게이는 무서워</td></tr>
+<tr><td>0:26</td><td>覺得一個男生很可愛 跟共友講 幫我打聽 比起他的資訊先打聽來的是他男朋友的名字</td><td>귀엽다 싶어 공통 친구한테 말했더니 알아봐 줌, 정보보다 먼저 온 게 남자친구 이름</td></tr>
+<tr><td>0:37</td><td>經歷那次之後 我朋友都叫我分類帽</td><td>그 뒤로 친구들이 날 분류 모자라고 불러</td></tr>
+<tr><td>0:43</td><td>你說坐你旁邊的男生很可愛的時候 我就知道他是gay了</td><td>네가 옆자리 남자 귀엽다고 할 때 게이인 줄 알았지</td></tr>
+</table></div>
+
+<h4>영상 9 · Floze AI 채팅 앱 광고 — BL 막장 전개를 내가 직접 쓴다</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/09.jpg" src="videos/09_floze.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">85초</span><span class="tag">2026-07-23</span><span class="tag">조회 93.9만</span><span class="tag">좋아요 1.0만</span><span class="tag">댓글 38</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DbIuw0TzaZe/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> BL 볼 때 완전 감정 미친개, 최애 전개는 '후회 남주 화장터'(追妻火葬場), 요즘 작품은 너무 쉽게 용서해서 열받음 → "내가 직접 쓰면 되지" → 대만 스타트업 AI 캐릭터 채팅 앱 Floze 소개. 자유도가 말도 안 되게 높아서 첫 대사가 "창피해, 이혼해", 폭주해서 '궤도 이탈' 스티커 받고 친밀도 마이너스 처음 봄. 서브 스토리(놀이공원·교실·사무실), 50턴 제한, 달달한 연애도 가능, 직접 만든 캐릭터나 다른 크리에이터 캐릭터, BL·GL·BG 전부. 수위는 끝까지 올릴 수 있는데 계정 정지 무서워 공개 못 함, 직접 가서 봐. 캡션은 最愛經典不敗的劇情 現在可以第一視角為我的CP傷春悲秋了 (고전 불패 전개 최애, 이제 내 CP를 1인칭으로 슬퍼할 수 있어).</p>
+    <p><strong>왜 잘됐나.</strong> 앱 광고인데 최근 9편 중 1위(93.9만). 첫 19초를 팬덤 용어(BL, 화장터, 막장) 취향 고백에 써서 타깃을 정확히 결집하고, 본인이 실제로 플레이한 웃긴 결과(이혼 통보, 친밀도 마이너스)를 증거로 쓰고, 다운로드 강요 없이 금기 암시로 호기심만 남깁니다. 좋아요 1.0만으로 조회 대비 반응률은 오가닉보다 낮습니다.</p>
+    <p><strong>커넥팅 관점.</strong> 앱 광고로 93.9만을 낸 계정이고 시청자가 앱 광고를 거부하지 않습니다. 커넥팅도 "실제 통화에서 나온 웃긴 대화"를 증거로 쓰는 구조가 맞고, 만화·BL 팬덤 시청자라 통화 상대와 만화 공통점·MBTI로 대화하는 설정이 자연스럽습니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>我本人在看BL方面完全是情感瘋狗 最愛的劇情就是追妻火葬場 最好整個燒掉</td><td>BL 볼 때 완전 감정 미친개, 최애 전개는 후회 남주 화장터, 아예 다 태워야</td></tr>
+<tr><td>0:10</td><td>現在很多作品都會讓我覺得 不對喔 人家就原諒他 那怎麼辦 自己寫啊</td><td>요즘 작품은 "그걸 용서해?" 싶어, 어떡하냐고? 직접 쓰면 되지</td></tr>
+<tr><td>0:19</td><td>隆重跟姊妹們介紹 Floze這個AI聊天APP 自由度高到不可思議</td><td>언니들에게 소개, AI 채팅 앱 Floze, 자유도 말도 안 되게 높아</td></tr>
+<tr><td>0:32</td><td>第一句話就是 你讓我好丟臉 我們離婚 我甚至拿到了軌道偏移貼紙 第一次知道親密值可以是負數</td><td>첫 대사 "창피해, 이혼해", 궤도 이탈 스티커 받음, 친밀도 마이너스 처음 봄</td></tr>
+<tr><td>0:43</td><td>還能開啟支線劇情 遊樂場 教室 辦公室 要在50輪對話內完成</td><td>서브 스토리, 놀이공원·교실·사무실, 50턴 안에 완료</td></tr>
+<tr><td>1:04</td><td>可以選擇自己創建的角色 也可以找其他創作者寫的角色 BL GL BG全部都有</td><td>직접 만든 캐릭터, 다른 크리에이터 캐릭터, BL·GL·BG 전부</td></tr>
+<tr><td>1:14</td><td>尺度完全可以當燃燒風車 我甚至都不敢放出來 怕帳號被BAN掉 請大家自己去品味</td><td>수위 끝까지 가능, 공개 못 함, 계정 정지 무서워, 직접 가서 봐</td></tr>
+</table></div>
+
+<h3>핏이 맞는 커넥팅 성공사례</h3>
+<div class="callout">
+<p><strong>한국 남자와 통화 중</strong> · @momoonaaa (일본) · <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">instagram.com/reels/DaP3GRKBc91</a> · 90초 · 2026-07-01 · 조회 853,564 (실측) · <strong>커넥팅 실측 15편 중 1위</strong></p>
+<p>앱을 도구로 설명하지 않고 한국 남자와의 통화 자체를 콘텐츠로 만들고, 앱은 그 통화가 성립하는 조건으로만 뒤에 서 있는 네이티브 광고. "말이 완벽하지 않아도 괜찮아"가 캡션 메시지.</p>
+<p><strong>청혼 — 커넥팅 통역 통화</strong> · @ryu_rai73 · <a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">instagram.com/p/DcS1LOJolBH</a> · 94초 · 조회 419,958 · 15편 중 4위. 처음 만난 두 사람이 취향과 나이와 성격까지 겹치는 과정을 그대로 보여줌.</p>
+<p><strong>mengqi.4454 계정과 겹치는 점.</strong> 셋 다 "외국인과의 대화 자체"가 콘텐츠이고 언어가 완벽하지 않아도 된다는 메시지입니다. mengqi 는 이미 "틀릴까 봐 말을 못 한다"를 광고 소재로 썼고, 통화 상대와 MBTI·만화 공통점을 찾는 대화(ryu_rai73 식 취향 일치)로 가면 이 계정 시청자에게 맞습니다.</p>
+</div>
+
+<h3>협업 제안 방향</h3>
+<ul>
+  <li><strong>포맷.</strong> WINNING+ 편 구조로 60~90초 썰 토크. "도쿄에서 일본어·영어 둘 다 막힘" 썰 → 커넥팅 통역 통화로 한국인과 대화 → 통화 중 MBTI·만화 공통점 발견 → 웃긴 대화 캡처를 증거로 → 자기 망신 마무리.</li>
+  <li><strong>브랜드 노출.</strong> momoonaaa 편처럼 앱을 뒤에 두고 통화 자체를 콘텐츠로. Floze 편처럼 실제 사용 결과(통역 오역 같은 웃긴 순간)를 캡처로 보여주면 이 계정 시청자에게 익숙합니다.</li>
+  <li><strong>업로드.</strong> 화요일. 최근 게시물이 3주 전이라 업로드 일정을 계약에 명시하고, 앞뒤로 오가닉 편이 올라오는 시기에 맞춰야 합니다.</li>
+  <li><strong>기대치.</strong> 중간값 10만 기준 CPV 6.1원. 실측 최근 9편 평균은 27.4만이라 앱 광고가 잘 붙으면(Floze 93.9만) CPV 2원대도 가능하지만, WINNING+ 편(5.6만)처럼 정지 화면 캡처가 많으면 반응이 떨어집니다.</li>
+</ul>
+
+<h2 id="acct4">④ 黃琳媛 Ally <span style="font-weight:400;color:var(--fg2)">@hl_yuan</span></h2>
+<p class="sub">대만 뷰티·여행·챌린지 크리에이터 (인증 계정) · <a href="https://www.instagram.com/hl_yuan/reels/" target="_blank" rel="noopener">instagram.com/hl_yuan</a></p>
+
+<h3>한 줄 결론</h3>
+<div class="callout">
+<p><strong>팔로워 38.8만의 비주얼 중심 계정.</strong> 외부 촬영이 많고 한국식 메이크업, 뷰티 제품, 한국에서 춤추기, 한국 브랜드, 챌린지·POV, 대만 여행 소재가 섞여 있습니다. 네 계정 중 팔로워와 단가가 가장 크고, "해외에서 낯선 한국 남자를 처음 만나는 POV" 브이로그(영상 11)를 이미 찍었습니다.</p>
+<p>가격 300만원 기준 중간값 CPV <strong>8.6원</strong>. 다만 로그아웃 프로필로 읽은 최근 9편 평균조회수는 8.6만으로 담당자 최저값(15만)보다 낮아 실측 CPV 는 34.8원입니다. 계정 개성이 강하니 <strong>기획안을 보여주고 본인이 주제를 고르게 하는 방식</strong>이 맞습니다.</p>
+</div>
+
+<h3>계정 기본 정보</h3>
+<div class="grid">
+  <div class="stat"><div class="l">팔로워</div><div class="v">38.8만</div><div class="s">팔로우 662 · 인증 계정</div></div>
+  <div class="stat"><div class="l">대만 오디언스</div><div class="v">53.7%</div></div>
+  <div class="stat"><div class="l">촬영 환경</div><div class="v" style="font-size:20px">외부 촬영 다수</div><div class="s">한국·밴쿠버·대만 야외</div></div>
+  <div class="stat"><div class="l">최근 업로드</div><div class="v">9/15</div><div class="s">2일 전 · 밴쿠버 체류 중</div></div>
+</div>
+<table>
+<tr><th style="width:160px">프로필 소개</th><td>黃琳媛𝑨𝒍𝒍𝒚 · 🤍 0元💰不用錢又來了🤍 (0원 무료 이벤트 또 왔어요) · 工作請洽mail 📩 hlyuan.work@gmail.com · linktr.ee/hl_yuan · 하이라이트: Work📷, Me👧🏻, Travel👭, GMA🏆(금곡장), Dance💃, Mv🎵, Filming🎬</td></tr>
+<tr><th>콘텐츠 유형</th><td>한국식 메이크업·뷰티 제품, 한국에서 춤추기, 한국 브랜드, 챌린지·POV 상황극, 대만 가볼 만한 곳 여행. 대사 없는 비주얼 챌린지(12초)부터 협찬 브이로그(54초)까지. 역대 최고편은 POV 연애 상황극(622만).</td></tr>
+<tr><th>브랜드 협업 이력</th><td>맥도날드 McKitty 챌린지, newmix 한국 즉석 커피 매장(추정), 밴쿠버 유학원 @justgo_study, 뮤직비디오·촬영 출연. 프로필에 상시 이벤트 문구.</td></tr>
+</table>
+
+<h3>조회수와 CPV (가격 300만원)</h3>
+<table>
+<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
+<tr><td>최저</td><td class="num">150,000</td><td class="num">20.0원</td><td class="num">500회</td></tr>
+<tr><td>중간값</td><td class="num">350,000</td><td class="num">8.6원</td><td class="num">1,167회</td></tr>
+<tr><td>최고</td><td class="num">1,000,000</td><td class="num">3.0원</td><td class="num">3,333회</td></tr>
+</table>
+<table>
+<tr><th>공유 기준 (공유 약 300건)</th><th class="num">값</th></tr>
+<tr><td>공유 1건당 비용</td><td class="num">10,000원</td></tr>
+<tr><td>1만원당 공유 수</td><td class="num">1.0건</td></tr>
+</table>
+
+<h4>참고: 로그아웃 상태 프로필에서 읽은 최근 12편 조회수</h4>
+<div class="bars">
+  <div class="bar pin" style="height:17%"><span>105.3만</span></div>
+  <div class="bar pin" style="height:100%"><span>622만</span></div>
+  <div class="bar pin" style="height:92%"><span>573.3만</span></div>
+  <div class="bar" style="height:100%"><span>15.7만</span></div>
+  <div class="bar" style="height:2%"><span>2,529</span></div>
+  <div class="bar" style="height:68%"><span>10.6만</span></div>
+  <div class="bar" style="height:15%"><span>2.3만</span></div>
+  <div class="bar" style="height:85%"><span>13.4만</span></div>
+  <div class="bar" style="height:5%"><span>8,122</span></div>
+  <div class="bar" style="height:31%"><span>4.8만</span></div>
+  <div class="bar" style="height:98%"><span>15.4만</span></div>
+  <div class="bar" style="height:91%"><span>14.3만</span></div>
+</div>
+<div class="barlbl"><div>고정</div><div>고정·영상12</div><div>고정</div><div>최신·영상10</div><div></div><div></div><div></div><div></div><div></div><div></div><div>공동</div><div>영상11</div></div>
+<p class="meta">회색 3개는 고정 게시물이라 평균에서 뺍니다. 고정 3개의 막대는 별도 척도입니다. 고정 제외 9편은 튄 값 없이 평균조회수 <strong>86,183회</strong>, 300만원 기준 CPV 34.8원, 1만원당 287회입니다. <span class="warn">담당자가 준 최저값 15만보다 실측 최근 9편이 모두 낮습니다.</span> 9편 중 2편(2,529 · 8,122)은 사진형 짧은 게시물로 보입니다. 15.4만 편은 @fan_76_boy 와의 공동 게시물(집 구경)입니다.</p>
+
+<h3>시청자</h3>
+<div class="grid">
+  <div class="stat"><div class="l">대만 오디언스</div><div class="v">53.7%</div></div>
+  <div class="stat"><div class="l">그 외</div><div class="v" style="font-size:20px">해외 46.3%</div><div class="s">한국·캐나다 등 (세부 미확인)</div></div>
+</div>
+<ul>
+  <li>네 계정 중 대만 비중이 가장 낮고(53.7%) 해외 시청자가 절반 가까이 됩니다. 한국 소재 콘텐츠가 많아 한국 시청자 비중이 있을 가능성이 있습니다.</li>
+  <li>반응은 POV 연애 상황극(622만, 좋아요 25.5만)에서 압도적이고, 협찬 브이로그(14.3만, 좋아요 4,407)는 3% 반응률로 낮습니다.</li>
+  <li>비주얼과 한국 감성이 팔로우 이유라 정보형·대사 중심보다 얼굴·장소가 보이는 포맷이 맞습니다.</li>
+</ul>
+
+<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
+<p class="meta">자막은 화면 위쪽에 한국어로 태웠습니다. 원문은 중국어 번체이며, 괄호 안이 한국어 해석 또는 화면 글자입니다.</p>
+
+<h4>영상 10 · 맥도날드 McKitty 챌린지 — 종이봉투 고양이</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/10.jpg" src="videos/10_mckitty.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">12초</span><span class="tag">2026-09-15</span><span class="tag">조회 15.7만</span><span class="tag">좋아요 9,660</span><span class="tag">댓글 49</span><span class="tag">챌린지</span> · <a href="https://www.instagram.com/hl_yuan/reel/DdTck_kzeYM/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 맥도날드 대만 McKitty(고양이 종이봉투) 챌린지. 대사 없이 음악에 맞춰 봉투를 머리에 쓰고 감자튀김을 고양이 수염처럼 무는 포즈 8초, 매장 사진 슬라이드 4초. 밴쿠버 매장에서 촬영. 캡션은 趕快傳給你的好朋友一起來拍 麥當勞喵喵紙袋真的超可愛 (친구한테 보내서 같이 찍어, 야옹 종이봉투 진짜 귀여워).</p>
+    <p><strong>왜 잘됐나.</strong> 최근 고정 제외 9편 중 1위. 브랜드 챌린지에 자발 참여하고 비주얼만으로 완성. 이 계정의 기본형이 "얼굴·비주얼·챌린지"임을 보여줍니다.</p>
+    <p><strong>커넥팅 관점.</strong> 대사 없는 12초 챌린지로도 15.7만이 나오는 계정이라, 통화 장면 위주 광고보다 "한국인과 만나는 비주얼 POV"나 브랜드 해시태그 챌린지 형태가 맞습니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (화면 글자)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>當我變成一隻麥當勞喵喵 / When I become a McKitty</td><td>내가 맥도날드 야옹이가 됐을 때</td></tr>
+<tr><td>0:08</td><td>(디카 화면 → 매장 사진 4장)</td><td>(대사 없음)</td></tr>
+</table></div>
+
+<h4>영상 11 · POV 해외에서 낯선 사람 처음 만나기 — 한국 현지 가이드와 newmix 커피</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/11.jpg" src="videos/11_newmix.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">54초</span><span class="tag">2026-09-03</span><span class="tag">조회 14.3만</span><span class="tag">좋아요 4,407</span><span class="tag">댓글 28</span><span class="tag ok">협찬 추정</span> · <a href="https://www.instagram.com/hl_yuan/reel/Dc0jQOWpY2E/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> "해외에서 낯선 사람을 처음 만날 때" POV. 현지 가이드 온라인 친구를 만나러 가며 긴장 → 한국 남자 가이드 등장, 대만 과자 선물 "This one for you, Famous in Taiwan", 가이드가 중국어로 답함 → "한국 유명 기념품 알아? 요즘 제일 유명한 커피 데려갈게" → newmix 매장에서 저당·두리안·멜론·얼그레이 맛 시음, 전부 사겠다 → 가이드가 몰래 전부 계산해 선물 "엥 진짜?" → "한국 오면 꼭 newmix". 캡션은 在國外和地陪的陌生一日體驗 (해외에서 현지 가이드 낯선 사람과의 하루 체험).</p>
+    <p><strong>어떻게 짰나.</strong> 만남 전 불안(5초) → 선물 교환으로 관계 시작(9초) → 협찬 매장 시연(27초, 절반) → 몰래 계산 반전(4초) → 매장 CTA. 가이드는 시연 구간에서 뒤로 빠집니다.</p>
+    <p><strong>커넥팅 관점. <span class="ok">커넥팅 기획에 가장 가까운 편.</span></strong> "낯선 한국 남자를 처음 만나는 POV"와 선물·안내·몰래 계산의 훈훈한 서사가 이미 있습니다. 커넥팅이면 "만나기 전 통역 통화로 먼저 친해지는 장면"을 앞에 붙이고, 매장 시연 대신 대화 비중을 올리면 됩니다. mr._.0503 Ping 편, ryu_rai73 청혼 편과 같은 출발(만남 전 불안)입니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>POV當妳在國外第一次見陌生人 · 等一下就要去見地陪網友 我也不知道他長怎樣 真的很緊張</td><td>해외에서 낯선 사람을 처음 만날 때 · 이따가 현지 가이드 온라인 친구 만나러 가, 어떻게 생겼는지도 몰라, 긴장돼</td></tr>
+<tr><td>0:06</td><td>嗨 這一款給你 台灣超有名 (This one for you · Famous in Taiwan) / 哦 謝謝 / 你在講中文? / 是</td><td>안녕, 이거 너 줄게, 대만에서 완전 유명해 / 오 고마워 / 중국어 하네? / 응</td></tr>
+<tr><td>0:14</td><td>你知道韓國有什麼有名的伴手禮嗎 帶你去嚐一下最近很有名的咖啡好嗎 / 好啊</td><td>한국 유명 기념품 알아? 요즘 제일 유명한 커피 맛보러 데려갈게 / 좋아</td></tr>
+<tr><td>0:19</td><td>到了就這家 超級漂亮 / Low sugar? / 對 減肥的女生也可以喝 / 榴槤咖啡 / 哈密瓜跟拿鐵超搭 / 伯爵奶茶口味 我更喜歡這個</td><td>도착, 여기야, 진짜 예뻐 / 저당? / 응, 다이어트하는 여자도 마셔 / 두리안 커피 / 멜론이랑 라떼 잘 어울려 / 얼그레이 밀크티, 이게 더 좋아</td></tr>
+<tr><td>0:42</td><td>決定了 我要全部帶回家 連包裝都超有質感 超適合送人</td><td>결정했어, 전부 가져갈래, 포장까지 고급, 선물용으로 딱</td></tr>
+<tr><td>0:46</td><td>其實我剛買單了 全部送給你 / 蛤 真的假的 · 大家有來韓國一定要來newmix</td><td>사실 방금 계산했어, 전부 너한테 선물 / 엥 진짜? · 한국 오면 꼭 newmix</td></tr>
+</table></div>
+
+<h4>영상 12 · POV 상대 마음에 들어가는 법 — 계정 역대 최고 622만</h4>
+<div class="video-block">
+  <video controls preload="metadata" playsinline poster="posters/12.jpg" src="videos/12_pov.mp4"></video>
+  <div>
+    <div class="meta"><span class="tag">17초</span><span class="tag">2025-10-24</span><span class="tag">조회 622만 (고정)</span><span class="tag">좋아요 25.5만</span><span class="tag">댓글 967</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/hl_yuan/reel/DQMFamTCTyV/" target="_blank" rel="noopener">원본</a></div>
+    <p><strong>무슨 내용인가.</strong> 길에서 카메라(=시청자)를 낯선 남자로 두고 시비를 겁니다. "저기요, 좀 예의 없는데. 왜 나한테 인사를 안 해?" / "내가 널 알아?" / "그냥 내 마음속으로 걸어 들어오면 되잖아" / "안 돼, 내 마음엔 Sharon뿐, 빠이" / "Sharon이 하는 건 나도 해" / "조용히 있을 수 있어?" / … (3초 침묵) / "걔는 못 해, 빠이". 캡션은 所以你們喜歡安靜的嗎？(그래서 너희는 조용한 사람이 좋아?).</p>
+    <p><strong>왜 잘됐나.</strong> 계정 역대 최고(622만, 좋아요 25.5만, 댓글 967). 시청자를 상대역으로 만드는 POV, 첫 마디가 시비라 "왜?"가 생기고, 17초 안에 시비→거절→반전→침묵 3초→망신을 다 넣은 편집 리듬. 캡션 질문이 댓글을 부릅니다.</p>
+    <p><strong>커넥팅 관점.</strong> 이 계정의 최고 성과 문법은 카메라를 상대역으로 두는 POV 연애 상황극입니다. 커넥팅 통화 상황극도 POV로 짧게 찍으면 이 계정 시청자에게 익숙합니다. 60초대 통화 광고는 이 계정에서 낯선 길이라 20초 안팎 POV 여러 편이 맞을 수 있습니다.</p>
+  </div>
+</div>
+<div style="overflow-x:auto"><table>
+<tr><th style="width:60px">시각</th><th>원문 (번체)</th><th>한국어</th></tr>
+<tr><td>0:00</td><td>POV:如何走進對方的心 · 欸 先生 我覺得你有點沒禮貌欸 / 蛤? / 你為什麼都不跟我打招呼啊? / 我認識你嗎?</td><td>상대 마음에 들어가는 법 · 저기요, 좀 예의 없는데 / 네? / 왜 나한테 인사를 안 해? / 내가 널 알아?</td></tr>
+<tr><td>0:06</td><td>你就直接走進我的心 / 不可能 我心裡只有Sharon 掰掰</td><td>그냥 내 마음속으로 걸어 들어오면 되잖아 / 안 돼, 내 마음엔 Sharon뿐, 빠이</td></tr>
+<tr><td>0:09</td><td>欸 等一下 Sharon會什麼我也可以 / 妳會安靜嗎? / … / 她不會 掰掰 / 是在靠腰</td><td>잠깐, Sharon이 하는 건 나도 해 / 조용히 있을 수 있어? / … / 걔는 못 해, 빠이 / 시비 거냐</td></tr>
+</table></div>
+
+<h3>협업 제안 방향</h3>
+<ul>
+  <li><strong>진행 방식.</strong> 담당자 판단대로 계정 개성이 커서 <strong>기획안 2~3개를 보여주고 본인이 주제를 고르게</strong> 하는 편이 맞습니다. 후보: (a) 영상 11 구조로 "통역 통화로 먼저 친해진 한국인을 실제로 만나는 하루" 브이로그, (b) 영상 12 구조로 "통화 상대가 카메라"인 20초 POV 상황극 여러 편, (c) 한국 여행 콘텐츠에 통화 장면을 끼우는 형태.</li>
+  <li><strong>브랜드 노출.</strong> 비주얼 계정이라 앱 화면보다 장소·얼굴이 보이는 장면에 통역 자막을 얹는 방식이 어울립니다.</li>
+  <li><strong>기대치.</strong> 중간값 35만 기준 CPV 8.6원이지만 로그아웃 실측 최근 9편 평균은 8.6만(CPV 34.8원)입니다. 담당자 최저값 15만과 차이가 커서 계정주 인사이트로 최근 30일 조회수를 확인한 뒤 단가를 정하는 것이 안전합니다. 공유 300건 기준 공유당 1만원으로 네 계정 중 가장 비쌉니다.</li>
+  <li><strong>일정.</strong> 현재 밴쿠버 체류 중(9/9 유학 기숙사 편, 9/15 밴쿠버 맥도날드 편)이라 한국 촬영 시기를 먼저 확인해야 합니다.</li>
+</ul>
+
+<h2>짚을 점</h2>
+<ul>
+  <li>조회수는 인스타그램이 API로 주지 않아 프로필 릴스 탭 표시값과 담당자 확인값을 썼습니다. 정확한 값은 계정주 인사이트로 확인해야 합니다.</li>
+  <li>대만 63.9% · 번체 64.3% · 팔로워 추세 · 토요일 성과 · 공유 2,000건은 담당자가 제공한 값이며 이 페이지에서 재검증하지 않았습니다.</li>
+  <li>영상 3의 원본 클립은 중국 본토 크리에이터(간체 자막)로 출처 미확인입니다.</li>
+  <li>mr._.0503 의 대만 73.5% · 홍콩·중국 4.9% · 싱가포르 2.9% · 공유 50건 · 최저/중간/최고 조회수는 담당자 제공값입니다. 他TA星球 편 조회수는 로그아웃 화면에 안 보여 미확인입니다.</li>
+  <li>mr._.0503 앱 광고 2편은 담당자가 앞서 정리한 해석을 바탕으로 영상을 다시 보고 자막 시각을 맞췄습니다.</li>
+  <li>mengqi.4454 의 타겟층 56.2% · 번체 100% · 공유 200건 · 최저/중간/최고 · 화요일 반응 · 최근 게시물 3주 전은 담당자 제공값입니다. 실측 최근 9편 평균조회수(27.4만)는 담당자 중간값(10만)보다 높아 두 값을 병기했습니다.</li>
+  <li>hl_yuan 의 대만 53.7% · 공유 300건 · 최저/중간/최고 · 콘텐츠 유형은 담당자 제공값입니다. 실측 최근 9편 평균조회수(8.6만)가 담당자 최저값(15만)보다 낮아 두 값을 병기했습니다. 영상 10은 대사가 없어 자막은 화면 글자와 캡션으로만 만들었습니다. newmix 협찬 여부는 캡션에 명시가 없어 추정입니다.</li>
+  <li>음성 전사가 웅얼거림 구간을 잡지 못해 자막은 화면 자막과 장면을 기준으로 만들었습니다. 괄호 안 자막은 대사가 아니라 장면 설명입니다.</li>
+</ul>
+
+<footer>커넥팅 협업 후보 계정 분석 · @ian.black_ · @mr._.0503 · @mengqi.4454 · @hl_yuan · 2026-09-17 · 영상 저작권은 원작자에게 있으며 내부 검토용으로만 씁니다.</footer>
+</div>
+</body>
+</html>
