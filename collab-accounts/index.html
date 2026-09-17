@@ -31,6 +31,13 @@ table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
 th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
 th{background:var(--bg2);font-weight:600}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;margin:14px 0;background:var(--card)}
+.cardtitle{margin:0 0 8px;padding:0;border:0;font-size:20px}
+.cardtitle span{font-weight:400;color:var(--fg2);font-size:14px;margin-left:8px}
+table.kv{font-size:14.5px;margin:6px 0}
+table.kv th{width:120px;background:var(--bg2);font-weight:600;white-space:nowrap}
+table.kv td.num{text-align:left;width:150px}
+table.kv small{color:var(--fg2)}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
 .stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
 .stat .l{font-size:13px;color:var(--fg2)}
@@ -63,24 +70,126 @@ a{color:inherit}
   <div class="sub">분석일 2026-09-17 · <a href="#acct1">① 黑哥IAN @ian.black_</a> · <a href="#acct2">② 玉米 @mr._.0503</a> · <a href="#acct3">③ 陳孟祺 @mengqi.4454</a> · <a href="#acct4">④ Ally @hl_yuan</a> · <a href="#acct5">⑤ Seas @_seas11</a> · <a href="#acct6">⑥ Eli @eli_o528</a> · <a href="#acct7">⑦ 小孟 @mxuannc</a> · <a href="#hold">보류 @0960kim0960</a></div>
 </header>
 
-<h2>일곱 계정 한눈에</h2>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:150px"></th><th>① @ian.black_ (黑哥IAN)</th><th>② @mr._.0503 (玉米)</th><th>③ @mengqi.4454 (陳孟祺)</th><th>④ @hl_yuan (Ally)</th><th>⑤ @_seas11 (Seas)</th><th>⑥ @eli_o528 (Eli)</th><th>⑦ @mxuannc (小孟)</th></tr>
-<tr><td>팔로워</td><td class="num">5.8만</td><td class="num">7,227</td><td class="num">1.5만</td><td class="num">38.8만</td><td class="num">5.1만</td><td class="num">34.2만</td><td class="num">3만</td></tr>
-<tr><td>제안 가격</td><td class="num">800,000원</td><td class="num">341,030원</td><td class="num">606,183원</td><td class="num">3,000,000원</td><td class="num">950,000원</td><td class="num">870,000원</td><td class="num">341,030원</td></tr>
-<tr><td>조회수 최저 / 중간 / 최고</td><td class="num">3만 / 15만 / 40만</td><td class="num">4,000 / 4만 / 20만</td><td class="num">2만 / 10만 / 30만</td><td class="num">15만 / 35만 / 100만</td><td class="num">3만 / 8만 / 20만</td><td class="num">4만 / 9만 / 30만</td><td class="num">2만 / 4만 / 20만</td></tr>
-<tr><td>CPV 최저 / 중간 / 최고</td><td class="num">26.7 / 5.3 / 2.0원</td><td class="num">85.3 / 8.5 / 1.7원</td><td class="num">30.3 / 6.1 / 2.0원</td><td class="num">20.0 / 8.6 / 3.0원</td><td class="num">31.7 / 11.9 / 4.8원</td><td class="num">21.8 / 9.7 / 2.9원</td><td class="num">17.1 / 8.5 / 1.7원</td></tr>
-<tr><td>공유당 비용</td><td class="num">400원 (공유 약 2,000)</td><td class="num">6,821원 (공유 약 50)</td><td class="num">3,031원 (공유 약 200)</td><td class="num">10,000원 (공유 약 300)</td><td class="num">9,500원 (공유 약 100, 편차 큼)</td><td class="num">21,750원 (공유 약 40)</td><td class="num">1,705원 (공유 약 200)</td></tr>
-<tr><td>타겟 지역</td><td>대만 63.9% · 번체 64.3%</td><td>대만 73.5% · 홍콩·중국 4.9% · 싱가포르 2.9%</td><td>타겟층 56.2% · 중국어 번체 100%</td><td>대만 53.7%</td><td>대만 54.2% · 한국 18% · 번체 100%</td><td>대만 78% · 번체 76.3% · 간체 20.4%</td><td>대만 88.5% · 번체 95.3%</td></tr>
-<tr><td>콘텐츠</td><td>학창시절 공감 밈 개그, 1인 다역 합성</td><td>치아미백·뷰티·패션·온라인 쇼핑·외모 관리 후기</td><td>학생(도쿄 어학교) 일상·연애·만화 썰 토크. 만화 소재가 조회수 잘 나옴</td><td>외부 촬영. 한국식 메이크업·뷰티, 한국에서 춤, 한국 브랜드, 챌린지·POV, 대만 여행</td><td>한국 생활 2년차. 한국 생활·여행·패션·뷰티·팬 활동, 한국 취업 정보</td><td>치어리더 출신 연예인. 여행·미식, 뷰티, 일상, 스포츠, 해외 여행</td><td>대만대 심리학 졸업. 심리학 이론 설명, 배구, 대학 생활, 여행</td></tr>
-<tr><td>업로드</td><td>평균 3일 간격, 토요일 성과 최고</td><td>주기적이지 않음</td><td><span class="warn">빈도 낮음</span>, 최근 게시물 3주 전. 화요일 콘텐츠 반응 최고</td><td>최근 게시물 2일 전. 현재 밴쿠버 체류</td><td>최근 게시물 10일 전</td><td>주 2편 꾸준. 월요일 반응 최고. 최근 게시물 3주 전</td><td>하루 1편. 일요일 반응 최고. 팔로워 증가 추세</td></tr>
-<tr><td>유사 앱 광고 이력</td><td>없음 (공동구매 경험 있음)</td><td><span class="ok">있음</span> 他TA星球 음성 채팅, Ping 데이팅 앱</td><td><span class="ok">있음</span> Floze AI 채팅 앱(93.9만), WINNING+ 온라인 영어(5.6만)</td><td>앱 광고 없음. 맥도날드 챌린지, newmix 매장, 유학원 등 브랜드 협업 다수</td><td>앱 광고 없음. 공동구매·지도 판매</td><td>앱 광고 없음. 장소·뷰티·음료 광고 다수</td><td>앱 광고 없음. 시리즈 안에 데오 스프레이 공구 삽입</td></tr>
-<tr><td>핏 맞는 커넥팅 성공사례</td><td>gentle_ph 남사친 POV 편 (조회 45.9만)</td><td>ryu_rai73 청혼 편 (조회 42.0만)</td><td>ryu_rai73 청혼 편 · momoonaaa 한국 남자 통화 편 (조회 85.4만, 1위)</td><td>담당자 지정 없음. 본인 편 "한국 가이드 첫 만남 POV"(영상 11)가 기획 출발점</td><td>momoonaaa 한국 남자 통화 편 (가능)</td><td>담당자 지정 없음</td><td>담당자 지정 없음</td></tr>
-<tr><td>판정</td><td class="ok">개그 상황극 협업에 적합</td><td class="ok">후기형 앱 광고에 적합, 단 조회 편차 큼</td><td class="ok">외국어 소재 썰 토크에 적합, 단 업로드 빈도 낮음</td><td class="ok">기획안 제시 후 본인이 주제 선택. 실측 조회는 담당자 최저값 미만</td><td class="ok">시청자 적합도 최고, 도달은 작음</td><td class="ok">여행 브이로그형 협업 가능, 공유는 약함</td><td class="ok">설명형 시리즈에 광고 삽입, 실측과 담당자 값 일치</td></tr>
-</table></div>
-<div class="callout">
-<p><strong>중간값 기준 CPV는 ① 5.3원 · ③ 6.1원 · ② 8.5원 · ⑦ 8.5원 · ④ 8.6원 · ⑥ 9.7원 · ⑤ 11.9원 순입니다.</strong> 보류한 0960kim0960 은 4.4원입니다.</p>
-<p>도달은 ④ hl_yuan(38.8만)과 ⑥ eli_o528(34.2만)이 크지만 ④는 실측 조회가 담당자 최저값보다 낮고 ⑥은 공유가 약합니다. 커넥팅 소재 적합도는 ③ mengqi.4454(외국어 막힘 광고 경험)와 ⑤ _seas11(한국 거주, 한국 시청자 18%)이 가장 높습니다. 앱 광고 경험은 ② mr._.0503(음성 채팅·데이팅)과 ③ mengqi.4454(AI 채팅·영어 학원)에 있습니다. ⑦ mxuannc 는 담당자 값과 실측이 일치하고 공유 효율이 좋은 저단가 설명형 계정입니다. ①은 도달·공유 모두 가장 큰 개그 계정입니다.</p>
+<h2>일곱 계정 요약</h2>
+<p class="meta">계정마다 같은 항목으로 정리했습니다. CPV 와 공유당 비용은 낮을수록 좋습니다. 조회수·공유는 담당자 제공값입니다.</p>
+
+<div class="card">
+<h3 class="cardtitle">① ian.black_ <span>黑哥IAN · 팔로워 5.8만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">800,000원</td><th>공유당 비용</th><td class="num">400원 <small>(공유 2,000)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">3만</td><th>CPV 최저</th><td class="num">26.7원</td></tr>
+<tr><th>조회수 중간</th><td class="num">15만</td><th>CPV 중간</th><td class="num"><strong>5.3원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">40만</td><th>CPV 최고</th><td class="num">2.0원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">학창시절 공감 밈 개그, 1인 다역 합성</td></tr>
+<tr><th>업로드</th><td colspan="3">평균 3일 간격 · 토요일 성과 최고 · 최근 4일 전</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (공동구매 경험)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/reels/Da4vPzAPA30/" target="_blank" rel="noopener">gentle_ph 남사친 POV 편</a> (조회 45.9만)</td></tr>
+</table>
+<p class="meta"><a href="#acct1">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">② mr._.0503 <span>玉米 · 팔로워 7,227</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">341,030원</td><th>공유당 비용</th><td class="num">6,821원 <small>(공유 50)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">4,000</td><th>CPV 최저</th><td class="num">85.3원</td></tr>
+<tr><th>조회수 중간</th><td class="num">4만</td><th>CPV 중간</th><td class="num"><strong>8.5원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">1.7원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">치아미백 · 뷰티 · 패션 · 온라인 쇼핑 · 외모 관리 후기 (최근 게시물은 최저값 쪽이 많음)</td></tr>
+<tr><th>업로드</th><td colspan="3">주기적이지 않음</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3"><span class="ok">있음</span> · <a href="https://www.instagram.com/reel/DS35YaJCdHz/" target="_blank" rel="noopener">他TA星球 음성 채팅 앱</a> · <a href="https://www.instagram.com/reel/DcBDLUxyIvX/" target="_blank" rel="noopener">Ping 데이팅 앱</a> (32.6만)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">ryu_rai73 청혼 편</a> (조회 42.0만)</td></tr>
+</table>
+<p class="meta"><a href="#acct2">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">③ mengqi.4454 <span>陳孟祺 · 팔로워 1.5만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">606,183원</td><th>공유당 비용</th><td class="num">3,031원 <small>(공유 200)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">2만</td><th>CPV 최저</th><td class="num">30.3원</td></tr>
+<tr><th>조회수 중간</th><td class="num">10만</td><th>CPV 중간</th><td class="num"><strong>6.1원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">30만</td><th>CPV 최고</th><td class="num">2.0원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">일상 · 연애 · 만화 썰 토크 (도쿄 어학교 학생, 만화 소재가 조회수 잘 나옴)</td></tr>
+<tr><th>업로드</th><td colspan="3">빈도 낮음 · 최근 게시물 3주 전 · 화요일 반응 최고</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3"><span class="ok">있음</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DbIuw0TzaZe/" target="_blank" rel="noopener">Floze AI 채팅 앱</a> (93.9만) · <a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank" rel="noopener">WINNING+ 온라인 영어</a> (5.6만)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">ryu_rai73 청혼 편</a> · <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">momoonaaa 한국 남자 통화 편</a> (조회 85.4만) · MBTI나 만화 공통점을 찾아 대화</td></tr>
+</table>
+<p class="meta"><a href="#acct3">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">④ hl_yuan <span>黃琳媛 Ally · 팔로워 38.8만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">3,000,000원</td><th>공유당 비용</th><td class="num">10,000원 <small>(공유 300)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">15만</td><th>CPV 최저</th><td class="num">20.0원</td></tr>
+<tr><th>조회수 중간</th><td class="num">35만</td><th>CPV 중간</th><td class="num"><strong>8.6원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">100만</td><th>CPV 최고</th><td class="num">3.0원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">외부 촬영 다수 · 한국식 메이크업 · 뷰티 제품 · 한국에서 춤추기 · 한국 브랜드 · 챌린지 · POV · 대만 여행</td></tr>
+<tr><th>업로드</th><td colspan="3">최근 게시물 2일 전 · 현재 밴쿠버 체류</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (맥도날드 챌린지, newmix 매장, 유학원 등 브랜드 협업 다수)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음 · 본인 편 <a href="https://www.instagram.com/hl_yuan/reel/Dc0jQOWpY2E/" target="_blank" rel="noopener">한국 가이드 첫 만남 POV</a>가 기획 출발점 · 계정 개성이 커서 기획안을 보여주고 주제를 고르게</td></tr>
+</table>
+<p class="meta"><a href="#acct4">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">⑤ _seas11 <span>Seas 씨스 · 팔로워 5.1만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">950,000원</td><th>공유당 비용</th><td class="num">9,500원 <small>(공유 100, 편차 큼)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">3만</td><th>CPV 최저</th><td class="num">31.7원</td></tr>
+<tr><th>조회수 중간</th><td class="num">8만</td><th>CPV 중간</th><td class="num"><strong>11.9원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">4.8원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">한국 생활 2년차 · 한국 생활 28% · 한국 여행 22% · 한국 패션 18% · 한국 뷰티 15% · 팬 활동 · 한국 취업 정보 (시청자 한국 18%)</td></tr>
+<tr><th>업로드</th><td colspan="3">최근 게시물 10일 전</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (공동구매 · 지도 판매) · 커넥팅 관련 편 <a href="https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/" target="_blank" rel="noopener">한국 취업·비자 가이드</a> (댓글 1,899)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">momoonaaa 한국 남자 통화 편</a> (가능)</td></tr>
+</table>
+<p class="meta"><a href="#acct5">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">⑥ eli_o528 <span>倪暄 Eli · 팔로워 34.2만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">870,000원</td><th>공유당 비용</th><td class="num">21,750원 <small>(공유 40)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">4만</td><th>CPV 최저</th><td class="num">21.8원</td></tr>
+<tr><th>조회수 보통</th><td class="num">9만</td><th>CPV 보통</th><td class="num"><strong>9.7원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">30만</td><th>CPV 최고</th><td class="num">2.9원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">대만 프로야구 치어리더 출신 연예인 · 여행·미식 28% · 뷰티 22% · 일상 19% · 스포츠 17% · 해외 여행 · 음악 활동 · 대만 콘서트·일본 해시태그</td></tr>
+<tr><th>업로드</th><td colspan="3">주 2편 꾸준 · 월요일 반응 최고 · 최근 게시물 3주 전</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (장소 · 뷰티 · 음료 · 여성 청결제 광고 다수)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음</td></tr>
+</table>
+<p class="meta"><a href="#acct6">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card">
+<h3 class="cardtitle">⑦ mxuannc <span>小孟 · 팔로워 3만</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">341,030원</td><th>공유당 비용</th><td class="num">1,705원 <small>(공유 200)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">2만</td><th>CPV 최저</th><td class="num">17.1원</td></tr>
+<tr><th>조회수 중간</th><td class="num">4만</td><th>CPV 중간</th><td class="num"><strong>8.5원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">1.7원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">대만대 심리학 졸업 · 심리학 이론 30% · 배구 22% · 대학 생활 18% · 여행 16% · 자기 계발 · 앉아서 설명하는데 평균 조회가 일정</td></tr>
+<tr><th>업로드</th><td colspan="3">하루 1편 · 일요일 반응 최고 · 팔로워 증가 추세</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (시리즈 안에 <a href="https://www.instagram.com/mxuannc/reel/DdMOPVIEqnL/" target="_blank" rel="noopener">데오 스프레이 공구</a> 삽입)</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음</td></tr>
+</table>
+<p class="meta"><a href="#acct7">자세히 보기 ↓</a></p>
+</div>
+
+<div class="card" style="opacity:.75">
+<h3 class="cardtitle">보류 · 0960kim0960 <span>다음 기회로</span></h3>
+<table class="kv">
+<tr><th>제안 가격</th><td class="num">875,000원</td><th>공유당 비용</th><td class="num">8,750원 <small>(농구 제외 토크·일상 기준 100)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">8만</td><th>CPV 최저</th><td class="num">10.9원</td></tr>
+<tr><th>조회수 중간</th><td class="num">20만</td><th>CPV 중간</th><td class="num"><strong>4.4원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">70만</td><th>CPV 최고</th><td class="num">1.2원</td></tr>
+<tr><th>콘텐츠</th><td colspan="3">농구 · 피아노 · 운동 · 음악 주력 · 일상 · 대학 생활 · 한국 콘텐츠(피부과 시술, 롯데타워 피아노, 한국 여행 코디) · 대만 오디언스 53.7% · 9/13부터 팔로워 증가</td></tr>
+<tr><th>업로드</th><td colspan="3">—</td></tr>
+<tr><th>유사 앱 광고 이력</th><td colspan="3">—</td></tr>
+<tr><th>핏 맞는 성공사례</th><td colspan="3">— (계정은 좋지만 핏이 딱 맞지 않아 다음 기회로)</td></tr>
+</table>
 </div>
 
 <h2 id="acct1">① 黑哥IAN <span style="font-weight:400;color:var(--fg2)">@ian.black_</span></h2>
