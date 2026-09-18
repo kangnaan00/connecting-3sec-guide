@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>커넥팅 협업 계정 예상 성과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F2F5F5; --surface:#FFFFFF; --ink:#15212B; --ink2:#44535E; --muted:#6B7A84;
+  --line:#D8DFE2; --accent:#0B6B78; --accent-soft:#DCEEF0; --bar:#0B6B78; --bar-track:#E4EAEC;
+  --warn:#8A5A00; --warn-soft:#FBF0D9; --bad:#A33A2A; --good:#1F6F4A;
+}
+@media (prefers-color-scheme: dark){
+  :root{
+    --ground:#0F151A; --surface:#182129; --ink:#E7EDF0; --ink2:#B5C2CA; --muted:#8797A1;
+    --line:#2B3740; --accent:#5CC0CC; --accent-soft:#173439; --bar:#5CC0CC; --bar-track:#25313A;
+    --warn:#E8B95A; --warn-soft:#33290F; --bad:#F08A78; --good:#6FCB9B;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:"IBM Plex Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:32px 64px}
+.wrap{max-width:1040px;margin-inline:auto;display:flex;flex-direction:column;gap:40px}
+.num{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1{font-size:28px;line-height:1.3;font-weight:700;margin:0;text-wrap:balance}
+h2{font-size:20px;font-weight:700;margin:0;text-wrap:balance}
+h3{font-size:17px;font-weight:700;margin:0}
+h4{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--muted);margin:0}
+p{margin:0}
+a{color:var(--accent)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--accent);font-weight:600}
+header{display:flex;flex-direction:column;gap:10px}
+header p{color:var(--ink2);max-width:68ch}
+.meta{font-size:13px;color:var(--muted)}
+section{display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:20px}
+.scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th{font-size:12px;font-weight:600;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td.r,th.r{text-align:right;white-space:nowrap}
+.sum td{vertical-align:middle}
+.sum tr.grp td{font-size:12px;font-weight:700;color:var(--accent);background:var(--accent-soft);padding:5px 10px;border-bottom:0}
+.sum td.how{font-size:13px;color:var(--ink2);min-width:240px}
+.sum tr.total td{border-top:2px solid var(--ink);font-weight:600}
+.handle{font-weight:600;white-space:nowrap}
+.cat{display:inline-block;font-size:12px;padding:1px 8px;border-radius:99px;background:var(--accent-soft);color:var(--ink);white-space:nowrap}
+.range{position:relative;height:22px;min-width:220px}
+.range .track{position:absolute;left:0;right:0;top:10px;height:2px;background:var(--bar-track)}
+.range .tick{position:absolute;top:5px;width:1px;height:12px;background:var(--line)}
+.range .span{position:absolute;top:8px;height:6px;border-radius:3px;background:var(--bar);opacity:.35}
+.range .mid{position:absolute;top:4px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--bar);border:2px solid var(--surface)}
+.axis{position:relative;height:16px;min-width:220px;font-size:11px;color:var(--muted)}
+.axis span{position:absolute;transform:translateX(-50%);white-space:nowrap}
+.axis span:first-child{transform:none}.axis span:last-child{transform:translateX(-100%)}
+ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:4px}
+.caution{background:var(--warn-soft);border-radius:10px;padding:16px 20px;display:flex;flex-direction:column;gap:6px}
+.caution h4{color:var(--warn)}
+.caution li{font-size:14px}
+.cathead{display:flex;flex-direction:column;gap:4px;border-top:2px solid var(--ink);padding-top:14px}
+.cathead p{color:var(--ink2);font-size:14px;max-width:75ch}
+.acct{display:flex;flex-direction:column;gap:18px}
+.acct-top{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline}
+.acct-top a{font-size:13px}
+.figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:12px;border-block:1px solid var(--line);padding-block:14px}
+.fig{display:flex;flex-direction:column;gap:2px}
+.fig .v{font-size:22px;font-weight:600;line-height:1.2}
+.fig.mid .v{color:var(--accent)}
+.block{display:flex;flex-direction:column;gap:6px}
+.block p,.block li{font-size:14px;color:var(--ink2);max-width:80ch}
+.ref td:first-child{min-width:220px}
+.ref .t{font-weight:600}
+.ref .d{color:var(--ink2);font-size:13px;margin-top:3px;max-width:56ch}
+.tag{display:inline-block;font-size:11px;font-weight:600;padding:0 6px;border-radius:4px;border:1px solid var(--muted);color:var(--muted);margin-right:6px;white-space:nowrap}
+.tag.low{border-color:var(--bad);color:var(--bad)}
+.tag.high{border-color:var(--good);color:var(--good)}
+.tag.kr{border-color:var(--accent);color:var(--accent)}
+.na{color:var(--muted)}
+.hold{display:flex;flex-direction:column;gap:6px}
+footer{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">커넥팅 · 대만 협업 후보</div>
+  <h1>계정별 카테고리 · 예상 조회수 · 예상 공유수 · 레퍼런스</h1>
+</header>
+
+<section>
+  <h2>카테고리별 한눈에 보기</h2>
+  <div class="panel scroll">
+    <table class="sum">
+      <thead><tr><th>계정</th><th class="r">최저</th><th class="r">중간</th><th class="r">최고</th><th class="r">공유</th><th>커넥팅 레퍼런스 · 어떻게 쓸지</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="6">상황극 개그 연기</td></tr>
+        <tr><td class="handle">@ian.black_</td><td class="r num">2만</td><td class="r num"><b>6만</b></td><td class="r num">20만</td><td class="r num">300</td><td class="how"><a href="https://www.instagram.com/reels/Da4vPzAPA30/">reels/Da4vPzAPA30</a><br>같은 상황극 개그형 콘텐츠</td></tr>
+        <tr class="grp"><td colspan="6">제품 리뷰</td></tr>
+        <tr><td class="handle">@mr._.0503</td><td class="r num">3,000</td><td class="r num"><b>3만</b></td><td class="r num">10만</td><td class="r num">20</td><td class="how"><a href="https://www.instagram.com/p/DcS1LOJolBH/">p/DcS1LOJolBH</a><br>화장하면서 약속 잡기 → 가능하면 밥 먹는 장면 → "외국인 친구를 사귀고 싶으면 이 어플을 써 보세요"</td></tr>
+        <tr class="grp"><td colspan="6">오프라인 리뷰 계정</td></tr>
+        <tr><td class="handle">@hl_yuan</td><td class="r num">4만</td><td class="r num"><b>10만</b></td><td class="r num">20만</td><td class="r num">150</td><td class="how"><a href="https://www.instagram.com/reels/DbailzePvn4/">reels/DbailzePvn4</a><br>한국 교과서 말투 vs 실제 말투</td></tr>
+        <tr class="grp"><td colspan="6">한국 사는 대만인 · 일상 브이로그</td></tr>
+        <tr><td class="handle">@_seas11</td><td class="r num">2만</td><td class="r num"><b>5만</b></td><td class="r num">30만</td><td class="r num">50</td><td class="how"><a href="https://www.instagram.com/reels/DaP3GRKBc91/">reels/DaP3GRKBc91</a><br>통화 도중 한국어로 자연스럽게 바꿔 말하기 — 가능한 유일한 계정</td></tr>
+        <tr class="grp"><td colspan="6">치어리더 · 인플루언서</td></tr>
+        <tr><td class="handle">@eli_o528</td><td class="r num">5만</td><td class="r num"><b>10만</b></td><td class="r num">20만</td><td class="r num">100</td><td class="how"><a href="https://www.instagram.com/p/DcS1LOJolBH/">p/DcS1LOJolBH</a><br>한국·대만 공통사(아이돌 등), 한국인 남자에 대한 판타지</td></tr>
+        <tr class="grp"><td colspan="6">뮤지션 아티스트</td></tr>
+        <tr><td class="handle">@0960kim0960</td><td class="r num">6만</td><td class="r num"><b>10만</b></td><td class="r num">17만</td><td class="r num">200</td><td class="how">한국 방문 이력을 살려 테스트</td></tr>
+        <tr class="grp"><td colspan="6">심리학 · 공감</td></tr>
+        <tr><td class="handle">@mxuannc</td><td class="r num">2만</td><td class="r num"><b>4만</b></td><td class="r num">20만</td><td class="r num">100</td><td class="how"><a href="https://www.instagram.com/reels/DcTLwAZlb-H/">reels/DcTLwAZlb-H</a><br>심리학 이론을 근거로 "같은 국적이 아니어도 진심으로 통하는 사람을 만날 수 있다"</td></tr>
+        <tr class="grp"><td colspan="6">불가</td></tr>
+        <tr><td class="handle">@mengqi.4454</td><td colspan="5" class="na">10월 중순부터 업로드 가능</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>상황극 개그 연기</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@ian.black_</h3><a href="https://www.instagram.com/ian.black_/reels/">instagram.com/ian.black_/reels</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">2만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">6만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">20만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">300</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <p>상황극 연기가 주제인데, 오버하는 표정들로 장난스럽게 이어가는 게 계정 특징입니다. 커넥팅 잘된 레퍼런스 <a href="https://www.instagram.com/reels/Da4vPzAPA30/">instagram.com/reels/Da4vPzAPA30</a> 같은 상황극 개그형 콘텐츠가 잘 맞습니다.</p>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>유사 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><span class="tag low">최저 · 망한 케이스</span><a href="https://www.instagram.com/reel/DYJy-56zwsc/">할인 구독 플랫폼</a></div><div class="d">학교 과제를 "90% AI로 쓴 거지?" 선생님과 대화하는 장면 → 사실 100% AI가 썼다 → 나랑 AI가 노력해서 썼는데, 내 AI는 정가 구독이 아니라 Flixseek에서 (할인가로) 구독해서 썼다 → 마지막 소구로 넷플릭스·디즈니·AI 전부 구독이 다 있다.</div></td><td class="r num">2.8만</td><td class="r num">1,169</td><td class="r num">3</td><td class="r num">24</td><td class="r num">93</td></tr>
+          <tr><td><div class="t"><span class="tag">중간</span><a href="https://www.instagram.com/reels/Db29XNvToqM/">게임 광고</a></div><div class="d">"의사 선생님, 애 좀 살려 주세요" 하며 이름이 뭔지 묻자 퉁퉁퉁사우르 등 캐릭터 이름이 나옴 → 오늘이 며칠인지, 좋아하는 아이돌이 있는지에 대해 장난스러운 밈을 사용 → 아이의 유일한 치료법은 배그에서 새롭게 출시한 모바일 게임에서 훔치기·쏘기 등과 같은 게임을 하는 것 → 소구점: 지금 바로 모바일 접속해서 이 게임 앱을 써 봐라.</div></td><td class="r num">6.5만</td><td class="r num">4,212</td><td class="r num">39</td><td class="r num">229</td><td class="r num">1,633</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>제품 리뷰</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@mr._.0503</h3><a href="https://www.instagram.com/mr._.0503/reels/">instagram.com/mr._.0503/reels</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">3,000</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">3만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">10만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">20</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <p>리뷰 위주 계정이라 커넥팅 잘한 케이스 <a href="https://www.instagram.com/p/DcS1LOJolBH/">instagram.com/p/DcS1LOJolBH</a> 처럼, 화장을 하면서 약속을 잡고 <a href="https://www.instagram.com/reels/DcBDLUxyIvX/">instagram.com/reels/DcBDLUxyIvX</a> 레퍼런스처럼 가능하면 밥 먹는 장면 → "외국인 친구를 사귀고 싶으면 이 어플을 써 보세요"로 풀어가면 좋을 것 같습니다.</p>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>유사 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><span class="tag low">최저 · 망한 케이스</span><a href="https://www.instagram.com/reels/DcQ-YX8JLpk/">Litmatch (익명 음성 채팅 앱) 광고</a></div><div class="d">"새벽 3시에 애니 보고 울었는데 얘기할 사람이 없다." 헌터×헌터 보고 울었다, 누구랑 얘기하고 싶은데 얘기할 사람이 없는데 Litmatch를 발견했다 → 밤에 안 자는 사람들과 통화로 누가 곁에 있어 주는 느낌, 힐링됨, 쇼츠보다 재밌다 → 저 같은 사람은 이 어플 다운받아라.</div></td><td class="r num">3,340</td><td class="r num">128</td><td class="r num">5</td><td class="r num">3</td><td class="r num">2</td></tr>
+          <tr><td><div class="t"><span class="tag high">최고 · 잘된 케이스</span><a href="https://www.instagram.com/reels/DcBDLUxyIvX/">Ping!</a></div><div class="d">친구가 갑자기 약속을 파토 냄 → Ping!으로 모르는 사람과 약속 잡음 → 핑 어플은 실제 인물 인증이 있음 → 실물과 다르면 어쩌지 → 실물과 똑같이 생김 → 밥 먹는 장면 → 새 친구 사귀고 싶다면 이 어플 써 보세요.</div></td><td class="r num">56.5만</td><td class="r num">2,329</td><td class="r num">12</td><td class="r num">4</td><td class="r num">104</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>오프라인 리뷰 계정</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@hl_yuan</h3><a href="https://www.instagram.com/hl_yuan/">instagram.com/hl_yuan</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">4만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">10만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">20만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">150</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <p>평균 뷰수와 공유 등이 잘 나오는 계정입니다. 한국 제품 위주의 광고 레퍼런스가 많습니다. 커넥팅 잘된 케이스 중 <a href="https://www.instagram.com/reels/DbailzePvn4/">instagram.com/reels/DbailzePvn4</a> 처럼, 얼굴이 예쁘고 말을 센스 있게 잘하는 편이라 해당 레퍼런스로 "한국 교과서 말투 vs 실제 말투"로 접근하면 좋을 것 같습니다.</p>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>인플루언서 참고 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><a href="https://www.instagram.com/reel/DBQ2DovKVlW/">인터뷰 릴스</a></div><div class="d">학교에 추천하고 싶은 미녀가 있는지 인터뷰하는 영상.</div></td><td class="r num">573만</td><td class="r num">19.5만</td><td class="r num">1,971</td><td class="r num">324</td><td class="r num">2.6만</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>한국 사는 대만인 · 일상 브이로그</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@_seas11</h3><a href="https://www.instagram.com/_seas11/reels/">instagram.com/_seas11/reels</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">2만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">5만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">30만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">50</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <ul>
+        <li>한국어와 대만어가 가능한 계정이기 때문에, 커넥팅 잘된 사례 중 <a href="https://www.instagram.com/reels/DaP3GRKBc91/">instagram.com/reels/DaP3GRKBc91</a> — 통화 도중 한국어로 자연스럽게 바꿔 말하고, 통역이 실시간으로 너무 잘돼서 몰랐다 — 이 레퍼런스가 가능한 유일한 계정 같습니다.</li>
+        <li>한국에 관심 있는 대만인들에게 정보를 주는 계정입니다. 특히 한국 K-POP 문화·덕질 등을 소구하고, CTA는 "덕질하는 친구에게 공유해 주세요".</li>
+        <li>한국인 친구를 사귈 수 있다, 한국 여행 방문 시 만날 수 있다 등을 소구해야 할 것 같습니다.</li>
+      </ul>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>한국 관련 참고 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><a href="https://www.instagram.com/reels/DJWi71IyvMB/">WOWPASS (외국인용 선불·환전 카드) 광고</a></div><div class="d">덕질 10년 이상 된 한국 유학생으로서 이 카드가 있으면 편하다 → 한국 사이트에서 굿즈 사고 싶거나 네일 예약금 계좌이체가 필요한 상황 등 상황 예시 → 이걸 쓰면 편한데 할인 코드가 있어서 캐시백도 된다 → CTA: 덕질하는 친구에게 공유해 주세요.</div></td><td class="r num">23만</td><td class="r num">1.4만</td><td class="r num">249</td><td class="r num">74</td><td class="r num">4,174</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>치어리더 · 인플루언서</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@eli_o528</h3><a href="https://www.instagram.com/eli_o528/reels/">instagram.com/eli_o528/reels</a><span class="meta">9월 업로드 없음</span></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">5만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">10만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">20만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">100</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <p>한국 방문 이력이 있고 한국 관련 광고 2건 확인(한국 짐 배송 서비스, 한국 입술 반영구 리뷰)으로, 한국인과 통화하는 영상이 가능합니다. 커넥팅 성공 케이스 <a href="https://www.instagram.com/p/DcS1LOJolBH/">instagram.com/p/DcS1LOJolBH</a> 처럼 한국과 대만의 공통사(아이돌 등)와 한국인 남자에 대한 판타지 등이 잘 먹힐 것 같습니다.</p>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>한국 관련 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><a href="https://www.instagram.com/reel/DZNAP4vOz4U/">한국 짐 서비스</a></div><div class="d">한국에만 오면 이 꼴이 된다(양손 짐 많음) → 한국에서 대만으로 서비스가 있고 → 누군가 만나서 짐 부치는 장면 → 가격 소구와 함께 엄청 싸다 → 이 영상을 본 분들께 서비스 줄 수 있냐 물으며 할인 소구 → 온몸이 홀가분하다로 마무리.</div></td><td class="r num">60.6만</td><td class="r num">1.7만</td><td class="r num">5,866</td><td class="r num">497</td><td class="r num">1.1만</td></tr>
+          <tr><td><div class="t"><a href="https://www.instagram.com/reel/DZES3cjukv2/">한국 반영구</a></div><div class="d">그대로 잠들어 버렸는데 일어나 보니 한국 걸그룹이 되어 있었다 → 청담에 있는 숨은 스타 메이크업실, K-POP 업계 최정상 아티스트다 → 한국 오시면 이 일정을 꼭 넣으세요.</div></td><td class="r num">8.6만</td><td class="r num">3,027</td><td class="r num">97</td><td class="r num">13</td><td class="r num">92</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>뮤지션 아티스트</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@0960kim0960</h3><a href="https://www.instagram.com/0960kim0960/reels/">instagram.com/0960kim0960/reels</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">6만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">10만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">17만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">200</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <ul>
+        <li>한국 방문 이력 확인: <a href="https://www.instagram.com/reel/DcsLyU-R-yz/">롯데타워에서 피아노 연주</a>, <a href="https://www.instagram.com/reel/DbnTN-0R-en/">명동 꿀타래 가게 방문</a>.</li>
+        <li>브이로그를 통해 앉아서 제품 소개를 주로 합니다.</li>
+        <li>평균 뷰수가 좋고 한국 방문 이력 등을 살려 테스트해 볼 만한 계정입니다.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>심리학 · 공감</h2></div>
+  <div class="panel acct">
+    <div class="acct-top"><h3>@mxuannc</h3><a href="https://www.instagram.com/mxuannc/reels/">instagram.com/mxuannc/reels</a></div>
+    <div class="figs">
+      <div class="fig"><h4>최저</h4><span class="v num">2만</span></div>
+      <div class="fig mid"><h4>중간</h4><span class="v num">4만</span></div>
+      <div class="fig"><h4>최고</h4><span class="v num">20만</span></div>
+      <div class="fig"><h4>공유</h4><span class="v num">100</span></div>
+    </div>
+    <div class="block">
+      <h4>커넥팅 레퍼런스 · 어떻게 쓸지</h4>
+      <p>심리학 전공 전문 지식을 바탕으로 <a href="https://www.instagram.com/reels/DcTLwAZlb-H/">instagram.com/reels/DcTLwAZlb-H</a> 에서 데이트 어플을 소구했습니다. 이 레퍼런스처럼 "낯선 사람과 사랑에 빠지게 해 준다" 등의 심리학적 이론을 근거로 들고, "같은 국적이 아니어도 진심으로 통하는 사람을 만날 수 있다"로 소구하면 좋을 듯합니다.</p>
+    </div>
+    <div class="scroll">
+      <table class="ref">
+        <thead><tr><th>유사 레퍼런스</th><th class="r">조회</th><th class="r">좋아요</th><th class="r">댓글</th><th class="r">리포스트</th><th class="r">공유</th></tr></thead>
+        <tbody>
+          <tr><td><div class="t"><a href="https://www.instagram.com/reels/DcTLwAZlb-H/">데이트 어플 (핑) 소구</a></div><div class="d">"낯선 사람과 사랑에 빠지게 해 준다는 36가지 질문 이론은 다들 들어 보셨을 거예요" → 심리학 이론을 바탕으로, 1997년 실제 심리학 연구다 → 일상에서 서로 곁에 있어도 충분한 사람도 있지만 깊은 대화가 나를 더 알게 되며 상대와 더 가까워진다 → 본인 소개와 함께 이런 사람을 설정해서 핑 어플에서 만날 수 있다 → 실물 인증이 있어 플랫폼에 가짜 계정이 없다 소구점 언급 → 맞는 사람을 핑에서 찾아봐라로 마무리.</div></td><td class="r num">349만</td><td class="r num">1.2만</td><td class="r num">25</td><td class="r num">62</td><td class="r num">4,842</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cathead"><h2>불가</h2></div>
+  <div class="panel hold">
+    <div class="acct-top"><h3>@mengqi.4454</h3><a href="https://www.instagram.com/reel/DbDkjyWzUWc/">instagram.com/reel/DbDkjyWzUWc</a></div>
+    <p>불가 사유: 10월 중순부터 업로드 가능</p>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
