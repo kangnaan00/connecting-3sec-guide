@@ -77,6 +77,13 @@ th{font-weight:700;color:var(--ink-2);background:var(--panel-2);font-size:12.5px
 td.k{width:120px;color:var(--ink-3);white-space:nowrap}
 .blank{display:inline-block;min-width:78px;border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700;text-align:center;padding-inline:4px}
 
+/* celeb examples */
+.celebs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media (max-width:560px){.celebs{grid-template-columns:repeat(2,1fr)}}
+.celebs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.celebs img{width:100%;max-width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2)}
+.celebs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
 /* tags */
 .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
 .tag.must{background:var(--blue);color:#fff}
@@ -161,8 +168,15 @@ li{margin-bottom:6px}
   <div class="tbl"><table>
     <tr><td class="k">문구</td><td><span class="vb"><b>(지점명) K-POP 아이돌 코디 맛집</b> — 예: "성수 K-POP 아이돌 코디 맛집"</span><span class="vf"><b>(지점명) K-POP 아이돌 가을 코디 맛집</b> — 예: "성수 K-POP 아이돌 가을 코디 맛집"</span></td></tr>
     <tr><td class="k">필수 화면</td><td>제일 잘 나온 마네킹 코디 또는 본인 착샷 1장 + 연예인 사진</td></tr>
+    <tr><td class="k">연예인 사진</td><td>현지에서 핫한 연예인 사진. <b>전신 코디가 보이는 사진</b>으로 고른다. 아래 예시 참고.</td></tr>
     <tr><td class="k">선택</td><td>영상 상단 고정 제목으로 <b>"500원으로 (지점명) 쇼핑?"</b> 을 그대로 써도 된다.</td></tr>
   </table></div>
+  <div class="celebs">
+    <figure><img src="celebs/celeb1.jpg" alt="연예인 전신 코디 예시 1" loading="lazy"><figcaption>전신 코디 · 자켓 + 스커트 셋업</figcaption></figure>
+    <figure><img src="celebs/celeb2.jpg" alt="연예인 전신 코디 예시 2" loading="lazy"><figcaption>전신 코디 · 톱 + 부츠컷 데님</figcaption></figure>
+    <figure><img src="celebs/celeb3.jpg" alt="연예인 코디 예시 3" loading="lazy"><figcaption>코르셋 블라우스 + 데님</figcaption></figure>
+    <figure><img src="celebs/celeb4.jpg" alt="연예인 코디 예시 4" loading="lazy"><figcaption>레이스 톱 거울 셀카</figcaption></figure>
+  </div>
 </section>
 
 <section>
