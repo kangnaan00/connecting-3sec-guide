@@ -43,9 +43,12 @@ a{color:var(--blue)}
 
 /* switch */
 .switch{display:flex;gap:8px;padding-top:18px;flex-wrap:wrap}
-.switch a{padding:8px 16px;border:1px solid var(--line);border-radius:999px;text-decoration:none;color:var(--ink-2);font-weight:700;font-size:13.5px;background:var(--panel)}
-.switch a.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.switch a:hover{border-color:var(--ink-3)}
+.switch button{padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:13.5px;background:var(--panel);font-family:inherit;cursor:pointer}
+.switch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.switch button:hover{border-color:var(--ink-3)}
+.vf{display:none}
+body.fw .vf{display:inline}
+body.fw .vb{display:none}
 
 /* header */
 .head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
@@ -145,11 +148,11 @@ li{margin-bottom:6px}
 
 <div class="wrap">
 
-<nav class="switch"><a class="on" href="./">기본 가이드</a><a href="fw/">FW 시즌 가이드</a></nav>
+<nav class="switch" aria-label="가이드 선택"><button type="button" id="btn-basic" class="on" data-mode="basic" aria-pressed="true">기본 가이드</button><button type="button" id="btn-fw" data-mode="fw" aria-pressed="false">FW 시즌 가이드</button></nav>
 
 <header class="head">
-  <div class="eyebrow">MPLAYGROUND · 인플루언서 릴스</div>
-  <h1>엠플레이그라운드 릴스 촬영 가이드<br>K-POP 코디</h1>
+  <div class="eyebrow">MPLAYGROUND · 인플루언서 릴스<span class="vf"> · FW 시즌</span></div>
+  <h1>엠플레이그라운드 릴스 촬영 가이드<br><span class="vb">K-POP 코디</span><span class="vf">가을 K-POP 코디</span></h1>
   <p class="lede">매장에서 아래 6개 장면을 순서대로 찍어 릴스 1편을 만듭니다. 장면마다 참고 영상이 옆에 붙어 있습니다. 파란 <span class="tag must">필수</span> 화면이 빠지면 재촬영 대상입니다.</p>
   <div class="meta">
     <span>작성일 <b>2026-09-22</b></span>
@@ -161,7 +164,7 @@ li{margin-bottom:6px}
 <section>
   <h2><span class="n">1</span>썸네일</h2>
   <div class="tbl"><table>
-    <tr><td class="k">문구</td><td><b>(지점명) K-POP 아이돌 코디 맛집</b> — 예: "성수 K-POP 아이돌 코디 맛집"</td></tr>
+    <tr><td class="k">문구</td><td><span class="vb"><b>(지점명) K-POP 아이돌 코디 맛집</b> — 예: "성수 K-POP 아이돌 코디 맛집"</span><span class="vf"><b>(지점명) K-POP 아이돌 가을 코디 맛집</b> — 예: "성수 K-POP 아이돌 가을 코디 맛집"</span></td></tr>
     <tr><td class="k">필수 화면</td><td>제일 잘 나온 마네킹 코디 또는 본인 착샷 1장 + 연예인 사진</td></tr>
     <tr><td class="k">선택</td><td>영상 상단 고정 제목으로 <b>"500원으로 (지점명) 쇼핑?"</b> 을 그대로 써도 된다.</td></tr>
   </table></div>
@@ -198,8 +201,8 @@ li{margin-bottom:6px}
           <p class="cap"><b class="mono">12.2–16.9초</b><br>"에겐부터 테토까지 인기 많은 옷들도 여기서는 인터넷보다 훨씬 저렴하게"</p>
         </div>
         <div class="rows">
-          <div class="line"><span class="q">멘트</span>"아이돌들도 여기 옷으로 코디하는데, 코디가 너무 예쁜데"</div>
-          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">예쁜 코디 <b>2~3개</b>. 손으로 들어 올리거나 마네킹 클로즈업.</span></div>
+          <div class="line"><span class="q">멘트</span>"아이돌들도 여기 옷으로 코디하는데, <span class="vf">가을 </span>코디가 너무 예쁜데"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><span class="vb">예쁜 코디 <b>2~3개</b>.</span><span class="vf">새로 나온 가을 옷 코디 + 가죽자켓 <b>2~3벌</b>.</span> 손으로 들어 올리거나 마네킹 클로즈업.</span></div>
           <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">연예인 사진과 같거나 비슷한 옷을 골라주세요.</span></div>
           <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">한 컷 1~1.5초. 옷 한 벌을 3초 넘게 잡지 않는다.</span></div>
         </div>
@@ -207,14 +210,14 @@ li{margin-bottom:6px}
     </article>
 
     <article class="scene" id="s3">
-      <div class="scene-h"><span class="num">장면 3</span><h3>가격</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-h"><span class="num">장면 3</span><h3>가격<span class="vf"> · 가을옷 · 가죽자켓</span></h3><span class="dur mono">3~4초</span></div>
       <div class="scene-b">
         <div class="clip">
           <video controls playsinline preload="metadata" poster="posters/seg5.jpg" src="videos/seg5.mp4"></video>
           <p class="cap"><b class="mono">16.9–20.6초</b><br>"2층에 가방도 9,900원, 선글라스에 반지, 목걸이, 모자까지"</p>
         </div>
         <div class="rows">
-          <div class="line"><span class="q">멘트</span>"500원부터 쇼핑 가능하고 쇼핑할 게 많다"</div>
+          <div class="line"><span class="q">멘트</span><span class="vb">"500원부터 쇼핑 가능하고 쇼핑할 게 많다"</span><span class="vf">"가을옷, 가죽자켓 <span class="blank">&nbsp;</span>만 원밖에 안 해요" (싸다는 점 강조)</span></div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">옷과 택에 달린 가격표를 <b>한 화면에</b> 같이. 가격표 글씨가 읽히는 거리에서.</span></div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">키링, 가방, 신발, 모자와 회전대의 <b>2,900원 · 5,900원 · 9,900원</b> 가격표 푯말.</span></div>
           <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">인터넷 가격과 비교 멘트 ("인터넷보다 훨씬 저렴").</span></div>
@@ -242,15 +245,15 @@ li{margin-bottom:6px}
     <article class="scene" id="s5">
       <div class="scene-h"><span class="num">장면 5</span><h3>피팅</h3><span class="dur mono">3~4초</span></div>
       <div class="scene-b">
-        <div class="clip none">
-          <div class="ph">레퍼런스에<br>피팅 장면 없음</div>
-          <p class="cap">이 장면은 가이드에서 새로 추가한 것입니다.</p>
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/fit.jpg" src="videos/fit.mp4"></video>
+          <p class="cap"><b class="mono">10.8–12.5초</b> · @seoul__log 릴스<br>"피팅도 가능해서, 다 입어볼 수 있어요"</p>
         </div>
         <div class="rows">
           <div class="line"><span class="q">멘트</span>"직접 입어볼 수도 있어요"</div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">착샷 거울 셀카 <b>2~3컷</b>.</span></div>
           <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">피팅룸 앞 컷.</span></div>
-          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">얼굴 노출 여부는 본인 계정 방침대로. 레퍼런스는 얼굴을 블러 또는 옷으로 가렸다.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">거울 앞 전신 착샷. 얼굴 노출 여부는 본인 계정 방침대로.</span></div>
         </div>
       </div>
     </article>
@@ -288,7 +291,7 @@ li{margin-bottom:6px}
   <ul class="check">
     <li><span class="box"></span>0초에 지점명 + 'K-POP 코디'가 자막이나 제목으로 보인다</li>
     <li><span class="box"></span>후킹은 A 또는 B 하나만 썼다</li>
-    <li><span class="box"></span>예쁜 코디 2~3개가 나온다</li>
+    <li><span class="box"></span><span class="vb">예쁜 코디 2~3개가 나온다</span><span class="vf">가을 옷·가죽자켓 코디 2~3벌이 나온다</span></li>
     <li><span class="box"></span>옷과 가격표가 한 화면에 잡힌 컷이 있다</li>
     <li><span class="box"></span>2,900 · 5,900 · 9,900원 가격 팻말 컷이 있다</li>
     <li><span class="box"></span>계단 컷이 없다</li>
@@ -299,7 +302,7 @@ li{margin-bottom:6px}
 
 <section>
   <h2><span class="n">5</span>참고 영상 · 자막 구간별</h2>
-  <p class="sub">레퍼런스 릴스를 나레이션 문장 단위로 6구간으로 잘랐습니다. 원본: <a href="https://www.instagram.com/reels/Damo9dyThtd/" target="_blank" rel="noopener">instagram.com/reels/Damo9dyThtd</a> (@hey_jihye__, 성수점, 2026-07-10 게시)</p>
+  <p class="sub">레퍼런스 릴스를 나레이션 문장 단위로 6구간으로 잘랐습니다. 원본: <a href="https://www.instagram.com/reels/Damo9dyThtd/" target="_blank" rel="noopener">instagram.com/reels/Damo9dyThtd</a> (@hey_jihye__, 성수점, 2026-07-10 게시). 피팅 장면은 <a href="https://www.instagram.com/reel/DakY_yjTC2x/" target="_blank" rel="noopener">@seoul__log 릴스</a>(2026-07-09 게시)에서 가져왔습니다.</p>
   <div class="refgrid">
     <figure><video controls playsinline preload="metadata" poster="posters/seg1.jpg" src="videos/seg1.mp4"></video><figcaption><span class="t mono">1 · 0.0–3.7초 · 후킹</span>성수 한복판에서 단돈 500원만 있어도 옷을 살 수 있다고?</figcaption></figure>
     <figure><video controls playsinline preload="metadata" poster="posters/seg2.jpg" src="videos/seg2.mp4"></video><figcaption><span class="t mono">2 · 3.7–9.7초 · 가격 근거</span>양말 헤어핀 500원, 키캡키링 2,900원, 반바지 5,900원부터. 이 정도면 옷가게의 다이소 아니에요?</figcaption></figure>
@@ -307,9 +310,25 @@ li{margin-bottom:6px}
     <figure><video controls playsinline preload="metadata" poster="posters/seg4.jpg" src="videos/seg4.mp4"></video><figcaption><span class="t mono">4 · 12.2–16.9초 · 품질</span>에겐부터 테토까지 인기 많은 옷들도 여기서는 인터넷보다 훨씬 저렴하게 살 수 있는 데다</figcaption></figure>
     <figure><video controls playsinline preload="metadata" poster="posters/seg5.jpg" src="videos/seg5.mp4"></video><figcaption><span class="t mono">5 · 16.9–20.6초 · 확장</span>2층에 가방도 9,900원, 선글라스에 반지, 목걸이, 모자까지</figcaption></figure>
     <figure><video controls playsinline preload="metadata" poster="posters/seg6.jpg" src="videos/seg6.mp4"></video><figcaption><span class="t mono">6 · 20.6–25.1초 · CTA</span>머리끝부터 발끝까지 코디도 하나하나 다 예뻐서 친구랑 꼭 가봐야겠는데요?</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/fit.jpg" src="videos/fit.mp4"></video><figcaption><span class="t mono">피팅 · @seoul__log · 10.8–12.5초</span>피팅도 가능해서, 다 입어볼 수 있어요</figcaption></figure>
   </div>
 </section>
 
 </div>
+<script>
+(function(){
+  var btns=document.querySelectorAll(".switch button");
+  function set(m,push){
+    document.body.classList.toggle("fw",m==="fw");
+    btns.forEach(function(b){var on=b.dataset.mode===m;b.classList.toggle("on",on);b.setAttribute("aria-pressed",on?"true":"false");});
+    try{localStorage.setItem("mpg-mode",m)}catch(e){}
+    if(push){try{history.replaceState(null,"",m==="fw"?"#fw":location.pathname+location.search)}catch(e){}}
+  }
+  btns.forEach(function(b){b.addEventListener("click",function(){set(b.dataset.mode,true)})});
+  var m="basic";
+  if(location.hash==="#fw")m="fw";else{try{if(localStorage.getItem("mpg-mode")==="fw")m="fw"}catch(e){}}
+  set(m,false);
+})();
+</script>
 </body>
 </html>
