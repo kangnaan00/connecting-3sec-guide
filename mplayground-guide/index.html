@@ -84,8 +84,8 @@ td.k{width:120px;color:var(--ink-3);white-space:nowrap}
 .scene-h .num{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
 .scene-h h3{font-size:17px;font-weight:900;flex:1 1 auto}
 .scene-h .dur{font-size:12.5px;color:var(--ink-3)}
-.scene-b{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 18px 18px}
-@media (max-width:520px){.scene-b{grid-template-columns:118px 1fr;gap:12px;padding:14px}}
+.scene-b{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:16px 18px 18px}
+@media (max-width:640px){.scene-b{grid-template-columns:1fr;gap:14px;padding:14px}.clip{max-width:260px}}
 .clip{display:flex;flex-direction:column;gap:6px}
 .clip video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;display:block}
 .clip .cap{font-size:11.5px;color:var(--ink-3);line-height:1.4}
@@ -182,7 +182,7 @@ li{margin-bottom:6px}
   <div class="scenes">
 
     <article class="scene" id="s1">
-      <div class="scene-h"><span class="num">장면 1</span><h3>후킹 · A / B 택1</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-h"><span class="num">장면 1</span><h3>후킹 · A / B 택1</h3></div>
       <div class="scene-b">
         <div class="clip">
           <video controls playsinline preload="metadata" poster="posters/seg1.jpg" src="videos/seg1.mp4"></video>
@@ -194,8 +194,7 @@ li{margin-bottom:6px}
             <div class="line"><span class="k">B</span>"(지점명) (역)에서 (분) 거리에 K-POP 코디 맛집 찾았어요"</div>
           </div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>A</b> 가장 잘 찍힌 마네킹 코디 또는 본인 착샷 2~3컷 + 연예인 사진<br><b>B</b> 역·출구·매장 입구 접근성 컷 1개 + 마네킹 코디 또는 본인 착샷 2~3컷 + 연예인 사진</span></div>
-          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">A와 B를 이어 쓰지 않는다. 첫 컷에 지점명과 'K-POP 코디' 단어가 자막이나 제목으로 <b>0초에</b> 보여야 한다. 소리 끄고 봐도 읽히게.</span></div>
-          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">레퍼런스는 3초 안에 컷을 5번 바꿨다. 옷 클로즈업 3컷 → 얼굴을 옷으로 가린 사람 2컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">A와 B 택1.</span></div>
         </div>
       </div>
     </article>
@@ -208,9 +207,9 @@ li{margin-bottom:6px}
           <p class="cap"><b class="mono">12.2–16.9초</b><br>"에겐부터 테토까지 인기 많은 옷들도 여기서는 인터넷보다 훨씬 저렴하게"</p>
         </div>
         <div class="rows">
-          <div class="line"><span class="q">멘트</span>"아이돌들도 여기 옷으로 코디하는데, 가을 코디가 너무 예쁜데"</div>
-          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">새로 나온 가을 옷 코디 + 가죽자켓 <b>2~3벌</b>. 손으로 들어 올리거나 마네킹 클로즈업.</span></div>
-          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">연예인 사진과 같은 계열 옷을 나란히 두면 '아이돌 코디' 주장이 화면으로 증명된다.</span></div>
+          <div class="line"><span class="q">멘트</span>"아이돌들도 여기 옷으로 코디하는데, 코디가 너무 예쁜데"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">예쁜 코디 <b>2~3개</b>. 손으로 들어 올리거나 마네킹 클로즈업.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">연예인 사진과 같거나 비슷한 옷을 골라주세요.</span></div>
           <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">한 컷 1~1.5초. 옷 한 벌을 3초 넘게 잡지 않는다.</span></div>
         </div>
       </div>
@@ -322,7 +321,7 @@ li{margin-bottom:6px}
   <ul class="check">
     <li><span class="box"></span>0초에 지점명 + 'K-POP 코디'가 자막이나 제목으로 보인다</li>
     <li><span class="box"></span>후킹은 A 또는 B 하나만 썼다</li>
-    <li><span class="box"></span>가을 옷·가죽자켓 2~3벌이 나온다</li>
+    <li><span class="box"></span>예쁜 코디 2~3개가 나온다</li>
     <li><span class="box"></span>옷과 가격표가 한 화면에 잡힌 컷이 있다</li>
     <li><span class="box"></span>행거 POP 팻말(9,900 / 5,900)이 옷과 함께 나온다</li>
     <li><span class="box"></span>계단 컷이 없다</li>
