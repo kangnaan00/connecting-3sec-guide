@@ -53,6 +53,8 @@ body.fw .vb{display:none}
 body.fw .row.vf{display:grid}
 section.vf{display:none}
 body.fw section.vf{display:block}
+.thumbs figure.vf{display:none}
+body.fw .thumbs figure.vf{display:block}
 .items{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
 @media (max-width:560px){.items{grid-template-columns:1fr}}
 .items figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
@@ -198,8 +200,10 @@ li{margin-bottom:6px}
   </div>
   <h3 style="margin-top:26px;font-size:18px;font-weight:900">썸네일 예시</h3>
   <div class="thumbs">
-    <figure><img src="thumbs/thumb_1.jpg" alt="썸네일 예시 1" loading="lazy"><figcaption>1 · 메인 본인 착샷 + 연예인 사진</figcaption></figure>
-    <figure><img src="thumbs/thumb_2.jpg" alt="썸네일 예시 2" loading="lazy"><figcaption>2 · 메인 마네킹 코디 + 연예인 사진</figcaption></figure>
+    <figure class="vb"><img src="thumbs/thumb_1.jpg" alt="썸네일 예시 1" loading="lazy"><figcaption>1 · 메인 본인 착샷 + 연예인 사진</figcaption></figure>
+    <figure class="vb"><img src="thumbs/thumb_2.jpg" alt="썸네일 예시 2" loading="lazy"><figcaption>2 · 메인 마네킹 코디 + 연예인 사진</figcaption></figure>
+    <figure class="vf"><img src="thumbs/thumb_1_fw.jpg" alt="FW 썸네일 예시 1" loading="lazy"><figcaption>1 · 메인 본인 착샷 + 연예인 사진 (예시 1·2)</figcaption></figure>
+    <figure class="vf"><img src="thumbs/thumb_2_fw.jpg" alt="FW 썸네일 예시 2" loading="lazy"><figcaption>2 · 메인 마네킹 코디 + 연예인 사진 (예시 1·2)</figcaption></figure>
   </div>
 </section>
 
