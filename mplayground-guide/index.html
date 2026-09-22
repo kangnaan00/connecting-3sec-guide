@@ -84,6 +84,12 @@ td.k{width:120px;color:var(--ink-3);white-space:nowrap}
 .celebs img{width:100%;max-width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2)}
 .celebs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
 
+/* thumbnail examples */
+.thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,260px));gap:14px;margin-top:14px}
+.thumbs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.thumbs img{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--panel-2)}
+.thumbs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
 /* tags */
 .tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
 .tag.must{background:var(--blue);color:#fff}
@@ -176,6 +182,11 @@ li{margin-bottom:6px}
     <figure><img src="celebs/celeb2.jpg" alt="연예인 전신 코디 예시 2" loading="lazy"><figcaption>전신 코디 · 톱 + 부츠컷 데님</figcaption></figure>
     <figure><img src="celebs/celeb3.jpg" alt="연예인 코디 예시 3" loading="lazy"><figcaption>코르셋 블라우스 + 데님</figcaption></figure>
     <figure><img src="celebs/celeb4.jpg" alt="연예인 코디 예시 4" loading="lazy"><figcaption>레이스 톱 거울 셀카</figcaption></figure>
+  </div>
+  <p class="sub" style="margin-top:22px"><b>썸네일 예시.</b> 왼쪽은 연예인 전신 코디, 오른쪽은 본인 착샷(A) 또는 마네킹 코디(B). 매장 사진은 레퍼런스 영상 프레임이라 원본 자막이 보이며, 실제로는 직접 찍은 사진으로 바꿉니다.</p>
+  <div class="thumbs">
+    <figure><img src="thumbs/thumb_A.jpg" alt="썸네일 예시 A" loading="lazy"><figcaption>A · 연예인 전신 + 본인 착샷</figcaption></figure>
+    <figure><img src="thumbs/thumb_B.jpg" alt="썸네일 예시 B" loading="lazy"><figcaption>B · 연예인 전신 + 마네킹 코디</figcaption></figure>
   </div>
 </section>
 
