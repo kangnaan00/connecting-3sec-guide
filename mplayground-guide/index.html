@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>엠플레이그라운드 릴스 촬영 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --blue:#1E4FD0; --blue-soft:#E4EAFB;
+  --red:#C4361F; --red-soft:#F8E5E0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --shadow:0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --blue:#7A9BFF; --blue-soft:#1C2645;
+    --red:#FF8A70; --red-soft:#3A1F19;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+  --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+  --blue:#7A9BFF; --blue-soft:#1C2645;
+  --red:#FF8A70; --red-soft:#3A1F19;
+  --amber:#E8B85A; --amber-soft:#3A2E12;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+/* header */
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+h1{font-size:clamp(26px,5.5vw,36px);font-weight:900;letter-spacing:-.01em}
+.lede{margin-top:14px;color:var(--ink-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* section */
+section{padding-block:32px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:21px;font-weight:900;letter-spacing:-.01em}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+.sub{color:var(--ink-2);margin-top:8px;max-width:64ch}
+
+/* purpose */
+.purpose{background:var(--blue-soft);border-left:4px solid var(--blue);padding:16px 18px;border-radius:0 8px 8px 0;margin-top:20px}
+.purpose b{color:var(--blue)}
+
+/* info table */
+.tbl{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--ink-2);background:var(--panel-2);font-size:12.5px;letter-spacing:.02em}
+td.k{width:120px;color:var(--ink-3);white-space:nowrap}
+.blank{display:inline-block;min-width:78px;border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700;text-align:center;padding-inline:4px}
+
+/* tags */
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
+.tag.must{background:var(--blue);color:#fff}
+.tag.opt{background:var(--panel-2);color:var(--ink-2)}
+.tag.no{background:var(--red);color:#fff}
+.tag.ref{background:var(--amber-soft);color:var(--amber)}
+:root[data-theme="dark"] .tag.must,:root[data-theme="dark"] .tag.no{color:#111}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.must,:root:not([data-theme="light"]) .tag.no{color:#111}}
+
+/* scene cards */
+.scenes{display:grid;gap:18px;margin-top:22px}
+.scene{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.scene-h{display:flex;align-items:baseline;gap:12px;padding:14px 18px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.scene-h .num{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
+.scene-h h3{font-size:17px;font-weight:900;flex:1 1 auto}
+.scene-h .dur{font-size:12.5px;color:var(--ink-3)}
+.scene-b{display:grid;grid-template-columns:150px 1fr;gap:18px;padding:16px 18px 18px}
+@media (max-width:520px){.scene-b{grid-template-columns:118px 1fr;gap:12px;padding:14px}}
+.clip{display:flex;flex-direction:column;gap:6px}
+.clip video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;display:block}
+.clip .cap{font-size:11.5px;color:var(--ink-3);line-height:1.4}
+.clip .cap b{color:var(--ink-2);font-weight:500}
+.clip.none{align-items:stretch}
+.clip.none .ph{aspect-ratio:9/16;border:1.5px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--ink-3);padding:10px}
+.rows{display:grid;gap:12px;align-content:start}
+.row{display:grid;grid-template-columns:52px 1fr;gap:10px;font-size:14px}
+.row .lab{padding-top:3px}
+.row .val{color:var(--ink);line-height:1.6}
+.row .val b{font-weight:700}
+.line{padding:10px 12px;background:var(--panel-2);border-radius:8px;font-size:14.5px;line-height:1.55}
+.line .q{color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.06em;display:block;margin-bottom:3px}
+.ab{display:grid;gap:8px}
+.ab .line{border-left:3px solid var(--blue)}
+.ab .k{font-weight:900;color:var(--blue);margin-right:6px}
+
+/* checklist & lists */
+ul{margin:14px 0 0;padding-left:20px}
+li{margin-bottom:6px}
+.nolist li::marker{color:var(--red)}
+.check{list-style:none;padding:0;margin-top:16px;display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.check li:last-child{border-bottom:0}
+.check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:3px}
+
+/* reference strip */
+.refgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:18px}
+.refgrid figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.refgrid video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:6px;display:block}
+.refgrid figcaption{font-size:12.5px;line-height:1.45;color:var(--ink-2)}
+.refgrid figcaption .t{display:block;color:var(--ink-3);font-size:11.5px;margin-bottom:2px}
+.note{margin-top:18px;padding:14px 16px;background:var(--amber-soft);border-radius:8px;font-size:14px;color:var(--ink)}
+.note b{color:var(--amber)}
+.diff{margin-top:18px;font-size:14px;color:var(--ink-2);max-width:64ch}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+@media (max-width:600px){.split{grid-template-columns:1fr}}
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pane h3{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px;letter-spacing:.02em}
+.pane ul{margin-top:6px}
+
+@media (prefers-reduced-motion: no-preference){
+  .scene{transition:box-shadow .2s}
+}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">MPLAYGROUND · 인플루언서 릴스</div>
+  <h1>엠플레이그라운드 릴스 촬영 가이드<br>가을 K-POP 코디</h1>
+  <p class="lede">매장에서 아래 7개 장면을 순서대로 찍어 릴스 1편을 만듭니다. 장면마다 참고 영상이 옆에 붙어 있습니다. 파란 <span class="tag must">필수</span> 화면이 빠지면 재촬영 대상입니다.</p>
+  <div class="meta">
+    <span>작성일 <b>2026-09-22</b></span>
+    <span>레퍼런스 <b>@hey_jihye__ 성수점 릴스</b></span>
+    <span>길이 <b class="mono">25초</b> · 좋아요 <b class="mono">26,028</b></span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">1</span>기본 정보</h2>
+  <p class="sub">노란 밑줄은 브랜드가 보내기 전에 채울 빈칸입니다. 마지막 7번에 모아뒀습니다.</p>
+  <div class="tbl"><table>
+    <tr><td class="k">브랜드</td><td>엠플레이그라운드 (MPLAYGROUND)</td></tr>
+    <tr><td class="k">촬영 지점 (택1)</td><td>명동 / 명동밀리오레 / 홍대 2·3 / 성수 · 배정 지점 <span class="blank">&nbsp;</span></td></tr>
+    <tr><td class="k">지점 정보</td><td>가까운 역 <span class="blank">&nbsp;</span> · 도보 <span class="blank">&nbsp;</span>분 · <span class="blank">&nbsp;</span>층<br><span style="color:var(--ink-3);font-size:13px">성수점은 3층 (1F 남녀공용 · 2F 남성복 · 3F 여성복·카운터)</span></td></tr>
+    <tr><td class="k">주제</td><td>가을 K-POP 아이돌 코디 맛집 · 500원부터 쇼핑</td></tr>
+    <tr><td class="k">영상 길이</td><td><span class="blank">&nbsp;</span>초 (레퍼런스는 25초)</td></tr>
+    <tr><td class="k">형식</td><td>세로 9:16 · 후시 나레이션 또는 자막 · 상단 고정 제목</td></tr>
+    <tr><td class="k">납품 기한</td><td><span class="blank">&nbsp;</span></td></tr>
+    <tr><td class="k">광고 표기</td><td><span class="blank">&nbsp;</span> (레퍼런스에는 없음. 유료 협찬이면 캡션에 표기)</td></tr>
+    <tr><td class="k">캡션 필수</td><td>매장명 · 주소 · 영업시간 · 해시태그 <span class="blank">&nbsp;</span> · 영문 캡션 병기 <span class="blank">&nbsp;</span></td></tr>
+    <tr><td class="k">연예인 사진</td><td>브랜드가 제공하는 파일만 사용 · 파일 위치 <span class="blank">&nbsp;</span></td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>썸네일</h2>
+  <div class="tbl"><table>
+    <tr><td class="k">문구</td><td><b>(지역) K-POP 아이돌 가을 코디 맛집</b> — 예: "성수 K-POP 아이돌 가을 코디 맛집"</td></tr>
+    <tr><td class="k">필수 화면</td><td>마네킹 코디 또는 본인 착샷 1장 + 브랜드 제공 연예인 사진 1장</td></tr>
+    <tr><td class="k">참고</td><td>레퍼런스는 영상 내내 상단에 "500원으로 성수쇼핑?" 제목 띠를 고정했다. 썸네일 문구를 영상 상단 제목으로 그대로 써도 된다.</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">3</span>장면 순서</h2>
+  <p class="sub">권장 길이는 레퍼런스 1편의 시간 배분(후킹 15% · 가격 근거 24% · 규모·품질 44% · CTA 18%)을 25초로 환산한 값입니다. 영상 길이가 다르면 비율로 맞추세요. 옆의 참고 영상은 레퍼런스에서 같은 역할을 한 구간입니다.</p>
+
+  <div class="scenes">
+
+    <article class="scene" id="s1">
+      <div class="scene-h"><span class="num">장면 1</span><h3>후킹 · A / B 택1</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg1.jpg" src="videos/seg1.mp4"></video>
+          <p class="cap"><b class="mono">0.0–3.7초</b><br>"성수 한복판에서 단돈 500원만 있어도 옷을 살 수 있다고?"</p>
+        </div>
+        <div class="rows">
+          <div class="ab">
+            <div class="line"><span class="q">멘트 · 택1</span><span class="k">A</span>"(지역)에 K-POP 코디 맛집 찾았어요"</div>
+            <div class="line"><span class="k">B</span>"(지역) (역)에서 (분) 거리에 K-POP 코디 맛집 찾았어요"</div>
+          </div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>A</b> 가장 잘 찍힌 마네킹 코디 또는 본인 착샷 2~3컷 + 연예인 사진<br><b>B</b> 역·출구·매장 입구 접근성 컷 1개 + 마네킹 코디 또는 본인 착샷 2~3컷 + 연예인 사진</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">A와 B를 이어 쓰지 않는다. 첫 컷에 지역명과 'K-POP 코디' 단어가 자막이나 제목으로 <b>0초에</b> 보여야 한다. 소리 끄고 봐도 읽히게.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">레퍼런스는 3초 안에 컷을 5번 바꿨다. 옷 클로즈업 3컷 → 얼굴을 옷으로 가린 사람 2컷.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s2">
+      <div class="scene-h"><span class="num">장면 2</span><h3>코디</h3><span class="dur mono">4~5초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg4.jpg" src="videos/seg4.mp4"></video>
+          <p class="cap"><b class="mono">12.2–16.9초</b><br>"에겐부터 테토까지 인기 많은 옷들도 여기서는 인터넷보다 훨씬 저렴하게"</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"아이돌들도 여기 옷으로 코디하는데, 가을 코디가 너무 예쁜데"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">새로 나온 가을 옷 코디 + 가죽자켓 <b>2~3벌</b>. 손으로 들어 올리거나 마네킹 클로즈업.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">연예인 사진과 같은 계열 옷을 나란히 두면 '아이돌 코디' 주장이 화면으로 증명된다.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">한 컷 1~1.5초. 옷 한 벌을 3초 넘게 잡지 않는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s3">
+      <div class="scene-h"><span class="num">장면 3</span><h3>가격 ① · 500원부터</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg2.jpg" src="videos/seg2.mp4"></video>
+          <p class="cap"><b class="mono">3.7–9.7초</b><br>"양말 헤어핀 500원, 키캡키링 2,900원, 반바지 5,900원부터. 이 정도면 옷가게의 다이소 아니에요?"</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"500원부터 쇼핑 가능하고"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">소품 3~4개를 빠르게: 키캡 키링, 가방, 모자, 신발 등. <b>500원 가격표가 붙은 실물(양말·헤어핀) 1컷은 반드시 포함.</b></span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">키링 회전대의 "From ₩2,900" 같은 팻말.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">500원 실물 없이 "500원부터"라고 말하지 않는다. 레퍼런스는 양말 클로즈업으로 500원을 증명했다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s4">
+      <div class="scene-h"><span class="num">장면 4</span><h3>가격 ② · 가을옷 · 가죽자켓</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg5.jpg" src="videos/seg5.mp4"></video>
+          <p class="cap"><b class="mono">16.9–20.6초</b><br>"2층에 가방도 9,900원, 선글라스에 반지, 목걸이, 모자까지"</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"가을옷, 가죽자켓 <span class="blank">&nbsp;</span>만 원밖에 안 해요" (싸다는 점 강조)</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">옷과 택에 달린 가격표를 <b>한 화면에</b> 같이. 가격표 글씨가 읽히는 거리에서.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">인터넷 가격과 비교 멘트 ("인터넷보다 훨씬 저렴").</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">가격은 매장에서 실제 확인한 값만. 빈칸은 브랜드가 채운다.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">레퍼런스는 가방 9,900원, 선글라스 "ALL 12,900" 팻말을 화면 중앙에 두고 찍었다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s5">
+      <div class="scene-h"><span class="num">장면 5</span><h3>규모</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg3.jpg" src="videos/seg3.mp4"></video>
+          <p class="cap"><b class="mono">9.7–12.2초</b><br>"1층부터 3층까지 옷으로 꽉 차 있는데"</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"<span class="blank">&nbsp;</span>층 규모라 옷도 진짜 많고 진짜 싸다"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">넓은 매장과 행거에 걸린 옷을 빠르게 훑는 와이드 컷 + 행거의 가격 POP 팻말(9,900원 · 5,900원)을 옷과 함께.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">층별 안내판을 손가락으로 짚는 컷. 레퍼런스는 이 한 컷으로 3층 규모를 전달했다.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val"><b>계단 컷 금지.</b> 팻말은 화면 중앙에 오게 잡는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s6">
+      <div class="scene-h"><span class="num">장면 6</span><h3>피팅</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip none">
+          <div class="ph">레퍼런스에<br>피팅 장면 없음</div>
+          <p class="cap">이 장면은 가이드에서 새로 추가한 것입니다.</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"직접 입어볼 수도 있어요"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">착샷 거울 셀카 <b>2~3컷</b>.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">피팅룸 앞 컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">얼굴 노출 여부는 본인 계정 방침대로. 레퍼런스는 얼굴을 블러 또는 옷으로 가렸다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s7">
+      <div class="scene-h"><span class="num">장면 7</span><h3>마무리 · CTA</h3><span class="dur mono">3~4초</span></div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata" poster="posters/seg6.jpg" src="videos/seg6.mp4"></video>
+          <p class="cap"><b class="mono">20.6–25.1초</b><br>"머리끝부터 발끝까지 코디도 하나하나 다 예뻐서 친구랑 꼭 가봐야겠는데요?"</p>
+        </div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"구경할 게 많으니 (한국 / 지역) 올 때 꼭 가보세요"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장을 걸어 나가는 뒷모습, 또는 포토부스·매장 간판 컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">"친구랑 같이" 멘트로 태그 유도. 레퍼런스 캡션의 "@@ 같이 놀러갈 친구"와 짝.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">캡션에 매장명 · 주소 · 영업시간을 빠뜨리지 않는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>촬영 방식 · 레퍼런스 1편에서 확인한 것</h2>
+  <p class="sub">잘 된 레퍼런스 1편의 방식이라 <b>권장</b>입니다. 필수는 3번의 파란 항목뿐입니다.</p>
+  <div class="split">
+    <div class="pane"><h3>카메라 · 편집</h3>
+      <ul>
+        <li>세로 촬영. 손에 든 옷 클로즈업과 매장 전경 와이드를 번갈아 쓴다.</li>
+        <li>컷 길이 1~1.5초. 25초에 약 20컷.</li>
+        <li>첫 3초 안에 컷을 4~5번 바꾼다. 제품 클로즈업 먼저, 사람은 그다음.</li>
+        <li>가격 팻말이 나오는 컷은 팻말을 화면 중앙에 둔다.</li>
+      </ul>
+    </div>
+    <div class="pane"><h3>자막 · 소리</h3>
+      <ul>
+        <li>자막 두 층: 상단 고정 제목(영상 내내) + 중앙 나레이션 자막(문장 단위).</li>
+        <li>나레이션은 후시 녹음. 현장 소음은 넣지 않는다.</li>
+        <li>얼굴은 블러 또는 옷으로 가림. 출연자 2명.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">5</span>금지 모아보기</h2>
+  <ul class="nolist">
+    <li>계단 컷</li>
+    <li>500원 실물 없이 "500원부터" 멘트</li>
+    <li>매장에서 확인하지 않은 가격 언급</li>
+    <li>브랜드가 제공하지 않은 연예인 사진 사용</li>
+    <li>후킹 A와 B를 둘 다 쓰기</li>
+    <li>옷 한 벌을 3초 넘게 잡기</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">6</span>납품 전 체크리스트</h2>
+  <ul class="check">
+    <li><span class="box"></span>0초에 지역명 + 'K-POP 코디'가 자막이나 제목으로 보인다</li>
+    <li><span class="box"></span>후킹은 A 또는 B 하나만 썼다</li>
+    <li><span class="box"></span>가을 옷·가죽자켓 2~3벌이 나온다</li>
+    <li><span class="box"></span>500원 가격표 실물이 1컷 이상 있다</li>
+    <li><span class="box"></span>옷과 가격표가 한 화면에 잡힌 컷이 있다</li>
+    <li><span class="box"></span>행거 POP 팻말(9,900 / 5,900)이 옷과 함께 나온다</li>
+    <li><span class="box"></span>계단 컷이 없다</li>
+    <li><span class="box"></span>거울 셀카 착샷 2~3컷이 있다</li>
+    <li><span class="box"></span>캡션에 매장명 · 주소 · 영업시간 · 지정 해시태그가 있다</li>
+    <li><span class="box"></span>광고 표기 (해당 시)</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="n">7</span>브랜드가 보내기 전에 채울 빈칸</h2>
+  <div class="tbl"><table>
+    <tr><th>빈칸</th><th>어디서 확인</th></tr>
+    <tr><td>배정 지점, 역, 도보 분, 층수</td><td>지점별 매장 정보</td></tr>
+    <tr><td>가을옷 · 가죽자켓 가격</td><td>매장 현재 가격표</td></tr>
+    <tr><td>영상 길이, 납품 기한</td><td>캠페인 조건</td></tr>
+    <tr><td>광고 표기 여부</td><td>계약 형태</td></tr>
+    <tr><td>지정 해시태그, 영문 캡션 병기 여부</td><td>브랜드 캡션 규칙</td></tr>
+    <tr><td>연예인 사진 파일과 사용 범위</td><td>브랜드 제공 자료</td></tr>
+  </table></div>
+</section>
+
+<section>
+  <h2><span class="n">8</span>참고 영상 · 자막 구간별</h2>
+  <p class="sub">레퍼런스 릴스를 나레이션 문장 단위로 6구간으로 잘랐습니다. 원본: <a href="https://www.instagram.com/reels/Damo9dyThtd/" target="_blank" rel="noopener">instagram.com/reels/Damo9dyThtd</a> (@hey_jihye__, 성수점, 2026-07-10 게시)</p>
+  <div class="refgrid">
+    <figure><video controls playsinline preload="metadata" poster="posters/seg1.jpg" src="videos/seg1.mp4"></video><figcaption><span class="t mono">1 · 0.0–3.7초 · 후킹</span>성수 한복판에서 단돈 500원만 있어도 옷을 살 수 있다고?</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/seg2.jpg" src="videos/seg2.mp4"></video><figcaption><span class="t mono">2 · 3.7–9.7초 · 가격 근거</span>양말 헤어핀 500원, 키캡키링 2,900원, 반바지 5,900원부터. 이 정도면 옷가게의 다이소 아니에요?</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/seg3.jpg" src="videos/seg3.mp4"></video><figcaption><span class="t mono">3 · 9.7–12.2초 · 규모</span>1층부터 3층까지 옷으로 꽉 차 있는데</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/seg4.jpg" src="videos/seg4.mp4"></video><figcaption><span class="t mono">4 · 12.2–16.9초 · 품질</span>에겐부터 테토까지 인기 많은 옷들도 여기서는 인터넷보다 훨씬 저렴하게 살 수 있는 데다</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/seg5.jpg" src="videos/seg5.mp4"></video><figcaption><span class="t mono">5 · 16.9–20.6초 · 확장</span>2층에 가방도 9,900원, 선글라스에 반지, 목걸이, 모자까지</figcaption></figure>
+    <figure><video controls playsinline preload="metadata" poster="posters/seg6.jpg" src="videos/seg6.mp4"></video><figcaption><span class="t mono">6 · 20.6–25.1초 · CTA</span>머리끝부터 발끝까지 코디도 하나하나 다 예뻐서 친구랑 꼭 가봐야겠는데요?</figcaption></figure>
+  </div>
+  <p class="note"><b>레퍼런스와 이 가이드의 차이.</b> 레퍼런스는 '500원 · 다이소' 가격 하나로 붙잡았고, 이 가이드는 'K-POP 아이돌 코디'를 앞세우고 가격을 뒤에 둡니다. 후킹이 바뀌었으니 첫 3초의 화면도 가격표가 아니라 코디 컷이어야 합니다. 이 순서가 레퍼런스만큼 통하는지는 확인된 사례가 아직 없습니다.</p>
+</section>
+
+</div>
+</body>
+</html>
