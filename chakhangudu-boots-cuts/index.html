@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>착한구두 부츠 촬영 구도 레퍼런스</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --blue:#1E4FD0; --blue-soft:#E4EAFB;
+  --red:#C4361F; --red-soft:#F8E5E0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --shadow:0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --blue:#7A9BFF; --blue-soft:#1C2645;
+    --red:#FF8A70; --red-soft:#3A1F19;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+  --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+  --blue:#7A9BFF; --blue-soft:#1C2645;
+  --red:#FF8A70; --red-soft:#3A1F19;
+  --amber:#E8B85A; --amber-soft:#3A2E12;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+/* switch */
+.switch{display:flex;gap:8px;padding-top:18px;flex-wrap:wrap}
+.switch button{padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:13.5px;background:var(--panel);font-family:inherit;cursor:pointer}
+.switch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.switch button:hover{border-color:var(--ink-3)}
+.vf{display:none}
+body.fw .vf{display:inline}
+body.fw .vb{display:none}
+.row.vf{display:none}
+body.fw .row.vf{display:grid}
+section.vf{display:none}
+body.fw section.vf{display:block}
+.thumbs figure.vf{display:none}
+body.fw .thumbs figure.vf{display:block}
+.items{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media (max-width:560px){.items{grid-template-columns:1fr}}
+.items figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.items img{width:100%;max-width:100%;display:block;background:#fff}
+.items figcaption{padding:10px 12px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.items figcaption b{font-weight:900}
+.items figcaption .pr{color:var(--blue);font-weight:700}
+.items figcaption .cl{color:var(--ink-3);font-size:12.5px}
+
+/* language */
+:root[data-lang="cn"] body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+:root[data-lang="tw"] body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+:root[data-lang="jp"] body{font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif}
+.topbar{display:flex;flex-direction:column;gap:10px;padding-top:18px}
+.switch{padding-top:0}
+.langs{display:flex;gap:6px;flex-wrap:wrap}
+.langs button{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:500;font-size:12.5px;background:var(--panel);font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.langs button.on{background:var(--blue-soft);color:var(--blue);border-color:var(--blue);font-weight:700}
+.langs button:hover{border-color:var(--ink-3)}
+.langs .fl{font-size:15px;line-height:1}
+
+/* header */
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+h1{font-size:clamp(26px,5.5vw,36px);font-weight:900;letter-spacing:-.01em}
+.lede{margin-top:14px;color:var(--ink-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* section */
+section{padding-block:32px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:21px;font-weight:900;letter-spacing:-.01em}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+.sub{color:var(--ink-2);margin-top:8px;max-width:64ch}
+
+/* purpose */
+.purpose{background:var(--blue-soft);border-left:4px solid var(--blue);padding:16px 18px;border-radius:0 8px 8px 0;margin-top:20px}
+.purpose b{color:var(--blue)}
+
+/* info table */
+.tbl{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--ink-2);background:var(--panel-2);font-size:12.5px;letter-spacing:.02em}
+td.k{width:120px;color:var(--ink-3);white-space:nowrap}
+.blank{display:inline-block;min-width:78px;border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700;text-align:center;padding-inline:4px}
+
+/* celeb examples */
+.celebs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media (max-width:560px){.celebs{grid-template-columns:repeat(2,1fr)}}
+.celebs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.celebs img{width:100%;max-width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2)}
+.celebs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
+/* thumbnail examples */
+.thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,260px));gap:14px;margin-top:14px}
+@media (max-width:560px){.thumbs{grid-template-columns:repeat(2,1fr)}}
+.thumbs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.thumbs img{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--panel-2)}
+.thumbs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
+/* tags */
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
+.tag.must{background:var(--blue);color:#fff}
+.tag.opt{background:var(--panel-2);color:var(--ink-2)}
+.tag.no{background:var(--red);color:#fff}
+.tag.ref{background:var(--amber-soft);color:var(--amber)}
+:root[data-theme="dark"] .tag.must,:root[data-theme="dark"] .tag.no{color:#111}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.must,:root:not([data-theme="light"]) .tag.no{color:#111}}
+
+/* scene cards */
+.scenes{display:grid;gap:18px;margin-top:22px}
+.scene{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.scene-h{display:flex;align-items:baseline;gap:12px;padding:14px 18px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.scene-h .num{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
+.scene-h h3{font-size:17px;font-weight:900;flex:1 1 auto}
+.scene-h .dur{font-size:12.5px;color:var(--ink-3)}
+.scene-b{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:16px 18px 18px}
+@media (max-width:640px){.scene-b{grid-template-columns:1fr;gap:14px;padding:14px}.clip{max-width:260px}}
+.clip{display:flex;flex-direction:column;gap:6px}
+.clip video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;display:block}
+.clip .cap{font-size:11.5px;color:var(--ink-3);line-height:1.4}
+
+.cuts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+@media (max-width:560px){.cuts{grid-template-columns:repeat(2,1fr);gap:10px}}
+.cuts figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.cuts a.im{display:block}
+.cuts img{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--panel-2)}
+.cuts figcaption{padding:8px 10px;font-size:12.5px;line-height:1.45;color:var(--ink-2)}
+.cuts figcaption .src{display:block;font-size:11.5px;color:var(--ink-3);margin-top:3px}
+.cuts figcaption .src a{color:var(--blue);text-decoration:none;font-weight:700}
+.cuts figcaption .src a:hover{text-decoration:underline}
+.cnt{color:var(--ink-3);font-weight:500;font-size:14px;margin-left:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="head">
+  <div class="eyebrow">착한구두 · 부츠 촬영 레퍼런스</div>
+  <h1>부츠 촬영 구도 레퍼런스<br>앉아서 · 앞에서 · 옆에서 · 전신</h1>
+  <p class="lede">인플루언서 릴스 6개와 캡처 3장에서 고른 컷 23장을 촬영 구도별로 나눴습니다. 사진을 누르면 원본 크기로 열리고, 출처 ID를 누르면 인스타그램 게시물로 갑니다.</p>
+  <div class="meta"><span>총 <b>23컷</b></span><span>앉아서 <b>7</b></span><span>앞에서 <b>9</b></span><span>옆에서 <b>4</b></span><span>전신 <b>3</b></span></div>
+</header>
+<section id="s1">
+  <h2><span class="n">1</span>앉아서 찍은 컷<span class="cnt">7컷</span></h2>
+  <p class="sub">바닥·의자·소파에 앉거나 쪼그려 앉아 부츠를 가까이 잡는다. 주름·스트랩·굽 같은 디테일이 잘 보인다.</p>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/Dcj_3o5yg4z_컷03.jpg" target="_blank"><img src="cuts/Dcj_3o5yg4z_컷03.jpg" alt="바닥에 앉아 손으로 스트랩 디테일 가리킴" loading="lazy"></a><figcaption>바닥에 앉아 손으로 스트랩 디테일 가리킴<span class="src"><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">Dcj_3o5yg4z</a> · Andersson Bell</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷12.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷12.jpg" alt="쪼그려 앉아 스웨이드 미들 부츠 주름 강조" loading="lazy"></a><figcaption>쪼그려 앉아 스웨이드 미들 부츠 주름 강조<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DPlLzWikZ2G_컷07.jpg" target="_blank"><img src="cuts/DPlLzWikZ2G_컷07.jpg" alt="소파에 다리 꼬고 앉음, 부츠 클로즈업" loading="lazy"></a><figcaption>소파에 다리 꼬고 앉음, 부츠 클로즈업<span class="src"><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">DPlLzWikZ2G</a> · 29CM 직원 부츠</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DTughGLj13x_컷16.jpg" target="_blank"><img src="cuts/DTughGLj13x_컷16.jpg" alt="쪼그려 앉은 거울 셀카, 다리 얇아 보이는 효과 자막" loading="lazy"></a><figcaption>쪼그려 앉은 거울 셀카, 다리 얇아 보이는 효과 자막<span class="src"><a href="https://www.instagram.com/p/DTughGLj13x/" target="_blank" rel="noopener">DTughGLj13x</a> · EIFFEL CLASSIC</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DcqaIImph0s_컷20.jpg" target="_blank"><img src="cuts/DcqaIImph0s_컷20.jpg" alt="의자에 다리 꼬고 앉은 거울 셀카" loading="lazy"></a><figcaption>의자에 다리 꼬고 앉은 거울 셀카<span class="src"><a href="https://www.instagram.com/p/DcqaIImph0s/" target="_blank" rel="noopener">DcqaIImph0s</a> · 레이스업 부츠</span></figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_02.jpg" target="_blank"><img src="cuts/카톡캡처_02.jpg" alt="다리 꼬고 앉음, 브라운 플랫폼 부츠 측면 클로즈업" loading="lazy"></a><figcaption>다리 꼬고 앉음, 브라운 플랫폼 부츠 측면 클로즈업<span class="src">카톡 캡처 · 링크 없음</span></figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_03.jpg" target="_blank"><img src="cuts/카톡캡처_03.jpg" alt="무릎 모으고 앉음, 브라운·블랙 부츠 나란히" loading="lazy"></a><figcaption>무릎 모으고 앉음, 브라운·블랙 부츠 나란히<span class="src">카톡 캡처 · 링크 없음</span></figcaption></figure>
+  </div>
+</section>
+<section id="s2">
+  <h2><span class="n">2</span>앞에서 찍은 컷<span class="cnt">9컷</span></h2>
+  <p class="sub">서 있는 상태에서 정면 또는 살짝 사선으로 하체를 잡는다. 코디(스커트·청바지 넣입)와 부츠 길이가 한눈에 보인다.</p>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷02.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷02.jpg" alt="KHIHO 부츠, 낮은 앵글 정면 하체" loading="lazy"></a><figcaption>KHIHO 부츠, 낮은 앵글 정면 하체<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷13.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷13.jpg" alt="청바지 넣입 정면 하체" loading="lazy"></a><figcaption>청바지 넣입 정면 하체<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷14.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷14.jpg" alt="스커트 + 미들 부츠, 약간 사선 정면" loading="lazy"></a><figcaption>스커트 + 미들 부츠, 약간 사선 정면<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷21.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷21.jpg" alt="베이지 롱부츠 정면 하체" loading="lazy"></a><figcaption>베이지 롱부츠 정면 하체<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷22.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷22.jpg" alt="JILL 플랫폼 롱부츠 정면 하체" loading="lazy"></a><figcaption>JILL 플랫폼 롱부츠 정면 하체<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/Dcj_3o5yg4z_컷06.jpg" target="_blank"><img src="cuts/Dcj_3o5yg4z_컷06.jpg" alt="반바지 + 스트랩 부츠 정면 하체" loading="lazy"></a><figcaption>반바지 + 스트랩 부츠 정면 하체<span class="src"><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">Dcj_3o5yg4z</a> · Andersson Bell</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DPlLzWikZ2G_컷06.jpg" target="_blank"><img src="cuts/DPlLzWikZ2G_컷06.jpg" alt="스커트 + 하네스 부츠 사선 정면" loading="lazy"></a><figcaption>스커트 + 하네스 부츠 사선 정면<span class="src"><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">DPlLzWikZ2G</a> · 29CM 직원 부츠</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷36.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷36.jpg" alt="한쪽 다리 들어 올린 정면 하체" loading="lazy"></a><figcaption>한쪽 다리 들어 올린 정면 하체<span class="src"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">DdYhqGRNVbD</a> · 로맨틱무브 우먼 부츠</span></figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_01.jpg" target="_blank"><img src="cuts/카톡캡처_01.jpg" alt="레더 스커트 + 브라운 플랫폼 부츠, 사선 정면 하체" loading="lazy"></a><figcaption>레더 스커트 + 브라운 플랫폼 부츠, 사선 정면 하체<span class="src">카톡 캡처 · 링크 없음</span></figcaption></figure>
+  </div>
+</section>
+<section id="s3">
+  <h2><span class="n">3</span>옆에서 찍은 컷<span class="cnt">4컷</span></h2>
+  <p class="sub">측면에서 잡아 굽 높이, 부츠 실루엣, 발등 라인이 보인다.</p>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DTughGLj13x_컷09.jpg" target="_blank"><img src="cuts/DTughGLj13x_컷09.jpg" alt="EIFFEL CLASSIC 미들 부츠 측면, 굽 높이 자막" loading="lazy"></a><figcaption>EIFFEL CLASSIC 미들 부츠 측면, 굽 높이 자막<span class="src"><a href="https://www.instagram.com/p/DTughGLj13x/" target="_blank" rel="noopener">DTughGLj13x</a> · EIFFEL CLASSIC</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷15.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷15.jpg" alt="ATHE ACC 롱부츠 사선 측면" loading="lazy"></a><figcaption>ATHE ACC 롱부츠 사선 측면<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷11.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷11.jpg" alt="한쪽 다리 들고 부츠 잡은 측면" loading="lazy"></a><figcaption>한쪽 다리 들고 부츠 잡은 측면<span class="src"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">DdYhqGRNVbD</a> · 로맨틱무브 우먼 부츠</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷18.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷18.jpg" alt="청바지 롤업 + 부츠 측면 하체" loading="lazy"></a><figcaption>청바지 롤업 + 부츠 측면 하체<span class="src"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">DdYhqGRNVbD</a> · 로맨틱무브 우먼 부츠</span></figcaption></figure>
+  </div>
+</section>
+<section id="s4">
+  <h2><span class="n">4</span>전신컷<span class="cnt">3컷</span></h2>
+  <p class="sub">머리부터 부츠까지 한 화면에. 거울 셀카는 얼굴을 폰으로 가린다.</p>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷23.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷23.jpg" alt="거울 전신 셀카, 정면" loading="lazy"></a><figcaption>거울 전신 셀카, 정면<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷27.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷27.jpg" alt="거울 전신 셀카, 엄지 포즈" loading="lazy"></a><figcaption>거울 전신 셀카, 엄지 포즈<span class="src"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">DQGtkqtE0C3</a> · 부츠 4종 착용 비교</span></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷32.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷32.jpg" alt="서서 측면 전신, 얼굴 포함" loading="lazy"></a><figcaption>서서 측면 전신, 얼굴 포함<span class="src"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">DdYhqGRNVbD</a> · 로맨틱무브 우먼 부츠</span></figcaption></figure>
+  </div>
+</section>
+<section id="links">
+  <h2><span class="n">5</span>출처 링크</h2>
+  <div class="tbl"><table><thead><tr><th>ID</th><th>내용</th><th>링크</th></tr></thead><tbody>
+    <tr><td class="k mono">DQGtkqtE0C3</td><td>부츠 4종 착용 비교</td><td><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></td></tr>
+    <tr><td class="k mono">DdYhqGRNVbD</td><td>로맨틱무브 우먼 부츠</td><td><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></td></tr>
+    <tr><td class="k mono">DPlLzWikZ2G</td><td>29CM 직원 부츠</td><td><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">https://www.instagram.com/p/DPlLzWikZ2G/</a></td></tr>
+    <tr><td class="k mono">DTughGLj13x</td><td>EIFFEL CLASSIC</td><td><a href="https://www.instagram.com/p/DTughGLj13x/" target="_blank" rel="noopener">https://www.instagram.com/p/DTughGLj13x/</a></td></tr>
+    <tr><td class="k mono">DcqaIImph0s</td><td>레이스업 부츠</td><td><a href="https://www.instagram.com/p/DcqaIImph0s/" target="_blank" rel="noopener">https://www.instagram.com/p/DcqaIImph0s/</a></td></tr>
+    <tr><td class="k mono">Dcj_3o5yg4z</td><td>Andersson Bell</td><td><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">https://www.instagram.com/p/Dcj_3o5yg4z/</a></td></tr>
+  </tbody></table></div>
+</section>
+</div>
+</body>
+</html>
