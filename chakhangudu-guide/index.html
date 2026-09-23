@@ -185,17 +185,32 @@ li{margin-bottom:6px}
   .scene{transition:box-shadow .2s}
 }
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* version switch */
+.vswitch{display:flex;gap:8px;padding-top:18px;flex-wrap:wrap;position:sticky;top:0;background:var(--paper);z-index:5;padding-bottom:10px}
+.vswitch button{padding:9px 18px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:14px;background:var(--panel);font-family:inherit;cursor:pointer}
+.vswitch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.vN{display:none}
+body[data-ver="info"] .vN{display:block}
+body[data-ver="info"] span.vN{display:inline-block!important}
+body[data-ver="info"] .vI{display:none}
+.vbadge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);margin-left:8px;vertical-align:middle}
 </style>
 </head>
 <body>
 
 <div class="wrap">
+<div class="vswitch" role="tablist">
+  <button type="button" data-ver="inf" class="on">인플루언서 버전</button>
+  <button type="button" data-ver="info">정보성 버전</button>
+</div>
 
 <header class="head">
   <div class="eyebrow">착한구두 · 인플루언서 릴스 · FW 오프라인</div>
-  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠</h1>
+  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vI">인플루언서 버전</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
 </header>
 
+<div class="vI">
 <section>
   <h2><span class="n">1</span>장면 순서</h2>
 
@@ -257,21 +272,9 @@ li{margin-bottom:6px}
       </div>
     </article>
 
-    <article class="scene" id="s6">
-      <div class="scene-h"><span class="num">장면 6</span><h3>가격</h3></div>
-      <div class="scene-b">
-        <div class="clip"><video controls playsinline preload="metadata" poster="posters/b4.jpg" src="videos/b4.mp4"></video><p class="cap"><b class="mono">11.8–15.0초</b> · @seoul__log<br>"원하는 신발은 직접 착용도 가능한데 신어보면 핏도 괜찮아서"</p></div>
-        <div class="rows">
-          <div class="line"><span class="q">멘트</span>"5만원대부터 구매 가능해요"</div>
-          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>5만원대 카더 플랫폼 부츠</b> + 다른 부츠 <b>2~3개</b>.</span></div>
-          <div class="pane" style="margin-top:4px;max-width:300px"><img src="products/carder.jpg" alt="카더 플랫폼 롱&amp;앵클부츠" loading="lazy"><h3>카더 플랫폼 롱&amp;앵클부츠 · <span class="pr">52,900원</span></h3><p style="font-size:13px;color:var(--ink-2)">제일 저렴한 5만원대. 이 부츠를 먼저 잡는다.</p></div>
-        </div>
-      </div>
-    </article>
-
 
     <article class="scene" id="s7">
-      <div class="scene-h"><span class="num">장면 7</span><h3>부츠 소개 · 2~3개</h3></div>
+      <div class="scene-h"><span class="num">장면 6</span><h3>부츠 소개 · 2~3개</h3></div>
       <div class="scene-b">
         <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_mirror.jpg" src="videos/z_mirror.mp4"></video><p class="cap"><b class="mono">27.4–29.2초</b> · @z___meme · 거울 전신 착샷 · 기준<br>"힙하죠? 저 힙하죠? 네 감사합니다"</p><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 야외 전신 착샷<br>대사 없음 · 음악 + 화면 글자. 벽 앞에서 전신 → 부츠 클로즈업 → 전신 순.</p><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>"아 근데 사실대로 말하자면 사실 제 원픽은 이거였는데"</p></div>
         <div class="rows">
@@ -284,7 +287,7 @@ li{margin-bottom:6px}
     </article>
 
     <article class="scene" id="s8">
-      <div class="scene-h"><span class="num">장면 8</span><h3>마무리 · CTA</h3></div>
+      <div class="scene-h"><span class="num">장면 7</span><h3>마무리 · CTA</h3></div>
       <div class="scene-b">
         <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/b5.jpg" src="videos/b5.mp4"></video><p class="cap"><b class="mono">15.0–17.3초</b> · @seoul__log · 계산 + 쇼핑백<br>"친구한테 공유하고 한번 가보세요"</p><video controls playsinline preload="metadata" poster="posters/entrance.jpg" src="videos/entrance.mp4"></video><p class="cap"><b class="mono">3.4–5.0초</b> · @hey_jihye__ · 매장 입구, 간판</p></div>
         <div class="rows">
@@ -298,22 +301,117 @@ li{margin-bottom:6px}
   </div>
 </section>
 
+</div>
+<div class="vN">
+<section>
+  <h2><span class="n">1</span>장면 순서</h2>
+  <p class="sub">정보성 버전은 <b>자막 + 매장·제품 정보</b>로 끌고 간다. 인플루언서 얼굴과 1인칭 리액션 없이, 컷마다 자막이 바뀌고 부츠 착샷은 얼굴 없는 하체·전신 구도로 찍는다.</p>
+  <div class="scenes">
+    <article class="scene" id="n1">
+      <div class="scene-h"><span class="num">장면 1</span><h3>후킹</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/hook_b.jpg" src="videos/hook_b.mp4"></video><p class="cap"><b class="mono">0.0–3.0초</b> · @seoul__log · 인테리어 컷 · 기준<br>"아니 성수동에 신발을 9,900원에 파는 미친 곳 찾았어요"</p><video controls playsinline preload="metadata" poster="posters/shelf_b.jpg" src="videos/shelf_b.mp4"></video><p class="cap"><b class="mono">3.0–5.7초</b> · @seoul__log · 매대 컷</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"성수동에 9,900원 신발 매장이 있습니다. FW 신상 부츠까지 들어왔습니다." 화면 자막으로 <b>9,900원</b>과 <b>신상 부츠</b>를 크게 띄운다.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장 간판/외관 → 내부 와이드 → 부츠 매대 순으로 <b>빠르게 3컷</b>. 사람 얼굴은 넣지 않는다.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val">인플루언서 리액션·1인칭 멘트("제 애착 부츠" 등)를 쓰지 않는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n2">
+      <div class="scene-h"><span class="num">장면 2</span><h3>유행 부츠</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 부츠 착샷 앞·옆·뒤<br>얼굴 없이 부츠만 잡는 구도 참고</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"올해 유행하는 접어 신는 부츠, 슬라우치, 키높이 라인이 다 있습니다." 부츠마다 <b>제품명·가격 자막</b>.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 착샷 <b>2~3컷</b>, 얼굴 없이 하체만. 앞·옆·앉아서 구도는 <a href="https://kangnaan00.github.io/connecting-3sec-guide/chakhangudu-boots-cuts/" target="_blank">부츠 촬영구도</a> 참고.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">한 컷당 1~1.5초. 컷마다 자막이 바뀌게 편집한다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n3">
+      <div class="scene-h"><span class="num">장면 3</span><h3>규모</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/a7.jpg" src="videos/a7.mp4"></video><p class="cap"><b class="mono">14.7–17.2초</b> · @hey_jihye__<br>"건물 한 채가 통으로 예쁜 신발 천국이라"</p><video controls playsinline preload="metadata" poster="posters/b2.jpg" src="videos/b2.mp4"></video><p class="cap"><b class="mono">3.0–7.6초</b> · @seoul__log<br>"1층 쇼룸부터 너무 예쁜데 디자인이 다양해서"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"3층 규모. 층마다 뭐가 있는지 정리했습니다." 자막: <b>1층 쇼룸 / 2층 <span class="blank">&nbsp;</span> / 지하 9,900원 아카이브존</b>.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">층별 매대 컷 1개씩 + 넓은 인테리어 와이드 컷. 층 이름 자막을 컷마다 붙인다.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">2층 구성은 촬영 당일 매장에 확인해서 자막에 넣는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n4">
+      <div class="scene-h"><span class="num">장면 4</span><h3>9,900원 아카이브존</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/b3.jpg" src="videos/b3.mp4"></video><p class="cap"><b class="mono">7.6–11.8초</b> · @seoul__log<br>"지하로 내려가면 9,900원 존이 있는데"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"지하 아카이브존은 전부 9,900원입니다." 자막에 <b>9,900원</b>을 크게.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>9,900원 가격표 + 신발</b>이 한 화면에 같이 보이게. 아카이브존 매대 컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val"><b>아카이브존 장소(공간) 자체를 찍지 않는다.</b> 가격표와 신발, 매대만 잡는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n5">
+      <div class="scene-h"><span class="num">장면 5</span><h3>신상 부츠</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 대사 없음 · 음악 + 화면 글자<br>벽 앞 전신 → 부츠 클로즈업 → 전신 순. 정보성 버전의 기준 톤</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"FW 신상 부츠가 들어왔습니다." 자막: <b>제품명 + 가격</b>. 대사 없이 음악 + 자막만으로 가도 된다.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>전신 착샷</b>(얼굴은 폰으로 가리거나 프레임 밖) → 부츠 <b>클로즈업</b> 순. 발끝부터 부츠 윗단까지 잘리지 않게.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">전신·뒤에서 구도는 <a href="https://kangnaan00.github.io/connecting-3sec-guide/chakhangudu-boots-cuts/" target="_blank">부츠 촬영구도</a>의 전신컷·뒤에서 항목 참고.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n6">
+      <div class="scene-h"><span class="num">장면 6</span><h3>부츠 소개 · 2~3개</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>구도만 참고. 멘트는 정보 톤으로 바꾼다</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 앞·옆·뒤 착샷</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>부츠마다 자막 <b>제품명 · 가격 · 특징 1~2개</b>. 아래 <a href="#boots">부츠 정보</a>의 설명 포인트를 그대로 자막으로 쓴다. 예: "블래티 슬라우치 부츠 85,900원 · 통이 넓어 다리가 얇아 보임"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>2~3개</b>, 각각 <b>앞 → 옆 → 뒤(또는 앉아서)</b> 3컷. 얼굴 없이 하체 위주.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>가을 코디와 조합</b>해서 신는다 (바지를 부츠 안에 넣어 신기 등).</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">종아리 커버 제품과 키높이 제품에서 섞어 고르면 소구점이 겹치지 않는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n7">
+      <div class="scene-h"><span class="num">장면 7</span><h3>마무리 · 매장 정보</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/entrance.jpg" src="videos/entrance.mp4"></video><p class="cap"><b class="mono">3.4–5.0초</b> · @hey_jihye__ · 매장 입구, 간판</p><video controls playsinline preload="metadata" poster="posters/b5.jpg" src="videos/b5.mp4"></video><p class="cap"><b class="mono">15.0–17.3초</b> · @seoul__log · 계산 + 쇼핑백</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"위치 저장해 두세요." 마지막 화면에 매장 정보 자막: <b>매장명 · 위치 <span class="blank">&nbsp;</span> · 영업시간 <span class="blank">&nbsp;</span> · 층 구성</b>.</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장 입구 컷(간판이 보이게)을 3초 이상 고정. 자막이 다 읽히게.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">계산 + 쇼핑백 컷은 선택.</span></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+</div>
+
 <section id="boots">
   <h2><span class="n">2</span>부츠 정보</h2>
-  <p class="sub">장면 6 가격은 제일 저렴한 5만원대 부츠를 먼저 잡는다. 장면 7 부츠 소개 2~3개는 종아리 커버와 키높이 라인에서 고른다. 부츠 설명을 멘트로 말하고, 가을 코디와 조합한다 (바지 넣어 신기 등).</p>
+  <p class="sub">장면 6 부츠 소개 2~3개는 종아리 커버와 키높이 라인에서 고른다. 부츠 설명을 멘트로 말하고, 가을 코디와 조합한다 (바지 넣어 신기 등).</p>
 
-  <h3 style="margin-top:22px;font-size:16px;font-weight:900">제일 저렴한 5만원대 · 장면 6 가격</h3>
+  <h3 style="margin-top:22px;font-size:16px;font-weight:900">제일 저렴한 5만원대</h3>
   <div class="split">
-    <div class="pane"><img src="products/carder.jpg" alt="카더 플랫폼 롱&amp;앵클부츠" loading="lazy"><h3>카더 플랫폼 롱&amp;앵클부츠 · <span class="pr">52,900원</span></h3><ul><li>제일 저렴한 5만원대. 가격 장면에서 이 부츠를 먼저 잡는다</li><li>롱 · 앵클 2개 버전</li></ul></div>
+    <div class="pane"><img src="products/carder.jpg" alt="카더 플랫폼 롱&amp;앵클부츠" loading="lazy"><h3>카더 플랫폼 롱&amp;앵클부츠 · <span class="pr">52,900원</span></h3><ul><li>제일 저렴한 5만원대</li><li>롱 · 앵클 2개 버전</li></ul></div>
   </div>
 
-  <h3 style="margin-top:26px;font-size:16px;font-weight:900">종아리 커버 제품 · 장면 7 부츠 소개</h3>
+  <h3 style="margin-top:26px;font-size:16px;font-weight:900">종아리 커버 제품 · 장면 6 부츠 소개</h3>
   <div class="split">
     <div class="pane"><img src="products/petal.jpg" alt="1 · 페탈 커스텀 멀티웨이 롱부츠" loading="lazy"><h3>1 · 페탈 커스텀 멀티웨이 롱부츠 · <span class="pr">75,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">접어 신는 부츠</span> <span class="tag opt">종아리 커버</span> </p><ul><li>요즘 유행하는 접어 신는 부츠 (2가지 코디 가능)</li><li>종아리 커버 가능 (체형 보정)</li></ul></div>
     <div class="pane"><img src="products/blatty.jpg" alt="2 · 블래티 슬라우치 부츠" loading="lazy"><h3>2 · 블래티 슬라우치 부츠 · <span class="pr">85,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">종아리 커버</span> </p><ul><li>통이 넓어 다리가 얇아 보임</li><li>기장 · 숏, 롱 2개 버전</li><li>재질 · 스웨이드, 레더 2개 버전</li></ul></div>
   </div>
 
-  <h3 style="margin-top:26px;font-size:16px;font-weight:900">키높이 라인 · 7.5cm UP · 장면 7 부츠 소개</h3>
+  <h3 style="margin-top:26px;font-size:16px;font-weight:900">키높이 라인 · 7.5cm UP · 장면 6 부츠 소개</h3>
   <div class="split">
     <div class="pane"><img src="products/nolkin.jpg" alt="1 · 놀킨 키높이 바이커 투웨이 미들부츠" loading="lazy"><h3>1 · 놀킨 키높이 바이커 투웨이 미들부츠 · <span class="pr">69,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>버클 포인트</li></ul></div>
     <div class="pane"><img src="products/carmins.jpg" alt="2 · 카민스 키높이 비율 보정 롱부츠" loading="lazy"><h3>2 · 카민스 키높이 비율 보정 롱부츠 · <span class="pr">79,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> <span class="tag opt">종아리 커버</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>종아리 커버</li></ul></div>
@@ -327,7 +425,7 @@ li{margin-bottom:6px}
   </ul>
 </section>
 
-<section>
+<section class="vI">
   <h2><span class="n">4</span>납품 전 체크리스트</h2>
   <ul class="check">
     <li><span class="box"></span>후킹에 "9,900원"과 "신상 부츠"가 멘트로 들린다</li>
@@ -337,13 +435,36 @@ li{margin-bottom:6px}
     <li><span class="box"></span>9,900원 가격표와 신발이 한 화면에 잡힌 컷이 있다</li>
     <li><span class="box"></span>아카이브존 장소 전경 컷이 없다</li>
     <li><span class="box"></span>부츠 전신 거울샷이 있다</li>
-    <li><span class="box"></span>5만원대 카더 플랫폼 부츠 + 다른 부츠 2~3개 컷이 있다</li>
     <li><span class="box"></span>부츠 소개 2~3개가 각각 전신 착샷으로, 가을 코디와 함께 나온다</li>
     <li><span class="box"></span>매장 입구(간판) 컷과 계산 + 쇼핑백 컷이 있다</li>
+  </ul>
+</section>
+<section class="vN">
+  <h2><span class="n">4</span>납품 전 체크리스트</h2>
+  <ul class="check">
+    <li><span class="box"></span>후킹 자막에 "9,900원"과 "신상 부츠"가 크게 보인다</li>
+    <li><span class="box"></span>간판/외관 → 내부 와이드 → 부츠 매대 3컷이 있다</li>
+    <li><span class="box"></span>부츠 착샷 2~3컷이 얼굴 없이 하체 구도로 있고, 컷마다 제품명·가격 자막이 있다</li>
+    <li><span class="box"></span>층별 매대 컷과 층 이름 자막이 있다</li>
+    <li><span class="box"></span>9,900원 가격표와 신발이 한 화면에 잡힌 컷이 있다</li>
+    <li><span class="box"></span>아카이브존 장소 전경 컷이 없다</li>
+    <li><span class="box"></span>신상 부츠 전신 착샷 → 클로즈업 순으로 있다</li>
+    <li><span class="box"></span>부츠 소개 2~3개가 각각 앞·옆·뒤 3컷으로, 가을 코디와 함께 나온다</li>
+    <li><span class="box"></span>인플루언서 얼굴·1인칭 리액션 멘트가 없다</li>
+    <li><span class="box"></span>마지막 화면에 매장명·위치·영업시간·층 구성 자막이 3초 이상 나온다</li>
   </ul>
 </section>
 
 
 </div>
+<script>
+(function(){
+  var b=document.body, btns=document.querySelectorAll('.vswitch button');
+  function set(v,push){ b.setAttribute('data-ver',v); btns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)}); try{localStorage.setItem('ck-ver',v)}catch(e){} if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)} }
+  btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
+  var q=new URL(location.href).searchParams.get('ver'), s=null; try{s=localStorage.getItem('ck-ver')}catch(e){}
+  set(q==='info'||q==='inf'?q:(s==='info'?'info':'inf'),false);
+})();
+</script>
 </body>
 </html>
