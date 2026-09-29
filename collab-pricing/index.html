@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>커넥팅 협업 계정 단가</title>
+<meta name="description" content="커넥팅 대만 협업 진행 5계정(@ian.black_, @hl_yuan, @_seas11, @0960kim0960, @mxuannc)의 가격, 조회당 단가(최저·중간·최고), 공유+저장당 단가와 드랍 계정 @hsuantzu_1997 비교. 2026-09-21 기준">
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f6f5f1;--fg:#1a1a1a;--fg2:#5b5b5b;--line:#e3e1da;
+  --accent:#f5c518;--accent-fg:#1a1a1a;--ok:#1f7a4d;--warn:#b4560c;--bad:#a33a2a;--card:#ffffff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--bad:#f08a78;
+  }
+}
+:root[data-theme="dark"]{--bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--bad:#f08a78;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;line-height:1.6;font-size:16px}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px}
+header{padding:40px 0 24px;border-bottom:2px solid var(--fg)}
+.kicker{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:700;padding:2px 10px;border-radius:4px;font-size:13px;letter-spacing:.02em}
+h1{font-size:clamp(26px,5vw,40px);margin:12px 0 6px;line-height:1.2}
+.sub{color:var(--fg2);font-size:15px}
+h2{font-size:22px;margin:48px 0 14px;padding-left:12px;border-left:5px solid var(--accent)}
+h3{font-size:19px;margin:32px 0 10px;padding-left:10px;border-left:3px solid var(--line)}
+p{margin:8px 0}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--bg2);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr.total td{font-weight:700;background:var(--bg2)}
+.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;margin:14px 0;background:var(--card)}
+.cardtitle{margin:0 0 8px;padding:0;border:0;font-size:20px}
+.cardtitle span{font-weight:400;color:var(--fg2);font-size:14px;margin-left:8px}
+table.kv{font-size:14.5px;margin:6px 0}
+table.kv th{width:120px;background:var(--bg2);font-weight:600;white-space:nowrap}
+table.kv td.num{text-align:left;width:150px}
+table.kv small{color:var(--fg2)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.stat .l{font-size:13px;color:var(--fg2)}
+.stat .v{font-size:26px;font-weight:700;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
+.stat .s{font-size:13px;color:var(--fg2);margin-top:2px}
+.callout{background:var(--bg2);border-left:5px solid var(--accent);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0}
+.callout.drop{border-left-color:var(--bad)}
+.meta{font-size:14px;color:var(--fg2);margin:6px 0 10px}
+.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);margin-right:4px}
+.ok{color:var(--ok);font-weight:600}.warn{color:var(--warn);font-weight:600}.bad{color:var(--bad);font-weight:600}
+ul{padding-left:20px}li{margin:4px 0}
+.hbar{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:14px}
+.hbar .n{width:140px;flex:none;font-weight:600;white-space:nowrap}
+.hbar .t{flex:1;background:var(--bg2);border:1px solid var(--line);border-radius:4px;height:22px;overflow:hidden}
+.hbar .b{height:100%;background:var(--accent)}
+.hbar .b.drop{background:var(--bad);opacity:.7}
+.hbar .v{width:90px;flex:none;text-align:right;font-variant-numeric:tabular-nums}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
+a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">커넥팅 · 협업 계정 단가</span>
+  <h1>진행 5계정 조회당 · 공유+저장당 단가</h1>
+  <div class="sub">기준일 2026-09-21 · <a href="#summary">요약</a> · <a href="#bars">단가 비교</a> · <a href="#acct1">① @ian.black_</a> · <a href="#acct2">② @mxuannc</a> · <a href="#acct3">③ @0960kim0960</a> · <a href="#acct4">④ @_seas11</a> · <a href="#acct5">⑤ @hl_yuan</a> · <a href="#drop">드랍 @hsuantzu_1997</a> · <a href="#method">계산 방법</a></div>
+</header>
+
+<div class="grid">
+  <div class="stat"><div class="l">진행 계정</div><div class="v">5명</div><div class="s">가격 합계 5,966,030원</div></div>
+  <div class="stat"><div class="l">공유+저장당 단가 최저</div><div class="v ok">400원</div><div class="s">@ian.black_</div></div>
+  <div class="stat"><div class="l">공유+저장당 단가 최고</div><div class="v warn">5,000원</div><div class="s">@hl_yuan · 최저의 12.5배</div></div>
+  <div class="stat"><div class="l">드랍</div><div class="v bad">20,000원</div><div class="s">@hsuantzu_1997 · 진행 최고의 4배</div></div>
+</div>
+
+<h2 id="summary">요약 · 공유+저장당 단가 싼 순서</h2>
+<p class="meta">조회당 단가는 최저·중간·최고 조회수 기준 세 값, 공유+저장당 단가는 공유와 저장 합계 한 값으로 냈습니다. 둘 다 낮을수록 좋습니다.</p>
+<div class="scroll">
+<table>
+<tr><th>계정</th><th>카테고리</th><th class="num">가격</th><th class="num">조회수<br>최저 · 중간 · 최고</th><th class="num">조회당<br>최저 · 중간 · 최고</th><th class="num">공유+저장</th><th class="num">공유+저장당</th></tr>
+<tr><td><a href="#acct1">@ian.black_</a></td><td>상황극 개그 연기</td><td class="num">800,000원</td><td class="num">2만 · 6만 · 20만</td><td class="num">40.0 · 13.3 · 4.0원</td><td class="num">2,000</td><td class="num"><strong>400원</strong></td></tr>
+<tr><td><a href="#acct2">@mxuannc</a></td><td>심리학 · 공감</td><td class="num">341,030원</td><td class="num">2만 · 4만 · 20만</td><td class="num">17.1 · 8.5 · 1.7원</td><td class="num">300</td><td class="num"><strong>1,137원</strong></td></tr>
+<tr><td><a href="#acct3">@0960kim0960</a></td><td>뮤지션 아티스트</td><td class="num">875,000원</td><td class="num">6만 · 10만 · 17만</td><td class="num">14.6 · 8.8 · 5.1원</td><td class="num">400</td><td class="num"><strong>2,188원</strong></td></tr>
+<tr><td><a href="#acct4">@_seas11</a></td><td>한국 사는 대만인 · 브이로그</td><td class="num">950,000원</td><td class="num">2만 · 5만 · 30만</td><td class="num">47.5 · 19.0 · 3.2원</td><td class="num">350</td><td class="num"><strong>2,714원</strong></td></tr>
+<tr><td><a href="#acct5">@hl_yuan</a></td><td>오프라인 리뷰</td><td class="num">3,000,000원</td><td class="num">4만 · 10만 · 20만</td><td class="num">75.0 · 30.0 · 15.0원</td><td class="num">600</td><td class="num"><strong>5,000원</strong></td></tr>
+<tr class="total"><td colspan="2">진행 5명 합계</td><td class="num">5,966,030원</td><td class="num">16만 · 35만 · 107만</td><td class="num">37.3 · 17.0 · 5.6원</td><td class="num">3,650</td><td class="num">1,635원</td></tr>
+<tr><td><a href="#drop">@hsuantzu_1997</a> <span class="bad">드랍</span></td><td>일상 · 개그 · 패션 · 스킨케어</td><td class="num">1,000,000원</td><td class="num">1만 · 3만 · 7만</td><td class="num">100.0 · 33.3 · 14.3원</td><td class="num">50</td><td class="num"><strong class="bad">20,000원</strong></td></tr>
+</table>
+</div>
+<p class="meta">합계 줄의 조회당·공유+저장당은 가격 합계 ÷ 조회수 합계, 가격 합계 ÷ 공유+저장 합계입니다.</p>
+
+<h2 id="bars">공유+저장당 단가 비교</h2>
+<p class="meta">막대 길이는 드랍한 @hsuantzu_1997의 20,000원을 100%로 잡았습니다.</p>
+<div class="hbar"><div class="n">@ian.black_</div><div class="t"><div class="b" style="width:2%"></div></div><div class="v">400원</div></div>
+<div class="hbar"><div class="n">@mxuannc</div><div class="t"><div class="b" style="width:5.7%"></div></div><div class="v">1,137원</div></div>
+<div class="hbar"><div class="n">@0960kim0960</div><div class="t"><div class="b" style="width:10.9%"></div></div><div class="v">2,188원</div></div>
+<div class="hbar"><div class="n">@_seas11</div><div class="t"><div class="b" style="width:13.6%"></div></div><div class="v">2,714원</div></div>
+<div class="hbar"><div class="n">@hl_yuan</div><div class="t"><div class="b" style="width:25%"></div></div><div class="v">5,000원</div></div>
+<div class="hbar"><div class="n">@hsuantzu_1997 <span class="bad">드랍</span></div><div class="t"><div class="b drop" style="width:100%"></div></div><div class="v">20,000원</div></div>
+
+<div class="callout">
+<p><strong>읽을 때 주의.</strong> 조회당 단가는 세 값인데 공유+저장당 단가는 한 값입니다. 공유+저장 합계는 계정별 최근 릴스에서 읽은 값이고, 어느 편·어느 기간 기준인지는 계정마다 다릅니다. 대표 보고에 쓸 때는 "최근 릴스 기준"이라고 한 줄 붙여 주세요.</p>
+</div>
+
+<h2>계정별 상세</h2>
+
+<div class="card" id="acct1">
+<h3 class="cardtitle">① ian.black_ <span>검은형 IAN · 상황극 개그 연기</span></h3>
+<table class="kv">
+<tr><th>가격</th><td class="num">800,000원</td><th>공유+저장당</th><td class="num"><strong>400원</strong> <small>(공유+저장 2,000)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">20,000</td><th>조회당 최저</th><td class="num">40.0원</td></tr>
+<tr><th>조회수 중간</th><td class="num">60,000</td><th>조회당 중간</th><td class="num"><strong>13.3원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">200,000</td><th>조회당 최고</th><td class="num">4.0원</td></tr>
+<tr><th>1만원당</th><td colspan="3">조회 750회 (중간) · 공유+저장 25건</td></tr>
+<tr><th>커넥팅 방향</th><td colspan="3">상황극 연기와 오버하는 표정이 계정 특징이라 상황극 개그형 콘텐츠가 맞음. 레퍼런스 <a href="https://www.instagram.com/reels/Da4vPzAPA30/" target="_blank" rel="noopener">reels/Da4vPzAPA30</a></td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/ian.black_/" target="_blank" rel="noopener">instagram.com/ian.black_</a> · <a href="../collab-accounts/#acct1">계정 분석</a> · <a href="../collab-forecast/">예상 성과</a></td></tr>
+</table>
+</div>
+
+<div class="card" id="acct2">
+<h3 class="cardtitle">② mxuannc <span>샤오멍 · 심리학 · 공감</span></h3>
+<table class="kv">
+<tr><th>가격</th><td class="num">341,030원</td><th>공유+저장당</th><td class="num"><strong>1,137원</strong> <small>(공유+저장 300)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">20,000</td><th>조회당 최저</th><td class="num">17.1원</td></tr>
+<tr><th>조회수 중간</th><td class="num">40,000</td><th>조회당 중간</th><td class="num"><strong>8.5원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">200,000</td><th>조회당 최고</th><td class="num">1.7원</td></tr>
+<tr><th>1만원당</th><td colspan="3">조회 1,173회 (중간) · 공유+저장 8.8건</td></tr>
+<tr><th>커넥팅 방향</th><td colspan="3">심리학 전공 지식으로 데이트 앱을 소구한 이력이 있어, 심리학 이론을 근거로 "같은 국적이 아니어도 진심으로 통하는 사람을 만날 수 있다". 레퍼런스 <a href="https://www.instagram.com/reels/DcTLwAZlb-H/" target="_blank" rel="noopener">reels/DcTLwAZlb-H</a></td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/mxuannc/" target="_blank" rel="noopener">instagram.com/mxuannc</a> · <a href="../collab-accounts/#acct7">계정 분석</a> · <a href="../collab-forecast/">예상 성과</a></td></tr>
+</table>
+</div>
+
+<div class="card" id="acct3">
+<h3 class="cardtitle">③ 0960kim0960 <span>뮤지션 아티스트</span></h3>
+<table class="kv">
+<tr><th>가격</th><td class="num">875,000원</td><th>공유+저장당</th><td class="num"><strong>2,188원</strong> <small>(공유+저장 400)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">60,000</td><th>조회당 최저</th><td class="num">14.6원</td></tr>
+<tr><th>조회수 중간</th><td class="num">100,000</td><th>조회당 중간</th><td class="num"><strong>8.8원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">170,000</td><th>조회당 최고</th><td class="num">5.1원</td></tr>
+<tr><th>1만원당</th><td colspan="3">조회 1,143회 (중간) · 공유+저장 4.6건</td></tr>
+<tr><th>커넥팅 방향</th><td colspan="3">한국 방문 이력 있음(<a href="https://www.instagram.com/reel/DcsLyU-R-yz/" target="_blank" rel="noopener">롯데타워 피아노</a>, <a href="https://www.instagram.com/reel/DbnTN-0R-en/" target="_blank" rel="noopener">명동 꿀타래</a>). 브이로그로 앉아서 제품 소개를 주로 함. 평균 뷰수가 좋아 테스트해 볼 만한 계정</td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/0960kim0960/" target="_blank" rel="noopener">instagram.com/0960kim0960</a> · <a href="../collab-accounts/#hold">계정 분석</a> · <a href="../collab-forecast/">예상 성과</a></td></tr>
+</table>
+</div>
+
+<div class="card" id="acct4">
+<h3 class="cardtitle">④ _seas11 <span>Seas · 한국 사는 대만인 · 일상 브이로그</span></h3>
+<table class="kv">
+<tr><th>가격</th><td class="num">950,000원</td><th>공유+저장당</th><td class="num"><strong>2,714원</strong> <small>(공유+저장 350)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">20,000</td><th>조회당 최저</th><td class="num">47.5원</td></tr>
+<tr><th>조회수 중간</th><td class="num">50,000</td><th>조회당 중간</th><td class="num"><strong>19.0원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">300,000</td><th>조회당 최고</th><td class="num">3.2원</td></tr>
+<tr><th>1만원당</th><td colspan="3">조회 526회 (중간) · 공유+저장 3.7건</td></tr>
+<tr><th>커넥팅 방향</th><td colspan="3">한국어·대만어가 모두 가능한 유일한 계정. 통화 도중 한국어로 자연스럽게 바꿔 말하고 "통역이 실시간으로 너무 잘돼서 몰랐다" 레퍼런스 <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">reels/DaP3GRKBc91</a>. CTA는 "덕질하는 친구에게 공유해 주세요"</td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/_seas11/" target="_blank" rel="noopener">instagram.com/_seas11</a> · <a href="../collab-accounts/#acct5">계정 분석</a> · <a href="../collab-forecast/">예상 성과</a></td></tr>
+</table>
+</div>
+
+<div class="card" id="acct5">
+<h3 class="cardtitle">⑤ hl_yuan <span>Ally · 오프라인 리뷰</span></h3>
+<table class="kv">
+<tr><th>가격</th><td class="num">3,000,000원</td><th>공유+저장당</th><td class="num"><strong>5,000원</strong> <small>(공유+저장 600)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">40,000</td><th>조회당 최저</th><td class="num">75.0원</td></tr>
+<tr><th>조회수 중간</th><td class="num">100,000</td><th>조회당 중간</th><td class="num"><strong>30.0원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">200,000</td><th>조회당 최고</th><td class="num">15.0원</td></tr>
+<tr><th>1만원당</th><td colspan="3">조회 333회 (중간) · 공유+저장 2.0건</td></tr>
+<tr><th>주의</th><td colspan="3"><span class="warn">가격이 300만원으로 가장 높은데 공유+저장은 600으로 두 번째라, 단가로는 진행 5명 중 효율이 가장 낮습니다.</span></td></tr>
+<tr><th>커넥팅 방향</th><td colspan="3">평균 뷰수와 공유가 잘 나오고 한국 제품 광고 레퍼런스가 많음. "한국 교과서 말투 vs 실제 말투"로 접근. 레퍼런스 <a href="https://www.instagram.com/reels/DbailzePvn4/" target="_blank" rel="noopener">reels/DbailzePvn4</a></td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/hl_yuan/" target="_blank" rel="noopener">instagram.com/hl_yuan</a> · <a href="../collab-accounts/#acct4">계정 분석</a> · <a href="../collab-forecast/">예상 성과</a></td></tr>
+</table>
+</div>
+
+<h2 id="drop">드랍 · hsuantzu_1997</h2>
+<div class="callout drop">
+<p><strong>단가 조율했으나 조회당 단가와 공유+저장당 단가가 모두 맞지 않아 드랍.</strong> 9/21 업무보고에 드랍 예정으로 올렸습니다.</p>
+<table class="kv">
+<tr><th>가격</th><td class="num">1,000,000원</td><th>공유+저장당</th><td class="num"><strong class="bad">20,000원</strong> <small>(공유+저장 50)</small></td></tr>
+<tr><th>조회수 최저</th><td class="num">10,000</td><th>조회당 최저</th><td class="num">100.0원</td></tr>
+<tr><th>조회수 중간</th><td class="num">30,000</td><th>조회당 중간</th><td class="num"><strong>33.3원</strong></td></tr>
+<tr><th>조회수 최고</th><td class="num">70,000</td><th>조회당 최고</th><td class="num">14.3원</td></tr>
+<tr><th>비교</th><td colspan="3">진행 5명 중 가장 비싼 @hl_yuan(5,000원)의 4배, 가장 싼 @ian.black_(400원)의 50배</td></tr>
+<tr><th>계정</th><td colspan="3">엔지니어 출신 대만 전업 크리에이터의 일상·개그·패션·스킨케어 계정 (프로필 기준 추정)</td></tr>
+<tr><th>링크</th><td colspan="3"><a href="https://www.instagram.com/hsuantzu_1997/" target="_blank" rel="noopener">instagram.com/hsuantzu_1997</a></td></tr>
+</table>
+</div>
+
+<h2 id="method">계산 방법</h2>
+<ul>
+  <li><strong>조회당 단가</strong> = 가격 ÷ 조회수. 최근 릴스의 최저·중간·최고 조회수로 세 값을 냅니다. 소수 첫째 자리까지.</li>
+  <li><strong>공유+저장당 단가</strong> = 가격 ÷ (공유 + 저장). 최저·중간·최고 구분 없이 합계 한 값으로 냅니다. 1원 단위 반올림.</li>
+  <li><strong>1만원당</strong> = 10,000 ÷ 단가. 같은 돈으로 몇 회·몇 건이 나오는지 보는 값입니다.</li>
+  <li>가격은 9/21 협상 확정가(원화)이고, 조회수·공유+저장은 9/17 계정 분석 이후 9/21에 다시 읽은 값입니다. 9/17 <a href="../collab-accounts/">계정 분석</a> 페이지의 조회수와 다른 계정이 있습니다.</li>
+</ul>
+
+<h3>보고용 한 줄 표기</h3>
+<div class="scroll"><table>
+<tr><th>계정</th><th>한 줄</th></tr>
+<tr><td>@ian.black_</td><td>800,000원 / 조회당 40.0원, 13.3원, 4.0원 / 공유+저장당 400원</td></tr>
+<tr><td>@hl_yuan</td><td>3,000,000원 / 조회당 75.0원, 30.0원, 15.0원 / 공유+저장당 5,000원</td></tr>
+<tr><td>@_seas11</td><td>950,000원 / 조회당 47.5원, 19.0원, 3.2원 / 공유+저장당 2,714원</td></tr>
+<tr><td>@0960kim0960</td><td>875,000원 / 조회당 14.6원, 8.8원, 5.1원 / 공유+저장당 2,188원</td></tr>
+<tr><td>@mxuannc</td><td>341,030원 / 조회당 17.1원, 8.5원, 1.7원 / 공유+저장당 1,137원</td></tr>
+<tr><td>@hsuantzu_1997 (드랍)</td><td>1,000,000원 / 조회당 100.0원, 33.3원, 14.3원 / 공유+저장당 20,000원</td></tr>
+</table></div>
+
+<footer>커넥팅 협업 계정 단가 · @ian.black_ · @mxuannc · @0960kim0960 · @_seas11 · @hl_yuan · 드랍 @hsuantzu_1997 · 기준일 2026-09-21 · 내부 검토용. 관련 페이지: <a href="../collab-accounts/">계정 분석 (9/17)</a> · <a href="../collab-forecast/">예상 성과 (9/18)</a></footer>
+</div>
+</body>
+</html>
