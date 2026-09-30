@@ -3,62 +3,62 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>커넥팅 협업 계정 분석</title>
-<meta name="description" content="커넥팅 협업 후보 인플루언서 7계정(@ian.black_, @mr._.0503, @mengqi.4454, @hl_yuan, @_seas11, @eli_o528, @mxuannc) 분석: 조회수·CPV, 시청자, 대표 영상 한국어 자막·해석, 협업 방향">
+<title>커넥팅 협업 계정 분석 S2</title>
+<meta name="description" content="커넥팅 협업 후보 12계정 종합 분석: CPV·공유+저장 단가 비교, 드랍 판정, 앱 레퍼런스 유무">
 <style>
 :root{
   --bg:#ffffff;--bg2:#f6f5f1;--fg:#1a1a1a;--fg2:#5b5b5b;--line:#e3e1da;
-  --accent:#f5c518;--accent-fg:#1a1a1a;--ok:#1f7a4d;--warn:#b4560c;--card:#ffffff;
+  --accent:#f5c518;--accent-fg:#1a1a1a;--ok:#1f7a4d;--warn:#b4560c;--drop:#c0392b;--card:#ffffff;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;
+    --bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--drop:#e74c3c;
   }
 }
-:root[data-theme="dark"]{--bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;}
+:root[data-theme="dark"]{--bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--drop:#e74c3c;}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;line-height:1.6;font-size:16px}
-.wrap{max-width:960px;margin:0 auto;padding:0 16px 64px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 64px}
 header{padding:40px 0 24px;border-bottom:2px solid var(--fg)}
 .kicker{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:700;padding:2px 10px;border-radius:4px;font-size:13px;letter-spacing:.02em}
-h1{font-size:clamp(26px,5vw,40px);margin:12px 0 6px;line-height:1.2}
-.sub{color:var(--fg2);font-size:15px}
+h1{font-size:clamp(24px,5vw,38px);margin:12px 0 6px;line-height:1.2}
+.sub{color:var(--fg2);font-size:15px;margin-top:8px}
 h2{font-size:22px;margin:48px 0 14px;padding-left:12px;border-left:5px solid var(--accent)}
 h3{font-size:19px;margin:32px 0 10px;padding-left:10px;border-left:3px solid var(--line)}
-h4{font-size:17px;margin:26px 0 8px}
 p{margin:8px 0}
-table{width:100%;border-collapse:collapse;margin:12px 0;font-size:15px}
-th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+a{color:inherit}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:middle}
 th{background:var(--bg2);font-weight:600}
 td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
-.card{border:1px solid var(--line);border-radius:12px;padding:14px 16px 6px;margin:14px 0;background:var(--card)}
-.cardtitle{margin:0 0 8px;padding:0;border:0;font-size:20px}
-.cardtitle span{font-weight:400;color:var(--fg2);font-size:14px;margin-left:8px}
-table.kv{font-size:14.5px;margin:6px 0}
-table.kv th{width:120px;background:var(--bg2);font-weight:600;white-space:nowrap}
-table.kv td.num{text-align:left;width:150px}
-table.kv small{color:var(--fg2)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:14px 0}
-.stat{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.stat .l{font-size:13px;color:var(--fg2)}
-.stat .v{font-size:26px;font-weight:700;line-height:1.2;margin-top:4px;font-variant-numeric:tabular-nums}
-.stat .s{font-size:13px;color:var(--fg2);margin-top:2px}
-.callout{background:var(--bg2);border-left:5px solid var(--accent);padding:14px 16px;border-radius:0 8px 8px 0;margin:16px 0}
-.video-block{display:grid;grid-template-columns:minmax(220px,300px) 1fr;gap:20px;align-items:start;margin:18px 0 8px}
-@media (max-width:640px){.video-block{grid-template-columns:1fr}}
-video{width:100%;max-width:300px;aspect-ratio:9/16;background:#000;border-radius:12px;border:1px solid var(--line);display:block;margin:0 auto}
-.meta{font-size:14px;color:var(--fg2);margin:6px 0 10px}
-.tag{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;border:1px solid var(--line);background:var(--bg2);margin-right:4px}
-.ok{color:var(--ok);font-weight:600}.warn{color:var(--warn);font-weight:600}
-ul{padding-left:20px}li{margin:4px 0}
-.bars{display:flex;gap:6px;align-items:flex-end;height:120px;margin:8px 0 4px}
-.bar{flex:1;background:var(--accent);border-radius:4px 4px 0 0;position:relative;min-width:18px}
-.bar.pin{background:var(--fg2);opacity:.55}
-.bar span{position:absolute;bottom:100%;left:50%;transform:translateX(-50%);font-size:11px;color:var(--fg2);white-space:nowrap;margin-bottom:2px}
-.barlbl{display:flex;gap:6px;font-size:11px;color:var(--fg2)}
-.barlbl div{flex:1;text-align:center;min-width:18px}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px 18px 12px;margin:16px 0;background:var(--card)}
+.card.drop{border-color:var(--drop);border-width:2px;opacity:.7}
+.cardhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.cardtitle{font-size:19px;font-weight:700;margin:0}
+.cardmeta{font-size:13px;color:var(--fg2)}
+.ok{color:var(--ok);font-weight:700}
+.warn{color:var(--warn);font-weight:700}
+.drop{color:var(--drop);font-weight:700}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:4px;white-space:nowrap}
+.badge-ok{background:#d4edda;color:#155724}
+.badge-drop{background:#f8d7da;color:#721c24}
+.badge-app{background:#cce5ff;color:#004085}
+.badge-korea{background:#fff3cd;color:#856404}
+.badge-confirm{background:#d4edda;color:#155724}
+.kv{font-size:14px;margin:0 0 8px}
+.kv table{margin:0}
+.kv th{width:130px;background:var(--bg2);white-space:nowrap;font-weight:600}
+.kv td.num{text-align:left}
+.refs{font-size:14px;margin:12px 0 0;padding-left:4px}
+.refs h4{font-size:15px;margin:10px 0 4px;color:var(--fg2)}
+.refs ul{margin:4px 0;padding-left:18px}
+.refs li{margin:3px 0}
+small,.small{font-size:13px;color:var(--fg2)}
+.notice{background:var(--bg2);border-left:5px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+video{width:100%;max-width:280px;aspect-ratio:9/16;background:#000;border-radius:12px;border:1px solid var(--line);display:block}
+.video-row{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
 footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
-a{color:inherit}
+@media(max-width:640px){th,td{padding:6px 8px;font-size:13px}}
 </style>
 </head>
 <body>
@@ -66,820 +66,364 @@ a{color:inherit}
 
 <header>
   <span class="kicker">커넥팅 · 협업 후보 계정 분석</span>
-  <h1>대만 인플루언서 7계정 비교</h1>
-  <div class="sub">분석일 2026-09-17 · <a href="#acct1">① 검은형 IAN @ian.black_</a> · <a href="#acct2">② 위미 @mr._.0503</a> · <a href="#acct3">③ 천멍치 @mengqi.4454</a> · <a href="#acct4">④ Ally @hl_yuan</a> · <a href="#acct5">⑤ Seas @_seas11</a> · <a href="#acct6">⑥ Eli @eli_o528</a> · <a href="#acct7">⑦ 샤오멍 @mxuannc</a> · <a href="#hold">보류 @0960kim0960</a></div>
+  <h1>대만 인플루언서 12계정 — 2차 라운드</h1>
+  <div class="sub">분석일 2026-09-30 · 조회수·공유+저장 이중 기준 · 관련 공유+저장 단가 3,000원 초과 시 드랍</div>
 </header>
 
-<h2>일곱 계정 요약</h2>
-<p class="meta">계정마다 같은 항목으로 정리했습니다. CPV 와 공유당 비용은 낮을수록 좋습니다.</p>
+<h2>전체 요약 비교표</h2>
+<p class="small">CPV = 원/조회수. 공유+저장 단가 = 원/건. 낮을수록 좋습니다. 관련 공유+저장 단가 <strong>3,000원 초과 → 드랍</strong>.</p>
 
-<div class="card">
-<h3 class="cardtitle">① ian.black_ <span>검은형 IAN · 팔로워 5.8만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">800,000원</td><th>공유당 비용</th><td class="num">400원 <small>(공유 2,000)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">3만</td><th>CPV 최저</th><td class="num">26.7원</td></tr>
-<tr><th>조회수 중간</th><td class="num">15만</td><th>CPV 중간</th><td class="num"><strong>5.3원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">40만</td><th>CPV 최고</th><td class="num">2.0원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">학창시절 공감 밈 개그, 1인 다역 합성</td></tr>
-<tr><th>업로드</th><td colspan="3">평균 3일 간격 · 토요일 성과 최고 · 최근 4일 전</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">없음</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/reels/Da4vPzAPA30/" target="_blank" rel="noopener">gentle_ph 남사친 POV 편</a> (조회 45.9만)</td></tr>
-</table>
-<p class="meta"><a href="#acct1">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">② mr._.0503 <span>위미 · 팔로워 7,227</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">341,030원</td><th>공유당 비용</th><td class="num">6,821원 <small>(공유 50)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">4,000</td><th>CPV 최저</th><td class="num">85.3원</td></tr>
-<tr><th>조회수 중간</th><td class="num">4만</td><th>CPV 중간</th><td class="num"><strong>8.5원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">1.7원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">치아미백 · 뷰티 · 패션 · 온라인 쇼핑 · 외모 관리 후기 (최근 게시물은 최저값 쪽이 많음)</td></tr>
-<tr><th>업로드</th><td colspan="3">주기적이지 않음</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3"><span class="ok">있음</span> · <a href="https://www.instagram.com/reel/DS35YaJCdHz/" target="_blank" rel="noopener">TA행성 음성 채팅 앱</a> · <a href="https://www.instagram.com/reel/DcBDLUxyIvX/" target="_blank" rel="noopener">Ping 데이팅 앱</a> (32.6만)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">ryu_rai73 청혼 편</a> (조회 42.0만)</td></tr>
-</table>
-<p class="meta"><a href="#acct2">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">③ mengqi.4454 <span>천멍치 · 팔로워 1.5만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">606,183원</td><th>공유당 비용</th><td class="num">3,031원 <small>(공유 200)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">2만</td><th>CPV 최저</th><td class="num">30.3원</td></tr>
-<tr><th>조회수 중간</th><td class="num">10만</td><th>CPV 중간</th><td class="num"><strong>6.1원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">30만</td><th>CPV 최고</th><td class="num">2.0원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">일상 · 연애 · 만화 썰 토크 (도쿄 어학교 학생, 만화 소재가 조회수 잘 나옴)</td></tr>
-<tr><th>업로드</th><td colspan="3">빈도 낮음 · 최근 게시물 3주 전 · 화요일 반응 최고</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3"><span class="ok">있음</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DbIuw0TzaZe/" target="_blank" rel="noopener">Floze AI 채팅 앱</a> (93.9만) · <a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank" rel="noopener">WINNING+ 온라인 영어</a> (5.6만)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">ryu_rai73 청혼 편</a> · <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">momoonaaa 한국 남자 통화 편</a> (조회 85.4만) · MBTI나 만화 공통점을 찾아 대화</td></tr>
-</table>
-<p class="meta"><a href="#acct3">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">④ hl_yuan <span>황린위안 Ally · 팔로워 38.8만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">3,000,000원</td><th>공유당 비용</th><td class="num">10,000원 <small>(공유 300)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">15만</td><th>CPV 최저</th><td class="num">20.0원</td></tr>
-<tr><th>조회수 중간</th><td class="num">35만</td><th>CPV 중간</th><td class="num"><strong>8.6원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">100만</td><th>CPV 최고</th><td class="num">3.0원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">외부 촬영 다수 · 한국식 메이크업 · 뷰티 제품 · 한국에서 춤추기 · 한국 브랜드 · 챌린지 · POV · 대만 여행</td></tr>
-<tr><th>업로드</th><td colspan="3">최근 게시물 2일 전 · 현재 밴쿠버 체류</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (맥도날드 챌린지, newmix 매장, 유학원 등 브랜드 협업 다수)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음 · 본인 편 <a href="https://www.instagram.com/hl_yuan/reel/Dc0jQOWpY2E/" target="_blank" rel="noopener">한국 가이드 첫 만남 POV</a>를 참고 · 계정 개성이 커서 기획안을 보여주고 주제를 고르게</td></tr>
-</table>
-<p class="meta"><a href="#acct4">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">⑤ _seas11 <span>Seas 씨스 · 팔로워 5.1만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">950,000원</td><th>공유당 비용</th><td class="num">9,500원 <small>(공유 100, 편차 큼)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">3만</td><th>CPV 최저</th><td class="num">31.7원</td></tr>
-<tr><th>조회수 중간</th><td class="num">8만</td><th>CPV 중간</th><td class="num"><strong>11.9원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">4.8원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">한국 생활 2년차 · 한국 생활 28% · 한국 여행 22% · 한국 패션 18% · 한국 뷰티 15% · 팬 활동 · 한국 취업 정보 (시청자 한국 18%)</td></tr>
-<tr><th>업로드</th><td colspan="3">최근 게시물 10일 전</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">커넥팅 관련 편 <a href="https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/" target="_blank" rel="noopener">한국 취업·비자 가이드</a> (댓글 1,899)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3"><a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">momoonaaa 한국 남자 통화 편</a> (가능)</td></tr>
-</table>
-<p class="meta"><a href="#acct5">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">⑥ eli_o528 <span>니쉔 Eli · 팔로워 34.2만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">870,000원</td><th>공유당 비용</th><td class="num">21,750원 <small>(공유 40)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">4만</td><th>CPV 최저</th><td class="num">21.8원</td></tr>
-<tr><th>조회수 보통</th><td class="num">9만</td><th>CPV 보통</th><td class="num"><strong>9.7원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">30만</td><th>CPV 최고</th><td class="num">2.9원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">대만 프로야구 치어리더 출신 연예인 · 여행·미식 28% · 뷰티 22% · 일상 19% · 스포츠 17% · 해외 여행 · 음악 활동 · 대만 콘서트·일본 해시태그</td></tr>
-<tr><th>업로드</th><td colspan="3">주 2편 꾸준 · 월요일 반응 최고 · 최근 게시물 3주 전</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (장소 · 뷰티 · 음료 · 여성 청결제 광고 다수)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음</td></tr>
-</table>
-<p class="meta"><a href="#acct6">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card">
-<h3 class="cardtitle">⑦ mxuannc <span>샤오멍 · 팔로워 3만</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">341,030원</td><th>공유당 비용</th><td class="num">1,705원 <small>(공유 200)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">2만</td><th>CPV 최저</th><td class="num">17.1원</td></tr>
-<tr><th>조회수 중간</th><td class="num">4만</td><th>CPV 중간</th><td class="num"><strong>8.5원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">20만</td><th>CPV 최고</th><td class="num">1.7원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">대만대 심리학 졸업 · 심리학 이론 30% · 배구 22% · 대학 생활 18% · 여행 16% · 자기 계발 · 앉아서 설명하는데 평균 조회가 일정</td></tr>
-<tr><th>업로드</th><td colspan="3">하루 1편 · 일요일 반응 최고 · 팔로워 증가 추세</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">없음 (시리즈 안에 <a href="https://www.instagram.com/mxuannc/reel/DdMOPVIEqnL/" target="_blank" rel="noopener">데오 스프레이 공구</a> 삽입)</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3">지정 없음</td></tr>
-</table>
-<p class="meta"><a href="#acct7">자세히 보기 ↓</a></p>
-</div>
-
-<div class="card" style="opacity:.75">
-<h3 class="cardtitle">보류 · 0960kim0960 <span>다음 기회로</span></h3>
-<table class="kv">
-<tr><th>제안 가격</th><td class="num">875,000원</td><th>공유당 비용</th><td class="num">8,750원 <small>(농구 제외 토크·일상 기준 100)</small></td></tr>
-<tr><th>조회수 최저</th><td class="num">8만</td><th>CPV 최저</th><td class="num">10.9원</td></tr>
-<tr><th>조회수 중간</th><td class="num">20만</td><th>CPV 중간</th><td class="num"><strong>4.4원</strong></td></tr>
-<tr><th>조회수 최고</th><td class="num">70만</td><th>CPV 최고</th><td class="num">1.2원</td></tr>
-<tr><th>콘텐츠</th><td colspan="3">농구 · 피아노 · 운동 · 음악 주력 · 일상 · 대학 생활 · 한국 콘텐츠(피부과 시술, 롯데타워 피아노, 한국 여행 코디) · 대만 오디언스 53.7% · 9/13부터 팔로워 증가</td></tr>
-<tr><th>업로드</th><td colspan="3">—</td></tr>
-<tr><th>유사 앱 광고 이력</th><td colspan="3">—</td></tr>
-<tr><th>핏 맞는 성공사례</th><td colspan="3">— (계정은 좋지만 핏이 딱 맞지 않아 다음 기회로)</td></tr>
-</table>
-</div>
-
-<h2 id="acct1">① 검은형 IAN <span style="font-weight:400;color:var(--fg2)">@ian.black_</span></h2>
-<p class="sub">대만 개그 밈 크리에이터 · <a href="https://www.instagram.com/ian.black_/reels/" target="_blank" rel="noopener">instagram.com/ian.black_</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>학창시절 공감 밈을 개그로 푸는 대만 계정.</strong> 표정과 1인 다역 합성이 무기입니다.</p>
-<p>가격 80만원 기준 중간값 CPV는 <strong>5.3원</strong>, 최저 조회 시에도 26.7원입니다. 공유 1건당 비용은 <strong>400원</strong>입니다.</p>
-</div>
-
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">5.8만</div><div class="s">팔로우 595</div></div>
-  <div class="stat"><div class="l">평균 게시 간격</div><div class="v">3일</div><div class="s">최근 업로드 4일 전</div></div>
-  <div class="stat"><div class="l">성과 좋은 요일</div><div class="v">토요일</div><div class="s">업로드 성과 최고</div></div>
-  <div class="stat"><div class="l">팔로워 추세</div><div class="v ok">증가</div><div class="s">9/12 ~ 9/16</div></div>
-</div>
 <table>
-<tr><th style="width:160px">프로필 소개</th><td>Lock in to win 🏆 (집중해서 이기자) / 협업·광고 모델 문의는 DM 또는 메일 Lan0088521@gmail.com / 추석 바비큐 세트 공동구매 진행 중 / linktr.ee/black_666 (링크 모음)</td></tr>
-<tr><th>콘텐츠 유형</th><td>학교·수업·숙제·친구 사귀기 같은 학창시절 공감 상황을 과장된 표정과 1인 다역 합성으로 푸는 짧은 개그 릴스. 대부분 9~25초.</td></tr>
-<tr><th>브랜드 협업 이력</th><td>프로필에 공동구매(추석 바비큐 세트) 진행 중. 상업 콘텐츠 경험 있음.</td></tr>
+<thead>
+<tr>
+  <th>계정</th>
+  <th class="num">금액</th>
+  <th class="num">기본 CPV</th>
+  <th class="num">기본<br>공유+저장</th>
+  <th class="num">관련 CPV</th>
+  <th class="num">관련<br>공유+저장</th>
+  <th>판정</th>
+  <th>앱 레퍼런스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="#ian">ian.black_</a></td>
+  <td class="num">800,000</td>
+  <td class="num">5.0원</td>
+  <td class="num">228원</td>
+  <td class="num">0.8원</td>
+  <td class="num ok">103원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td class="small">없음 (상황극)</td>
+</tr>
+<tr>
+  <td><a href="#seas">_seas11</a></td>
+  <td class="num">950,000</td>
+  <td class="num">11.4원</td>
+  <td class="num warn">4,075원</td>
+  <td class="num">8.2원</td>
+  <td class="num ok">1,327원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td class="small"><span class="badge badge-korea">한국생활</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#hl">hl_yuan</a></td>
+  <td class="num">3,000,000</td>
+  <td class="num">7.6원</td>
+  <td class="num warn">7,328원</td>
+  <td class="num">8.9원</td>
+  <td class="num drop">7,970원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국/밴쿠버</span></td>
+</tr>
+<tr>
+  <td><a href="#mx">mxuannc</a></td>
+  <td class="num">335,000</td>
+  <td class="num">4.3원</td>
+  <td class="num">981원</td>
+  <td class="num">3.3원</td>
+  <td class="num ok">920원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td><span class="badge badge-app">Ping! 앱 ✓</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#k0960">0960kim0960</a></td>
+  <td class="num">875,000</td>
+  <td class="num">3.6원</td>
+  <td class="num">1,192원</td>
+  <td class="num">3.6원</td>
+  <td class="num drop">4,551원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#yujo">yujouli_73</a></td>
+  <td class="num">500,000</td>
+  <td class="num">5.6원</td>
+  <td class="num warn">7,079원</td>
+  <td class="num">7.5원</td>
+  <td class="num drop">6,849원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small">없음 (연애/앱무관)</td>
+</tr>
+<tr>
+  <td><a href="#aries">aries_8248</a></td>
+  <td class="num">2,000,000</td>
+  <td class="num">6.4원</td>
+  <td class="num">2,485원</td>
+  <td class="num">4.9원</td>
+  <td class="num ok">2,469원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td class="small">없음 (낯선사람/외국인)</td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#micki">micki.bb</a></td>
+  <td class="num">800,000</td>
+  <td class="num">13.8원</td>
+  <td class="num warn">18,214원</td>
+  <td class="num">14.6원</td>
+  <td class="num drop">43,243원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행/뷰티</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#ladyann">ladyann.happy.nail</a></td>
+  <td class="num">387,555</td>
+  <td class="num">9.4원</td>
+  <td class="num warn">16,148원</td>
+  <td class="num">16.1원</td>
+  <td class="num drop">7,599원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행 토크</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#becca">becca__atlanta__</a></td>
+  <td class="num">600,000</td>
+  <td class="num">28.9원</td>
+  <td class="num warn">7,595원</td>
+  <td class="num">27.2원</td>
+  <td class="num drop">5,634원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">해외(미국)경험</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#k000">000.4.2</a></td>
+  <td class="num">1,085,000</td>
+  <td class="num">3.2원</td>
+  <td class="num warn">7,045원</td>
+  <td class="num">4.5원</td>
+  <td class="num drop">8,220원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td><span class="badge badge-app">Ping! 앱 ✓</span> <span class="small">(단가 높음)</span></td>
+</tr>
+<tr style="background:var(--bg2)">
+  <td><a href="#mengqi"><strong>mengqi.4454</strong></a></td>
+  <td class="num">606,183</td>
+  <td class="num">2.7원</td>
+  <td class="num warn">3,549원</td>
+  <td class="num">13.3원</td>
+  <td class="num ok">1,793원</td>
+  <td><span class="badge badge-confirm">확정 ✓</span></td>
+  <td><span class="badge badge-app">소개팅앱소재</span></td>
+</tr>
+</tbody>
 </table>
 
-<h3>조회수와 CPV (가격 80만원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">30,000</td><td class="num">26.7원</td><td class="num">375회</td></tr>
-<tr><td>중간값</td><td class="num">150,000</td><td class="num">5.3원</td><td class="num">1,875회</td></tr>
-<tr><td>최고</td><td class="num">400,000</td><td class="num">2.0원</td><td class="num">5,000회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (학창시절 공감 밈 편, 공유 약 2,000건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">400원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">25건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<div class="grid">
-  <div class="stat"><div class="l">타겟 지역</div><div class="v">대만 63.9%</div></div>
-  <div class="stat"><div class="l">언어</div><div class="v">번체 64.3%</div><div class="s">중국어 번체 사용자</div></div>
-</div>
-<ul>
-  <li><strong>검은 형</strong> 캐릭터로 통하며 웃긴 영상에 강합니다. 시청자 관심사가 "ian"이라는 개인 이름에도 높게 잡혀 팔로워 충성도가 강한 편입니다.</li>
-  <li>학창시절 공감 밈을 개그 요소로 풀었을 때 조회수가 가장 좋고, 그런 편에서 공유가 2,000건 정도 나옵니다.</li>
-  <li>웃긴 개그 밈 형태의 협업에 적합합니다. 정보 전달형·진지한 톤은 이 계정의 문법이 아닙니다.</li>
-</ul>
-
-<h3>대표 영상 2편 · 한국어 자막 + 해석</h3>
-<h4>영상 1 · 여름방학 숙제를 끝까지 안 하는 그 친구</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/01.jpg" src="videos/01_homework.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">9초</span><span class="tag">2026-08-30</span><span class="tag">조회 81.1만</span><span class="tag">좋아요 6.1만</span><span class="tag">댓글 255</span> · <a href="https://www.instagram.com/ian.black_/reel/DcqCRpMz4Ew/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 개학까지 두 달, 한 달, 일주일, 하루가 남을 때마다 게임하며 "내일 하지 뭐"를 반복하다가, 개학 전날 밤에 울면서 "선생님은 왜 숙제를 이렇게 많이 내주신 거야"라고 한탄하는 9초 개그.</p>
-    </div>
-</div>
-<table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>개학까지 두 달 / 아이고, 내일 하지 뭐</td></tr>
-<tr><td>0:01</td><td>개학까지 한 달</td></tr>
-<tr><td>0:03</td><td>개학까지 일주일</td></tr>
-<tr><td>0:04</td><td>개학까지 하루</td></tr>
-<tr><td>0:06</td><td>개학 전날 밤 / 선생님은 왜 숙제를 이렇게 많이 내주신 거야</td></tr>
-<tr><td>0:08</td><td>두 달치를 어떻게 하루에 다 해</td></tr>
-</table>
-
-<h4>영상 2 · 2026년 미국식 남자애는 대학에서 친구를 어떻게 사귀나</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/02.jpg" src="videos/02_college.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">24초</span><span class="tag">2026-09-09</span><span class="tag">조회 13.1만</span><span class="tag">좋아요 1.1만</span><span class="tag">댓글 39</span> · <a href="https://www.instagram.com/ian.black_/reel/DdENZcRSp3m/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 대학에서 친구를 새로 사귀어야 하는데 어색하게 말을 걸어도 아무도 안 들어주자, 후드티에 혀 내밀고 손가락 총 쏘는 "미국식 인싸" 분신 셋으로 변신해 춤춘다. 알고 보니 선생님도 똑같이 혀 내밀며 춤추고 있었다는 반전.</p>
-    </div>
-</div>
-<table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>하, 대학 가면 친구를 다시 사귀어야 하네</td></tr>
-<tr><td>0:02</td><td>쯧… 이 방법 한번 써볼까</td></tr>
-<tr><td>0:07</td><td>아무도 안 들어주네, 너무 민망해</td></tr>
-<tr><td>0:09</td><td>그럼 이 방법으로 가자</td></tr>
-<tr><td>0:18</td><td>OMG 잠깐, 너잖아?</td></tr>
-<tr><td>0:19</td><td>선생님, 어떻게 이러실 수가</td></tr>
-</table>
-
-<h3>핏이 맞는 커넥팅 성공사례</h3>
-<div class="callout">
-<p><strong>POV 목소리 깔면 멋있는 줄 아는 한국인 남사친</strong> · @gentle_ph · <a href="https://www.instagram.com/reels/Da4vPzAPA30/" target="_blank" rel="noopener">instagram.com/reels/Da4vPzAPA30</a></p>
-</div>
-<h2 id="acct2">② 위미 <span style="font-weight:400;color:var(--fg2)">@mr._.0503</span></h2>
-<p class="sub">대만 뷰티·쇼핑 후기 크리에이터 · <a href="https://www.instagram.com/mr._.0503/reels/" target="_blank" rel="noopener">instagram.com/mr._.0503</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>치아미백·뷰티·쇼핑 후기가 주력인 대만 여성 계정.</strong> 커넥팅과 같은 카테고리 앱(익명 음성 채팅 TA행성, 데이팅 Ping) 광고를 이미 두 번 했고, Ping 편은 최근 오가닉 조회수의 8배(32.6만)를 냈습니다. 후기형 브이로그 문법이라 "써 봤더니 이랬다" 구조의 커넥팅 통화 후기에 맞습니다.</p>
-<p>가격 341,030원 기준 중간값 CPV는 <strong>8.5원</strong>이지만 최근 게시물은 최저값(4,000대)에 가까운 편이 더 많아 편차가 큽니다. 공유는 50건 수준이라 공유 1건당 6,821원입니다.</p>
+<div class="notice">
+  ⚠ <strong>앱 레퍼런스 없음 — 한국/해외 경험만</strong>: _seas11, hl_yuan, 0960kim0960, micki.bb, ladyann.happy.nail, becca__atlanta__ — 커넥팅 앱과 직접적으로 유사한 협찬 경험이 없고 한국 여행·생활 또는 해외 경험 콘텐츠만 해당됩니다.
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">7,227</div><div class="s">팔로우 347</div></div>
-  <div class="stat"><div class="l">업로드 빈도</div><div class="v warn">불규칙</div><div class="s">주기적이지 않음</div></div>
-  <div class="stat"><div class="l">주력 콘텐츠</div><div class="v" style="font-size:18px">뷰티 · 쇼핑 후기</div><div class="s">치아미백, 패션, 외모 관리</div></div>
-  <div class="stat"><div class="l">유사 앱 광고</div><div class="v ok">2편</div><div class="s">TA행성, Ping</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>위미 · 덧니 · 비즈니스 협업 문의 메일 mppen0503@gmail.com · 하이라이트: 할머니 주방, 필립스, 2026, 일본, 한국</td></tr>
-<tr><th>콘텐츠 유형</th><td>얼굴 정면 토크로 제품을 들어 보이며 추천하는 후기형. 쇼피 제휴, 뷰티 매장 POYA, 쿠션(hince) 등 상업 콘텐츠 비중이 높음. 대부분 60~80초.</td></tr>
-<tr><th>브랜드 협업 이력</th><td>쇼피 양말(101.4만, 고정), 필립스 하이라이트, TA행성 음성 채팅 앱(2025-12), Ping 데이팅 앱(2026-08, 32.6만).</td></tr>
-</table>
+<!-- ===== 통과 계정 상세 ===== -->
+<h2>통과 계정 상세</h2>
 
-<h3>조회수와 CPV (가격 341,030원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">4,000</td><td class="num">85.3원</td><td class="num">117회</td></tr>
-<tr><td>중간값</td><td class="num">40,000</td><td class="num">8.5원</td><td class="num">1,173회</td></tr>
-<tr><td>최고</td><td class="num">200,000</td><td class="num">1.7원</td><td class="num">5,865회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (공유 약 50건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">6,821원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">1.5건</td></tr>
-</table>
-<h3>시청자</h3>
-<div class="grid">
-  <div class="stat"><div class="l">타겟 지역</div><div class="v">대만 73.5%</div></div>
-  <div class="stat"><div class="l">그 외</div><div class="v" style="font-size:20px">홍콩·중국 4.9%</div><div class="s">싱가포르 2.9%</div></div>
-</div>
-<ul>
-  <li>뷰티·패션·온라인 쇼핑·외모 관리에 반응하는 여성 시청층. 역대 최고 편(101.4만)이 쇼피 제휴 양말 추천이라 광고성 콘텐츠에 대한 거부감이 낮습니다.</li>
-  <li>댓글 반응은 오가닉 후기(양말 편 댓글 1,793)에서 크고, 앱 광고 2편은 댓글 4·7로 약합니다. 앱 광고는 조회수가 나와도 댓글이 안 붙습니다.</li>
-</ul>
-
-<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
-<h4>영상 4 · Ping 데이팅 앱 광고 — 친구한테 바람맞고 앱으로 카페 갈 사람 구하기</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/05.jpg" src="videos/05_ping.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">76초</span><span class="tag">2026-08-14</span><span class="tag">조회 32.6만</span><span class="tag">좋아요 2,328</span><span class="tag">댓글 7</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/reel/DcBDLUxyIvX/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 친구가 약속을 깨서 Ping 앱에 "2시간 안에 카페 갈 사람" 태그를 걸고 실제로 만난다. 만나기 전 "사진이랑 다르면 어떡해" 긴장, 실물 확인 "사진이랑 똑같아", 2시간 뒤 "짐 들어 주고 돈 한 푼 안 냈어" 후기, "바람맞았다면 Ping 받아 봐"로 마무리.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>오늘 화장 완벽하고 옷도 예쁘게 입었는데 친구가 갑자기 약속을 깼어, 완전 짜증</td></tr>
-<tr><td>0:08</td><td>이렇게 꾸미고 집에서 만화 보라고? 일찍 일어나 꾸민 나에 대한 모욕</td></tr>
-<tr><td>0:14</td><td>Ping으로 사람 불러내서 만나기 도전 · 프로필 카드 태그 "2시간 안에 신뎬에서 나랑 카페 갈 수 있어?"</td></tr>
-<tr><td>0:25</td><td>축하해요! 매칭 성공! 상대도 당신을 좋아해요 · 너무 기대돼</td></tr>
-<tr><td>0:30</td><td>긴장돼, 기다리는 중, 사진이랑 다르면 어떡해 · Ping은 실물 인증이 있어</td></tr>
-<tr><td>0:47</td><td>실물 봤는데 사진이랑 완전 똑같아, Ping은 거짓말 안 해</td></tr>
-<tr><td>0:56</td><td>사람 진짜 좋아, 짐 들어 주고, 오늘 돈 한 푼 안 냈어, 너무 다정해</td></tr>
-<tr><td>1:09</td><td>Ping 도전 대성공 선언, 새 친구 사귀고 싶거나 바람맞았다면 Ping 받아 봐</td></tr>
-</table></div>
-
-<h4>영상 5 · TA행성 음성 채팅 앱 광고 — 잠 안 오는 밤에 웃긴 얘기 듣기</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/04.jpg" src="videos/04_ta_planet.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">65초</span><span class="tag">2025-12-30</span><span class="tag">조회 미확인</span><span class="tag">좋아요 2,046</span><span class="tag">댓글 4</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/reel/DS35YaJCdHz/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 태블릿으로 TA행성 앱에서 모르는 사람과 음성 매칭해 "웃긴 얘기 해 줘"라고 조르고, 상대의 아재개그(지각했는데 얼굴에 베개 자국)에 웃음을 참는다. 뒤에 "잠이 안 와서 써 봤다, 얼굴 없이 목소리만이라 편하다, 미니게임과 익명 고민 상담도 된다"는 소개와 다운로드 권유.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>(웃음) (매칭 중) 스스로 웃긴 얘기는 못 하겠어 · 남이 해 주는 웃긴 얘기 듣고 싶어 (정말 곤란하게 하네)</td></tr>
-<tr><td>0:13</td><td>아침에 한 시간 지각…사장이 왜 늦었냐…차가 한 시간 반 막혔다…그래도 월급은 줬대, 왜인지 알아?</td></tr>
-<tr><td>0:29</td><td>사장이 거울 보라고 했대, 얼굴에 자국이 가득 / 아 알겠다, 차 막혔다더니 얼굴에 베개 자국 · 오 이건 꽤 괜찮네</td></tr>
-<tr><td>0:42</td><td>요즘 TA행성이 자꾸 떠, 여자들을 위해 만든 거래, 오늘 잠이 안 와서 마침 써 봤어</td></tr>
-<tr><td>0:50</td><td>얼굴 안 보이고 목소리만이라 오히려 편해, 진짜 누가 곁에 있는 느낌</td></tr>
-<tr><td>0:56</td><td>대화만이 아니라 미니게임, 익명 고민 상담, 모드가 엄청 많아 · 대화 상대 찾고 싶으면 TA행성, 언제 어디서나 대화 상대가 있어</td></tr>
-</table></div>
-
-<h4>영상 6 · 쇼피 긴 양말 추천 — 계정 역대 최고 조회수</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/06.jpg" src="videos/06_socks.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">68초</span><span class="tag">2026-07-28</span><span class="tag">조회 101.4만 (고정)</span><span class="tag">좋아요 5.2만</span><span class="tag">댓글 1,793</span><span class="tag">쇼피 제휴</span> · <a href="https://www.instagram.com/mr._.0503/reel/DbUvTUjSoqd/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 고등학교 때부터 긴 양말을 50켤레 가까이 사 본 사람으로서 쇼피에서 산 양말을 추천한다. 한 켤레 약 1,700원, 오래 신고 재질 좋고 낱개 포장, 흰색 3켤레·검은색 1켤레 쟁여 뒀다, 남자도 운동용으로 좋다, 링크는 댓글에.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>고등학교 때부터 긴 양말 신은 사람으로서, 어디서 사냐면 나만 따라와 · 지금까지 50켤레 가까이</td></tr>
-<tr><td>0:10</td><td>나이키 얇은 건 금방 구멍, 그래서 단색 타월지 · 한 곳 추천, 쇼피에서 샀어</td></tr>
-<tr><td>0:21</td><td>흰색은 물이 잘 들어 여러 켤레, 지금 세 켤레 쟁여 둠 · 검은색도 샀어, 요즘 유행</td></tr>
-<tr><td>0:35</td><td>한 켤레 39달러, 오래 신고 재질 좋아 · 낱개 포장 긴 양말은 처음, 대단해</td></tr>
-<tr><td>0:47</td><td>두툼한 재질인데 오래 신어, 망가져도 39달러면 버려도 안 아까워</td></tr>
-<tr><td>0:57</td><td>여자들 다 샀어, 코디하기 좋은 아이템, 남자도 사도 돼 · 링크는 댓글에</td></tr>
-</table></div>
-
-<h3>핏이 맞는 커넥팅 성공사례</h3>
-<div class="callout">
-<p><strong>청혼 — 커넥팅 통역 통화</strong> · @ryu_rai73 · <a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">instagram.com/p/DcS1LOJolBH</a></p>
-</div>
-<h2 id="acct3">③ 천멍치 <span style="font-weight:400;color:var(--fg2)">@mengqi.4454</span></h2>
-<p class="sub">대만 출신 도쿄 어학교 학생 · 일상·연애·만화 썰 토크 · <a href="https://www.instagram.com/mengqi.4454/reels/" target="_blank" rel="noopener">instagram.com/mengqi.4454</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>만화·소설·연애 썰을 정면 토크로 푸는 대만 학생 계정.</strong> 현재 도쿄 어학교 재학 중이라 "외국어 못 해서 생기는 웃긴 상황"이 본인 소재이고, 이미 일본 소개팅 앱 영어 채팅 썰로 영어 학원 광고를 했습니다.</p>
-<p>가격 606,183원 기준 중간값 CPV <strong>6.1원</strong>. 약점은 업로드 빈도입니다. 최근 게시물이 3주 전이고, 화요일 콘텐츠 반응이 제일 좋습니다.</p>
+<!-- ian.black_ -->
+<div class="card" id="ian">
+  <div class="cardhead">
+    <span class="cardtitle">@ian.black_</span>
+    <span class="cardmeta">검은형 IAN · 대만 · 팔로워 5.8만</span>
+    <span class="badge badge-ok">통과</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">800,000원</td><th>기본 CPV</th><td class="num">5.0원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">228원</td><th>관련 CPV</th><td class="num">0.8원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">103원</td><th>앱 레퍼런스</th><td>없음 (Flixseek·모바일게임 광고 있으나 커넥팅 무관)</td></tr>
+  </table>
+  <div class="refs">
+    <h4>연애 · 상황극</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/ian.black_/reel/DRRZfIIEwCm/" target="_blank">학교에서 눈빛으로 crush 반하게 만들기</a> — 369.1만 조회 (고정)</li>
+      <li><a href="https://www.instagram.com/ian.black_/reel/DcqCRpMz4Ew/" target="_blank">여름방학 숙제를 끝까지 안 하는 그 친구</a> — 81.1만 조회, 9초 원테이크 개그</li>
+    </ul>
+    <h4>앱 광고 (커넥팅 무관)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DYJy-56zwsc/" target="_blank">Flixseek 구독 플랫폼 광고</a> — 2.8만</li>
+      <li><a href="https://www.instagram.com/reel/Db29XNvToqM/" target="_blank">모바일 게임 광고</a> — 6.5만, 공유 1,633</li>
+    </ul>
+  </div>
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">1.5만</div><div class="s">팔로우 899</div></div>
-  <div class="stat"><div class="l">업로드 빈도</div><div class="v warn">낮음</div><div class="s">최근 게시물 3주 전</div></div>
-  <div class="stat"><div class="l">반응 좋은 요일</div><div class="v">화요일</div><div class="s">콘텐츠 반응 최고</div></div>
-  <div class="stat"><div class="l">앱 광고 이력</div><div class="v ok">2편</div><div class="s">Floze, WINNING+</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>천멍치 · 타이중여고 / 국립칭화대 · 쇼핑광 기록과 혼잣말 · 현재 도쿄 어학교 재학 중 · 📧 kurokomengi@gmail.com · 하이라이트: 도쿄 흑백요리사</td></tr>
-<tr><th>콘텐츠 유형</th><td>침대·방에서 마이크 달고 정면 토크. 일상, 연애관, 만화·소설(BL 포함) 취향을 썰로 풀고 반전 한 방과 친구 대화 인용으로 닫음. 만화 소재 편의 조회수가 잘 나옴. 대부분 45~90초.</td></tr>
-<tr><th>브랜드 협업 이력</th><td>Floze AI 채팅 앱(2026-07, 93.9만), WINNING+ 온라인 영어 학원(2026-08, 5.6만, 고정), GU 의류 태그.</td></tr>
-</table>
-
-<h3>조회수와 CPV (가격 606,183원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">20,000</td><td class="num">30.3원</td><td class="num">330회</td></tr>
-<tr><td>중간값</td><td class="num">100,000</td><td class="num">6.1원</td><td class="num">1,650회</td></tr>
-<tr><td>최고</td><td class="num">300,000</td><td class="num">2.0원</td><td class="num">4,949회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (공유 약 200건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">3,031원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">3.3건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<div class="grid">
-  <div class="stat"><div class="l">타겟층</div><div class="v">56.2%</div></div>
-  <div class="stat"><div class="l">언어</div><div class="v">번체 100%</div><div class="s">중국어 번체 사용자</div></div>
-</div>
-<ul>
-  <li>일상·연애·만화 소재에 반응하는 학생·20대 시청층. 만화 소재 편이 조회수가 잘 나오고, BL·막장 전개 같은 팬덤 용어를 쓰는 편(Floze)이 93.9만을 냈습니다.</li>
-  <li>오가닉 썰(이상형 편 31.2만에 좋아요 2.2만)의 반응률이 앱 광고(93.9만에 좋아요 1.0만)보다 높습니다. 광고는 도달은 크지만 반응은 절반 수준입니다.</li>
-  <li>협업 시 통화 상대와 MBTI나 만화 공통점을 찾는 대화로 가야 이 계정 시청자가 붙습니다.</li>
-</ul>
-
-<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
-<h4>영상 7 · WINNING+ 온라인 영어 학원 광고 — 일본 소개팅 앱 엉터리 영어 채팅</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/07.jpg" src="videos/07_winning.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">83초</span><span class="tag">2026-08-25</span><span class="tag">조회 5.6만 (고정)</span><span class="tag">좋아요 3,464</span><span class="tag">댓글 41</span><span class="tag ok">광고</span> · <a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 일본 소개팅 앱에서 프로필에 "영어로 소통 희망"을 썼더니 온 엉터리 영어 채팅("Bad no problem", "Taiwan is the best country")을 보여주며 웃긴 뒤, "내 진짜 문제는 틀릴까 봐 말을 못 하는 것"이라며 필리핀 온라인 영어 학원 WINNING+ 1대1 수업을 소개한다. 댓글에 "영어"라고 남기면 무료 수업 DM.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>일본 와서 다들 꼭 해 보라는 걸 해 봤어, 소개팅 앱</td></tr>
-<tr><td>0:06</td><td>일본어가 엉망이라 프로필에 영어로 소통하고 싶다고 써 놨어 (비극의 시작)</td></tr>
-<tr><td>0:20</td><td>(채팅 캡처) 히라가나를 알파벳으로 쓴다고 영어가 되는 게 아니잖아 · 듣기엔 문제가 아주 커 보이는데</td></tr>
-<tr><td>0:38</td><td>내 인생 가장 성공한 국민 외교 · 틀리는 것보다 말하는 게 중요, 엉망이어도 알아들었으니까</td></tr>
-<tr><td>0:52</td><td>내 진짜 문제는 '영어 막힘', 문장은 많은데 틀릴까 봐 못 말해, 대만인 고질병</td></tr>
-<tr><td>0:58</td><td>필리핀 온라인 국제어학원 WINNING+, 1대1 영어 환경, 한 수업 300대만달러부터, 틀려도 지적 걱정 없음</td></tr>
-<tr><td>1:11</td><td>무료 체험하면 영어 진단, 댓글에 "영어"라고 남기면 1대1 수업 한 회 무료 DM</td></tr>
-</table></div>
-
-<h4>영상 8 · 이상형 QA — 정리하면 게이</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/08.jpg" src="videos/08_idealtype.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">48초</span><span class="tag">2026-08-21</span><span class="tag">조회 31.2만</span><span class="tag">좋아요 2.2만</span><span class="tag">댓글 65</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DcTa1akSdfF/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 팔로워 질문 "이상형이 궁금해요"에 부드럽고 수줍고 꾸밀 줄 알고 소통 잘하는 남자라고 답하다가 "정리하면 게이"로 뒤집는다. 귀여운 남자를 알아봐 달랬더니 남자친구 이름이 먼저 왔고, 그 뒤로 친구들이 "분류 모자"라고 부른다는 연애 썰.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:03</td><td>제대로 물어봤네. 부드럽고 약간 수줍고 꾸밀 줄 알고 표현 잘하는 남자, 서로 좋은 친구가 됐으면</td></tr>
-<tr><td>0:12</td><td>그래서 내 취향을 정리하면… 게이</td></tr>
-<tr><td>0:17</td><td>진짜 농담 아냐, 다들 게이한테 빠져 봤어, 게이는 무서워</td></tr>
-<tr><td>0:26</td><td>귀엽다 싶어 공통 친구한테 말했더니 알아봐 줌, 정보보다 먼저 온 게 남자친구 이름</td></tr>
-<tr><td>0:37</td><td>그 뒤로 친구들이 날 분류 모자라고 불러</td></tr>
-<tr><td>0:43</td><td>네가 옆자리 남자 귀엽다고 할 때 게이인 줄 알았지</td></tr>
-</table></div>
-
-<h4>영상 9 · Floze AI 채팅 앱 광고 — BL 막장 전개를 내가 직접 쓴다</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/09.jpg" src="videos/09_floze.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">85초</span><span class="tag">2026-07-23</span><span class="tag">조회 93.9만</span><span class="tag">좋아요 1.0만</span><span class="tag">댓글 38</span><span class="tag ok">앱 광고</span> · <a href="https://www.instagram.com/mengqi.4454/reel/DbIuw0TzaZe/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> BL 막장 전개를 좋아하는데 요즘 작품은 너무 쉽게 용서해서 열받으니 "내가 직접 쓰면 되지"라며 AI 캐릭터 채팅 앱 Floze를 소개한다. 첫 대사 "창피해, 이혼해"로 폭주해 친밀도 마이너스를 찍고, 서브 스토리와 BL·GL·BG 캐릭터, 수위는 끝까지 올릴 수 있다고 마무리.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>BL 볼 때 완전 감정 미친개, 최애 전개는 후회 남주 화장터, 아예 다 태워야</td></tr>
-<tr><td>0:10</td><td>요즘 작품은 "그걸 용서해?" 싶어, 어떡하냐고? 직접 쓰면 되지</td></tr>
-<tr><td>0:19</td><td>언니들에게 소개, AI 채팅 앱 Floze, 자유도 말도 안 되게 높아</td></tr>
-<tr><td>0:32</td><td>첫 대사 "창피해, 이혼해", 궤도 이탈 스티커 받음, 친밀도 마이너스 처음 봄</td></tr>
-<tr><td>0:43</td><td>서브 스토리, 놀이공원·교실·사무실, 50턴 안에 완료</td></tr>
-<tr><td>1:04</td><td>직접 만든 캐릭터, 다른 크리에이터 캐릭터, BL·GL·BG 전부</td></tr>
-<tr><td>1:14</td><td>수위 끝까지 가능, 공개 못 함, 계정 정지 무서워, 직접 가서 봐</td></tr>
-</table></div>
-
-<h3>핏이 맞는 커넥팅 성공사례</h3>
-<div class="callout">
-<p><strong>한국 남자와 통화 중</strong> · @momoonaaa (일본) · <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">instagram.com/reels/DaP3GRKBc91</a></p>
-<p><strong>청혼 — 커넥팅 통역 통화</strong> · @ryu_rai73 · <a href="https://www.instagram.com/p/DcS1LOJolBH/" target="_blank" rel="noopener">instagram.com/p/DcS1LOJolBH</a></p>
-</div>
-<h2 id="acct4">④ 황린위안 Ally <span style="font-weight:400;color:var(--fg2)">@hl_yuan</span></h2>
-<p class="sub">대만 뷰티·여행·챌린지 크리에이터 (인증 계정) · <a href="https://www.instagram.com/hl_yuan/reels/" target="_blank" rel="noopener">instagram.com/hl_yuan</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>팔로워 38.8만의 비주얼 중심 계정.</strong> 외부 촬영이 많고 한국식 메이크업, 뷰티 제품, 한국에서 춤추기, 한국 브랜드, 챌린지·POV, 대만 여행 소재가 섞여 있습니다. 네 계정 중 팔로워와 단가가 가장 크고, "해외에서 낯선 한국 남자를 처음 만나는 POV" 브이로그(영상 11)를 이미 찍었습니다.</p>
-<p>가격 300만원 기준 중간값 CPV <strong>8.6원</strong>. 계정 개성이 강하니 <strong>기획안을 보여주고 본인이 주제를 고르게 하는 방식</strong>이 맞습니다.</p>
+<!-- _seas11 -->
+<div class="card" id="seas">
+  <div class="cardhead">
+    <span class="cardtitle">@_seas11</span>
+    <span class="cardmeta">Seas · 대만 54.1% · 팔로워 미기재</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-korea">한국생활 레퍼런스만</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">950,000원</td><th>기본 CPV</th><td class="num warn">11.4원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num warn">4,075원</td><th>관련 CPV</th><td class="num">8.2원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">1,327원</td><th>앱 레퍼런스</th><td>없음 — 한국 취업·생활 정보</td></tr>
+  </table>
+  <div class="refs">
+    <h4>한국생활 · 정보</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/" target="_blank">한국 취업·비자 Notion 가이드</a> — 7.9만</li>
+      <li><a href="https://www.instagram.com/_seas11/reel/DZ7P9AkCXlf/" target="_blank">홍대 환전 어디서</a> — 5.8만</li>
+    </ul>
+    <p class="small">→ 한국 생활 정보 제공에 능함. 커넥팅 앱 유사 레퍼런스 없음.</p>
+  </div>
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">38.8만</div><div class="s">팔로우 662 · 인증 계정</div></div>
-  <div class="stat"><div class="l">대만 오디언스</div><div class="v">53.7%</div></div>
-  <div class="stat"><div class="l">촬영 환경</div><div class="v" style="font-size:20px">외부 촬영 다수</div><div class="s">한국·밴쿠버·대만 야외</div></div>
-  <div class="stat"><div class="l">최근 업로드</div><div class="v">9/15</div><div class="s">2일 전 · 밴쿠버 체류 중</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>황린위안 Ally · 0원 무료 이벤트 또 왔어요 · 협업 문의 메일 hlyuan.work@gmail.com · linktr.ee/hl_yuan · 하이라이트: Work, Me, Travel, 금곡장(GMA), Dance, Mv, Filming</td></tr>
-<tr><th>콘텐츠 유형</th><td>한국식 메이크업·뷰티 제품, 한국에서 춤추기, 한국 브랜드, 챌린지·POV 상황극, 대만 가볼 만한 곳 여행. 대사 없는 비주얼 챌린지(12초)부터 협찬 브이로그(54초)까지. 역대 최고편은 POV 연애 상황극(622만).</td></tr>
-<tr><th>브랜드 협업 이력</th><td>맥도날드 McKitty 챌린지, newmix 한국 즉석 커피 매장(추정), 밴쿠버 유학원 @justgo_study, 뮤직비디오·촬영 출연. 프로필에 상시 이벤트 문구.</td></tr>
-</table>
-
-<h3>조회수와 CPV (가격 300만원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">150,000</td><td class="num">20.0원</td><td class="num">500회</td></tr>
-<tr><td>중간값</td><td class="num">350,000</td><td class="num">8.6원</td><td class="num">1,167회</td></tr>
-<tr><td>최고</td><td class="num">1,000,000</td><td class="num">3.0원</td><td class="num">3,333회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (공유 약 300건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">10,000원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">1.0건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<div class="grid">
-  <div class="stat"><div class="l">대만 오디언스</div><div class="v">53.7%</div></div>
-  <div class="stat"><div class="l">그 외</div><div class="v" style="font-size:20px">해외 46.3%</div><div class="s">한국·캐나다 등 (세부 미확인)</div></div>
-</div>
-<ul>
-  <li>네 계정 중 대만 비중이 가장 낮고(53.7%) 해외 시청자가 절반 가까이 됩니다. 한국 소재 콘텐츠가 많아 한국 시청자 비중이 있을 가능성이 있습니다.</li>
-  <li>반응은 POV 연애 상황극(622만, 좋아요 25.5만)에서 압도적이고, 협찬 브이로그(14.3만, 좋아요 4,407)는 3% 반응률로 낮습니다.</li>
-  <li>비주얼과 한국 감성이 팔로우 이유라 정보형·대사 중심보다 얼굴·장소가 보이는 포맷이 맞습니다.</li>
-</ul>
-
-<h3>대표 영상 2편 · 한국어 자막 + 해석</h3>
-<h4>영상 10 · 맥도날드 McKitty 챌린지 — 종이봉투 고양이</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/10.jpg" src="videos/10_mckitty.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">12초</span><span class="tag">2026-09-15</span><span class="tag">조회 15.7만</span><span class="tag">좋아요 9,660</span><span class="tag">댓글 49</span><span class="tag">챌린지</span> · <a href="https://www.instagram.com/hl_yuan/reel/DdTck_kzeYM/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 맥도날드 고양이 종이봉투 챌린지. 대사 없이 음악에 맞춰 봉투를 머리에 쓰고 감자튀김을 고양이 수염처럼 무는 포즈를 취한 뒤 매장 사진으로 마무리. 밴쿠버 매장에서 촬영.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>내가 맥도날드 야옹이가 됐을 때</td></tr>
-<tr><td>0:08</td><td>(대사 없음)</td></tr>
-</table></div>
-
-<h4>영상 11 · POV 해외에서 낯선 사람 처음 만나기 — 한국 현지 가이드와 newmix 커피</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/11.jpg" src="videos/11_newmix.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">54초</span><span class="tag">2026-09-03</span><span class="tag">조회 14.3만</span><span class="tag">좋아요 4,407</span><span class="tag">댓글 28</span><span class="tag ok">협찬 추정</span> · <a href="https://www.instagram.com/hl_yuan/reel/Dc0jQOWpY2E/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> "해외에서 낯선 사람을 처음 만날 때" POV. 한국 남자 가이드를 만나 대만 과자를 선물하고, 가이드가 newmix 즉석 커피 매장으로 안내해 두리안·멜론·얼그레이 맛을 시음한다. 전부 사겠다고 하자 가이드가 몰래 계산해 선물하고, "한국 오면 꼭 newmix"로 마무리.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>해외에서 낯선 사람을 처음 만날 때 · 이따가 현지 가이드 온라인 친구 만나러 가, 어떻게 생겼는지도 몰라, 긴장돼</td></tr>
-<tr><td>0:06</td><td>안녕, 이거 너 줄게, 대만에서 완전 유명해 / 오 고마워 / 중국어 하네? / 응</td></tr>
-<tr><td>0:14</td><td>한국 유명 기념품 알아? 요즘 제일 유명한 커피 맛보러 데려갈게 / 좋아</td></tr>
-<tr><td>0:19</td><td>도착, 여기야, 진짜 예뻐 / 저당? / 응, 다이어트하는 여자도 마셔 / 두리안 커피 / 멜론이랑 라떼 잘 어울려 / 얼그레이 밀크티, 이게 더 좋아</td></tr>
-<tr><td>0:42</td><td>결정했어, 전부 가져갈래, 포장까지 고급, 선물용으로 딱</td></tr>
-<tr><td>0:46</td><td>사실 방금 계산했어, 전부 너한테 선물 / 엥 진짜? · 한국 오면 꼭 newmix</td></tr>
-</table></div>
-
-<h4>영상 12 · POV 상대 마음에 들어가는 법 — 계정 역대 최고 622만</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/12.jpg" src="videos/12_pov.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">17초</span><span class="tag">2025-10-24</span><span class="tag">조회 622만 (고정)</span><span class="tag">좋아요 25.5만</span><span class="tag">댓글 967</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/hl_yuan/reel/DQMFamTCTyV/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 길에서 카메라를 낯선 남자로 두고 "왜 나한테 인사를 안 해? 내 마음속으로 들어오면 되잖아"라고 시비를 건다. "내 마음엔 Sharon뿐"이라는 거절에 "Sharon이 하는 건 나도 해" 했다가 "조용히 있을 수 있어?"에 3초 침묵, "걔는 못 해, 빠이"로 끝나는 17초 POV.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>상대 마음에 들어가는 법 · 저기요, 좀 예의 없는데 / 네? / 왜 나한테 인사를 안 해? / 내가 널 알아?</td></tr>
-<tr><td>0:06</td><td>그냥 내 마음속으로 걸어 들어오면 되잖아 / 안 돼, 내 마음엔 Sharon뿐, 빠이</td></tr>
-<tr><td>0:09</td><td>잠깐, Sharon이 하는 건 나도 해 / 조용히 있을 수 있어? / … / 걔는 못 해, 빠이 / 시비 거냐</td></tr>
-</table></div>
-
-<h2 id="acct5">⑤ Seas 씨스 <span style="font-weight:400;color:var(--fg2)">@_seas11</span></h2>
-<p class="sub">한국 생활 2년차 대만인 · 한국 생활·여행·패션·뷰티·팬 활동 (인증 계정) · <a href="https://www.instagram.com/_seas11/reels/" target="_blank" rel="noopener">instagram.com/_seas11</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>한국 대학원 졸업 후 한국에서 취업해 사는 대만인 계정.</strong> 시청자의 18%가 한국이고, 한국 취업·비자 정보 편에 댓글 1,899건이 달릴 만큼 "한국에 살고 싶은 대만인"이 모여 있습니다. 커넥팅의 통역 통화를 "한국어 연습, 한국 친구 만들기" 같은 한국 생활 준비 도구로 포장하면 소재가 정확히 맞습니다.</p>
-<p>가격 95만원 기준 중간값 CPV <strong>11.9원</strong>. 공유는 중간 100건이지만 편차가 큽니다.</p>
+<!-- mxuannc -->
+<div class="card" id="mx">
+  <div class="cardhead">
+    <span class="cardtitle">@mxuannc</span>
+    <span class="cardmeta">샤오멍 · 대만</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-app">Ping! 앱 레퍼런스 ✓</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">335,000원</td><th>기본 CPV</th><td class="num">4.3원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">981원</td><th>관련 CPV</th><td class="num">3.3원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">920원</td><th>앱 레퍼런스</th><td><strong>Ping! 데이팅 앱</strong> 협찬 다수</td></tr>
+  </table>
+  <div class="refs">
+    <h4>연애 · 낯선 사람과 대화 (Ping! 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DcTLwAZlb-H/" target="_blank">36個問題讓你跟陌生人墜入愛河 (낯선 사람과 사랑에 빠지게 하는 36가지 질문)</a> — 349.8만 (고정), Ping! 협찬</li>
+      <li><a href="https://www.instagram.com/reel/Ddn8yvZnAjX/" target="_blank">3招上手 Deep Talk (딥토크 3가지 요령)</a> — 37.7만, Ping! 협찬</li>
+    </ul>
+    <h4>외국 · 번역 앱</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdYsm7zjCR4/" target="_blank">去日本必備!翻譯App (일본 갈 때 필수 번역 앱)</a> — 3.8만, KuliKuli 협찬</li>
+    </ul>
+  </div>
+  <div id="mx-videos" class="video-row"></div>
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">5.1만</div><div class="s">팔로우 463 · 인증 계정</div></div>
-  <div class="stat"><div class="l">타겟층</div><div class="v">대만 54.2%</div><div class="s">한국 18% · 중국·홍콩 3.6% · 싱가포르 3.6%</div></div>
-  <div class="stat"><div class="l">언어</div><div class="v">번체 100%</div></div>
-  <div class="stat"><div class="l">최근 업로드</div><div class="v">9/7</div><div class="s">10일 전</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>Seas 씨스 · 한국 일상 | 좋은 물건 | 덕질 | 한국 생활 2년차 · 📮 itsseas11@gmail.com · 내가 정리한 한국 맛집·쇼핑 지도 · linktr.ee/itsseas11 · 하이라이트: 보조배터리 공구, 속눈썹 영양액 공구, 육아 필수템, 미백·부기 빼기, 여름 더위, 자석 카드 키링</td></tr>
-<tr><th>콘텐츠 유형</th><td>한국 생활 28% · 한국 여행 22% · 한국 패션 18% · 한국 뷰티 15% · 팬 활동. 정면 토크 정보형(취업·비자), 뷰티 테스트, 남매 맛집 전환 편집. 한국 취업 관련 콘텐츠 많음.</td></tr>
-<tr><th>브랜드 협업 이력</th><td>보조배터리·속눈썹 영양액 공동구매, 한국 맛집 지도 판매. 앱 광고 이력은 확인 안 됨.</td></tr>
-</table>
-
-<h3>조회수와 CPV (가격 950,000원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">30,000</td><td class="num">31.7원</td><td class="num">316회</td></tr>
-<tr><td>중간값</td><td class="num">80,000</td><td class="num">11.9원</td><td class="num">842회</td></tr>
-<tr><td>최고</td><td class="num">200,000</td><td class="num">4.8원</td><td class="num">2,105회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (중간 약 100건 · <span class="warn">편차 큼</span>)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">9,500원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">1.1건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<ul>
-  <li>일곱 계정 중 유일하게 한국 시청자 비중(18%)이 뚜렷합니다. 한국에 사는 대만인과 한국인이 섞여 있어, 커넥팅의 "대만인↔한국인 통화" 양쪽 시청자를 한 계정에서 만납니다.</li>
-  <li>한국 취업·비자 정보 편에 링크 요청 댓글 1,899건. 정보형 CTA(댓글 남기면 DM)가 이 계정에서 가장 강하게 작동합니다.</li>
-  <li>팬 활동(아이돌·연예인) 관심층이라 "아이돌 헤어 선생님", "환승연애 출연진" 같은 한국 연예 연결고리에 반응합니다.</li>
-</ul>
-
-<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
-
-<h4>영상 13 · 한국 취업·비자 Notion 가이드 — 댓글 1,899</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/13.jpg" src="videos/13_korea_visa.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">27초</span><span class="tag">2026-09-07</span><span class="tag">조회 7.1만</span><span class="tag">좋아요 4,306</span><span class="tag">댓글 1,899</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 한국 대학원 졸업 후 취업하고 거주 비자까지 받은 경험으로, 한국 오기 전 서류 공증부터 외국인등록·계좌·통신, 비자 신청 주의사항까지 정리한 Notion "한국 생활 가이드"를 만들었으니 댓글 남기면 링크를 준다는 정보 영상.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>연초 한국 대학원 졸업하고 바로 취업, 최근 거주 비자도 받았어</td></tr>
-<tr><td>0:05</td><td>2년간 제일 힘든 건 정보 찾을 때 번체 자료가 너무 적다는 것</td></tr>
-<tr><td>0:10</td><td>그래서 Notion 정리: 오기 전 서류 공증, 막 왔을 때 준비, 비자 신청 주의</td></tr>
-<tr><td>0:19</td><td>한국에서 공부 중이거나 올 계획이면 댓글, 링크 보내 줄게. 덜 헤매길</td></tr>
-</table></div>
-
-<h4>영상 14 · 아이돌 헤어스프레이 고정력 테스트</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/14.jpg" src="videos/14_hairspray.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">27초</span><span class="tag">2026-08-28</span><span class="tag">조회 9.2만</span><span class="tag">좋아요 4,208</span><span class="tag">댓글 12</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/_seas11/reel/DclRBNCClap/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 한국에서 프로필 촬영할 때 헤어 선생님이 "아이돌도 다 쓴다"고 한 헤어스프레이를 산들바람, 강풍, 머리 흔들기, 냉풍기 정면 순으로 테스트한다. 가운데는 끝까지 안 움직인다며 제품(WELLA EIMI Super Spray)을 보여준다.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>메이크업 받을 때 선생님이 아이돌도 다 쓴대, 예뻐서 고정력 테스트</td></tr>
-<tr><td>0:07</td><td>1단계 산들바람 통과, 강풍도 안 움직임, 살짝 넘기면 돌아옴, 머리 흔들어도 멀쩡</td></tr>
-<tr><td>0:15</td><td>친구가 약하대, 그래도 살짝 넘기면 완전 복구</td></tr>
-<tr><td>0:20</td><td>마지막 냉풍기 정면, 가운데 안 움직임, 이 스프레이야 저장해</td></tr>
-</table></div>
-
-<h4>영상 15 · POV 누나가 부자일 때 — 계정 역대 최고 127.6만</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/15.jpg" src="videos/15_richsister.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">16초</span><span class="tag">2026-01-30</span><span class="tag">조회 127.6만 (고정)</span><span class="tag">좋아요 8.3만</span><span class="tag">댓글 375</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/_seas11/reel/DUInMA8kgKF/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> "누나가 부자일 때" POV. 남동생에게 카드를 건네고 삼겹살, 돈까스, 국밥, 회, 붕어빵 등 한국 맛집 10여 곳을 돌며 남매 셀카로 전환하는 16초 편집. 캡션은 "부자 아니고 그냥 많이 먹는 것".</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>누나가 부자일 때 (카드 건네기)</td></tr>
-<tr><td>0:04</td><td>(대사 없음)</td></tr>
-</table></div>
-
-<h3>핏이 맞는 커넥팅 성공사례</h3>
-<div class="callout">
-<p><strong>한국 남자와 통화 중</strong> · @momoonaaa (일본) · <a href="https://www.instagram.com/reels/DaP3GRKBc91/" target="_blank" rel="noopener">instagram.com/reels/DaP3GRKBc91</a></p>
-</div>
-<h2 id="acct6">⑥ 니쉔 Eli <span style="font-weight:400;color:var(--fg2)">@eli_o528</span></h2>
-<p class="sub">대만 프로야구 치어리더 출신 연예인 · 여행·미식·뷰티·일상 · <a href="https://www.instagram.com/eli_o528/reels/" target="_blank" rel="noopener">instagram.com/eli_o528</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>팔로워 34.2만의 연예인 계정.</strong> 여행·미식 28%, 뷰티 22%, 일상 19%, 스포츠 17%, 해외 여행(일본·한국·뉴질랜드) 순이고 대만 콘서트·일본 해시태그가 많습니다. 주 2편을 꾸준히 올리고 월요일이 제일 잘 터집니다. 광고 비중이 높고(최근 15편 중 6편 이상) 장소 협찬 브이로그가 최고 조회(65.4만)를 냈습니다.</p>
-<p>가격 87만원 기준 보통값 CPV <strong>9.7원</strong>. 공유 40건으로 공유당 21,750원, 일곱 계정 중 가장 비쌉니다.</p>
+<!-- aries_8248 -->
+<div class="card" id="aries">
+  <div class="cardhead">
+    <span class="cardtitle">@aries_8248</span>
+    <span class="cardmeta">대만</span>
+    <span class="badge badge-ok">통과</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">2,000,000원</td><th>기본 CPV</th><td class="num">6.4원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">2,485원</td><th>관련 CPV</th><td class="num">4.9원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">2,469원</td><th>앱 레퍼런스</th><td>없음 — 낯선 사람 대화·외국인 인터뷰</td></tr>
+  </table>
+  <div class="refs">
+    <h4>낯선 사람과 대화 · 외국인 (거리 인터뷰)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdgPDhYJzVF/" target="_blank">Straight or gay? 1</a> — 114만 조회, 좋아요 3.2만, 외국인 등장. 최근 비고정 2위</li>
+      <li><a href="https://www.instagram.com/reel/DdyQ5_Gp584/" target="_blank">Straight or gay? 2</a> — 34.1만, 외국인 커플에게 말 걸기</li>
+    </ul>
+    <h4>연애 · 데이트 시리즈</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/Dc8Tx9jBvzK/" target="_blank">第10期: 台灣02年185聲音低沉 (10기: 대만 02년생 185cm 저음)</a> — 7.6만</li>
+    </ul>
+    <h4>언어 · 영어</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdJKe41pMRt/" target="_blank">你是哪種🥚 (넌 어떤 종류의 알이야?) — 욕하는 영어 레슨 3강</a> — 12만</li>
+    </ul>
+  </div>
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">34.2만</div><div class="s">팔로우 1,159</div></div>
-  <div class="stat"><div class="l">타겟층</div><div class="v">대만 78%</div><div class="s">번체 76.3% · 간체 20.4%</div></div>
-  <div class="stat"><div class="l">업로드</div><div class="v">주 2편</div><div class="s">월요일 반응 최고</div></div>
-  <div class="stat"><div class="l">최근 업로드</div><div class="v">8/24</div><div class="s">3주 전</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>니쉔 Eli · 협업 문의 DM · 업무는 매니저 메일 Changsk0721@gmail.com · youtube.com/@eli_o528</td></tr>
-<tr><th>콘텐츠 유형</th><td>여행·미식(대만 놀이공원, 마카오, 일본), 뷰티(쿠션 비교, 여성 청결제), 가족 코미디(아빠 놀리기), 음악 활동(치어리더 공연 드럼). 앉아서 설명하는 편도 평균 조회가 일정하게 괜찮음.</td></tr>
-<tr><th>브랜드 협업 이력</th><td>주쭈 문화촌(추첨), 마카오 리조트·공연, glad2glow 쿠션, 음료, LACTOMEDI 여성 청결 젤. 최근 15편 중 광고·광고 추정 6편 이상. 앱 광고 이력은 확인 안 됨.</td></tr>
-</table>
-
-<h3>조회수와 CPV (가격 870,000원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">40,000</td><td class="num">21.8원</td><td class="num">460회</td></tr>
-<tr><td>보통</td><td class="num">90,000</td><td class="num">9.7원</td><td class="num">1,034회</td></tr>
-<tr><td>최고</td><td class="num">300,000</td><td class="num">2.9원</td><td class="num">3,448회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (공유 약 40건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">21,750원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">0.5건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<ul>
-  <li>대만 78%에 간체 사용자 20.4%가 섞여 있어 중국·홍콩 시청자가 있습니다. 치어리더·연예인 팬층이라 얼굴과 장소가 보이는 브이로그에 반응합니다.</li>
-  <li>광고 편도 조회는 나오지만(주쭈 65.4만) 좋아요 반응률이 낮습니다(0.8%). 오가닉 가족 코미디(8.5만에 좋아요 3,565, 4.2%)가 반응률 최고입니다.</li>
-  <li>이번 분석 3편 모두 대사가 명확한 정면 토크·브이로그라 통역 자막을 얹기 쉬운 편입니다.</li>
-</ul>
-
-<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
-
-<h4>영상 16 · 주쭈 문화촌 재방문 — 수상극장 개장 + 입장권 추첨</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/16.jpg" src="videos/16_jiuzu.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">61초</span><span class="tag">2026-08-03</span><span class="tag">조회 65.4만</span><span class="tag">좋아요 5,075</span><span class="tag">댓글 202</span><span class="tag ok">광고 (추첨)</span> · <a href="https://www.instagram.com/eli_o528/reel/DbkwYzvupnM/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 대만 놀이공원 주쭈 문화촌 재방문. 급류와 롤러코스터에서 비명, 새로 문 연 수상극장에서 파이완족 결혼식 공연을 호숫가 1열에서 관람, 원주민 요리와 파인애플 빙수, 활쏘기와 아미족 의상 체험 뒤 "40주년 혜택, 캡션 보고 입장권 추첨".</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>여기가 대만이라는 게 믿겨? 완전 해외 리조트 같아 / 오늘 뭐 타고 싶어? / 오늘은 가볍게</td></tr>
-<tr><td>0:08</td><td>아!!! / 집에 갈래! / 여기서 워터파크 전체가 보여</td></tr>
-<tr><td>0:23</td><td>새로 문 연 수상극장, 파이완족 결혼식과 원주민 춤, 호숫가 맨 앞줄에서 관람</td></tr>
-<tr><td>0:37</td><td>다 보고 배고프면 원주민 풍미 요리, 여름엔 빙수</td></tr>
-<tr><td>0:45</td><td>부족 체험, 하루 아미족 공주, 하루 종일 재밌었어</td></tr>
-<tr><td>0:54</td><td>주쭈 40주년 혜택 많아, 캡션 보고 입장권 추첨</td></tr>
-</table></div>
-
-<h4>영상 17 · 불효녀의 아버지의 날 — "수건 두 장 빨다" 대만어 말장난</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/17.jpg" src="videos/17_fathersday.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">28초</span><span class="tag">2026-08-08</span><span class="tag">조회 8.5만</span><span class="tag">좋아요 3,565</span><span class="tag">댓글 98</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/eli_o528/reel/Dbx0DTvOKpG/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 차 안에서 운전하는 아빠에게 "수건 두 장 빨다가 영어로 뭐야?"라고 물어 "wash two towel"을 말하게 한다. 그 발음이 대만어로 "나는 대머리야"로 들리고 아빠는 대머리. 아빠 뒤통수 컷과 "왜 헛소리야"로 끝나는 아버지의 날 장난.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>수건 빨다가 영어로 뭐야 / 어떻게 빨아? / 영어 못하네 / wash towel / 수건은 towel</td></tr>
-<tr><td>0:13</td><td>수건 두 장 빨다는? / wash two towel (대만어: 나는 대머리야)</td></tr>
-<tr><td>0:22</td><td>아빠 대머리인 거 알아 / 왜 헛소리야 / 내가 뭘 / happy happy</td></tr>
-</table></div>
-
-<h4>영상 18 · LACTOMEDI 여성 청결 젤 — 여행 다니는 게으른 P형을 위한</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/18.jpg" src="videos/18_lactomedi.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">61초</span><span class="tag">2026-08-24</span><span class="tag">조회 5.9만</span><span class="tag">좋아요 1,842</span><span class="tag">댓글 44</span><span class="tag ok">광고</span> · <a href="https://www.instagram.com/eli_o528/reel/Dcab-57uP6y/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> "남자는 모르고 여자는 바로 아는 일"로 시작해 장거리 비행·시차·생리가 겹치면 불편하다며 LACTOMEDI 유산균 여성 청결 젤을 소개한다. 개별 포장이라 게으른 P형의 캐리어에 넣기 좋고, 투명 젤이 상쾌하다며 momo 구매와 회원 쿠폰 안내.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>남자는 모르고 여자는 바로 아는 일. 해외 자주 가는데 장거리 비행·시차에 생리까지 겹치면 멘붕</td></tr>
-<tr><td>0:14</td><td>LACTOMEDI 유산균 여성 청결 젤, 한참 써 봤는데 진짜 좋아</td></tr>
-<tr><td>0:28</td><td>왜 P형에게 딱이냐, 게으르니까. 개별 포장, 부피 작아, 몇 개 던져 넣어도 됨</td></tr>
-<tr><td>0:42</td><td>투명 젤 질감, 잘 펴져, 사용법 간단, 끈적임 없이 상쾌</td></tr>
-<tr><td>0:54</td><td>캐리어 고정 멤버, momo에서 구매, 공식 회원 쿠폰</td></tr>
-</table></div>
-
-<h2 id="acct7">⑦ 샤오멍 <span style="font-weight:400;color:var(--fg2)">@mxuannc</span></h2>
-<p class="sub">대만대 심리학과 졸업 · 심리학 이론·대학 생활·배구·여행 설명형 토크 · <a href="https://www.instagram.com/mxuannc/reels/" target="_blank" rel="noopener">instagram.com/mxuannc</a></p>
-
-<h3>한 줄 결론</h3>
-<div class="callout">
-<p><strong>앉아서 심리학 이론을 설명하는 3만 팔로워 계정.</strong> 심리학 이론 30%, 배구 22%, 대학 생활 18%, 여행 16%, 자기 계발. 하루 1편씩 올리고 팔로워가 증가 추세이며 일요일 반응이 제일 좋습니다. 대만 88.5%로 일곱 계정 중 대만 비중이 가장 높습니다. '깔끔한 남자 되는 법' 시리즈 2편에서 "무자비한 광고 시간"으로 데오 스프레이 공동구매를 끼운 전례가 있습니다.</p>
-<p>가격 341,030원 기준 중간값 CPV <strong>8.5원</strong>. 공유 200건으로 공유당 1,705원, 일곱 계정 중 두 번째로 쌉니다.</p>
+<!-- mengqi.4454 -->
+<div class="card" id="mengqi" style="border-color:var(--accent);border-width:2px">
+  <div class="cardhead">
+    <span class="cardtitle">@mengqi.4454</span>
+    <span class="cardmeta">천멍치 · 10월 중순 업로드 예정</span>
+    <span class="badge badge-confirm">확정 ✓</span>
+    <span class="badge badge-app">소개팅앱 소재</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">606,183원</td><th>기본 CPV</th><td class="num">2.7원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num warn">3,549원</td><th>관련 CPV</th><td class="num">13.3원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">1,793원</td><th>앱 레퍼런스</th><td>소개팅 앱 소재 (약함) + Winning plus 영어교육 협찬</td></tr>
+  </table>
+  <div class="refs">
+    <h4>낯선 사람과 대화 · 외국친구 (GU×SUNSUN 잠옷 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DbDkjyWzUWc/" target="_blank">我現在耳邊還會響起three thousand 的氣音聲 (지금도 귀에 "three thousand" 기식음이 울린다)</a> — 20.5만, 좋아요 14K. 도쿄 언어학교에서 만난 낯선 일본인 소년. GU×SUNSUN 잠옷 협찬.</li>
+    </ul>
+    <h4>약함 — 소개팅 앱 소재 (Winning plus 영어교육 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank">我即將幫交友軟體上的人們都報名一堂免費試聽 (교우 앱 사람들 무료 수업 등록시켜 주겠다)</a> — 6.1만, 좋아요 3.6K. 소개팅 앱 소재로 시작 → Winning plus 협찬.</li>
+    </ul>
+  </div>
+  <div id="mengqi-videos" class="video-row"></div>
 </div>
 
-<h3>계정 기본 정보</h3>
-<div class="grid">
-  <div class="stat"><div class="l">팔로워</div><div class="v">3만</div><div class="s">팔로우 612 · 증가 추세</div></div>
-  <div class="stat"><div class="l">타겟층</div><div class="v">대만 88.5%</div><div class="s">번체 95.3%</div></div>
-  <div class="stat"><div class="l">업로드</div><div class="v">하루 1편</div><div class="s">일요일 반응 최고</div></div>
-  <div class="stat"><div class="l">최근 업로드</div><div class="v">9/15</div><div class="s">2일 전</div></div>
-</div>
-<table>
-<tr><th style="width:160px">프로필 소개</th><td>대만대 심리학과 갓 졸업 ·심리학, 생활 깨달음, 가끔 개그 · 💌 mxuannc@gmail.com ·데오 스프레이 공구 9/18 마감 · beacons.ai/mxuannc · 하이라이트: 데오 스프레이, QA 모음, 2025 대심배(심리학과 배구 대회), 2025 홋카이도, 2025 학년 대회, 졸업식, 2025 북심배</td></tr>
-<tr><th>콘텐츠 유형</th><td>책상 앞 정면 토크로 심리학 이론(내집단 편향, 방관자 효과, 공정한 세상 오류, 용서의 4단계, 사회 비교) 설명. 네티즌 답변을 AI로 정리해 시리즈화('깔끔한 남자'). 대학 배구·졸업·여행 브이로그. 역대 최고편은 드라이 폼 ASMR(269.3만).</td></tr>
-<tr><th>브랜드 협업 이력</th><td>BF 데오 스프레이 공동구매(시리즈 2편에 삽입). 앱 광고 이력은 확인 안 됨.</td></tr>
-</table>
+<!-- ===== 드랍 계정 ===== -->
+<h2>드랍 계정 (관련 공유+저장 단가 3,000원 초과)</h2>
 
-<h3>조회수와 CPV (가격 341,030원)</h3>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">20,000</td><td class="num">17.1원</td><td class="num">586회</td></tr>
-<tr><td>중간값</td><td class="num">40,000</td><td class="num">8.5원</td><td class="num">1,173회</td></tr>
-<tr><td>최고</td><td class="num">200,000</td><td class="num">1.7원</td><td class="num">5,865회</td></tr>
-</table>
-<table>
-<tr><th>공유 기준 (공유 약 200건)</th><th class="num">값</th></tr>
-<tr><td>공유 1건당 비용</td><td class="num">1,705원</td></tr>
-<tr><td>1만원당 공유 수</td><td class="num">5.9건</td></tr>
-</table>
-
-<h3>시청자</h3>
-<ul>
-  <li>대만 88.5%, 번체 95.3%로 가장 순수한 대만 시청층. 심리학·자기 계발·대학 생활에 반응하는 20대.</li>
-  <li>설명형 편은 조회 2만~12만에서 안정적이고, 챌린지·ASMR(269만·89만)이 튀는 값입니다. 광고 편(시리즈 2편)은 1편의 65% 조회로 떨어졌지만 댓글 반응은 유지됐습니다.</li>
-  <li>남성 시청자를 배려하는 면책 문구를 습관적으로 넣는 계정이라, 시청자 성비가 섞여 있을 가능성이 있습니다.</li>
-</ul>
-
-<h3>대표 영상 3편 · 한국어 자막 + 해석</h3>
-
-<h4>영상 19 · '깔끔한 남자' 되는 법 1편 — 네티즌 70명 답변 정리</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/19.jpg" src="videos/19_cleanboy1.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">112초</span><span class="tag">2026-09-09</span><span class="tag">조회 11.5만</span><span class="tag">좋아요 3,619</span><span class="tag">댓글 80</span><span class="tag">오가닉</span> · <a href="https://www.instagram.com/mxuannc/reel/DdEGG_MjOCE/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 스토리 질문 "깔끔한 남자란?"에 온 답변 70여 개를 AI로 8개 항목으로 정리해 1위 옷차림(구김·얼룩 없이, 두꺼운 무지 티, 스키니 진 피하기)과 2위 털 정리(미용실 매달, 수염 매일, 코털 정리)를 앉아서 설명한다.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>지난번 "어떤 남자가 깔끔한 남자인가" 물었더니 답이 70개 넘게 왔어</td></tr>
-<tr><td>0:13</td><td>참고일 뿐 유일한 답도 정답도 아냐, 그냥 넘겨도 돼</td></tr>
-<tr><td>0:28</td><td>AI로 8개 항목 정리. 1위 옷차림: 구김·후줄근·얼룩 없이, 두껍고 힘 있는 옷, 스키니 진 피하기</td></tr>
-<tr><td>1:09</td><td>2위 털 정리: 미용실 매달, 수염 매일, 코털 보이면 정리</td></tr>
-</table></div>
-
-<h4>영상 20 · '깔끔한 남자' 되는 법 2편 — 체취·입 냄새·피부 + 데오 스프레이 공구</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/20.jpg" src="videos/20_cleanboy2.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">134초</span><span class="tag">2026-09-12</span><span class="tag">조회 7.5만</span><span class="tag">좋아요 2,096</span><span class="tag">댓글 42</span><span class="tag ok">광고 삽입</span> · <a href="https://www.instagram.com/mxuannc/reel/DdMOPVIEqnL/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 같은 시리즈 2편. 3위 체취(향수로 덮지 말고 데오 스프레이)를 설명하다가 "무자비한 광고 시간"이라며 BF 데오 스프레이 공동구매를 소개하고, 입 냄새(치실·양치 휴대)와 4위 피부(기름종이, 컨실러, 산 성분, 피부과)로 이어간다.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:15</td><td>체취: 땀·몸·입 냄새 없을 것. 개인적으론 1·2위에 놓겠어</td></tr>
-<tr><td>0:29</td><td>향수로 덮지 마, 향과 냄새 섞임. 샤워 때 문지르기, 데오 스프레이는 냄새 제거 후 향</td></tr>
-<tr><td>0:49</td><td>무자비한 광고 시간, BF 데오 스프레이 공구, 농구 3시간 땀범벅에도 냄새 없음</td></tr>
-<tr><td>1:11</td><td>입 냄새도 심각, 음식 냄새 나면 탈락, 치실·칫솔 휴대</td></tr>
-<tr><td>1:33</td><td>피부: 기름종이, 여드름·흉터는 컨실러, 산 성분, 피부과</td></tr>
-</table></div>
-
-<h4>영상 21 · 드라이 폼 만들기 — 계정 역대 최고 269.3만</h4>
-<div class="video-block">
-  <video controls preload="metadata" playsinline poster="posters/21.jpg" src="videos/21_dryfoam.mp4"></video>
-  <div>
-    <div class="meta"><span class="tag">54초</span><span class="tag">2026-07-21</span><span class="tag">조회 269.3만 (고정)</span><span class="tag">좋아요 10.2만</span><span class="tag">댓글 326</span><span class="tag">챌린지</span> · <a href="https://www.instagram.com/mxuannc/reel/DbD3AvoTHDt/" target="_blank" rel="noopener">원본</a></div>
-    <p><strong>무슨 내용인가.</strong> 다른 크리에이터의 드라이 폼 영상을 따라 한다. 주방세제·샴푸·물 레시피로 거품을 만들어 천에 묻혀 스프레이로 뿜고 세숫대야 가득 채운 뒤, 뒤집어도 안 떨어진다며 "비전문 ASMR, 재밌으니 해 봐"로 끝나는 무대사 영상.</p>
-    </div>
-</div>
-<div style="overflow-x:auto"><table>
-<tr><th style="width:60px">시각</th><th>한국어 해석</th></tr>
-<tr><td>0:00</td><td>드라이 폼 놀이!! (한 번에 성공) · 재료는 주방세제·샴푸·물</td></tr>
-<tr><td>0:12</td><td>레시피: 주방세제 2번, 샴푸 2번, 물 조금(설탕 선택, 넣으면 더 굳음), 골고루 섞기</td></tr>
-<tr><td>0:30</td><td>세숫대야 가득 채우기 · 튀지 않게 조심 · 꽤 단단해서 안 떨어짐 · 비전문 ASMR · 결론: 재밌어, 해 봐</td></tr>
-</table></div>
-
-<h2 id="hold">보류 · 0960kim0960</h2>
-<div class="callout">
-<p><strong>계정은 좋지만 핏이 딱 맞지 않아 다음 기회로.</strong> 농구·피아노·운동·음악이 주력이고 일상·대학 생활, 한국 콘텐츠(한국 피부과 시술, 롯데타워에서 피아노, 한국 여행 코디)도 있습니다. 대만 오디언스 53.7%, 9/13부터 팔로워 증가 추세.</p>
-<table>
-<tr><th>구간</th><th class="num">조회수</th><th class="num">CPV (가격 875,000원)</th><th class="num">1만원당 조회수</th></tr>
-<tr><td>최저</td><td class="num">80,000</td><td class="num">10.9원</td><td class="num">914회</td></tr>
-<tr><td>중간값</td><td class="num">200,000</td><td class="num">4.4원</td><td class="num">2,286회</td></tr>
-<tr><td>최고</td><td class="num">700,000</td><td class="num">1.2원</td><td class="num">8,000회</td></tr>
-<tr><td>공유 (농구 제외, 토크·일상 기준 약 100건)</td><td class="num">100</td><td class="num">공유당 8,750원</td><td class="num">1.1건</td></tr>
-</table>
-<p class="meta">중간값 CPV 4.4원으로 숫자만 보면 일곱 계정 중 가장 좋습니다. 핏보다 도달을 우선하는 캠페인이면 재검토 가치가 있습니다.</p>
+<div class="card drop" id="hl">
+  <div class="cardhead">
+    <span class="cardtitle">@hl_yuan</span>
+    <span class="cardmeta">Ally · 대만 86% · 금액 3,000,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국/밴쿠버 레퍼런스만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,328원</strong> / 관련 공유+저장 <strong>7,970원</strong>. 기본 CPV 7.6원 · 관련 CPV 8.9원. 한국 외국친구 영상과 밴쿠버 유학 영상 위주. 커넥팅 앱 유사 협찬 없음.</p>
 </div>
 
-<footer>커넥팅 협업 후보 계정 분석 · @ian.black_ · @mr._.0503 · @mengqi.4454 · @hl_yuan · @_seas11 · @eli_o528 · @mxuannc · 2026-09-17 · 영상 저작권은 원작자에게 있으며 내부 검토용으로만 씁니다.</footer>
+<div class="card drop" id="k0960">
+  <div class="cardhead">
+    <span class="cardtitle">@0960kim0960</span>
+    <span class="cardmeta">대만 53.7% · 금액 875,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>1,192원</strong> / 관련 공유+저장 <strong>4,551원</strong>. 기본 CPV 3.6원 · 관련 CPV 3.6원. 한국 관련 레퍼런스만 있음. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="yujo">
+  <div class="cardhead">
+    <span class="cardtitle">@yujouli_73</span>
+    <span class="cardmeta">금액 500,000원</span>
+    <span class="badge badge-drop">드랍</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,079원</strong> / 관련 공유+저장 <strong>6,849원</strong>. 기본 CPV 5.6원 · 관련 CPV 7.5원. 연애·커플 콘텐츠 위주, 앱 협찬은 운세 앱·구독 플랫폼(커넥팅과 무관).</p>
+</div>
+
+<div class="card drop" id="micki">
+  <div class="cardhead">
+    <span class="cardtitle">@micki.bb</span>
+    <span class="cardmeta">금액 800,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행/뷰티만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>18,214원</strong> / 관련 공유+저장 <strong>43,243원</strong>. 기본 CPV 13.8원 · 관련 CPV 14.6원. 한국 뷰티 시술·맛집 위주. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="ladyann">
+  <div class="cardhead">
+    <span class="cardtitle">@ladyann.happy.nail</span>
+    <span class="cardmeta">금액 387,555원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행 토크만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>16,148원</strong> / 관련 공유+저장 <strong>7,599원</strong>. 기본 CPV 9.4원 · 관련 CPV 16.1원. 홍대 여행 토크 2편. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="becca">
+  <div class="cardhead">
+    <span class="cardtitle">@becca__atlanta__</span>
+    <span class="cardmeta">금액 600,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">해외(미국)경험만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,595원</strong> / 관련 공유+저장 <strong>5,634원</strong>. 기본 CPV 28.9원 · 관련 CPV 27.2원. 미국 직장 생활 경험 위주. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="k000">
+  <div class="cardhead">
+    <span class="cardtitle">@000.4.2</span>
+    <span class="cardmeta">금액 1,085,000원 (+파트너스코드 130,000)</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-app">Ping! 앱 ✓ (단가 높음)</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,045원</strong> / 관련 공유+저장 <strong>8,220원</strong>. 기본 CPV 3.2원 · 관련 CPV 4.5원. Ping! 협찬 경험 있으나 관련 공유+저장 단가가 기준 초과. 한국 맛집·외국친구 병행.</p>
+</div>
+
+<footer>
+  <p>커넥팅 협업 분석 · 분석일 2026-09-30 · 조회수 기준: 2026-09-30 프로필 릴스 탭</p>
+</footer>
+
 </div>
 </body>
 </html>
