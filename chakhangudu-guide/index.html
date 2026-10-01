@@ -218,6 +218,15 @@ span.vI{display:inline}
 body[data-ver="info"] span.vI{display:none}
 body[data-ver="info"] .vI{display:none}
 .vbadge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);margin-left:8px;vertical-align:middle}
+.vBshow{display:none}
+body[data-ver="boots"] .vBshow{display:inline-block}
+.vHshow{display:none}
+body[data-ver="height"] .vHshow{display:inline-block}
+.lu-boots{display:none}
+body[data-ver="boots"] .lu-boots{display:block}
+.lu-height{display:none}
+body[data-ver="height"] .lu-height{display:block}
+body[data-ver="boots"] .inf-lineup,body[data-ver="height"] .inf-lineup{grid-template-columns:1fr}
 
 /* boot lineup */
 .lineup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -235,13 +244,14 @@ body[data-ver="info"] .vI{display:none}
 
 <div class="wrap">
 <div class="vswitch" role="tablist">
-  <button type="button" data-ver="inf" class="on">인플루언서 버전</button>
+  <button type="button" data-ver="boots" class="on">인플루언서 · 부츠</button>
+  <button type="button" data-ver="height">인플루언서 · 키높이</button>
   <button type="button" data-ver="info">정보성 버전</button>
 </div>
 
 <header class="head">
   <div class="eyebrow">착한구두 · 인플루언서 릴스 · FW 오프라인</div>
-  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vI">인플루언서 버전</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
+  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
   <div class="notice" role="alert">
     <span class="nt">⚠ 주의사항</span>
     부츠는 반드시 <b>부츠 촬영 예시컷</b>을 보고 같은 구도로 촬영해 주세요.<br>
@@ -275,7 +285,12 @@ body[data-ver="info"] .vI{display:none}
       <div class="scene-b">
         <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_fold.jpg" src="videos/z_fold.mp4"></video><p class="cap"><b class="mono">5.2–7.4초</b> · @z___meme · 접어 신는 부츠<br>"진짜 예쁜데 편하기까지 해서 거의 맨날 신는데"</p><video controls playsinline preload="metadata" poster="posters/z_new.jpg" src="videos/z_new.mp4"></video><p class="cap"><b class="mono">7.4–9.3초</b> · @z___meme · 신상 롱부츠<br>"신상들도 너무 예뻐서 바로 구경 왔어요"</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 부츠 착샷 앞·옆·뒤<br>"첫 번째는 폴딩 포인트가 너무 예쁜 부츠예요. 다리 라인 너무 예뻐 보이죠? 흔하지 않은 색감과 텍스처가 완전 가을 여자. 요 뒤에 레이스업 디테일까지 진짜 미쳤다"</p></div>
         <div class="rows">
-          <div class="line"><span class="q">멘트</span>"요즘 유행하는 부츠 다 있어요"</div>
+          <div class="ab">
+            <div class="line"><span class="q">멘트 예시</span><span class="k">A</span>"요즘 유행하는 부츠 다 있어요"</div>
+            <div class="line"><span class="k">B</span>"예쁜 부츠 찾고 있었으면 여기 다 있어요"</div>
+            <div class="line"><span class="k">C</span>"올가을 느낌 좋은 부츠 다 모여 있네요"</div>
+            <div class="line"><span class="k">D</span>"유행하는 부츠 스타일 다 있어서 눈이 돌아갔어요"</div>
+          </div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 착샷 <b>2~3컷, 빠르게</b>.</span></div>
         </div>
       </div>
@@ -311,15 +326,15 @@ body[data-ver="info"] .vI{display:none}
         <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_mirror.jpg" src="videos/z_mirror.mp4"></video><p class="cap"><b class="mono">27.4–29.2초</b> · @z___meme · 거울 전신 착샷 · 기준<br>"힙하죠? 저 힙하죠? 네 감사합니다"</p><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 야외 전신 착샷<br>대사 없음 · 음악 + 화면 글자. 벽 앞에서 전신 → 부츠 클로즈업 → 전신 순.</p><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>"아 근데 사실대로 말하자면 사실 제 원픽은 이거였는데"</p></div>
         <div class="rows">
           <div class="line"><span class="q">멘트</span>아래 <a href="#boots">부츠 정보</a>의 설명 포인트를 부츠마다 1~2개 말한다. 부츠 3개.</div>
-          <div class="lineup">
-            <div class="lu"><h4>기본 구성 · 3개</h4>
+          <div class="lineup inf-lineup">
+            <div class="lu lu-boots"><h4>기본 구성 · 3개</h4>
               <ol>
                 <li><b>페탈 커스텀 멀티웨이 롱부츠</b><span class="pr">75,900원</span></li>
                 <li><b>블래티 슬라우치 부츠</b><span class="op">브라운 · 기장 숏/롱 택1</span></li>
                 <li><b>키높이 택1</b><span class="op">놀킨 미들부츠 69,900원 또는 카민스 롱부츠 79,900원</span></li>
               </ol>
             </div>
-            <div class="lu"><h4>키작녀 버전 · 3개</h4>
+            <div class="lu lu-height"><h4>키작녀 버전 · 3개</h4>
               <ol>
                 <li><b>놀킨 키높이 바이커 투웨이 미들부츠</b><span class="pr">69,900원</span></li>
                 <li><b>카민스 키높이 비율 보정 롱부츠</b><span class="pr">79,900원</span></li>
@@ -331,7 +346,7 @@ body[data-ver="info"] .vI{display:none}
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>1개당 2~3컷</b>. <b>앉아서 · 앞에서 · 옆에서 · 전신</b> 구도를 섞어서 찍는다 (한 부츠에 같은 구도만 반복하지 않는다). 구도 예시는 <a href="#cuts">5. 부츠 촬영 예시구도</a>.</span></div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">릴스 한 편 안에 <b>앉아서 · 앞에서 · 옆에서 · 전신 네 구도가 모두</b> 들어가야 한다.</span></div>
           <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>가을 코디와 조합</b>해서 신는다 (바지를 부츠 안에 넣어 신기 등). <b>착장 2~3개 준비</b>, 스커트·바지 연출 다양하게.</span></div>
-          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">종아리 커버 제품과 키높이 제품에서 섞어 고르면 소구점이 겹치지 않는다.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val"><span class="vBshow">종아리 커버 제품과 키높이 제품에서 섞어 고르면 소구점이 겹치지 않는다.</span><span class="vHshow">키높이 제품 2개 + 종아리 커버 1개 조합이면 체형 보정 소구점이 집중된다.</span></span></div>
         </div>
       </div>
     </article>
@@ -600,7 +615,9 @@ body[data-ver="info"] .vI{display:none}
   function set(v,push){ b.setAttribute('data-ver',v); btns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)}); try{localStorage.setItem('ck-ver',v)}catch(e){} if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)} }
   btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
   var q=new URL(location.href).searchParams.get('ver'), s=null; try{s=localStorage.getItem('ck-ver')}catch(e){}
-  set(q==='info'||q==='inf'?q:(s==='info'?'info':'inf'),false);
+  if(q==='inf')q='boots';
+  var valid=['boots','height','info'];
+  set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
 })();
 </script>
 </body>
