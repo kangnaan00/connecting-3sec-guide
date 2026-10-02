@@ -658,13 +658,14 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
 </div>
 <script>
 (function(){
-  var b=document.body, btns=document.querySelectorAll('.vswitch button');
+  var b=document.body, sw=document.querySelector('.vswitch'), btns=document.querySelectorAll('.vswitch button');
   function set(v,push){ b.setAttribute('data-ver',v); btns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)}); try{localStorage.setItem('ck-ver',v)}catch(e){} if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)} }
   btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
   var q=new URL(location.href).searchParams.get('ver'), s=null; try{s=localStorage.getItem('ck-ver')}catch(e){}
   if(q==='inf')q='boots';
   var valid=['boots','height','info'];
   set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
+  if(q==='info' && sw) sw.style.display='none';
 })();
 </script>
 </body>
