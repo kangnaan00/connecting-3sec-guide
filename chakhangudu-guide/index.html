@@ -211,27 +211,30 @@ li{margin-bottom:6px}
 .vswitch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .vswitch a.vlink{padding:9px 18px;border:1px solid var(--blue);border-radius:999px;color:var(--blue);font-weight:700;font-size:14px;background:var(--blue-soft);text-decoration:none;display:inline-flex;align-items:center}
 .vswitch a.vlink:hover{background:var(--blue);color:#fff}
+.vswitch-sub{display:none;gap:6px;padding-bottom:10px;background:var(--paper)}
+.vswitch-sub button{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:13px;background:var(--panel);font-family:inherit;cursor:pointer}
+.vswitch-sub button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .vN{display:none}
-body[data-ver="info"] .vN{display:block}
-body[data-ver="info"] span.vN{display:inline!important}
+body[data-ver="info"] .vN,body[data-ver="boots"] .vN,body[data-ver="height"] .vN{display:block}
+body[data-ver="info"] span.vN,body[data-ver="boots"] span.vN,body[data-ver="height"] span.vN{display:inline!important}
 span.vI{display:inline}
-body[data-ver="info"] span.vI{display:none}
-body[data-ver="info"] .vI{display:none}
+body[data-ver="info"] span.vI,body[data-ver="boots"] span.vI,body[data-ver="height"] span.vI{display:none}
+body[data-ver="info"] .vI,body[data-ver="boots"] .vI,body[data-ver="height"] .vI{display:none}
 .vbadge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);margin-left:8px;vertical-align:middle}
 .vBshow{display:none}
-body[data-ver="boots"] .vBshow{display:inline-block}
+body[data-ver="boots"] .vBshow,body[data-ver="info"] .vBshow,body[data-ver="height"] .vBshow{display:inline-block}
 .vHshow{display:none}
 body[data-ver="height"] .vHshow{display:inline-block}
-.lu-boots{display:none}
-body[data-ver="boots"] .lu-boots{display:block}
-.lu-height{display:none}
-body[data-ver="height"] .lu-height{display:block}
-body[data-ver="boots"] .inf-lineup,body[data-ver="height"] .inf-lineup{grid-template-columns:1fr}
-body[data-ver="boots"] div.vBshow{display:block}
-body[data-ver="boots"] .row.vBshow{display:grid}
 body[data-ver="height"] div.vHshow{display:block}
 body[data-ver="height"] .row.vHshow{display:grid}
 body[data-ver="height"] .cutgrp.vHshow{display:block}
+body[data-ver="height"] .lu-height{display:block}
+.lu-boots{display:none}
+body[data-ver="boots"] .lu-boots,body[data-ver="info"] .lu-boots,body[data-ver="height"] .lu-boots{display:block}
+.lu-height{display:none}
+body[data-ver="boots"] .inf-lineup,body[data-ver="height"] .inf-lineup,body[data-ver="info"] .inf-lineup{grid-template-columns:1fr}
+body[data-ver="boots"] div.vBshow,body[data-ver="info"] div.vBshow,body[data-ver="height"] div.vBshow{display:block}
+body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-ver="height"] .row.vBshow{display:grid}
 
 /* boot lineup */
 .lineup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -249,9 +252,12 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
 
 <div class="wrap">
 <div class="vswitch" role="tablist">
-  <button type="button" data-ver="boots" class="on">인플루언서 · 부츠</button>
-  <button type="button" data-ver="height">인플루언서 · 키높이</button>
-  <button type="button" data-ver="info">정보성 버전</button>
+  <button type="button" id="tab-curation">큐레이션</button>
+  <button type="button" id="tab-inf" class="on">인플루언서</button>
+</div>
+<div class="vswitch-sub" role="group">
+  <button type="button" data-ver="boots" class="on">부츠</button>
+  <button type="button" data-ver="height">키높이</button>
 </div>
 
 <header class="head">
@@ -457,6 +463,7 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
     <article class="scene" id="n4">
       <div class="scene-h"><span class="num">장면 2</span><h3>9,900원 증명 · 아카이브존</h3></div>
       <div class="scene-b">
+        <div class="clip clip2 vHshow"><video controls playsinline preload="metadata" poster="posters/z_fold.jpg" src="videos/z_fold.mp4"></video><p class="cap"><b class="mono">5.2–7.4초</b> · @z___meme · 접어 신는 부츠<br>"진짜 예쁜데 편하기까지 해서 거의 맨날 신는데"</p><video controls playsinline preload="metadata" poster="posters/z_new.jpg" src="videos/z_new.mp4"></video><p class="cap"><b class="mono">7.4–9.3초</b> · @z___meme · 신상 롱부츠<br>"신상들도 너무 예뻐서 바로 구경 왔어요"</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 부츠 착샷 앞·옆·뒤<br>"첫 번째는 폴딩 포인트가 너무 예쁜 부츠예요. 다리 라인 너무 예뻐 보이죠? 흔하지 않은 색감과 텍스처가 완전 가을 여자. 요 뒤에 레이스업 디테일까지 진짜 미쳤다"</p></div>
         <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/b3.jpg" src="videos/b3.mp4"></video><p class="cap"><b class="mono">7.6–11.8초</b> · @seoul__log<br>"지하로 내려가면 9,900원 존이 있는데"</p></div>
         <div class="rows">
           <div class="line"><span class="q">멘트·자막</span>9,900원 아카이브존 부츠가 전부 9,900원</div>
@@ -649,14 +656,34 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
 </div>
 <script>
 (function(){
-  var b=document.body, sw=document.querySelector('.vswitch'), btns=document.querySelectorAll('.vswitch button');
-  function set(v,push){ b.setAttribute('data-ver',v); btns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)}); try{localStorage.setItem('ck-ver',v)}catch(e){} if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)} }
-  btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
-  var q=new URL(location.href).searchParams.get('ver'), s=null; try{s=localStorage.getItem('ck-ver')}catch(e){}
+  var b=document.body;
+  var tabCur=document.getElementById('tab-curation');
+  var tabInf=document.getElementById('tab-inf');
+  var subRow=document.querySelector('.vswitch-sub');
+  var subBtns=document.querySelectorAll('.vswitch-sub button');
+  function updateUI(v){
+    var isInfo=v==='info';
+    if(tabCur)tabCur.classList.toggle('on',isInfo);
+    if(tabInf)tabInf.classList.toggle('on',!isInfo);
+    if(subRow)subRow.style.display=isInfo?'none':'flex';
+    subBtns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)});
+  }
+  function set(v,push){
+    b.setAttribute('data-ver',v);
+    updateUI(v);
+    try{localStorage.setItem('ck-ver',v)}catch(e){}
+    if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
+  }
+  if(tabCur)tabCur.addEventListener('click',function(){set('info',true)});
+  if(tabInf)tabInf.addEventListener('click',function(){
+    var s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
+    set(s==='height'?'height':'boots',true);
+  });
+  subBtns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
+  var q=new URL(location.href).searchParams.get('ver'),s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
   if(q==='inf')q='boots';
   var valid=['boots','height','info'];
   set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
-  if(q==='info' && sw) sw.style.display='none';
 })();
 </script>
 </body>
