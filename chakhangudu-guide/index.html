@@ -211,6 +211,9 @@ li{margin-bottom:6px}
 .vswitch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .vswitch a.vlink{padding:9px 18px;border:1px solid var(--blue);border-radius:999px;color:var(--blue);font-weight:700;font-size:14px;background:var(--blue-soft);text-decoration:none;display:inline-flex;align-items:center}
 .vswitch a.vlink:hover{background:var(--blue);color:#fff}
+.vswitch-sub{display:none;gap:6px;padding-bottom:10px;background:var(--paper)}
+.vswitch-sub button{padding:6px 14px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:13px;background:var(--panel);font-family:inherit;cursor:pointer}
+.vswitch-sub button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .vN{display:none}
 body[data-ver="info"] .vN{display:block}
 body[data-ver="info"] span.vN{display:inline!important}
@@ -249,9 +252,12 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
 
 <div class="wrap">
 <div class="vswitch" role="tablist">
-  <button type="button" data-ver="boots" class="on">인플루언서 · 부츠</button>
-  <button type="button" data-ver="height">인플루언서 · 키높이</button>
-  <button type="button" data-ver="info">정보성 버전</button>
+  <button type="button" id="tab-curation">큐레이션</button>
+  <button type="button" id="tab-inf" class="on">인플루언서</button>
+</div>
+<div class="vswitch-sub" role="group">
+  <button type="button" data-ver="boots" class="on">부츠</button>
+  <button type="button" data-ver="height">키높이</button>
 </div>
 
 <header class="head">
@@ -649,10 +655,31 @@ body[data-ver="height"] .cutgrp.vHshow{display:block}
 </div>
 <script>
 (function(){
-  var b=document.body, sw=document.querySelector('.vswitch'), btns=document.querySelectorAll('.vswitch button');
-  function set(v,push){ b.setAttribute('data-ver',v); btns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)}); try{localStorage.setItem('ck-ver',v)}catch(e){} if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)} }
-  btns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
-  var q=new URL(location.href).searchParams.get('ver'), s=null; try{s=localStorage.getItem('ck-ver')}catch(e){}
+  var b=document.body;
+  var tabCur=document.getElementById('tab-curation');
+  var tabInf=document.getElementById('tab-inf');
+  var subRow=document.querySelector('.vswitch-sub');
+  var subBtns=document.querySelectorAll('.vswitch-sub button');
+  function updateUI(v){
+    var isInfo=v==='info';
+    if(tabCur)tabCur.classList.toggle('on',isInfo);
+    if(tabInf)tabInf.classList.toggle('on',!isInfo);
+    if(subRow)subRow.style.display=isInfo?'none':'flex';
+    subBtns.forEach(function(x){x.classList.toggle('on',x.dataset.ver===v)});
+  }
+  function set(v,push){
+    b.setAttribute('data-ver',v);
+    updateUI(v);
+    try{localStorage.setItem('ck-ver',v)}catch(e){}
+    if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
+  }
+  if(tabCur)tabCur.addEventListener('click',function(){set('info',true)});
+  if(tabInf)tabInf.addEventListener('click',function(){
+    var s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
+    set(s==='height'?'height':'boots',true);
+  });
+  subBtns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
+  var q=new URL(location.href).searchParams.get('ver'),s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
   if(q==='inf')q='boots';
   var valid=['boots','height','info'];
   set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
