@@ -1,0 +1,647 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* boot cuts */
+.cutgrp{margin-top:28px}
+.cutgrp h3{font-size:16.5px;font-weight:900;letter-spacing:-.01em}
+.cnt{color:var(--ink-3);font-weight:500;font-size:13.5px;margin-left:8px}
+.cuts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
+@media (max-width:560px){.cuts{grid-template-columns:repeat(2,1fr);gap:10px}}
+.cuts figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}
+.cuts a.im{display:block}
+.cuts img{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--panel-2)}
+.cuts figcaption.ref{padding:8px 10px;font-size:12px;line-height:1.4;word-break:break-all;color:var(--ink-3)}
+.cuts figcaption.ref a{color:var(--blue);text-decoration:none}
+.cuts figcaption.ref a:hover{text-decoration:underline}
+
+/* top notice */
+.notice{background:var(--red-soft);border:2px solid var(--red);border-radius:10px;padding:16px 18px;margin-top:22px;color:var(--red);font-size:16px;line-height:1.55}
+.notice .nt{display:block;font-size:12.5px;font-weight:900;letter-spacing:.12em;margin-bottom:6px}
+.notice b{font-weight:900}
+.notice a{color:var(--red);font-weight:900;text-decoration:underline;text-underline-offset:3px}
+</style>
+<title>착한구두 릴스 촬영 가이드 · 인플루언서 · 부츠</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --blue:#1E4FD0; --blue-soft:#E4EAFB;
+  --red:#C4361F; --red-soft:#F8E5E0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --shadow:0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --blue:#7A9BFF; --blue-soft:#1C2645;
+    --red:#FF8A70; --red-soft:#3A1F19;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+  --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+  --blue:#7A9BFF; --blue-soft:#1C2645;
+  --red:#FF8A70; --red-soft:#3A1F19;
+  --amber:#E8B85A; --amber-soft:#3A2E12;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.mono{font-family:"IBM Plex Mono",ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+/* switch */
+.switch{display:flex;gap:8px;padding-top:18px;flex-wrap:wrap}
+.switch button{padding:8px 16px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:13.5px;background:var(--panel);font-family:inherit;cursor:pointer}
+.switch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.switch button:hover{border-color:var(--ink-3)}
+.vf{display:none}
+body.fw .vf{display:inline}
+body.fw .vb{display:none}
+.row.vf{display:none}
+body.fw .row.vf{display:grid}
+section.vf{display:none}
+body.fw section.vf{display:block}
+.thumbs figure.vf{display:none}
+body.fw .thumbs figure.vf{display:block}
+.items{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+@media (max-width:560px){.items{grid-template-columns:1fr}}
+.items figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.items img{width:100%;max-width:100%;display:block;background:#fff}
+.items figcaption{padding:10px 12px;font-size:13.5px;line-height:1.5;color:var(--ink)}
+.items figcaption b{font-weight:900}
+.items figcaption .pr{color:var(--blue);font-weight:700}
+.items figcaption .cl{color:var(--ink-3);font-size:12.5px}
+
+/* language */
+:root[data-lang="cn"] body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif}
+:root[data-lang="tw"] body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif}
+:root[data-lang="jp"] body{font-family:"Noto Sans JP","Hiragino Sans","Yu Gothic","Meiryo",sans-serif}
+.topbar{display:flex;flex-direction:column;gap:10px;padding-top:18px}
+.switch{padding-top:0}
+.langs{display:flex;gap:6px;flex-wrap:wrap}
+.langs button{padding:6px 12px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:500;font-size:12.5px;background:var(--panel);font-family:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.langs button.on{background:var(--blue-soft);color:var(--blue);border-color:var(--blue);font-weight:700}
+.langs button:hover{border-color:var(--ink-3)}
+.langs .fl{font-size:15px;line-height:1}
+
+/* header */
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+h1{font-size:clamp(26px,5.5vw,36px);font-weight:900;letter-spacing:-.01em}
+.lede{margin-top:14px;color:var(--ink-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+/* section */
+section{padding-block:32px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:21px;font-weight:900;letter-spacing:-.01em}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+.sub{color:var(--ink-2);margin-top:8px;max-width:64ch}
+
+/* purpose */
+.purpose{background:var(--blue-soft);border-left:4px solid var(--blue);padding:16px 18px;border-radius:0 8px 8px 0;margin-top:20px}
+.purpose b{color:var(--blue)}
+
+/* info table */
+.tbl{overflow-x:auto;margin-top:18px}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
+th{font-weight:700;color:var(--ink-2);background:var(--panel-2);font-size:12.5px;letter-spacing:.02em}
+td.k{width:120px;color:var(--ink-3);white-space:nowrap}
+.blank{display:inline-block;min-width:78px;border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700;text-align:center;padding-inline:4px}
+
+/* celeb examples */
+.celebs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:16px}
+@media (max-width:560px){.celebs{grid-template-columns:repeat(2,1fr)}}
+.celebs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.celebs img{width:100%;max-width:100%;aspect-ratio:3/4;object-fit:cover;display:block;background:var(--panel-2)}
+.celebs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
+/* thumbnail examples */
+.thumbs{display:grid;grid-template-columns:repeat(2,minmax(0,260px));gap:14px;margin-top:14px}
+@media (max-width:560px){.thumbs{grid-template-columns:repeat(2,1fr)}}
+.thumbs figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.thumbs img{width:100%;max-width:100%;aspect-ratio:9/16;object-fit:cover;display:block;background:var(--panel-2)}
+.thumbs figcaption{font-size:12px;color:var(--ink-2);padding:8px 10px;line-height:1.4}
+
+/* tags */
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
+.tag.must{background:var(--blue);color:#fff}
+.tag.opt{background:var(--panel-2);color:var(--ink-2)}
+.tag.no{background:var(--red);color:#fff}
+.tag.ref{background:var(--amber-soft);color:var(--amber)}
+:root[data-theme="dark"] .tag.must,:root[data-theme="dark"] .tag.no{color:#111}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tag.must,:root:not([data-theme="light"]) .tag.no{color:#111}}
+
+/* scene cards */
+.scenes{display:grid;gap:18px;margin-top:22px}
+.scene{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
+.scene-h{display:flex;align-items:baseline;gap:12px;padding:14px 18px 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.scene-h .num{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
+.scene-h h3{font-size:17px;font-weight:900;flex:1 1 auto}
+.scene-h .dur{font-size:12.5px;color:var(--ink-3)}
+.scene-b{display:grid;grid-template-columns:240px 1fr;gap:20px;padding:16px 18px 18px}
+@media (max-width:640px){.scene-b{grid-template-columns:1fr;gap:14px;padding:14px}.clip{max-width:260px}}
+.clip{display:flex;flex-direction:column;gap:6px}
+.clip video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;display:block}
+.clip .cap{font-size:11.5px;color:var(--ink-3);line-height:1.4}
+.clip .cap b{color:var(--ink-2);font-weight:500}
+.clip2{gap:10px}
+.clip.none{align-items:stretch}
+.clip.none .ph{aspect-ratio:9/16;border:1.5px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--ink-3);padding:10px}
+.rows{display:grid;gap:12px;align-content:start}
+.row{display:grid;grid-template-columns:52px 1fr;gap:10px;font-size:14px}
+.row .lab{padding-top:3px}
+.row .val{color:var(--ink);line-height:1.6}
+.row .val b{font-weight:700}
+.line{padding:10px 12px;background:var(--panel-2);border-radius:8px;font-size:14.5px;line-height:1.55}
+.line .q{color:var(--ink-3);font-size:12px;font-weight:700;letter-spacing:.06em;display:block;margin-bottom:3px}
+.ab{display:grid;gap:8px}
+.ab .line{border-left:3px solid var(--blue)}
+.ab .k{font-weight:900;color:var(--blue);margin-right:6px}
+
+/* checklist & lists */
+ul{margin:14px 0 0;padding-left:20px}
+li{margin-bottom:6px}
+.nolist li::marker{color:var(--red)}
+.check{list-style:none;padding:0;margin-top:16px;display:grid;gap:0;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px}
+.check li:last-child{border-bottom:0}
+.check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:3px}
+
+/* reference strip */
+.refgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-top:18px}
+.refgrid figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px;display:flex;flex-direction:column;gap:8px}
+.refgrid video{width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:6px;display:block}
+.refgrid figcaption{font-size:12.5px;line-height:1.45;color:var(--ink-2)}
+.refgrid figcaption .t{display:block;color:var(--ink-3);font-size:11.5px;margin-bottom:2px}
+.note{margin-top:18px;padding:14px 16px;background:var(--amber-soft);border-radius:8px;font-size:14px;color:var(--ink)}
+.note b{color:var(--amber)}
+.diff{margin-top:18px;font-size:14px;color:var(--ink-2);max-width:64ch}
+
+/* split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}
+@media (max-width:600px){.split{grid-template-columns:1fr}}
+.pane{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px}
+.pane h3{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px;letter-spacing:.02em}
+.pane ul{margin-top:6px}
+.pane .pr{color:var(--blue);font-weight:700}
+.pane img{width:100%;max-width:240px;display:block;border-radius:8px;background:#fff;margin-bottom:10px}
+
+@media (prefers-reduced-motion: no-preference){
+  .scene{transition:box-shadow .2s}
+}
+:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+
+/* version switch */
+.vswitch{display:flex;gap:8px;padding-top:18px;flex-wrap:wrap;position:sticky;top:0;background:var(--paper);z-index:5;padding-bottom:10px}
+.vswitch button{padding:9px 18px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);font-weight:700;font-size:14px;background:var(--panel);font-family:inherit;cursor:pointer}
+.vswitch button.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.vswitch a.vlink{padding:9px 18px;border:1px solid var(--blue);border-radius:999px;color:var(--blue);font-weight:700;font-size:14px;background:var(--blue-soft);text-decoration:none;display:inline-flex;align-items:center}
+.vswitch a.vlink:hover{background:var(--blue);color:#fff}
+.vN{display:none}
+body[data-ver="info"] .vN{display:block}
+body[data-ver="info"] span.vN{display:inline!important}
+span.vI{display:inline}
+body[data-ver="info"] span.vI{display:none}
+body[data-ver="info"] .vI{display:none}
+.vbadge{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);margin-left:8px;vertical-align:middle}
+.vBshow{display:none}
+body[data-ver="boots"] .vBshow{display:inline-block}
+.vHshow{display:none}
+body[data-ver="height"] .vHshow{display:inline-block}
+.lu-boots{display:none}
+body[data-ver="boots"] .lu-boots{display:block}
+.lu-height{display:none}
+body[data-ver="height"] .lu-height{display:block}
+body[data-ver="boots"] .inf-lineup,body[data-ver="height"] .inf-lineup{grid-template-columns:1fr}
+body[data-ver="boots"] div.vBshow{display:block}
+body[data-ver="boots"] .row.vBshow{display:grid}
+body[data-ver="height"] div.vHshow{display:block}
+body[data-ver="height"] .row.vHshow{display:grid}
+body[data-ver="height"] .cutgrp.vHshow{display:block}
+
+/* boot lineup */
+.lineup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:640px){.lineup{grid-template-columns:1fr}}
+.lu{background:var(--panel-2);border-radius:8px;padding:12px 14px}
+.lu h4{margin:0 0 8px;font-size:13px;font-weight:900;color:var(--blue);letter-spacing:.02em}
+.lu ol{margin:0;padding-left:20px;display:grid;gap:8px}
+.lu li{margin:0;font-size:13.5px;line-height:1.45}
+.lu li b{font-weight:700;display:block}
+.lu .pr{color:var(--blue);font-weight:700;margin-right:6px}
+.lu .op{color:var(--ink-2);font-size:12.5px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">착한구두 · 인플루언서 릴스 · FW 오프라인</div>
+  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
+  <div class="notice" role="alert">
+    <span class="nt">⚠ 주의사항</span>
+    부츠는 반드시 <b>부츠 촬영 예시컷</b>을 보고 같은 구도로 촬영해 주세요.<br>
+    예시컷은 <b>이 가이드 맨 아래 5번 항목</b>에 있습니다. <a href="#cuts">예시컷 바로 보기 ↓</a>
+  </div>
+</header>
+
+<div class="vI">
+<section>
+  <h2><span class="n">1</span>장면 순서</h2>
+
+  <div class="scenes">
+
+    <article class="scene" id="s1">
+      <div class="scene-h"><span class="num">장면 1</span><h3>후킹</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_hook.jpg" src="videos/z_hook.mp4"></video><p class="cap"><b class="mono">0.0–5.1초</b> · @z___meme · 부츠 컷 · 기준<br>"여러분 진짜 개 야르한 부츠 맛집 알려드릴게요. 기호라는 브랜드고 얘가 제 레전드 애착 부츠거든요"</p><video controls playsinline preload="metadata" poster="posters/hook_b.jpg" src="videos/hook_b.mp4"></video><p class="cap"><b class="mono">0.0–3.0초</b> · @seoul__log · 인테리어 컷<br>"아니 성수동에 신발을 9,900원에 파는 미친 곳 찾았어요"</p><video controls playsinline preload="metadata" poster="posters/shelf_b.jpg" src="videos/shelf_b.mp4"></video><p class="cap"><b class="mono">3.0–5.7초</b> · @seoul__log · 매대 컷<br>"1층 쇼룸부터 너무 예쁜데 디자인이 다양해서"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트 1</span>"(테무 / 다이소)보다 저렴한 9,900원 신발가게 신상 부츠 나온 거 아세요?"</div>
+          <div class="line"><span class="q">멘트 2</span>"(핀터 / 발렌시아가 등 명품)맛 부츠 9,900원 신발가게 신상 부츠"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">"명품"이라고만 하지 않고 <b>발렌시아가 등 실제 명품 브랜드 이름을 반드시 언급</b>한다.</span></div>
+          <div class="line"><span class="q">멘트 3</span>"(다리가 길어 보이는 / 체형 보정) 9,900원 신발가게 신상 부츠"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장 인테리어 내부 컷 + 예쁜 부츠 <b>2~3개</b> + 매대샷.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">후킹 멘트에 <b>인플루언서 리액션·1인칭 멘트</b>("제 애착 부츠" 등)를 덧붙여도 된다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s2">
+      <div class="scene-h"><span class="num">장면 2</span><h3>유행 부츠</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_fold.jpg" src="videos/z_fold.mp4"></video><p class="cap"><b class="mono">5.2–7.4초</b> · @z___meme · 접어 신는 부츠<br>"진짜 예쁜데 편하기까지 해서 거의 맨날 신는데"</p><video controls playsinline preload="metadata" poster="posters/z_new.jpg" src="videos/z_new.mp4"></video><p class="cap"><b class="mono">7.4–9.3초</b> · @z___meme · 신상 롱부츠<br>"신상들도 너무 예뻐서 바로 구경 왔어요"</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 부츠 착샷 앞·옆·뒤<br>"첫 번째는 폴딩 포인트가 너무 예쁜 부츠예요. 다리 라인 너무 예뻐 보이죠? 흔하지 않은 색감과 텍스처가 완전 가을 여자. 요 뒤에 레이스업 디테일까지 진짜 미쳤다"</p></div>
+        <div class="rows">
+          <div class="ab vBshow">
+            <div class="line"><span class="q">멘트 예시</span><span class="k">A</span>"요즘 유행하는 부츠 다 있어요"</div>
+            <div class="line"><span class="k">B</span>"예쁜데 발까지 편한 부츠들이 다 있어요"</div>
+            <div class="line"><span class="k">C</span>"발 편하고 예쁜 부츠 찾고 있었으면 여기 다 있어요"</div>
+            <div class="line"><span class="k">D</span>"예쁜 부츠들이 다 편하기까지 해서 고르다 눈 돌아갔어요"</div>
+            <div class="line"><span class="k">E</span>"유행하는 스타일 다 있고 신어보면 진짜 편해요"</div>
+          </div>
+          <div class="ab vHshow">
+            <div class="line"><span class="q">멘트 예시</span><span class="k">A</span>"요즘 유행하는 부츠 다 있어요"</div>
+            <div class="line"><span class="k">B</span>"티 안 나고 발 편한 키높이 부츠 여기 다 있어요"</div>
+            <div class="line"><span class="k">C</span>"비율 좋아 보이는 키높이 부츠 여기 다 있어요"</div>
+            <div class="line"><span class="k">D</span>"키높이인데 발도 편하고 예쁜 부츠 다 있어요"</div>
+            <div class="line"><span class="k">E</span>"유행하는 스타일 다 있고 신어보면 진짜 편해요"</div>
+          </div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 착샷 <b>2~3컷, 빠르게</b>.</span></div>
+          <div class="row vHshow"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>키높이 비포·애프터 소구</b>를 <b>장면 2 또는 장면 5 중 하나에 반드시</b> 넣는다. 신기 전·후 비율 비교 컷 + <b>자막에 수치를 반드시 표기</b>한다. 예: <b>165→172</b> / <b>+7cm</b> / <b>163cm → 170cm</b> 등. 숫자가 있어야 효과가 명확하게 전달된다.</span></div>
+          <div class="cutgrp vHshow">
+            <div class="cuts" style="margin-top:12px">
+              <figure><a class="im" href="cuts/h_7cm_compare.jpg" target="_blank"><img src="cuts/h_7cm_compare.jpg" alt="+7cm 비포·애프터 비교 컷" loading="lazy"></a><figcaption class="ref">@chxxchxx_1 × @hei183.167_official · "숨겨진 7cm 찾아주는 신발···" · "+7cm!" 자막으로 신기 전·후 전신 비교</figcaption></figure>
+              <figure><a class="im" href="cuts/h_ratio_compare.jpg" target="_blank"><img src="cuts/h_ratio_compare.jpg" alt="163cm→170cm 비율 비교 컷" loading="lazy"></a><figcaption class="ref">@neoyse0o × @hei183.167_official · "티 안 나게 키 커지는 신발···" · 163cm vs 170cm 자막으로 비율 차이 비교</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s4">
+      <div class="scene-h"><span class="num">장면 3</span><h3>9,900원 아카이브존</h3></div>
+      <div class="scene-b">
+        <div class="clip"><video controls playsinline preload="metadata" poster="posters/b3.jpg" src="videos/b3.mp4"></video><p class="cap"><b class="mono">7.6–11.8초</b> · @seoul__log<br>"지하로 내려가면 9,900원 존이 있는데 이게 다 9,900원이라 완전 눈 돌아갔어요"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"9,900원 아카이브존까지"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>9,900원 가격표 + 부츠</b>이 한 화면에 같이 보이게. 아카이브존 매대 컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val"><b>아카이브존 장소(공간) 자체를 찍지 않는다.</b> 가격표와 부츠, 매대만 잡는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s5">
+      <div class="scene-h"><span class="num">장면 4</span><h3>신상 부츠</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_hold.jpg" src="videos/z_hold.mp4"></video><p class="cap"><b class="mono">23.2–27.3초</b> · @z___meme · 앉아서 → 부츠 들고<br>화면 글자: "쇠맛도 있긔" → "부츠 탈부착돼서 숏으로도 신을 수 있음"</p><video controls playsinline preload="metadata" poster="posters/f_sit.jpg" src="videos/f_sit.mp4"></video><p class="cap"><b class="mono">4.2–11.4초</b> · @da__chaerop · 앉아서 부츠 접어 신는 컷<br>화면 글자: "미들 부츠가 돼요!"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>"신상으로 나온 부츠가 찐인데"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>부츠가 가장 예쁘게 잘 나온 장면 2~3개</b>.</span></div>
+        </div>
+      </div>
+    </article>
+
+
+    <article class="scene" id="s7">
+      <div class="scene-h"><span class="num">장면 5</span><h3>부츠 소개 · 3개</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_mirror.jpg" src="videos/z_mirror.mp4"></video><p class="cap"><b class="mono">27.4–29.2초</b> · @z___meme · 거울 전신 착샷 · 기준<br>"힙하죠? 저 힙하죠? 네 감사합니다"</p><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 야외 전신 착샷<br>대사 없음 · 음악 + 화면 글자. 벽 앞에서 전신 → 부츠 클로즈업 → 전신 순.</p><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>"아 근데 사실대로 말하자면 사실 제 원픽은 이거였는데"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트</span>아래 <a href="#boots">부츠 정보</a>의 설명 포인트를 부츠마다 1~2개 말한다. 부츠 3개.</div>
+          <div class="note vHshow"><b>키높이 소구점 · 부츠마다 1~2개 골라 멘트</b><ul style="margin-top:6px;padding-left:18px"><li>비율이 달라진다</li><li>굽이 숨겨져 있어 티 안 나고 자연스럽다</li><li>쿠션이 푹신해서 발이 편하다</li></ul></div>
+          <div class="lineup inf-lineup">
+            <div class="lu lu-boots"><h4>기본 구성 · 3개</h4>
+              <ol>
+                <li><b>페탈 커스텀 멀티웨이 롱부츠</b><span class="pr">75,900원</span></li>
+                <li><b>블래티 슬라우치 부츠</b><span class="op">브라운 · 기장 숏/롱 택1</span></li>
+                <li><b>키높이 택1</b><span class="op">놀킨 미들부츠 69,900원 또는 카민스 롱부츠 79,900원</span></li>
+              </ol>
+            </div>
+            <div class="lu lu-height"><h4>키작녀 버전 · 3개</h4>
+              <ol>
+                <li><b>놀킨 키높이 바이커 투웨이 미들부츠</b><span class="pr">69,900원</span></li>
+                <li><b>카민스 키높이 비율 보정 롱부츠</b><span class="pr">79,900원</span></li>
+                <li><b>종아리 커버 택1</b><span class="op">페탈 롱부츠 75,900원 또는 블래티 슬라우치 브라운(기장 택1)</span></li>
+              </ol>
+            </div>
+          </div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>3개</b>. 전신컷은 거울 착샷 아니어도 됨.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>1개당 2~3컷</b>. <b>앉아서 · 앞에서 · 옆에서 · 전신</b> 구도를 섞어서 찍는다 (한 부츠에 같은 구도만 반복하지 않는다). 구도 예시는 <a href="#cuts">5. 부츠 촬영 예시구도</a>.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">릴스 한 편 안에 <b>앉아서 · 앞에서 · 옆에서 · 전신 네 구도가 모두</b> 들어가야 한다.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>가을 코디와 조합</b>해서 신는다 (바지를 부츠 안에 넣어 신기 등). <b>착장 2~3개 준비</b>, 스커트·바지 연출 다양하게.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val"><span class="vBshow">종아리 커버 제품과 키높이 제품에서 섞어 고르면 소구점이 겹치지 않는다.</span><span class="vHshow">키높이 제품 2개 + 종아리 커버 1개 조합이면 체형 보정 소구점이 집중된다.</span></span></div>
+          <div class="row vHshow"><span class="lab"><span class="tag must">필수</span></span><span class="val">장면 2에서 키높이 비포·애프터 소구를 안 했다면 이 장면에서 반드시 넣는다. 신기 전·후 전신 비교 컷 + <b>자막에 수치 표기 필수</b> (예: <b>165→172</b> / <b>+7cm</b>). (장면 2 ↔ 장면 5 중 하나에 반드시 포함)</span></div>
+          <div class="cutgrp vHshow">
+            <div class="cuts" style="margin-top:8px">
+              <figure><a class="im" href="cuts/h_7cm_compare.jpg" target="_blank"><img src="cuts/h_7cm_compare.jpg" alt="+7cm 비포·애프터 비교 컷" loading="lazy"></a><figcaption class="ref">@chxxchxx_1 × @hei183.167_official · "숨겨진 7cm 찾아주는 신발···" · "+7cm!" 자막으로 신기 전·후 전신 비교</figcaption></figure>
+              <figure><a class="im" href="cuts/h_ratio_compare.jpg" target="_blank"><img src="cuts/h_ratio_compare.jpg" alt="163cm→170cm 비율 비교 컷" loading="lazy"></a><figcaption class="ref">@neoyse0o × @hei183.167_official · "비율의 중요성을 다시 한 번 느끼다" · 163cm vs 170cm 자막으로 비율 차이 비교</figcaption></figure>
+              <figure><a class="im" href="cuts/h_sole_hidden.jpg" target="_blank"><img src="cuts/h_sole_hidden.jpg" alt="깔창이 이~~만큼인데 다 숨겨져 있어서" loading="lazy"></a><figcaption class="ref">@neoyse0o × @hei183.167_official · "깔창이 이~~만큼인데 다 숨겨져 있어서" · 두꺼운 키높이 깔창 클로즈업으로 숨겨진 굽 소구</figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="s8">
+      <div class="scene-h"><span class="num">장면 6</span><h3>마무리 · CTA</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/b5.jpg" src="videos/b5.mp4"></video><p class="cap"><b class="mono">15.0–17.3초</b> · @seoul__log · 계산 + 쇼핑백<br>"친구한테 공유하고 한번 가보세요"</p><video controls playsinline preload="metadata" poster="posters/entrance.jpg" src="videos/entrance.mp4"></video><p class="cap"><b class="mono">3.4–5.0초</b> · @hey_jihye__ · 매장 입구, 간판</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트 · 자유</span>매장 방문을 유도하는 말이면 자유. 예: "다른 신상도 많으니 꼭 들러보세요"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장 입구 컷 (간판이 보이게) + 계산 + 쇼핑백 들고 나가는 컷 등.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">@친구 태그 등 방문 유도는 자유.</span></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+</div>
+<div class="vN">
+<section>
+  <h2>썸네일 장면 예시</h2>
+  <p class="sub">아래 3가지 유형 중 하나로 잡는다.</p>
+
+  <div style="margin-top:18px;display:grid;gap:10px">
+    <div class="line"><span class="q">문구 예시 1</span>(3층규모) 9,900원 신발계의 (다이소 / 테무) 신상부츠</div>
+    <div class="line"><span class="q">문구 예시 2</span>(다이소 / 테무)보다 저렴한 9,900원 (3층규모) 신발가게 신상부츠</div>
+    <div class="line"><span class="q">문구 예시 3</span>부츠 1개 가격에 10개 · 3층규모 9,900원 신발가게</div>
+  </div>
+
+  <div class="cutgrp">
+    <h3>1. 부츠 착용샷 (거울샷 포함) · 부츠가 예쁘게 잘 나온 사진</h3>
+    <div class="cuts">
+      <figure><a class="im" href="thumbs-info/t4.png" target="_blank"><img src="thumbs-info/t4.png" alt="khiho 애착부츠 착용샷 · 29.9만" loading="lazy"></a><figcaption class="ref">29.9만</figcaption></figure>
+      <figure><a class="im" href="thumbs-info/t5.png" target="_blank"><img src="thumbs-info/t5.png" alt="안 흔한 가을 신발 거울샷" loading="lazy"></a><figcaption class="ref">거울샷</figcaption></figure>
+      <figure><a class="im" href="thumbs-info/t6.png" target="_blank"><img src="thumbs-info/t6.png" alt="착한구두 매장 거울샷" loading="lazy"></a><figcaption class="ref">거울샷</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="cutgrp">
+    <h3>2. 예쁜 부츠 2~3개 모아둔 컷</h3>
+    <div class="cuts">
+      <figure><a class="im" href="thumbs-info/t1.png" target="_blank"><img src="thumbs-info/t1.png" alt="9900원 신발계의 다이소 · 62.4만" loading="lazy"></a><figcaption class="ref">62.4만</figcaption></figure>
+      <figure><a class="im" href="thumbs-info/t2.png" target="_blank"><img src="thumbs-info/t2.png" alt="공주님들 지금 당장 모여 · 119.4만" loading="lazy"></a><figcaption class="ref">119.4만</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="cutgrp">
+    <h3>3. 신상 부츠가 진열된 매대 컷</h3>
+    <div class="cuts">
+      <figure><a class="im" href="thumbs-info/t3.png" target="_blank"><img src="thumbs-info/t3.png" alt="직장인 가을 부츠 · 53.1만" loading="lazy"></a><figcaption class="ref">53.1만</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">1</span>장면 순서</h2>
+  <div class="scenes">
+    <article class="scene" id="n1">
+      <div class="scene-h"><span class="num">장면 1</span><h3>후킹</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/seoul_log_combined.jpg" src="videos/seoul_log_combined.mp4"></video><p class="cap"><b class="mono">0.0–5.7초</b> · @seoul__log · 인테리어 컷 + 매대 컷<br>"아니 성수동에 신발을 9,900원에 파는 미친 곳 찾았어요"</p><video controls playsinline preload="metadata" poster="posters/luxury_style_trim.jpg" src="videos/luxury_style_trim.mp4"></video><p class="cap">· "명품관에서 본 것 같은 디자인 만원대" (0~5초)</p><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 대사 없음 · 음악 + 화면 글자<br>벽 앞 전신 → 부츠 클로즈업 → 전신 순. 정보성 버전의 기준 톤</p><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>구도만 참고. 멘트는 정보 톤으로 바꾼다</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 앞·옆·뒤 착샷</p><video controls playsinline preload="metadata" poster="posters/dapl_trim.jpg" src="videos/dapl_trim.mp4"></video><p class="cap">"성수에 안가면" · 신발 들고있는 장면 → "생긴 거 아세요?"까지</p></div>
+        <div class="rows">
+          <div class="row"><span class="lab"><span class="tag must">장면필수</span></span><span class="val"><b>① 부츠가 예쁘게 잘 나온 장면</b> — 착용샷 · 들고있는샷 · 매대샷 등</span></div>
+          <div class="row"><span class="lab"><span class="tag must">장면필수</span></span><span class="val"><b>② 신상 부츠가 깔려있는 매대샷</b></span></div>
+          <div class="row"><span class="lab"><span class="tag must">장면필수</span></span><span class="val"><b>③ 내부 인테리어</b> — 매장이 크고 예쁘게 잘 나온 영상</span></div>
+          <div style="margin-top:10px;background:#e8f0fe;border-radius:8px;padding:10px 12px;display:grid;gap:6px">
+            <div class="row"><span class="lab"><span class="tag must">자막필수</span></span><span class="val"><b>① 가격 9,900원 소구</b></span></div>
+            <div class="line"><span class="q">예시 1</span>9,900원 신발가게 신상 부츠 나왔어요</div>
+            <div class="line"><span class="q">예시 2</span>부츠 9,900원부터 구매 가능</div>
+            <div class="line"><span class="q">예시 3</span>부츠 1개 가격에 10개 구매 가능</div>
+            <div class="row"><span class="lab"><span class="tag must">자막필수</span></span><span class="val"><b>인테리어 소구</b> — 백화점 같은 인테리어에 3층 규모</span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n4">
+      <div class="scene-h"><span class="num">장면 2</span><h3>9,900원 증명 · 아카이브존</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/b3.jpg" src="videos/b3.mp4"></video><p class="cap"><b class="mono">7.6–11.8초</b> · @seoul__log<br>"지하로 내려가면 9,900원 존이 있는데"</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>9,900원 아카이브존 부츠가 전부 9,900원</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>9,900원 가격표 + 부츠</b>이 한 화면에 같이 보이게. 아카이브존 매대 컷.</span></div>
+          <div class="row"><span class="lab"><span class="tag no">금지</span></span><span class="val"><b>아카이브존 장소(공간) 자체를 찍지 않는다.</b> 가격표와 부츠, 매대만 잡는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n5">
+      <div class="scene-h"><span class="num">장면 5</span><h3>신상 부츠</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/d_full.jpg" src="videos/d_full.mp4"></video><p class="cap"><b class="mono">5.5–11.5초</b> · @banjuiya · 대사 없음 · 음악 + 화면 글자<br>벽 앞 전신 → 부츠 클로즈업 → 전신 순. 정보성 버전의 기준 톤</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>"신상으로 나온 부츠가 찐인데" <span style="color:var(--ref);font-size:.85em">(신상 부츠 저렴하고 예쁘다)</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>신상 부츠 착용샷 빠르게 2~3개</b></span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val"><a href="#cuts">부츠 촬영 예시구도</a> 참고.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n6">
+      <div class="scene-h"><span class="num">장면 6</span><h3>부츠 소개 · 3개</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/z_slouch.jpg" src="videos/z_slouch.mp4"></video><p class="cap"><b class="mono">16.3–19.3초</b> · @z___meme · 슬라우치 부츠 착샷<br>구도만 참고. 멘트는 정보 톤으로 바꾼다</p><video controls playsinline preload="metadata" poster="posters/c_boots.jpg" src="videos/c_boots.mp4"></video><p class="cap"><b class="mono">3.7–12.0초</b> · @hanzzi._s2 · 앞·옆·뒤 착샷</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트·자막</span>아래 <a href="#boots">부츠 정보</a>의 설명 포인트를 부츠마다 1~2개 말한다. 부츠 3개.</div>
+          <div class="lineup">
+            <div class="lu"><h4>기본 구성 · 3개</h4>
+              <ol>
+                <li><b>페탈 커스텀 멀티웨이 롱부츠</b><span class="pr">75,900원</span></li>
+                <li><b>블래티 슬라우치 부츠</b><span class="op">브라운 · 기장 숏/롱 택1</span></li>
+                <li><b>키높이 택1</b><span class="op">놀킨 미들부츠 69,900원 또는 카민스 롱부츠 79,900원</span></li>
+              </ol>
+            </div>
+          </div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>3개</b>. 얼굴 없이 하체 위주, 전신컷은 얼굴을 폰으로 가리거나 프레임 밖.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">부츠 <b>1개당 2~3컷</b>. <b>앉아서 · 앞에서 · 옆에서 · 전신</b> 구도를 섞어서 찍는다 (한 부츠에 같은 구도만 반복하지 않는다). 구도 예시는 <a href="#cuts">5. 부츠 촬영 예시구도</a>.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">릴스 한 편 안에 <b>앉아서 · 앞에서 · 옆에서 · 전신 네 구도가 모두</b> 들어가야 한다.</span></div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val"><b>가을 코디와 조합</b>해서 신는다 (바지를 부츠 안에 넣어 신기 등). <b>착장 2~3개 준비</b>, 스커트·바지 연출 다양하게.</span></div>
+          <div class="row"><span class="lab"><span class="tag ref">참고</span></span><span class="val">종아리 커버 제품과 키높이 제품에서 섞어 고르면 소구점이 겹치지 않는다.</span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="scene" id="n7">
+      <div class="scene-h"><span class="num">장면 7</span><h3>마무리 · 매장 정보</h3></div>
+      <div class="scene-b">
+        <div class="clip clip2"><video controls playsinline preload="metadata" poster="posters/entrance.jpg" src="videos/entrance.mp4"></video><p class="cap"><b class="mono">3.4–5.0초</b> · @hey_jihye__ · 매장 입구, 간판</p><video controls playsinline preload="metadata" poster="posters/b5.jpg" src="videos/b5.mp4"></video><p class="cap"><b class="mono">15.0–17.3초</b> · @seoul__log · 계산 + 쇼핑백</p></div>
+        <div class="rows">
+          <div class="line"><span class="q">멘트 · 자유</span>매장 방문을 유도하는 말이면 자유. 예: "다른 신상도 많으니 꼭 들러보세요"</div>
+          <div class="row"><span class="lab"><span class="tag must">필수</span></span><span class="val">매장 입구 컷 (간판이 보이게) + 계산 + 쇼핑백 들고 나가는 컷 등.</span></div>
+          <div class="row"><span class="lab"><span class="tag opt">선택</span></span><span class="val">@친구 태그 등 방문 유도는 자유.</span></div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+</div>
+
+<section id="boots">
+  <h2><span class="n">2</span>부츠 정보</h2>
+  <p class="sub">장면 <span class="vI">5</span><span class="vN">6</span> 부츠 소개 3개는 기본으로 페탈 커스텀 멀티웨이 롱부츠, 블래티 슬라우치 부츠 브라운(기장 택1) + 키높이 1개 선택으로 간다. 키가 작은 인플루언서는 키높이 2개 + 페탈/블래티 중 택1 로 바꾼다. 부츠 설명을 멘트로 말하고, 가을 코디와 조합한다 (바지 넣어 신기 등).</p>
+
+  <h3 style="margin-top:26px;font-size:16px;font-weight:900">종아리 커버 제품 · 장면 <span class="vI">5</span><span class="vN">6</span> 부츠 소개</h3>
+  <div class="split">
+    <div class="pane"><img src="products/petal.jpg" alt="1 · 페탈 커스텀 멀티웨이 롱부츠" loading="lazy"><h3>1 · 페탈 커스텀 멀티웨이 롱부츠 · <span class="pr">75,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">접어 신는 부츠</span> <span class="tag opt">종아리 커버</span> </p><ul><li>요즘 유행하는 접어 신는 부츠 (2가지 코디 가능)</li><li>종아리 커버 가능 (체형 보정)</li></ul></div>
+    <div class="pane"><img src="products/blatty.jpg" alt="2 · 블래티 슬라우치 부츠" loading="lazy"><h3>2 · 블래티 슬라우치 부츠</h3><p style="margin:2px 0 6px"><span class="tag opt">종아리 커버</span> </p><ul><li>통이 넓어 다리가 얇아 보임</li><li>기장 · 숏, 롱 2개 버전</li><li>재질 · 스웨이드, 레더 2개 버전</li></ul></div>
+  </div>
+
+  <h3 style="margin-top:26px;font-size:16px;font-weight:900">키높이 라인 · 7.5cm UP · 장면 <span class="vI">5</span><span class="vN">6</span> 부츠 소개</h3>
+  <div class="split">
+    <div class="pane"><img src="products/nolkin.jpg" alt="1 · 놀킨 키높이 바이커 투웨이 미들부츠" loading="lazy"><h3>1 · 놀킨 키높이 바이커 투웨이 미들부츠 · <span class="pr">69,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>버클 포인트</li></ul></div>
+    <div class="pane"><img src="products/carmins.jpg" alt="2 · 카민스 키높이 비율 보정 롱부츠" loading="lazy"><h3>2 · 카민스 키높이 비율 보정 롱부츠 · <span class="pr">79,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> <span class="tag opt">종아리 커버</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>종아리 커버</li></ul></div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">3</span>금지 모아보기</h2>
+  <ul class="nolist">
+    <li>아카이브존 장소(공간) 자체를 찍기 · 가격표 + 부츠, 매대만 찍는다</li>
+  </ul>
+</section>
+
+<section class="vI">
+  <h2><span class="n">4</span>납품 전 체크리스트</h2>
+  <ul class="check">
+    <li><span class="box"></span>후킹에 "9,900원"과 "신상 부츠"가 멘트로 들린다</li>
+    <li><span class="box"></span>인테리어 내부 컷 + 부츠 2~3개 + 매대샷이 있다</li>
+    <li><span class="box"></span>부츠 착샷 2~3컷이 있다</li>
+    <li><span class="box"></span>9,900원 가격표와 부츠가 한 화면에 잡힌 컷이 있다</li>
+    <li><span class="box"></span>아카이브존 장소 전경 컷이 없다</li>
+    <li><span class="box"></span>신상 부츠가 가장 예쁘게 잘 나온 장면이 2~3개 있다</li>
+    <li><span class="box"></span>부츠 소개 3개가 각각 2~3컷, 구도를 섞어서 스커트·바지 2~3 코디와 함께 나온다</li>
+    <li><span class="box"></span>릴스 안에 앉아서·앞에서·옆에서·전신 네 구도가 모두 있다</li>
+    <li><span class="box"></span>매장 입구(간판) 컷과 계산 + 쇼핑백 컷이 있다</li>
+  </ul>
+</section>
+<section class="vN">
+  <h2><span class="n">4</span>납품 전 체크리스트</h2>
+  <ul class="check">
+    <li><span class="box"></span>후킹 자막에 "9,900원"과 "신상 부츠"가 크게 보인다</li>
+    <li><span class="box"></span>간판/외관 → 내부 와이드 → 부츠 매대 3컷이 있다</li>
+    <li><span class="box"></span>부츠 착샷 2~3컷이 얼굴 없이 하체 구도로 있다</li>
+    <li><span class="box"></span>층별 매대 컷이 있다</li>
+    <li><span class="box"></span>9,900원 가격표와 부츠가 한 화면에 잡힌 컷이 있다</li>
+    <li><span class="box"></span>아카이브존 장소 전경 컷이 없다</li>
+    <li><span class="box"></span>신상 부츠 전신 착샷 → 클로즈업 순으로 있다</li>
+    <li><span class="box"></span>부츠 소개 3개가 각각 2~3컷, 구도를 섞어서 스커트·바지 2~3 코디와 함께 나온다</li>
+    <li><span class="box"></span>릴스 안에 앉아서·앞에서·옆에서·전신 네 구도가 모두 있다</li>
+    <li><span class="box"></span>인플루언서 얼굴이 없다</li>
+    <li><span class="box"></span>매장 입구(간판) 컷과 계산 + 쇼핑백 컷이 있다</li>
+  </ul>
+</section>
+
+<section id="cuts">
+  <h2><span class="n">5</span>부츠 촬영 예시구도</h2>
+  <p class="sub">부츠 착샷은 아래 구도를 섞어서 찍는다. 사진을 누르면 크게 보인다.</p>
+<div class="cutgrp">
+  <h3>앉아서 찍은 컷<span class="cnt">7컷</span></h3>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/Dcj_3o5yg4z_컷03.jpg" target="_blank"><img src="cuts/Dcj_3o5yg4z_컷03.jpg" alt="바닥에 앉아 손으로 스트랩 디테일 가리킴" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">https://www.instagram.com/p/Dcj_3o5yg4z/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷12.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷12.jpg" alt="쪼그려 앉아 스웨이드 미들 부츠 주름 강조" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DPlLzWikZ2G_컷07.jpg" target="_blank"><img src="cuts/DPlLzWikZ2G_컷07.jpg" alt="소파에 다리 꼬고 앉음, 부츠 클로즈업" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">https://www.instagram.com/p/DPlLzWikZ2G/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DTughGLj13x_컷16.jpg" target="_blank"><img src="cuts/DTughGLj13x_컷16.jpg" alt="쪼그려 앉은 거울 셀카, 다리 얇아 보이는 효과 자막" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DTughGLj13x/" target="_blank" rel="noopener">https://www.instagram.com/p/DTughGLj13x/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DcqaIImph0s_컷20.jpg" target="_blank"><img src="cuts/DcqaIImph0s_컷20.jpg" alt="의자에 다리 꼬고 앉은 거울 셀카" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DcqaIImph0s/" target="_blank" rel="noopener">https://www.instagram.com/p/DcqaIImph0s/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_02.jpg" target="_blank"><img src="cuts/카톡캡처_02.jpg" alt="다리 꼬고 앉음, 브라운 플랫폼 부츠 측면 클로즈업" loading="lazy"></a><figcaption class="ref">링크 없음</figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_03.jpg" target="_blank"><img src="cuts/카톡캡처_03.jpg" alt="무릎 모으고 앉음, 브라운·블랙 부츠 나란히" loading="lazy"></a><figcaption class="ref">링크 없음</figcaption></figure>
+  </div>
+</div>
+<div class="cutgrp">
+  <h3>앞에서 찍은 컷<span class="cnt">10컷</span></h3>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷13.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷13.jpg" alt="청바지 넣입 정면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷21.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷21.jpg" alt="베이지 롱부츠 정면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dcj_3o5yg4z_컷06.jpg" target="_blank"><img src="cuts/Dcj_3o5yg4z_컷06.jpg" alt="반바지 + 스트랩 부츠 정면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">https://www.instagram.com/p/Dcj_3o5yg4z/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DPlLzWikZ2G_컷06.jpg" target="_blank"><img src="cuts/DPlLzWikZ2G_컷06.jpg" alt="스커트 + 하네스 부츠 사선 정면" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">https://www.instagram.com/p/DPlLzWikZ2G/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷36.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷36.jpg" alt="한쪽 다리 들어 올린 정면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DcfkHO4JN6Q_컷01.jpg" target="_blank"><img src="cuts/DcfkHO4JN6Q_컷01.jpg" alt="야외 벽 앞, 미니스커트 + 슬라우치 부츠 정면 (머리 제외)" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DcfkHO4JN6Q/" target="_blank" rel="noopener">https://www.instagram.com/p/DcfkHO4JN6Q/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DcraOr5TOd9_컷03.jpg" target="_blank"><img src="cuts/DcraOr5TOd9_컷03.jpg" alt="NEGATIVE THREE 폴딩 레이스업 부츠 정면 클로즈업" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DcraOr5TOd9/" target="_blank" rel="noopener">https://www.instagram.com/p/DcraOr5TOd9/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dbs767AhUNX_컷07.jpg" target="_blank"><img src="cuts/Dbs767AhUNX_컷07.jpg" alt="레이스업 부츠, 위에서 내려다본 정면 클로즈업" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dbs767AhUNX_컷08.jpg" target="_blank"><img src="cuts/Dbs767AhUNX_컷08.jpg" alt="블랙 원피스 + 레이스업 부츠 정면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dbs767AhUNX_컷11.jpg" target="_blank"><img src="cuts/Dbs767AhUNX_컷11.jpg" alt="블랙 원피스 + 슬라우치 부츠 정면, 알부 숨겨주는 자막" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></figcaption></figure>
+  </div>
+</div>
+<div class="cutgrp">
+  <h3>옆에서 찍은 컷<span class="cnt">6컷</span></h3>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷02.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷02.jpg" alt="KHIHO 부츠, 낮은 앵글 측면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷22.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷22.jpg" alt="JILL 플랫폼 롱부츠 측면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/카톡캡처_01.jpg" target="_blank"><img src="cuts/카톡캡처_01.jpg" alt="레더 스커트 + 브라운 플랫폼 부츠, 측면 하체" loading="lazy"></a><figcaption class="ref">링크 없음</figcaption></figure>
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷15.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷15.jpg" alt="ATHE ACC 롱부츠 사선 측면" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷11.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷11.jpg" alt="한쪽 다리 들고 부츠 잡은 측면" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷18.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷18.jpg" alt="청바지 롤업 + 부츠 측면 하체" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></figcaption></figure>
+  </div>
+</div>
+<div class="cutgrp">
+  <h3>전신컷<span class="cnt">4컷</span></h3>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DQGtkqtE0C3_컷23.jpg" target="_blank"><img src="cuts/DQGtkqtE0C3_컷23.jpg" alt="거울 전신 셀카, 정면" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DdYhqGRNVbD_컷32.jpg" target="_blank"><img src="cuts/DdYhqGRNVbD_컷32.jpg" alt="서서 측면 전신, 얼굴 포함" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/DcraOr5TOd9_컷02.jpg" target="_blank"><img src="cuts/DcraOr5TOd9_컷02.jpg" alt="신발 매장 거울 전신 셀카, 얼굴 포함" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DcraOr5TOd9/" target="_blank" rel="noopener">https://www.instagram.com/p/DcraOr5TOd9/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dbs767AhUNX_컷15.jpg" target="_blank"><img src="cuts/Dbs767AhUNX_컷15.jpg" alt="거울 전신 셀카" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></figcaption></figure>
+  </div>
+</div>
+<div class="cutgrp">
+  <h3>뒤에서 찍은 컷<span class="cnt">2컷</span></h3>
+  <div class="cuts">
+    <figure><a class="im" href="cuts/DcraOr5TOd9_컷06.jpg" target="_blank"><img src="cuts/DcraOr5TOd9_컷06.jpg" alt="폴딩 레이스업 부츠 뒷면, 뒤 레이스업 디테일" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/DcraOr5TOd9/" target="_blank" rel="noopener">https://www.instagram.com/p/DcraOr5TOd9/</a></figcaption></figure>
+    <figure><a class="im" href="cuts/Dbs767AhUNX_컷12.jpg" target="_blank"><img src="cuts/Dbs767AhUNX_컷12.jpg" alt="셔링 부츠 뒷면, 뒤 끈 디테일 자막" loading="lazy"></a><figcaption class="ref"><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></figcaption></figure>
+  </div>
+</div>
+<div class="cutgrp">
+  <h3>출처 링크</h3>
+  <div class="tbl"><table><thead><tr><th>ID</th><th>내용</th><th>링크</th></tr></thead><tbody>
+    <tr><td class="k mono">DQGtkqtE0C3</td><td>부츠 4종 착용 비교</td><td><a href="https://www.instagram.com/p/DQGtkqtE0C3/" target="_blank" rel="noopener">https://www.instagram.com/p/DQGtkqtE0C3/</a></td></tr>
+    <tr><td class="k mono">DdYhqGRNVbD</td><td>로맨틱무브 우먼 부츠</td><td><a href="https://www.instagram.com/p/DdYhqGRNVbD/" target="_blank" rel="noopener">https://www.instagram.com/p/DdYhqGRNVbD/</a></td></tr>
+    <tr><td class="k mono">DPlLzWikZ2G</td><td>29CM 직원 부츠</td><td><a href="https://www.instagram.com/p/DPlLzWikZ2G/" target="_blank" rel="noopener">https://www.instagram.com/p/DPlLzWikZ2G/</a></td></tr>
+    <tr><td class="k mono">DTughGLj13x</td><td>EIFFEL CLASSIC</td><td><a href="https://www.instagram.com/p/DTughGLj13x/" target="_blank" rel="noopener">https://www.instagram.com/p/DTughGLj13x/</a></td></tr>
+    <tr><td class="k mono">DcqaIImph0s</td><td>레이스업 부츠</td><td><a href="https://www.instagram.com/p/DcqaIImph0s/" target="_blank" rel="noopener">https://www.instagram.com/p/DcqaIImph0s/</a></td></tr>
+    <tr><td class="k mono">Dcj_3o5yg4z</td><td>Andersson Bell</td><td><a href="https://www.instagram.com/p/Dcj_3o5yg4z/" target="_blank" rel="noopener">https://www.instagram.com/p/Dcj_3o5yg4z/</a></td></tr>
+    <tr><td class="k mono">DcraOr5TOd9</td><td>안 흔한 가을 신발 추천 (NEGATIVE THREE)</td><td><a href="https://www.instagram.com/p/DcraOr5TOd9/" target="_blank" rel="noopener">https://www.instagram.com/p/DcraOr5TOd9/</a></td></tr>
+    <tr><td class="k mono">DcfkHO4JN6Q</td><td>올 가을 High Boots 추천</td><td><a href="https://www.instagram.com/p/DcfkHO4JN6Q/" target="_blank" rel="noopener">https://www.instagram.com/p/DcfkHO4JN6Q/</a></td></tr>
+    <tr><td class="k mono">Dbs767AhUNX</td><td>레이스업·셔링 부츠 매장 착샷</td><td><a href="https://www.instagram.com/p/Dbs767AhUNX/" target="_blank" rel="noopener">https://www.instagram.com/p/Dbs767AhUNX/</a></td></tr>
+  </tbody></table></div>
+</div>
+</section>
+
+</div>
+<script>document.body.setAttribute('data-ver','boots');</script>
+</body>
+</html>
