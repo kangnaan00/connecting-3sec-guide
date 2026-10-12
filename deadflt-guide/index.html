@@ -1,0 +1,485 @@
+<title>DEADFLT 릴스 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+
+<style>
+  /* Layout: single-column scannable card stack, mobile-first */
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --fg: #f0ede8;
+    --fg-dim: #888;
+    --accent: #c8ff00;
+    --accent-dim: rgba(200,255,0,0.12);
+    --red: #ff4444;
+    --tag-bg: #222;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f5f5f2;
+      --surface: #ffffff;
+      --surface2: #efefeb;
+      --border: #ddd;
+      --fg: #111;
+      --fg-dim: #666;
+      --accent: #4a8c00;
+      --accent-dim: rgba(74,140,0,0.1);
+      --red: #cc2200;
+      --tag-bg: #e8e8e4;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f5f2;
+    --surface: #ffffff;
+    --surface2: #efefeb;
+    --border: #ddd;
+    --fg: #111;
+    --fg-dim: #666;
+    --accent: #4a8c00;
+    --accent-dim: rgba(74,140,0,0.1);
+    --red: #cc2200;
+    --tag-bg: #e8e8e4;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    padding-inline: 16px;
+    padding-block: 28px 48px;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  /* Header */
+  .brand-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 4px;
+    display: block;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 8vw, 52px);
+    letter-spacing: 0.04em;
+    margin: 0 0 4px;
+    line-height: 1;
+  }
+  .subtitle {
+    color: var(--fg-dim);
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  /* Info block */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .info-cell {
+    background: var(--surface);
+    padding: 14px 16px;
+  }
+  .info-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .info-value {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+
+  /* Event badge */
+  .event-banner {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 28px;
+  }
+  .event-banner .event-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .event-detail {
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--fg);
+  }
+  .event-detail strong { color: var(--accent); font-weight: 700; }
+
+  /* Section heading */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 14px;
+  }
+  .section-head h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.08em;
+    margin: 0;
+  }
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Scene card */
+  .scene {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .scene-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .scene-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 28px;
+  }
+  .scene-title {
+    font-weight: 700;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .scene-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    background: var(--tag-bg);
+    color: var(--fg-dim);
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .scene-body {
+    padding: 14px 16px;
+    display: grid;
+    gap: 12px;
+  }
+  .scene-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .row-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    padding-top: 2px;
+    font-weight: 500;
+  }
+  .row-content {
+    font-size: 13px;
+    line-height: 1.65;
+    min-width: 0;
+  }
+  .caption-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .note-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--red);
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.6;
+  }
+  .note-box strong { color: var(--red); }
+
+  /* Benefit callout */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .benefit-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .benefit-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+  .benefit-text {
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.5;
+  }
+
+  /* Items list */
+  .items-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 4px;
+  }
+  .item-chip {
+    background: var(--tag-bg);
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 12px;
+    color: var(--fg);
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--fg-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+
+<span class="brand-label">릴스 촬영 가이드라인</span>
+<h1>DEADFLT<br>팝업 릴스</h1>
+<p class="subtitle">데드폴트 × 착한구두 · 성수 · 2026.10.08 – 11.08</p>
+
+<!-- 기본 정보 -->
+<div class="info-grid">
+  <div class="info-cell">
+    <span class="info-label">장소</span>
+    <div class="info-value">성동구 성수이로 58<br>지하 1층 (무신사 메가스토어 성수 옆)</div>
+  </div>
+  <div class="info-cell">
+    <span class="info-label">팝업 기간</span>
+    <div class="info-value">10/8(목) – 11/8(일)</div>
+  </div>
+  <div class="info-cell">
+    <span class="info-label">장례식 이벤트</span>
+    <div class="info-value">10/17(토) – 10/18(일)<br>선착순 100명</div>
+  </div>
+</div>
+
+<!-- 혜택 -->
+<div class="benefit-grid">
+  <div class="benefit-card">
+    <div class="benefit-num">50%</div>
+    <div class="benefit-text">팝업 기간 전품목<br>온라인 대비 할인</div>
+  </div>
+  <div class="benefit-card">
+    <div class="benefit-num">1:1</div>
+    <div class="benefit-text">헌 후드·집업 → 새 후드·집업<br>선착순 100명 교환</div>
+  </div>
+  <div class="benefit-card">
+    <div class="benefit-num">FREE</div>
+    <div class="benefit-text">착한구두 영수증 지참 시<br>DEADFLT 양말 무료 증정</div>
+  </div>
+</div>
+
+<!-- 판매품목 -->
+<div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; margin-bottom:28px;">
+  <span class="info-label">판매 품목</span>
+  <div class="items-wrap">
+    <span class="item-chip">후드 3종</span>
+    <span class="item-chip">후드집업 3종</span>
+    <span class="item-chip">반팔 티셔츠 4종</span>
+    <span class="item-chip">모자 6종</span>
+    <span class="item-chip">양말 7종</span>
+    <span class="item-chip" style="color:var(--fg-dim)">블랙·멜란지·아이보리 / S·M·L</span>
+  </div>
+</div>
+
+<!-- 장례식 이벤트 배너 -->
+<div class="event-banner">
+  <div class="event-title">성수로운 후드 장례식</div>
+  <div class="event-detail">
+    10/17(토)–10/18(일) · 지하 1층 DEADFLT 팝업 내<br>
+    헌 후드 또는 후드집업 1벌 지참 → <strong>DEADFLT 새 후드 or 집업 1벌 교환</strong><br>
+    + <strong>비매품 한정판 장례식 스티커</strong> 증정 · 선착순 100명
+  </div>
+</div>
+
+<!-- 레퍼런스 -->
+<div class="section-head">
+  <h2>참고 레퍼런스</h2>
+</div>
+<div style="background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:14px 16px; margin-bottom:28px; display:flex; flex-direction:column; gap:10px;">
+  <div style="font-size:12px; color:var(--fg-dim); margin-bottom:2px;">이 방식으로 성과가 좋았던 릴스 — 단순 흐름 참고</div>
+  <a href="https://www.instagram.com/p/Dcsu7jGgqd4/" target="_blank" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--fg);">
+    <span style="background:var(--tag-bg); border-radius:6px; padding:8px 12px; font-size:12px; letter-spacing:0.04em; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">instagram.com/p/Dcsu7jGgqd4/</span>
+    <span style="font-size:11px; color:var(--accent); white-space:nowrap;">열기 →</span>
+  </a>
+  <a href="https://www.instagram.com/p/DcctETPNRi8/" target="_blank" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--fg);">
+    <span style="background:var(--tag-bg); border-radius:6px; padding:8px 12px; font-size:12px; letter-spacing:0.04em; flex:1; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">instagram.com/p/DcctETPNRi8/</span>
+    <span style="font-size:11px; color:var(--accent); white-space:nowrap;">열기 →</span>
+  </a>
+</div>
+
+<!-- 릴스 촬영 가이드 -->
+<div class="section-head">
+  <h2>릴스 촬영 가이드 (6장면)</h2>
+</div>
+
+<!-- Scene 1 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">01</div>
+    <div class="scene-title">헌 후드 교환 — 도입</div>
+    <div class="scene-tag">HOOK</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">
+      지금 성수에서 헌 후드를 가져가면<br>
+      (페이커·김요한이 입은 / 17만원짜리) 새 후드로 교환해준다
+    </div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">헌 후드를 관에 던지는 순간 → 새 후드로 바꿔 받는 장면</div>
+    </div>
+    <div class="scene-row">
+      <span class="row-label">소재</span>
+      <div class="row-content">페이커·김요한 사진 제공 — 자막에 이름 넣을 것</div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">02</div>
+    <div class="scene-title">팝업 현장 소개</div>
+    <div class="scene-tag">BRAND</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">현재 성수 데드폴트 팝업에서</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">잘 나온 제품 2–3개 클로즈업 + 매대 전체 샷</div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">03</div>
+    <div class="scene-title">가격 강조 — 교환 설명</div>
+    <div class="scene-tag">VALUE</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">헌 후드를 관에 던지면 17만원짜리 새 후드로 바꿔줘요</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">후드 바꿔주는 장면 (자유 연출)</div>
+    </div>
+    <div class="note-box">
+      <strong>가격 증거:</strong> 온라인 홈페이지 17만2천원 스크린샷 활용 가능<br>
+      <a href="https://www.deadflt.com/hoodies" target="_blank" style="color:var(--fg-dim)">deadflt.com/hoodies</a>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">04</div>
+    <div class="scene-title">셀럽 착용 + 본인 착샷</div>
+    <div class="scene-tag">SOCIAL PROOF</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">
+      (김요한·페이커)도 입었는데 진짜 (느좋 / 감다살 / 너무 예쁘잖아)<br>
+      선착순 100명
+    </div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">김요한·페이커 영상(제공) + 본인 거울샷 또는 착샷<br><span style="color:var(--fg-dim)">제품 예쁘게 찍어주세요</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">05</div>
+    <div class="scene-title">50% 세일 강조</div>
+    <div class="scene-tag">OFFER</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">팝업 기간 동안 전품목 50% 세일이니</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">50% 할인 팻말 + 제품 2–3개와 가격표<br><span style="color:var(--fg-dim)">가격표에 반드시 50% 할인된 금액이 보여야 함</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Scene 6 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">06</div>
+    <div class="scene-title">CTA — 매장 방문 유도</div>
+    <div class="scene-tag">CTA</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">빨리 가세요 (자유 연출)</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">쇼핑백·후드 등 제품 여러 개 모아놓은 사진, 쇼핑 분위기 연출 자유</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>DEADFLT × 착한구두 팝업 · 성수이로 58 B1</span>
+  <span>10/8 – 11/8 · 장례식 이벤트 10/17–18</span>
+</div>
