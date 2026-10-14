@@ -11,7 +11,7 @@
   body{background:var(--bg);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;}
   #c{cursor:grab;display:block;}
   #c:active{cursor:grabbing;}
-  p{margin-top:14px;color:#c05070;font:14px/1 'Apple SD Gothic Neo','Malgun Gothic',sans-serif;opacity:.75;letter-spacing:1.5px;}
+  p{margin-top:16px;color:#c05070;font:15px/1 'Apple SD Gothic Neo','Malgun Gothic',sans-serif;opacity:.75;letter-spacing:2px;}
 </style>
 </head>
 <body>
@@ -23,13 +23,13 @@ const SRC='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAApQAAAImCAYAAADtzRpCAAA
 const canvas=document.getElementById('c');
 const ctx=canvas.getContext('2d');
 const DPR=Math.min(window.devicePixelRatio||1,2);
-const CW=320,CH=420;
+const CW=460,CH=540;
 canvas.width=CW*DPR;canvas.height=CH*DPR;
 canvas.style.cssText=`width:${CW}px;height:${CH}px`;
 ctx.scale(DPR,DPR);
 
-// ─── mesh grid ──────────────────────────────────────────────────────
-const GW=18,GH=23;
+// ─── mesh ────────────────────────────────────────────────────────────
+const GW=20,GH=24;
 const rest=[],disp=[],vel=[];
 for(let r=0;r<=GH;r++){rest[r]=[];disp[r]=[];vel[r]=[];
   for(let c=0;c<=GW;c++){
@@ -37,7 +37,6 @@ for(let r=0;r<=GH;r++){rest[r]=[];disp[r]=[];vel[r]=[];
     disp[r][c]={x:0,y:0};vel[r][c]={x:0,y:0};
   }
 }
-
 function physicsStep(){
   for(let r=0;r<=GH;r++)for(let c=0;c<=GW;c++){
     vel[r][c].x=(vel[r][c].x-disp[r][c].x*.09)*.80;
@@ -45,9 +44,8 @@ function physicsStep(){
     disp[r][c].x+=vel[r][c].x;disp[r][c].y+=vel[r][c].y;
   }
 }
-
 function applyForce(mx,my,fx,fy){
-  const R2=80*80;
+  const R2=100*100;
   for(let r=0;r<=GH;r++)for(let c=0;c<=GW;c++){
     const dx=rest[r][c].x-mx,dy=rest[r][c].y-my;
     const w=Math.exp(-(dx*dx+dy*dy)/(2*R2));
@@ -55,7 +53,7 @@ function applyForce(mx,my,fx,fy){
   }
 }
 
-// ─── input ──────────────────────────────────────────────────────────
+// ─── input ───────────────────────────────────────────────────────────
 let down=false,px=0,py=0;
 function getPos(e){const r=canvas.getBoundingClientRect(),ev=e.touches?e.touches[0]:e;return{x:ev.clientX-r.left,y:ev.clientY-r.top};}
 canvas.addEventListener('mousedown',e=>{down=true;const p=getPos(e);px=p.x;py=p.y;});
@@ -66,7 +64,7 @@ canvas.addEventListener('touchstart',e=>{e.preventDefault();down=true;const p=ge
 canvas.addEventListener('touchmove',e=>{e.preventDefault();if(!down)return;const p=getPos(e);applyForce(p.x,p.y,p.x-px,p.y-py);px=p.x;py=p.y;},{passive:false});
 canvas.addEventListener('touchend',()=>down=false);
 
-// ─── affine triangle draw ────────────────────────────────────────────
+// ─── affine triangle ─────────────────────────────────────────────────
 function drawTri(src,sx0,sy0,sx1,sy1,sx2,sy2,tx0,ty0,tx1,ty1,tx2,ty2){
   const det=sx0*(sy1-sy2)+sx1*(sy2-sy0)+sx2*(sy0-sy1);
   if(Math.abs(det)<.01)return;
@@ -83,100 +81,118 @@ function drawTri(src,sx0,sy0,sx1,sy1,sx2,sy2,tx0,ty0,tx1,ty1,tx2,ty2){
   );
   ctx.drawImage(src,0,0,CW,CH);ctx.restore();
 }
-
 function dp(r,c){return{x:rest[r][c].x+disp[r][c].x,y:rest[r][c].y+disp[r][c].y};}
-
 function drawMesh(src){
   for(let r=0;r<GH;r++)for(let c=0;c<GW;c++){
-    const p00=rest[r][c],q00=dp(r,c);
-    const p10=rest[r][c+1],q10=dp(r,c+1);
-    const p01=rest[r+1][c],q01=dp(r+1,c);
-    const p11=rest[r+1][c+1],q11=dp(r+1,c+1);
+    const p00=rest[r][c],q00=dp(r,c),p10=rest[r][c+1],q10=dp(r,c+1);
+    const p01=rest[r+1][c],q01=dp(r+1,c),p11=rest[r+1][c+1],q11=dp(r+1,c+1);
     drawTri(src,p00.x,p00.y,p10.x,p10.y,p01.x,p01.y,q00.x,q00.y,q10.x,q10.y,q01.x,q01.y);
     drawTri(src,p10.x,p10.y,p11.x,p11.y,p01.x,p01.y,q10.x,q10.y,q11.x,q11.y,q01.x,q01.y);
   }
 }
 
-// ─── decorations ────────────────────────────────────────────────────
+// ─── decorations ─────────────────────────────────────────────────────
 let T=0;
-function blush(x,y){const g=ctx.createRadialGradient(x,y,0,x,y,32);g.addColorStop(0,'rgba(255,130,165,.38)');g.addColorStop(1,'rgba(255,130,165,0)');ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(x,y,32,20,0,0,Math.PI*2);ctx.fill();}
-function sparkle(x,y,ph){const a=.4+.4*Math.sin(T*2.1+ph),s=8+3*Math.sin(T+ph);ctx.save();ctx.translate(x,y);ctx.rotate(T*.5+ph);ctx.globalAlpha=a;ctx.fillStyle='#e070a0';for(let i=0;i<4;i++){ctx.save();ctx.rotate(i*Math.PI/2);ctx.beginPath();ctx.moveTo(0,-s);ctx.lineTo(s*.15,-s*.15);ctx.lineTo(s*.5,0);ctx.lineTo(s*.15,s*.15);ctx.lineTo(0,s);ctx.lineTo(-s*.15,s*.15);ctx.lineTo(-s*.5,0);ctx.lineTo(-s*.15,-s*.15);ctx.closePath();ctx.fill();ctx.restore();}ctx.restore();}
+function blush(x,y,r){const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,'rgba(255,120,155,.40)');g.addColorStop(1,'rgba(255,120,155,0)');ctx.fillStyle=g;ctx.beginPath();ctx.ellipse(x,y,r,r*.6,0,0,Math.PI*2);ctx.fill();}
+function sparkle(x,y,ph){const a=.4+.4*Math.sin(T*2.1+ph),s=10+4*Math.sin(T+ph);ctx.save();ctx.translate(x,y);ctx.rotate(T*.5+ph);ctx.globalAlpha=a;ctx.fillStyle='#e070a0';for(let i=0;i<4;i++){ctx.save();ctx.rotate(i*Math.PI/2);ctx.beginPath();ctx.moveTo(0,-s);ctx.lineTo(s*.15,-s*.15);ctx.lineTo(s*.5,0);ctx.lineTo(s*.15,s*.15);ctx.lineTo(0,s);ctx.lineTo(-s*.15,s*.15);ctx.lineTo(-s*.5,0);ctx.lineTo(-s*.15,-s*.15);ctx.closePath();ctx.fill();ctx.restore();}ctx.restore();}
 
-// ─── background removal (flood fill from borders) ───────────────────
-function removeBackground(imgData,w,h){
-  const px=imgData.data;
-  const bg=new Uint8Array(w*h);
-  const vis=new Uint8Array(w*h);
-  const TOL=40;
-  // Protected ellipse zone (face area – never background)
-  const fcx=w*.50,fcy=h*.34,frx=w*.30,fry=h*.30;
-  function isFace(x,y){const dx=(x-fcx)/frx,dy=(y-fcy)/fry;return dx*dx+dy*dy<1;}
-
-  const queue=[];
-  function seed(x,y){
-    if(x<0||x>=w||y<0||y>=h)return;
-    if(isFace(x,y))return;
-    const i=y*w+x;if(vis[i])return;vis[i]=1;queue.push(i);
-  }
-  for(let x=0;x<w;x++){seed(x,0);seed(x,h-1);}
-  for(let y=1;y<h-1;y++){seed(0,y);seed(w-1,y);}
-
-  let qi=0;
-  while(qi<queue.length){
-    const i=queue[qi++];bg[i]=1;
-    const x=i%w,y=(i/w)|0;
-    const r=px[i*4],g=px[i*4+1],b=px[i*4+2];
-    for(const[nx,ny] of[[x-1,y],[x+1,y],[x,y-1],[x,y+1]]){
-      if(nx<0||nx>=w||ny<0||ny>=h)continue;
-      if(isFace(nx,ny))continue;
-      const ni=ny*w+nx;if(vis[ni])continue;
-      const d=Math.sqrt((px[ni*4]-r)**2+(px[ni*4+1]-g)**2+(px[ni*4+2]-b)**2);
-      if(d<TOL){vis[ni]=1;queue.push(ni);}
-    }
-  }
-
-  // Set alpha: 0 for bg, feathered for edge pixels
-  for(let y=0;y<h;y++)for(let x=0;x<w;x++){
-    const i=y*w+x;
-    if(bg[i]){px[i*4+3]=0;continue;}
-    let minD=4;
-    outer:for(let dy=-3;dy<=3;dy++)for(let dx=-3;dx<=3;dx++){
-      const nx=x+dx,ny=y+dy;
-      if(nx<0||nx>=w||ny<0||ny>=h){minD=0;break outer;}
-      if(bg[ny*w+nx])minD=Math.min(minD,Math.sqrt(dx*dx+dy*dy));
-    }
-    if(minD<3)px[i*4+3]=Math.min(255,Math.round(255*minD/3));
-  }
+// ─── image processing: skin-based face cutout ─────────────────────────
+function isSkin(r,g,b){
+  // YCbCr skin model
+  const Y=.299*r+.587*g+.114*b;
+  const Cb=-.169*r-.331*g+.500*b+128;
+  const Cr=.500*r-.419*g-.081*b+128;
+  return Y>55 && Cb>=75 && Cb<=130 && Cr>=130 && Cr<=178;
 }
 
-// ─── image load ──────────────────────────────────────────────────────
+function processImage(img){
+  const iW=img.naturalWidth,iH=img.naturalHeight;
+  // Show upper 58% zoomed in to fill canvas (face focus)
+  const srcH=iH*.58;
+  const off=new OffscreenCanvas(CW,CH);
+  const oc=off.getContext('2d');
+  oc.drawImage(img,0,0,iW,srcH,0,0,CW,CH);
+  const id=oc.getImageData(0,0,CW,CH);
+  const px=id.data;
+
+  // Step 1: Background flood fill from all borders
+  const bg=new Uint8Array(CW*CH),vis=new Uint8Array(CW*CH);
+  const q=[];
+  function seed(x,y){if(x<0||x>=CW||y<0||y>=CH)return;const i=y*CW+x;if(vis[i])return;vis[i]=1;q.push(i);}
+  for(let x=0;x<CW;x++){seed(x,0);seed(x,CH-1);}
+  for(let y=1;y<CH-1;y++){seed(0,y);seed(CW-1,y);}
+  let qi=0;
+  while(qi<q.length){
+    const i=q[qi++];bg[i]=1;
+    const x=i%CW,y=(i/CW)|0;
+    const r=px[i*4],g=px[i*4+1],b=px[i*4+2];
+    for(const[nx,ny]of[[x-1,y],[x+1,y],[x,y-1],[x,y+1]]){
+      if(nx<0||nx>=CW||ny<0||ny>=CH)continue;
+      const ni=ny*CW+nx;if(vis[ni])continue;
+      const d=Math.sqrt((px[ni*4]-r)**2+(px[ni*4+1]-g)**2+(px[ni*4+2]-b)**2);
+      if(d<40){vis[ni]=1;q.push(ni);}
+    }
+  }
+
+  // Step 2: Skin pixel detection (upper 70% of canvas)
+  const skinPts=[];
+  const maxY=CH*.70;
+  for(let y=0;y<maxY;y++)for(let x=0;x<CW;x++){
+    const i=y*CW+x;
+    if(!bg[i]&&isSkin(px[i*4],px[i*4+1],px[i*4+2]))skinPts.push({x,y});
+  }
+
+  // Step 3: PCA ellipse fit to skin pixels
+  let ellipse;
+  if(skinPts.length>=80){
+    let sx=0,sy=0;
+    for(const p of skinPts){sx+=p.x;sy+=p.y;}
+    const cx=sx/skinPts.length,cy=sy/skinPts.length;
+    let cxx=0,cxy=0,cyy=0;
+    for(const p of skinPts){const dx=p.x-cx,dy=p.y-cy;cxx+=dx*dx;cxy+=dx*dy;cyy+=dy*dy;}
+    const n=skinPts.length;cxx/=n;cxy/=n;cyy/=n;
+    const tr=cxx+cyy,disc=Math.sqrt(Math.max(0,(tr/2)**2-(cxx*cyy-cxy*cxy)));
+    const l1=tr/2+disc,l2=Math.max(1,tr/2-disc);
+    const ang=Math.atan2(cxy,cxx-l2);
+    ellipse={cx,cy,rx:Math.sqrt(l1)*3.0,ry:Math.sqrt(l2)*3.0,ang};
+  } else {
+    // fallback ellipse centered on canvas
+    ellipse={cx:CW*.5,cy:CH*.38,rx:CW*.30,ry:CH*.32,ang:0};
+  }
+
+  // Step 4: Apply face-shape ellipse mask + feathering
+  const {cx,cy,rx,ry,ang}=ellipse;
+  const cosA=Math.cos(-ang),sinA=Math.sin(-ang);
+  for(let y=0;y<CH;y++)for(let x=0;x<CW;x++){
+    const i=y*CW+x;
+    const dx=x-cx,dy=y-cy;
+    const ex=dx*cosA-dy*sinA,ey=dx*sinA+dy*cosA;
+    const d=Math.sqrt((ex/rx)**2+(ey/ry)**2);
+    let a=255;
+    if(d>=1.0)a=0;
+    else if(d>0.82)a=Math.round(255*(1.0-d)/0.18);
+    if(bg[i])a=0;
+    px[i*4+3]=Math.min(px[i*4+3],a);
+  }
+
+  oc.putImageData(id,0,0);
+  return off;
+}
+
+// ─── load & loop ─────────────────────────────────────────────────────
 let face=null;
 const img=new Image();
-img.onload=()=>{
-  const iw=img.naturalWidth,ih=img.naturalHeight;
-  const scale=CW/iw,dh=ih*scale;
-  // Process at half res for speed, then upscale
-  const PW=CW,PH=CH;
-  const off=new OffscreenCanvas(PW,PH);
-  const oc=off.getContext('2d');
-  oc.drawImage(img,0,(PH-dh)*.25,PW,dh);
-  const id=oc.getImageData(0,0,PW,PH);
-  removeBackground(id,PW,PH);
-  oc.putImageData(id,0,0);
-  face=off;
-  requestAnimationFrame(loop);
-};
+img.onload=()=>{face=processImage(img);requestAnimationFrame(loop);};
 img.src=SRC;
 
-// ─── render loop ─────────────────────────────────────────────────────
 function loop(){
   physicsStep();T+=.033;
   ctx.clearRect(0,0,CW,CH);
   if(face)drawMesh(face);
-  blush(CW*.29,CH*.50);blush(CW*.71,CH*.50);
-  sparkle(CW*.10,CH*.10,0);sparkle(CW*.88,CH*.15,1.4);
-  sparkle(CW*.06,CH*.68,2.2);sparkle(CW*.93,CH*.72,.9);
-  ctx.save();ctx.font=`${17+3*Math.sin(T*2.5)}px sans-serif`;ctx.globalAlpha=.85;ctx.fillText('♥',CW*.80,CH*.08);ctx.restore();
+  blush(CW*.27,CH*.52,38);blush(CW*.73,CH*.52,38);
+  sparkle(CW*.08,CH*.08,0);sparkle(CW*.90,CH*.12,1.4);
+  sparkle(CW*.05,CH*.70,2.2);sparkle(CW*.94,CH*.74,.9);
+  ctx.save();ctx.font=`${19+4*Math.sin(T*2.5)}px sans-serif`;ctx.globalAlpha=.85;ctx.fillText('♥',CW*.83,CH*.07);ctx.restore();
   requestAnimationFrame(loop);
 }
 </script>
