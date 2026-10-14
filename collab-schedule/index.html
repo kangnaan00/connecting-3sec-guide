@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>인플루언서 방문 일정</title>
+<title>인플루언서 일정</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
   :root {
@@ -48,7 +48,36 @@
     margin-inline: auto;
   }
   h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
-  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
+  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 20px; }
+
+  /* 탭 */
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--fg-dim);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
   .date-group { margin-bottom: 24px; }
   .date-label {
     font-size: 11px;
@@ -72,26 +101,23 @@
     margin-bottom: 6px;
   }
   .row-left { min-width: 0; }
-  .id-line { display: flex; align-items: center; gap: 6px; }
   .id { font-weight: 700; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .badge-pending {
-    font-size: 10px;
-    font-weight: 600;
-    color: #f59e0b;
-    background: rgba(245,158,11,0.12);
-    border: 1px solid rgba(245,158,11,0.3);
-    border-radius: 4px;
-    padding: 1px 5px;
-    white-space: nowrap;
-    flex-shrink: 0;
-  }
   .link a { font-size: 11px; color: var(--fg-dim); text-decoration: none; word-break: break-all; }
   .link a:hover { color: var(--accent); }
   .row-right { text-align: right; flex-shrink: 0; }
   .time { font-size: 13px; font-weight: 500; }
-  .upload { font-size: 11px; color: var(--fg-dim); margin-top: 2px; }
-  .followers { font-size: 11px; color: var(--fg-dim); margin-top: 1px; }
+  .sub { font-size: 11px; color: var(--fg-dim); margin-top: 2px; }
   .count { font-size: 12px; color: var(--fg-dim); margin-top: 8px; text-align: right; }
+  .badge-model {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    background: #e53e3e;
+    border-radius: 4px;
+    padding: 2px 7px;
+    margin-top: 4px;
+  }
   @media (max-width: 480px) {
     .row { grid-template-columns: 1fr; }
     .row-right { text-align: left; }
@@ -99,39 +125,47 @@
 </style>
 </head>
 <body>
-<h1>인플루언서 방문 일정</h1>
+<h1>인플루언서 일정</h1>
 <p class="meta">총 16명 · 가이드 전송 완료</p>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('visit')">방문 일정</button>
+  <button class="tab-btn" onclick="switchTab('upload')">업로드 일정</button>
+</div>
+
+<!-- 방문 일정 -->
+<div id="tab-visit" class="tab-panel active">
 
 <div class="date-group">
   <div class="date-label">10/19 (월)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">optatum_somnium</div></div>
+      <div class="id">optatum_somnium</div>
       <div class="link"><a href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">instagram.com/reel/DdjFhXoTqBX/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 3~4시</div>
-      <div class="upload">업로드 10/23</div>
+      <div class="sub">업로드 10/23</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">_oooooonyoo</div></div>
+      <div class="id">_oooooonyoo</div>
       <div class="link"><a href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">instagram.com/reel/DcQnazjJQeM/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 2시</div>
-      <div class="upload">업로드 10/22</div>
+      <div class="sub">업로드 10/22</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">9leeryeo</div></div>
+      <div class="id">9leeryeo</div>
       <div class="link"><a href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">instagram.com/reel/DcswN03z3zL/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 2시</div>
-      <div class="upload">업로드 10/24</div>
+      <div class="sub">업로드 10/24</div>
     </div>
   </div>
 </div>
@@ -140,12 +174,12 @@
   <div class="date-label">10/21 (수)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">an.su_ring</div></div>
+      <div class="id">an.su_ring</div>
       <div class="link"><a href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">instagram.com/reel/DdBxCNRJbzC/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/22</div>
+      <div class="sub">업로드 10/22</div>
     </div>
   </div>
 </div>
@@ -154,33 +188,32 @@
   <div class="date-label">10/22 (목)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">rorocouple_trip</div></div>
+      <div class="id">rorocouple_trip</div>
       <div class="link"><a href="https://www.instagram.com/rorocouple_trip" target="_blank">instagram.com/rorocouple_trip</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/25</div>
-      <div class="followers">40만</div>
+      <div class="sub">업로드 10/25 · 40만</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">daily__inn</div></div>
+      <div class="id">daily__inn</div>
       <div class="link"><a href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">instagram.com/reel/Db5r5jkTOYn/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 4시</div>
-      <div class="upload">업로드 10/26</div>
+      <div class="sub">업로드 10/26</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">hyotiz_</div></div>
+      <div class="id">hyotiz_</div>
       <div class="link"><a href="https://www.instagram.com/hyotiz_/reels/" target="_blank">instagram.com/hyotiz_/reels/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 7~7시30분</div>
-      <div class="upload">업로드 10/24</div>
+      <div class="sub">업로드 10/24</div>
     </div>
   </div>
 </div>
@@ -189,24 +222,22 @@
   <div class="date-label">10/23 (금)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">cherr__iy</div></div>
+      <div class="id">cherr__iy</div>
       <div class="link"><a href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">instagram.com/reel/DX3ZCJkSw74/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/24</div>
-      <div class="followers">25만</div>
+      <div class="sub">업로드 10/24 · 25만</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">anotherdoor_travel</div></div>
+      <div class="id">anotherdoor_travel</div>
       <div class="link"><a href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">instagram.com/reels/audio/834002524568327/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/24</div>
-      <div class="followers">45만</div>
+      <div class="sub">업로드 10/24 · 45만</div>
     </div>
   </div>
 </div>
@@ -215,13 +246,12 @@
   <div class="date-label">10/24 (토)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">chloe__story</div></div>
+      <div class="id">chloe__story</div>
       <div class="link"><a href="https://www.instagram.com/chloe__story/" target="_blank">instagram.com/chloe__story/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/25</div>
-      <div class="followers">65만</div>
+      <div class="sub">업로드 10/25 · 65만</div>
     </div>
   </div>
 </div>
@@ -230,13 +260,12 @@
   <div class="date-label">10/25 (일)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">chocomi_travel</div></div>
+      <div class="id">chocomi_travel</div>
       <div class="link"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 12~1시</div>
-      <div class="upload">업로드 10/26</div>
-      <div class="followers">50만</div>
+      <div class="sub">업로드 10/26 · 50만</div>
     </div>
   </div>
 </div>
@@ -245,24 +274,22 @@
   <div class="date-label">10/26 (월)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">hid_zip</div></div>
+      <div class="id">hid_zip</div>
       <div class="link"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오전 11시</div>
-      <div class="upload">업로드 10/27</div>
-      <div class="followers">75만</div>
+      <div class="sub">업로드 10/27 · 75만</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">ha.liday</div></div>
+      <div class="id">ha.liday</div>
       <div class="link"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 1시</div>
-      <div class="upload">업로드 10/29</div>
-      <div class="followers">40만</div>
+      <div class="sub">업로드 10/29 · 40만</div>
     </div>
   </div>
 </div>
@@ -271,12 +298,12 @@
   <div class="date-label">10/27 (화)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">hiziyou_</div></div>
+      <div class="id">hiziyou_</div>
       <div class="link"><a href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">instagram.com/reel/DdjQBZ1pEGD/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 2시</div>
-      <div class="upload">업로드 10/29</div>
+      <div class="sub">업로드 10/29</div>
     </div>
   </div>
 </div>
@@ -285,28 +312,220 @@
   <div class="date-label">10/28 (수)</div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">gamsung_queen</div></div>
+      <div class="id">gamsung_queen</div>
       <div class="link"><a href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">instagram.com/reel/DZYyRJrzIxH/</a></div>
+      <div class="badge-model">모델 필요</div>
     </div>
     <div class="row-right">
       <div class="time">오후 4시</div>
-      <div class="upload">업로드 10/30</div>
-      <div class="followers">100만</div>
+      <div class="sub">업로드 10/30 · 100만</div>
     </div>
   </div>
   <div class="row">
     <div class="row-left">
-      <div class="id-line"><div class="id">popup_dangni</div></div>
+      <div class="id">popup_dangni</div>
       <div class="link"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></div>
     </div>
     <div class="row-right">
       <div class="time">오후 1~2시</div>
-      <div class="upload">업로드 10/29</div>
-      <div class="followers">55만</div>
+      <div class="sub">업로드 10/29 · 55만</div>
     </div>
   </div>
 </div>
 
 <p class="count">총 16명</p>
+</div>
+
+<!-- 업로드 일정 -->
+<div id="tab-upload" class="tab-panel">
+
+<div class="date-group">
+  <div class="date-label">10/22 (목)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">_oooooonyoo</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">instagram.com/reel/DcQnazjJQeM/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/19</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">an.su_ring</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">instagram.com/reel/DdBxCNRJbzC/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/21</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/23 (금)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">optatum_somnium</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">instagram.com/reel/DdjFhXoTqBX/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/19</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/24 (토)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">9leeryeo</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">instagram.com/reel/DcswN03z3zL/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/19</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">hyotiz_</div>
+      <div class="link"><a href="https://www.instagram.com/hyotiz_/reels/" target="_blank">instagram.com/hyotiz_/reels/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/22</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">cherr__iy</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">instagram.com/reel/DX3ZCJkSw74/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/23 · 25만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">anotherdoor_travel</div>
+      <div class="link"><a href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">instagram.com/reels/audio/834002524568327/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/23 · 45만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/25 (일)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">rorocouple_trip</div>
+      <div class="link"><a href="https://www.instagram.com/rorocouple_trip" target="_blank">instagram.com/rorocouple_trip</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/22 · 40만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">chloe__story</div>
+      <div class="link"><a href="https://www.instagram.com/chloe__story/" target="_blank">instagram.com/chloe__story/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/24 · 65만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/26 (월)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">daily__inn</div>
+      <div class="link"><a href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">instagram.com/reel/Db5r5jkTOYn/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/22</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">chocomi_travel</div>
+      <div class="link"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/25 · 50만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/27 (화)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">hid_zip</div>
+      <div class="link"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/26 · 75만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/29 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">ha.liday</div>
+      <div class="link"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/26 · 40만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">hiziyou_</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">instagram.com/reel/DdjQBZ1pEGD/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/27</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">popup_dangni</div>
+      <div class="link"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/28 · 55만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/30 (목)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">gamsung_queen</div>
+      <div class="link"><a href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">instagram.com/reel/DZYyRJrzIxH/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="sub">방문 10/28 · 100만</div>
+    </div>
+  </div>
+</div>
+
+<p class="count">총 16명</p>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active', (i === 0 && name === 'visit') || (i === 1 && name === 'upload'));
+  });
+  document.getElementById('tab-visit').classList.toggle('active', name === 'visit');
+  document.getElementById('tab-upload').classList.toggle('active', name === 'upload');
+}
+</script>
 </body>
 </html>
