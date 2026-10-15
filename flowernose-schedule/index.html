@@ -7,125 +7,93 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
   :root {
-    --bg: #0a0a0a;
-    --surface: #141414;
-    --border: #222;
-    --fg: #f0f0f0;
-    --fg-dim: #777;
-    --accent: #4ade80;
+    --bg: #0a0a0a; --surface: #141414; --border: #222;
+    --fg: #f0f0f0; --fg-dim: #777; --accent: #4ade80;
     color-scheme: dark;
   }
   @media (prefers-color-scheme: light) {
     :root:not([data-theme="dark"]) {
-      --bg: #f7f7f7;
-      --surface: #fff;
-      --border: #e0e0e0;
-      --fg: #111;
-      --fg-dim: #888;
-      --accent: #16a34a;
+      --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
+      --fg: #111; --fg-dim: #888; --accent: #16a34a;
       color-scheme: light;
     }
   }
   :root[data-theme="light"] {
-    --bg: #f7f7f7;
-    --surface: #fff;
-    --border: #e0e0e0;
-    --fg: #111;
-    --fg-dim: #888;
-    --accent: #16a34a;
+    --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
+    --fg: #111; --fg-dim: #888; --accent: #16a34a;
     color-scheme: light;
   }
   * { box-sizing: border-box; }
   body {
-    background: var(--bg);
-    color: var(--fg);
+    background: var(--bg); color: var(--fg);
     font-family: 'Noto Sans KR', system-ui, sans-serif;
-    font-size: 14px;
-    margin: 0;
-    padding-inline: 16px;
-    padding-block: 28px 48px;
-    max-width: 720px;
-    margin-inline: auto;
+    font-size: 14px; margin: 0;
+    padding-inline: 16px; padding-block: 28px 48px;
+    max-width: 760px; margin-inline: auto;
   }
   h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
   .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
-  .date-group { margin-bottom: 24px; }
-  .date-label {
-    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
-    color: var(--accent); text-transform: uppercase;
-    margin-bottom: 8px; padding-bottom: 6px;
-    border-bottom: 1px solid var(--border);
+
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 480px; }
+  thead tr { background: var(--surface); border-bottom: 2px solid var(--accent); }
+  th {
+    padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 700; text-align: left; white-space: nowrap;
   }
-  .row {
-    display: grid;
-    grid-template-columns: 150px 1fr auto;
-    gap: 8px; align-items: center;
-    padding: 10px 12px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    margin-bottom: 6px;
+  td {
+    padding: 11px 12px; border-bottom: 1px solid var(--border);
+    font-size: 13px; vertical-align: middle;
   }
-  .id { font-weight: 700; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .link a { font-size: 12px; color: var(--fg-dim); text-decoration: none; word-break: break-all; }
-  .link a:hover { color: var(--accent); }
-  .upload { font-size: 11px; color: var(--fg-dim); white-space: nowrap; text-align: right; }
-  .upload span { display: block; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 1px; }
-  .upload strong { color: var(--fg); font-size: 12px; }
-  .count { font-size: 12px; color: var(--fg-dim); margin-top: 8px; text-align: right; }
-  @media (max-width: 480px) {
-    .row { grid-template-columns: 1fr 1fr; }
-    .link { grid-column: 1 / -1; }
-  }
+  tr:hover td { background: var(--surface); }
+  .num { color: var(--fg-dim); font-size: 11px; width: 28px; }
+  .id { font-weight: 700; white-space: nowrap; }
+  .lk a { color: var(--fg-dim); text-decoration: none; font-size: 12px; }
+  .lk a:hover { color: var(--accent); }
+  .date { white-space: nowrap; font-size: 13px; }
+  .date-shoot { color: var(--fg); font-weight: 700; }
+  .date-up { color: var(--fg-dim); }
 </style>
 </head>
 <body>
 
 <h1>인플루언서 촬영 일정</h1>
-<p class="meta">총 18명 · 가이드라인 전송 완료</p>
+<p class="meta">총 18명 · 촬영일 빠른순 · 가이드라인 전송 완료</p>
 
-<div class="date-group">
-  <div class="date-label">10/16 (목)</div>
-  <div class="row"><div class="id">hid_zip</div><div class="link"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div><div class="upload"><span>업로드</span><strong>10/16</strong></div></div>
-  <div class="row"><div class="id">popup_dangni</div><div class="link"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></div><div class="upload"><span>업로드</span><strong>10/16</strong></div></div>
-  <div class="row"><div class="id">someda._.ily</div><div class="link"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily/reels/</a></div><div class="upload"><span>업로드</span><strong>10/16</strong></div></div>
-  <div class="row"><div class="id">honey___pick</div><div class="link"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick/reels/</a></div><div class="upload"><span>업로드</span><strong>10/16</strong></div></div>
-  <div class="row"><div class="id">rorocouple_trip</div><div class="link"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></div><div class="upload"><span>업로드</span><strong>10/16</strong></div></div>
-  <div class="row"><div class="id">pickstival</div><div class="link"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival/reels/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>아이디</th>
+      <th>링크</th>
+      <th>촬영일</th>
+      <th>업로드일</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td></tr>
+    <tr><td class="num">2</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td></tr>
+    <tr><td class="num">3</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td></tr>
+    <tr><td class="num">4</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td></tr>
+    <tr><td class="num">5</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td></tr>
+    <tr><td class="num">6</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">7</td><td class="id">seria_980</td><td class="lk"><a href="https://www.instagram.com/seria_980/reels/" target="_blank">instagram.com/seria_980</a></td><td class="date date-shoot">10/17</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">8</td><td class="id">sol.han.day</td><td class="lk"><a href="https://www.instagram.com/sol.han.day/reels/" target="_blank">instagram.com/sol.han.day</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/20</td></tr>
+    <tr><td class="num">9</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/20</td></tr>
+    <tr><td class="num">10</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/ha.liday</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">11</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">12</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/namuriki/reels/" target="_blank">instagram.com/namuriki</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">13</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reels/DXx3BGeBWXA/" target="_blank">instagram.com/hotple_honeytip</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">14</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/anotherdoor_travel</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/21</td></tr>
+    <tr><td class="num">15</td><td class="id">ye._.bbiiii</td><td class="lk"><a href="https://www.instagram.com/ye._.bbiiii/reels/" target="_blank">instagram.com/ye._.bbiiii</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/22</td></tr>
+    <tr><td class="num">16</td><td class="id">woonimong</td><td class="lk"><a href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/22</td></tr>
+    <tr><td class="num">17</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel</a></td><td class="date date-shoot">10/22</td><td class="date date-up">10/23</td></tr>
+    <tr><td class="num">18</td><td class="id">cherr__iy</td><td class="lk"><a href="https://www.instagram.com/cherr__iy/" target="_blank">instagram.com/cherr__iy</a></td><td class="date date-shoot">10/23</td><td class="date date-up">10/23</td></tr>
+  </tbody>
+</table>
 </div>
 
-<div class="date-group">
-  <div class="date-label">10/17 (금)</div>
-  <div class="row"><div class="id">seria_980</div><div class="link"><a href="https://www.instagram.com/seria_980/reels/" target="_blank">instagram.com/seria_980/reels/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-</div>
-
-<div class="date-group">
-  <div class="date-label">10/19 (일)</div>
-  <div class="row"><div class="id">sol.han.day</div><div class="link"><a href="https://www.instagram.com/sol.han.day/reels/" target="_blank">instagram.com/sol.han.day/reels/</a></div><div class="upload"><span>업로드</span><strong>10/20</strong></div></div>
-</div>
-
-<div class="date-group">
-  <div class="date-label">10/20 (월)</div>
-  <div class="row"><div class="id">a.zihyyyy</div><div class="link"><a href="https://www.instagram.com/a.zihyyyy/" target="_blank">instagram.com/a.zihyyyy/</a></div><div class="upload"><span>업로드</span><strong>10/20</strong></div></div>
-  <div class="row"><div class="id">namuriki</div><div class="link"><a href="https://www.instagram.com/namuriki/reels/" target="_blank">instagram.com/namuriki/reels/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-  <div class="row"><div class="id">hotple_honeytip</div><div class="link"><a href="https://www.instagram.com/reels/DXx3BGeBWXA/" target="_blank">instagram.com/reels/DXx3BGeBWXA/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-  <div class="row"><div class="id">ha.liday</div><div class="link"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-  <div class="row"><div class="id">ye._.bbiiii</div><div class="link"><a href="https://www.instagram.com/ye._.bbiiii/reels/" target="_blank">instagram.com/ye._.bbiiii/reels/</a></div><div class="upload"><span>업로드</span><strong>10/22</strong></div></div>
-  <div class="row"><div class="id">woonimong</div><div class="link"><a href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong/reels/</a></div><div class="upload"><span>업로드</span><strong>10/22</strong></div></div>
-  <div class="row"><div class="id">j_o_o_sy</div><div class="link"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy/reels/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-  <div class="row"><div class="id">anotherdoor_travel</div><div class="link"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7/</a></div><div class="upload"><span>업로드</span><strong>10/21</strong></div></div>
-</div>
-
-<div class="date-group">
-  <div class="date-label">10/22 (수)</div>
-  <div class="row"><div class="id">chocomi_travel</div><div class="link"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel/</a></div><div class="upload"><span>업로드</span><strong>10/23</strong></div></div>
-</div>
-
-<div class="date-group">
-  <div class="date-label">10/23 (목)</div>
-  <div class="row"><div class="id">cherr__iy</div><div class="link"><a href="https://www.instagram.com/cherr__iy/" target="_blank">instagram.com/cherr__iy/</a></div><div class="upload"><span>업로드</span><strong>10/23</strong></div></div>
-</div>
-
-<p class="count">총 18명</p>
 </body>
 </html>
