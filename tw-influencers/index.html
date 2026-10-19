@@ -221,7 +221,7 @@
   <button class="sort-btn active" onclick="sortBy('cpv')">CPV 낮은순</button>
   <button class="sort-btn" onclick="sortBy('scpv')">저장공유CPV 낮은순</button>
   <button class="sort-btn" onclick="sortBy('price')">금액 낮은순</button>
-  <span class="count" id="count">11명</span>
+  <span class="count" id="count">10명</span>
 </div>
 
 <div class="legend">
@@ -314,19 +314,10 @@ const data = [
     url: 'https://www.instagram.com/ying_shuang/reels/',
     price: 630000,
     desc: '일상 위주, 얼굴·말하는 콘텐츠 多, 핑어플 광고 촬영 경험',
+    pingReel: 'https://www.instagram.com/reel/DcTQK16vlvm/',
     tags: ['일상', '얼굴위주', '광고경험', '핏 우수'],
     cpv: 13.5,
     scpv: 2165,
-    nego: true,
-  },
-  {
-    handle: 'winnieee_1001',
-    url: 'https://www.instagram.com/winnieee_1001/reels/',
-    price: 250000,
-    desc: '일상·쇼핑꿀팁 브이로그, 촬영 후 보정법 등 고민해결 콘텐츠',
-    tags: ['일상', '쇼핑꿀팁', '브이로그', '고민해결', '핏 우수'],
-    cpv: 7.8,
-    scpv: 6579,
     nego: true,
   },
   {
@@ -385,6 +376,7 @@ function render(rows) {
       </td>
       <td>
         <div class="desc">${d.desc}</div>
+        ${d.pingReel ? `<div class="cpv-sub" style="margin-top:4px">핑어플 광고: <a href="${d.pingReel}" target="_blank" rel="noopener" style="color:var(--accent)">릴스 링크</a></div>` : ''}
         ${d.tags.length ? `<div class="tags">${d.tags.map(t => `<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
       </td>
       <td class="right">
