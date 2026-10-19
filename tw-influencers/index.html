@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecting 대만 인플루언서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+
+  /* Layout: compact sortable table dashboard with CPV color scale */
+  :root {
+    --bg: #f7f6f4;
+    --bg2: #ffffff;
+    --fg: #1a1a1a;
+    --fg2: #5a5a5a;
+    --fg3: #999;
+    --border: #e4e2de;
+    --accent: #e05a6e;
+    --accent-soft: #fdf0f2;
+    --cpv-low: #2dab72;
+    --cpv-mid: #f0a030;
+    --cpv-high: #e05a6e;
+    --badge-bg: #edf0f5;
+    --badge-fg: #4a5568;
+    --nego-bg: #fff4e5;
+    --nego-fg: #c17b00;
+    --header-bg: #1c1c22;
+    --header-fg: #f0ece4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171c;
+      --bg2: #22222a;
+      --fg: #f0ece4;
+      --fg2: #aaa8a0;
+      --fg3: #666;
+      --border: #2e2e38;
+      --accent: #f07080;
+      --accent-soft: #2a1820;
+      --cpv-low: #3dd88a;
+      --cpv-mid: #f5b84a;
+      --cpv-high: #f07080;
+      --badge-bg: #2a2a35;
+      --badge-fg: #b0b8cc;
+      --nego-bg: #2a2010;
+      --nego-fg: #e8a030;
+      --header-bg: #111115;
+      --header-fg: #f0ece4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17171c;
+    --bg2: #22222a;
+    --fg: #f0ece4;
+    --fg2: #aaa8a0;
+    --fg3: #666;
+    --border: #2e2e38;
+    --accent: #f07080;
+    --accent-soft: #2a1820;
+    --cpv-low: #3dd88a;
+    --cpv-mid: #f5b84a;
+    --cpv-high: #f07080;
+    --badge-bg: #2a2a35;
+    --badge-fg: #b0b8cc;
+    --nego-bg: #2a2010;
+    --nego-fg: #e8a030;
+    --header-bg: #111115;
+    --header-fg: #f0ece4;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    font-size: 14px;
+    line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+
+  /* Header */
+  .page-header {
+    background: var(--header-bg);
+    color: var(--header-fg);
+    padding: 20px max(24px, env(safe-area-inset-left, 0px)) 18px;
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .page-header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 12px; color: #888; }
+  .page-header .dot { color: var(--accent); font-weight: 700; }
+
+  /* Controls */
+  .controls {
+    padding: 14px 0 10px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .sort-btn {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    color: var(--fg2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+  }
+  .sort-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .sort-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .count { font-size: 12px; color: var(--fg3); margin-left: auto; }
+
+  /* Table wrapper */
+  .table-wrap { overflow-x: auto; margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 0 max(16px, env(safe-area-inset-left, 0px)) 32px; }
+
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  thead th {
+    background: var(--bg2);
+    border-bottom: 2px solid var(--border);
+    padding: 10px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--fg3);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  thead th.right { text-align: right; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: var(--bg2); }
+  tbody td { padding: 12px 12px; vertical-align: top; }
+  tbody td.right { text-align: right; font-variant-numeric: tabular-nums; }
+
+  /* Account cell */
+  .acct-wrap { display: flex; flex-direction: column; gap: 3px; }
+  .acct-name a {
+    font-weight: 600;
+    color: var(--fg);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .acct-name a:hover { color: var(--accent); }
+  .followers { font-size: 11px; color: var(--fg3); font-variant-numeric: tabular-nums; }
+
+  /* Description */
+  .desc { font-size: 12px; color: var(--fg2); max-width: 260px; line-height: 1.4; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .tag {
+    background: var(--badge-bg);
+    color: var(--badge-fg);
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .tag.fit { background: var(--accent-soft); color: var(--accent); }
+
+  /* CPV cell */
+  .cpv-val {
+    font-size: 15px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .cpv-low { color: var(--cpv-low); }
+  .cpv-mid { color: var(--cpv-mid); }
+  .cpv-high { color: var(--cpv-high); }
+  .cpv-sub { font-size: 11px; color: var(--fg3); margin-top: 1px; }
+
+  /* Save/share CPV */
+  .scpv { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--fg2); }
+
+  /* Status */
+  .status-nego {
+    display: inline-block;
+    background: var(--nego-bg);
+    color: var(--nego-fg);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* Legend */
+  .legend {
+    display: flex;
+    gap: 16px;
+    font-size: 11px;
+    color: var(--fg3);
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 4px;
+    vertical-align: middle;
+  }
+  .updated { font-size: 11px; color: var(--fg3); padding-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Connecting<span class="dot"> · </span>대만 인플루언서 명단</h1>
+  <span class="sub">CPV 기준 정렬 · 2026-10</span>
+</div>
+
+<div class="controls">
+  <button class="sort-btn active" onclick="sortBy('cpv')">CPV 낮은순</button>
+  <button class="sort-btn" onclick="sortBy('scpv')">저장공유CPV 낮은순</button>
+  <span class="count" id="count">10명</span>
+</div>
+
+<div class="legend">
+  <span><span class="legend-dot" style="background:var(--cpv-low)"></span>CPV ≤ 3원 (우수)</span>
+  <span><span class="legend-dot" style="background:var(--cpv-mid)"></span>CPV 3–8원 (보통)</span>
+  <span><span class="legend-dot" style="background:var(--cpv-high)"></span>CPV 8원↑ (고단가)</span>
+</div>
+
+<div class="table-wrap">
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>계정</th>
+        <th>콘텐츠 설명</th>
+        <th class="right">CPV</th>
+        <th class="right">저장/공유 CPV</th>
+        <th>상태</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<div class="updated">※ CPV 단위: 원 | 저장/공유 CPV 단위: 원</div>
+
+<script>
+const data = [
+  {
+    handle: 'awei_chen_',
+    url: 'https://www.instagram.com/awei_chen_/reels/',
+    followers: 138190,
+    desc: '대만 대학생, 생각을 말하는 콘텐츠',
+    tags: ['연애관', '썸', '토크', '상황극', '핏 우수'],
+    cpv: 0.6,
+    scpv: 22,
+    nego: true,
+  },
+  {
+    handle: 'queenta1221',
+    url: 'https://www.instagram.com/queenta1221/reels/',
+    followers: 200000,
+    desc: '한국 여행 오프라인 콘텐츠, 얼굴 등장',
+    tags: ['한국여행', '오프라인', '외모 핏'],
+    cpv: 4.3,
+    scpv: 897,
+    nego: true,
+  },
+  {
+    handle: 'tiffanysss123',
+    url: 'https://www.instagram.com/tiffanysss123/reels/',
+    followers: 450000,
+    desc: '한국여행·뷰티 위주, 화장하면서 연애·썸 토크',
+    tags: ['한국여행', '뷰티', '썸', '핏 우수'],
+    cpv: 4.4,
+    scpv: 695,
+    nego: true,
+  },
+  {
+    handle: '_yk_yuan',
+    url: 'https://www.instagram.com/_yk_yuan/',
+    followers: 2000000,
+    desc: '한국여행 오프라인·얼굴 등장, 말 잘해 커넥팅 소구 적합',
+    tags: ['한국여행', '오프라인', '2M', '핏 우수'],
+    cpv: 5.3,
+    scpv: 1014,
+    nego: false,
+  },
+  {
+    handle: 'llyliaeeq',
+    url: 'https://www.instagram.com/llyliaeeq/',
+    followers: 500000,
+    desc: '남자친구 시점 여친 컨셉 일상, 설렘 포인트 적합',
+    tags: ['일상', '여친컨셉', '설렘', '핏 우수'],
+    cpv: 5.3,
+    scpv: 214,
+    nego: false,
+  },
+  {
+    handle: 'youxin_z',
+    url: 'https://www.instagram.com/youxin_z/',
+    followers: 250000,
+    desc: '일상 위주 촬영, 얼굴·말하는 콘텐츠 多, 핑어플 광고 촬영 경험',
+    tags: ['일상', '얼굴위주', '광고경험', '핏 우수'],
+    cpv: 6.3,
+    scpv: 610,
+    nego: true,
+  },
+  {
+    handle: 'louis_suu',
+    url: 'https://www.instagram.com/louis_suu/reels/',
+    followers: 370000,
+    desc: '연애감정·현실공감·정신상태 토크 위주 (60초 이내)',
+    tags: ['연애감정', '토크', '60초', '핑어플 견적'],
+    cpv: 6.6,
+    scpv: 467,
+    nego: false,
+  },
+  {
+    handle: 'mr.jun___',
+    url: 'https://www.instagram.com/mr.jun___/reels/',
+    followers: 650000,
+    desc: '20대 대학생 일상, 한국 방문·한국어 앱 콘텐츠 (파트너스코드 2주무료)',
+    tags: ['한국방문', '한국어앱', '대학생', '핏 우수'],
+    cpv: 7.9,
+    scpv: 3351,
+    nego: true,
+  },
+  {
+    handle: 'christines_talk',
+    url: 'https://www.instagram.com/christines_talk/reels/',
+    followers: 700000,
+    desc: '여성 메이크업·패션·뷰티 고민 리뷰, 자동응답 설정 등 고민해결',
+    tags: ['뷰티', '패션', '고민해결', '핏 우수'],
+    cpv: 12.2,
+    scpv: 477,
+    nego: true,
+  },
+  {
+    handle: 'ying_shuang',
+    url: 'https://www.instagram.com/ying_shuang/reels/',
+    followers: 630000,
+    desc: '일상 위주, 얼굴·말하는 콘텐츠 多, 핑어플 광고 촬영 경험',
+    tags: ['일상', '얼굴위주', '광고경험', '핏 우수'],
+    cpv: 13.5,
+    scpv: 2165,
+    nego: true,
+  },
+];
+
+function fmtFollowers(n) {
+  if (n >= 1000000) return (n/1000000).toFixed(1) + 'M';
+  if (n >= 10000) return Math.round(n/1000) + 'K';
+  return n.toLocaleString();
+}
+
+function cpvClass(v) {
+  if (v <= 3) return 'cpv-low';
+  if (v <= 8) return 'cpv-mid';
+  return 'cpv-high';
+}
+
+function render(rows) {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = rows.map(d => `
+    <tr>
+      <td>
+        <div class="acct-wrap">
+          <div class="acct-name"><a href="${d.url}" target="_blank" rel="noopener">@${d.handle}</a></div>
+          <div class="followers">${fmtFollowers(d.followers)} 팔로워</div>
+        </div>
+      </td>
+      <td>
+        <div class="desc">${d.desc}</div>
+        ${d.tags.length ? `<div class="tags">${d.tags.map(t => `<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
+      </td>
+      <td class="right">
+        <div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div>
+        <div class="cpv-sub">/ 조회</div>
+      </td>
+      <td class="right">
+        <div class="scpv">${d.scpv.toLocaleString()}원</div>
+        <div class="cpv-sub">/ 저장·공유</div>
+      </td>
+      <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
+    </tr>
+  `).join('');
+}
+
+let sortKey = 'cpv';
+function sortBy(key) {
+  sortKey = key;
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const sorted = [...data].sort((a, b) => {
+    if (key === 'cpv') return a.cpv - b.cpv;
+    if (key === 'scpv') return a.scpv - b.scpv;
+    if (key === 'followers') return b.followers - a.followers;
+    return 0;
+  });
+  render(sorted);
+}
+
+render([...data].sort((a,b) => a.cpv - b.cpv));
+</script>
+</body>
+</html>
