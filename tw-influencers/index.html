@@ -221,7 +221,7 @@
   <button class="sort-btn active" onclick="sortBy('cpv')">CPV 낮은순</button>
   <button class="sort-btn" onclick="sortBy('scpv')">저장공유CPV 낮은순</button>
   <button class="sort-btn" onclick="sortBy('price')">금액 낮은순</button>
-  <span class="count" id="count">10명</span>
+  <span class="count" id="count">9명</span>
 </div>
 
 <div class="legend">
@@ -294,6 +294,7 @@ const data = [
     url: 'https://www.instagram.com/mr.jun___/reels/',
     price: 650000,
     desc: '20대 대학생 일상, 한국 방문·한국어 앱 콘텐츠 (파트너스코드 2주무료)',
+    refs: [{label:'한국어앱 광고', url:'https://www.instagram.com/mr.jun___/reel/DeEsOjCt-so/'}],
     tags: ['한국방문', '한국어앱', '대학생', '핏 우수'],
     cpv: 7.9,
     scpv: 3351,
@@ -310,22 +311,13 @@ const data = [
     nego: true,
   },
   {
-    handle: 'ying_shuang',
-    url: 'https://www.instagram.com/ying_shuang/reels/',
-    price: 630000,
-    desc: '일상 위주, 얼굴·말하는 콘텐츠 多, 핑어플 광고 촬영 경험',
-    pingReel: 'https://www.instagram.com/reel/DcTQK16vlvm/',
-    tags: ['일상', '얼굴위주', '광고경험', '핏 우수'],
-    cpv: 13.5,
-    scpv: 2165,
-    nego: true,
-  },
   {
     handle: 'j_an0808',
     url: 'https://www.instagram.com/j_an0808/reels/',
     price: 1500000,
-    desc: '',
-    tags: ['1.5M'],
+    desc: '한국 여행·올리브영·성수 쇼핑 콘텐츠',
+    refs: [{label:'한국여행 릴스', url:'https://www.instagram.com/reel/DdWjdOPTB0u/'}],
+    tags: ['한국여행', '올리브영', '성수'],
     cpv: 8.4,
     scpv: 611,
     nego: true,
@@ -344,8 +336,9 @@ const data = [
     handle: 'kye_88.11.10',
     url: 'https://www.instagram.com/kye_88.11.10/reels/',
     price: 1500000,
-    desc: '',
-    tags: ['1.5M'],
+    desc: '한국 패션·뷰티 추천 콘텐츠',
+    refs: [{label:'한국패션 릴스', url:'https://www.instagram.com/reel/DcYMxLeBN8Z/'}],
+    tags: ['한국패션', '뷰티'],
     cpv: 16.8,
     scpv: 2547,
     nego: true,
@@ -376,7 +369,7 @@ function render(rows) {
       </td>
       <td>
         <div class="desc">${d.desc}</div>
-        ${d.pingReel ? `<div class="cpv-sub" style="margin-top:4px">핑어플 광고: <a href="${d.pingReel}" target="_blank" rel="noopener" style="color:var(--accent)">릴스 링크</a></div>` : ''}
+        ${(d.refs||[]).map(r=>`<div class="cpv-sub" style="margin-top:4px">${r.label}: <a href="${r.url}" target="_blank" rel="noopener" style="color:var(--accent)">링크</a></div>`).join('')}
         ${d.tags.length ? `<div class="tags">${d.tags.map(t => `<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
       </td>
       <td class="right">
