@@ -248,7 +248,7 @@
 <div class="updated">※ CPV 단위: 원 | 저장/공유 CPV 단위: 원</div>
 
 <script>
-const data = [
+const dataExisting = [
   {
     handle: 'awei_chen_',
     url: 'https://www.instagram.com/awei_chen_/reels/',
@@ -322,6 +322,9 @@ const data = [
     scpv: 2547,
     nego: true,
   },
+];
+
+const dataNew = [
   {
     handle: 'mxuannc',
     url: 'https://www.instagram.com/mxuannc/reels/',
@@ -379,35 +382,37 @@ function cpvClass(v) {
   return 'cpv-high';
 }
 
-function render(rows) {
+function rowHtml(d) {
+  return `<tr>
+    <td>
+      <div class="acct-wrap">
+        <div class="acct-name"><a href="${d.url}" target="_blank" rel="noopener">@${d.handle}</a></div>
+        <div class="price-tag">견적 ${fmtPrice(d.price)}</div>
+      </div>
+    </td>
+    <td>
+      <div class="desc">${d.desc}</div>
+      ${(d.refs||[]).map(r=>`<div class="cpv-sub" style="margin-top:4px">${r.label}: <a href="${r.url}" target="_blank" rel="noopener" style="color:var(--accent)">링크</a></div>`).join('')}
+      ${d.tags.length ? `<div class="tags">${d.tags.map(t=>`<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
+    </td>
+    <td class="right"><div class="scpv">${d.price ? d.price.toLocaleString()+'원' : '—'}</div></td>
+    <td class="right"><div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div><div class="cpv-sub">/ 조회</div></td>
+    <td class="right"><div class="scpv">${d.scpv.toLocaleString()}원</div><div class="cpv-sub">/ 저장·공유</div></td>
+    <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
+  </tr>`;
+}
+
+function groupHeader(label, count) {
+  return `<tr><td colspan="6" style="padding:7px 10px;background:var(--badge-bg);color:var(--badge-fg);font-size:11px;font-weight:700;letter-spacing:.04em;border-top:2px solid var(--border);">${label} · ${count}명</td></tr>`;
+}
+
+function render(existing, newOnes) {
   const tbody = document.getElementById('tbody');
-  tbody.innerHTML = rows.map(d => `
-    <tr>
-      <td>
-        <div class="acct-wrap">
-          <div class="acct-name"><a href="${d.url}" target="_blank" rel="noopener">@${d.handle}</a></div>
-          <div class="price-tag">견적 ${fmtPrice(d.price)}</div>
-        </div>
-      </td>
-      <td>
-        <div class="desc">${d.desc}</div>
-        ${(d.refs||[]).map(r=>`<div class="cpv-sub" style="margin-top:4px">${r.label}: <a href="${r.url}" target="_blank" rel="noopener" style="color:var(--accent)">링크</a></div>`).join('')}
-        ${d.tags.length ? `<div class="tags">${d.tags.map(t => `<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
-      </td>
-      <td class="right">
-        <div class="scpv">${d.price ? d.price.toLocaleString() + '원' : '—'}</div>
-      </td>
-      <td class="right">
-        <div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div>
-        <div class="cpv-sub">/ 조회</div>
-      </td>
-      <td class="right">
-        <div class="scpv">${d.scpv.toLocaleString()}원</div>
-        <div class="cpv-sub">/ 저장·공유</div>
-      </td>
-      <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
-    </tr>
-  `).join('');
+  tbody.innerHTML =
+    groupHeader('기존 소통 인원', existing.length) +
+    existing.map(rowHtml).join('') +
+    groupHeader('컨펌 인원', newOnes.length) +
+    newOnes.map(rowHtml).join('');
 }
 
 let sortKey = 'cpv';
@@ -415,16 +420,11 @@ function sortBy(key) {
   sortKey = key;
   document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
   event.target.classList.add('active');
-  const sorted = [...data].sort((a, b) => {
-    if (key === 'cpv') return a.cpv - b.cpv;
-    if (key === 'scpv') return a.scpv - b.scpv;
-    if (key === 'price') return (a.price||0) - (b.price||0);
-    return 0;
-  });
-  render(sorted);
+  const cmp = (a,b) => key==='cpv' ? a.cpv-b.cpv : key==='scpv' ? a.scpv-b.scpv : (a.price||0)-(b.price||0);
+  render([...dataExisting].sort(cmp), [...dataNew].sort(cmp));
 }
 
-render([...data].sort((a,b) => a.cpv - b.cpv));
+render([...dataExisting].sort((a,b)=>a.cpv-b.cpv), [...dataNew].sort((a,b)=>a.cpv-b.cpv));
 </script>
 </body>
 </html>
