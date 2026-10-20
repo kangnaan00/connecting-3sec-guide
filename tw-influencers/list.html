@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecting 대만 인플루언서 명단</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #f7f6f4;
+    --bg2: #ffffff;
+    --fg: #1a1a1a;
+    --fg2: #5a5a5a;
+    --fg3: #999;
+    --border: #e4e2de;
+    --accent: #e05a6e;
+    --accent-soft: #fdf0f2;
+    --badge-bg: #edf0f5;
+    --badge-fg: #4a5568;
+    --nego-bg: #fff4e5;
+    --nego-fg: #c17b00;
+    --header-bg: #1c1c22;
+    --header-fg: #f0ece4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171c; --bg2: #22222a; --fg: #f0ece4; --fg2: #aaa8a0; --fg3: #666;
+      --border: #2e2e38; --accent: #f07080; --accent-soft: #2a1820;
+      --badge-bg: #2a2a35; --badge-fg: #b0b8cc;
+      --nego-bg: #2a2010; --nego-fg: #e8a030;
+      --header-bg: #111115; --header-fg: #f0ece4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17171c; --bg2: #22222a; --fg: #f0ece4; --fg2: #aaa8a0; --fg3: #666;
+    --border: #2e2e38; --accent: #f07080; --accent-soft: #2a1820;
+    --badge-bg: #2a2a35; --badge-fg: #b0b8cc;
+    --nego-bg: #2a2010; --nego-fg: #e8a030;
+    --header-bg: #111115; --header-fg: #f0ece4;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    background: var(--bg); color: var(--fg);
+    font-size: 14px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+
+  .page-header {
+    background: var(--header-bg); color: var(--header-fg);
+    padding: 20px max(24px, env(safe-area-inset-left, 0px)) 18px;
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))) 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  .page-header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 12px; color: #888; }
+  .page-header .dot { color: var(--accent); font-weight: 700; }
+
+  .controls {
+    padding: 14px 0 10px;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .count { font-size: 12px; color: var(--fg3); }
+
+  .table-wrap { overflow-x: auto; margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding: 0 max(16px, env(safe-area-inset-left, 0px)) 48px; }
+
+  table { width: 100%; border-collapse: collapse; min-width: 480px; }
+  thead th {
+    background: var(--bg2); border-bottom: 2px solid var(--border);
+    padding: 10px 12px; text-align: left;
+    font-size: 11px; font-weight: 600; color: var(--fg3);
+    letter-spacing: 0.5px; text-transform: uppercase; white-space: nowrap;
+  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: var(--bg2); }
+  tbody td { padding: 12px 12px; vertical-align: top; }
+
+  .acct-name a { font-weight: 600; color: var(--fg); text-decoration: none; font-size: 13px; }
+  .acct-name a:hover { color: var(--accent); }
+
+  .desc { font-size: 12px; color: var(--fg2); max-width: 320px; line-height: 1.4; }
+  .ref-link { font-size: 11px; color: var(--fg3); margin-top: 3px; }
+  .ref-link a { color: var(--accent); text-decoration: none; }
+  .ref-link a:hover { text-decoration: underline; }
+  .tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
+  .tag {
+    background: var(--badge-bg); color: var(--badge-fg);
+    padding: 2px 7px; border-radius: 10px; font-size: 10px; font-weight: 500;
+  }
+  .tag.fit { background: var(--accent-soft); color: var(--accent); }
+
+  .status-nego {
+    display: inline-block; background: var(--nego-bg); color: var(--nego-fg);
+    padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;
+  }
+  .updated { font-size: 11px; color: var(--fg3); padding-bottom: 24px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Connecting<span class="dot"> · </span>대만 인플루언서 명단</h1>
+  <span class="sub">2026-10</span>
+</div>
+
+<div class="controls">
+  <span class="count">9명</span>
+</div>
+
+<div class="table-wrap">
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>계정</th>
+        <th>콘텐츠 설명</th>
+        <th>상태</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+<div class="updated">Connecting · 대만 인플루언서 명단 · 2026-10</div>
+
+<script>
+const dataExisting = [
+  {
+    handle: 'awei_chen_',
+    url: 'https://www.instagram.com/awei_chen_/reels/',
+    desc: '대만 대학생, 생각을 말하는 콘텐츠',
+    tags: ['연애관', '썸', '토크', '상황극', '핏 우수'],
+    nego: true,
+  },
+  {
+    handle: '_yk_yuan',
+    url: 'https://www.instagram.com/_yk_yuan/',
+    desc: '한국여행 오프라인·얼굴 등장, 말 잘해 커넥팅 소구 적합',
+    tags: ['한국여행', '오프라인', '2M', '핏 우수'],
+    nego: false,
+  },
+  {
+    handle: 'christines_talk',
+    url: 'https://www.instagram.com/christines_talk/reels/',
+    desc: '여성 메이크업·패션·뷰티 고민 리뷰, 자동응답 설정 등 고민해결',
+    tags: ['뷰티', '패션', '고민해결', '핏 우수'],
+    nego: true,
+  },
+  {
+    handle: 'j_an0808',
+    url: 'https://www.instagram.com/j_an0808/reels/',
+    desc: '한국 여행·올리브영·성수 쇼핑 콘텐츠',
+    refs: [{label:'한국여행 릴스', url:'https://www.instagram.com/reel/DdWjdOPTB0u/'}],
+    tags: ['한국여행', '올리브영', '성수'],
+    nego: true,
+  },
+  {
+    handle: 'chien_0100',
+    url: 'https://www.instagram.com/chien_0100/reels/',
+    desc: '상황극·연출 콘텐츠 잘함',
+    refs: [{label:'상황극 릴스', url:'https://www.instagram.com/reel/DaHoV1PSlDK/'}],
+    tags: ['1M', '상황극', '연출'],
+    nego: true,
+  },
+  {
+    handle: 'kye_88.11.10',
+    url: 'https://www.instagram.com/kye_88.11.10/reels/',
+    desc: '한국 패션·뷰티 추천 콘텐츠',
+    refs: [{label:'한국패션 릴스', url:'https://www.instagram.com/reel/DcYMxLeBN8Z/'}],
+    tags: ['한국패션', '뷰티'],
+    nego: true,
+  },
+];
+
+const dataNew = [
+  {
+    handle: '_seas11',
+    url: 'https://www.instagram.com/_seas11/reels/',
+    desc: '한국에서 2년째 일하는 대만 여성 직장인. 한국 일상·쇼핑·덕질 정보. 한국어 소통 가능. 한국생활 정보 제공에 능함',
+    refs: [
+      {label:'한국 취업·비자 가이드', url:'https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/'},
+      {label:'홍대 환전 정보', url:'https://www.instagram.com/_seas11/reel/DZ7P9AkCXlf/'},
+    ],
+    tags: ['한국거주', '한국어소통', '직장인', '한국정보'],
+    nego: true,
+  },
+  {
+    handle: 'mxuannc',
+    url: 'https://www.instagram.com/mxuannc/reels/',
+    desc: '국립대만대 심리학과, 심리학 기반 토크 + 커넥팅앱 소구. Ping! 앱 광고 경험 (최고조회 349.8만)',
+    refs: [
+      {label:'Ping! 광고 1위', url:'https://www.instagram.com/reel/DcTLwAZlb-H/'},
+      {label:'Ping! 광고 2위', url:'https://www.instagram.com/reel/Ddn8yvZnAjX/'},
+    ],
+    tags: ['심리학', 'Ping광고경험', '토크', '핏 우수'],
+    nego: true,
+  },
+  {
+    handle: 'ian.black_',
+    url: 'https://www.instagram.com/ian.black_/reels/',
+    desc: '학교·교실 주제 짧은 개그 상황극. 스크립트 영어·대만어 가능 (언어확인중)',
+    refs: [
+      {label:'상황극 릴스', url:'https://www.instagram.com/ian.black_/reel/DcqCRpMz4Ew/'},
+      {label:'앱광고 Flixseek', url:'https://www.instagram.com/reel/DYJy-56zwsc/'},
+      {label:'앱광고 모바일게임', url:'https://www.instagram.com/reel/Db29XNvToqM/'},
+    ],
+    tags: ['상황극', '개그', '앱광고경험'],
+    nego: true,
+  },
+];
+
+function rowHtml(d) {
+  return `<tr>
+    <td><div class="acct-name"><a href="${d.url}" target="_blank" rel="noopener">@${d.handle}</a></div></td>
+    <td>
+      <div class="desc">${d.desc}</div>
+      ${(d.refs||[]).map(r=>`<div class="ref-link">${r.label}: <a href="${r.url}" target="_blank" rel="noopener">링크</a></div>`).join('')}
+      ${(d.tags||[]).length ? `<div class="tags">${d.tags.map(t=>`<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
+    </td>
+    <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
+  </tr>`;
+}
+
+function groupHeader(label, count) {
+  return `<tr><td colspan="3" style="padding:7px 10px;background:var(--badge-bg);color:var(--badge-fg);font-size:11px;font-weight:700;letter-spacing:.04em;border-top:2px solid var(--border);">${label} · ${count}명</td></tr>`;
+}
+
+document.getElementById('tbody').innerHTML =
+  groupHeader('기존 소통 인원', dataExisting.length) +
+  dataExisting.map(rowHtml).join('') +
+  groupHeader('컨펌 인원', dataNew.length) +
+  dataNew.map(rowHtml).join('');
+</script>
+</body>
+</html>
