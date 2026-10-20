@@ -81,6 +81,8 @@
   tbody tr:hover { background: var(--bg2); }
   tbody td { padding: 12px 12px; vertical-align: top; }
 
+  thead th.right { text-align: right; }
+  tbody td.right { text-align: right; font-variant-numeric: tabular-nums; }
   .acct-name a { font-weight: 600; color: var(--fg); text-decoration: none; font-size: 13px; }
   .acct-name a:hover { color: var(--accent); }
 
@@ -95,6 +97,17 @@
   }
   .tag.fit { background: var(--accent-soft); color: var(--accent); }
 
+  .cpv-val { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .cpv-low { color: #2dab72; }
+  .cpv-mid { color: #f0a030; }
+  .cpv-high { color: #e05a6e; }
+  .cpv-sub { font-size: 11px; color: var(--fg3); margin-top: 1px; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .cpv-low { color: #3dd88a; }
+    :root:not([data-theme="light"]) .cpv-mid { color: #f5b84a; }
+    :root:not([data-theme="light"]) .cpv-high { color: #f07080; }
+  }
+  .scpv { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--fg2); }
   .status-nego {
     display: inline-block; background: var(--nego-bg); color: var(--nego-fg);
     padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;
@@ -119,6 +132,8 @@
       <tr>
         <th>계정</th>
         <th>콘텐츠 설명</th>
+        <th class="right">CPV</th>
+        <th class="right">저장/공유 CPV</th>
         <th>상태</th>
       </tr>
     </thead>
@@ -134,21 +149,21 @@ const dataExisting = [
     url: 'https://www.instagram.com/awei_chen_/reels/',
     desc: '대만 대학생, 생각을 말하는 콘텐츠',
     tags: ['연애관', '썸', '토크', '상황극', '핏 우수'],
-    nego: true,
+    cpv: 0.6, scpv: 22, nego: true,
   },
   {
     handle: '_yk_yuan',
     url: 'https://www.instagram.com/_yk_yuan/',
     desc: '한국여행 오프라인·얼굴 등장, 말 잘해 커넥팅 소구 적합',
     tags: ['한국여행', '오프라인', '2M', '핏 우수'],
-    nego: false,
+    cpv: 5.3, scpv: 1014, nego: false,
   },
   {
     handle: 'christines_talk',
     url: 'https://www.instagram.com/christines_talk/reels/',
     desc: '여성 메이크업·패션·뷰티 고민 리뷰, 자동응답 설정 등 고민해결',
     tags: ['뷰티', '패션', '고민해결', '핏 우수'],
-    nego: true,
+    cpv: 12.2, scpv: 477, nego: true,
   },
   {
     handle: 'j_an0808',
@@ -156,7 +171,7 @@ const dataExisting = [
     desc: '한국 여행·올리브영·성수 쇼핑 콘텐츠',
     refs: [{label:'한국여행 릴스', url:'https://www.instagram.com/reel/DdWjdOPTB0u/'}],
     tags: ['한국여행', '올리브영', '성수'],
-    nego: true,
+    cpv: 8.4, scpv: 611, nego: true,
   },
   {
     handle: 'chien_0100',
@@ -164,7 +179,7 @@ const dataExisting = [
     desc: '상황극·연출 콘텐츠 잘함',
     refs: [{label:'상황극 릴스', url:'https://www.instagram.com/reel/DaHoV1PSlDK/'}],
     tags: ['1M', '상황극', '연출'],
-    nego: true,
+    cpv: 17.6, scpv: 531, nego: true,
   },
   {
     handle: 'kye_88.11.10',
@@ -172,7 +187,7 @@ const dataExisting = [
     desc: '한국 패션·뷰티 추천 콘텐츠',
     refs: [{label:'한국패션 릴스', url:'https://www.instagram.com/reel/DcYMxLeBN8Z/'}],
     tags: ['한국패션', '뷰티'],
-    nego: true,
+    cpv: 16.8, scpv: 2547, nego: true,
   },
 ];
 
@@ -186,7 +201,7 @@ const dataNew = [
       {label:'홍대 환전 정보', url:'https://www.instagram.com/_seas11/reel/DZ7P9AkCXlf/'},
     ],
     tags: ['한국거주', '한국어소통', '직장인', '한국정보'],
-    nego: true,
+    cpv: 11.4, scpv: 1327, nego: true,
   },
   {
     handle: 'mxuannc',
@@ -197,7 +212,7 @@ const dataNew = [
       {label:'Ping! 광고 2위', url:'https://www.instagram.com/reel/Ddn8yvZnAjX/'},
     ],
     tags: ['심리학', 'Ping광고경험', '토크', '핏 우수'],
-    nego: true,
+    cpv: 5.4, scpv: 981, nego: true,
   },
   {
     handle: 'ian.black_',
@@ -209,9 +224,15 @@ const dataNew = [
       {label:'앱광고 모바일게임', url:'https://www.instagram.com/reel/Db29XNvToqM/'},
     ],
     tags: ['상황극', '개그', '앱광고경험'],
-    nego: true,
+    cpv: 6.2, scpv: 228, nego: true,
   },
 ];
+
+function cpvClass(v) {
+  if (v <= 3) return 'cpv-low';
+  if (v <= 8) return 'cpv-mid';
+  return 'cpv-high';
+}
 
 function rowHtml(d) {
   return `<tr>
@@ -221,12 +242,14 @@ function rowHtml(d) {
       ${(d.refs||[]).map(r=>`<div class="ref-link">${r.label}: <a href="${r.url}" target="_blank" rel="noopener">링크</a></div>`).join('')}
       ${(d.tags||[]).length ? `<div class="tags">${d.tags.map(t=>`<span class="tag${t==='핏 우수'?' fit':''}">${t}</span>`).join('')}</div>` : ''}
     </td>
+    <td class="right"><div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div><div class="cpv-sub">/ 조회</div></td>
+    <td class="right"><div class="scpv">${d.scpv.toLocaleString()}원</div><div class="cpv-sub">/ 저장·공유</div></td>
     <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
   </tr>`;
 }
 
 function groupHeader(label, count) {
-  return `<tr><td colspan="3" style="padding:7px 10px;background:var(--badge-bg);color:var(--badge-fg);font-size:11px;font-weight:700;letter-spacing:.04em;border-top:2px solid var(--border);">${label} · ${count}명</td></tr>`;
+  return `<tr><td colspan="5" style="padding:7px 10px;background:var(--badge-bg);color:var(--badge-fg);font-size:11px;font-weight:700;letter-spacing:.04em;border-top:2px solid var(--border);">${label} · ${count}명</td></tr>`;
 }
 
 document.getElementById('tbody').innerHTML =
