@@ -157,6 +157,7 @@
         <th>계정</th>
         <th class="right">평균조회수</th>
         <th class="right">CPV</th>
+        <th class="right">단가</th>
         <th>상태</th>
       </tr>
     </thead>
@@ -166,10 +167,13 @@
 
 <script>
 const data = [
-  { handle: 'silvery_ooo',      url: 'https://www.instagram.com/silvery_ooo/reels/',      views: 700000, cpv: 7.7,  nego: true,  note: '' },
-  { handle: 'yuura_ii',         url: 'https://www.instagram.com/yuura_ii/reels/',          views: 400000, cpv: 3.8,  nego: true,  note: '멍' },
-  { handle: 'rearin.designer',  url: 'https://www.instagram.com/rearin.designer/reels/',   views: 500000, cpv: 2.4,  nego: false, note: '' },
-  { handle: 'j7507775',         url: 'https://www.instagram.com/j7507775/reels/',          views: 400000, cpv: 11.1, nego: true,  note: '' },
+  { handle: 'rearin.designer',  url: 'https://www.instagram.com/rearin.designer/reels/',   views: 500000, cpv: 2.4,  price: 4864,  nego: true,  note: '뷰티 영상 기준' },
+  { handle: 'yuura_ii',         url: 'https://www.instagram.com/yuura_ii/reels/',          views: 400000, cpv: 3.8,  price: 6700,  nego: true,  note: '뷰티 영상 기준 / 멍' },
+  { handle: 'hey_jihye__',      url: 'https://www.instagram.com/hey_jihye__/reels/',       views: 900000, cpv: 6.4,  price: 3468,  nego: false, note: '' },
+  { handle: 'eenomsiki',        url: 'https://www.instagram.com/eenomsiki/reels/',         views: 900000, cpv: 7.3,  price: 1948,  nego: false, note: '' },
+  { handle: 'silvery_ooo',      url: 'https://www.instagram.com/silvery_ooo/reels/',      views: 700000, cpv: 7.7,  price: 1631,  nego: true,  note: '' },
+  { handle: 'j7507775',         url: 'https://www.instagram.com/j7507775/reels/',          views: 400000, cpv: 11.1, price: 1968,  nego: true,  note: '뷰티 영상 기준' },
+  { handle: '_plan_book',       url: 'https://www.instagram.com/_plan_book/reels/',        views: 900000, cpv: 11.6, price: 2739,  nego: false, note: '' },
 ];
 
 function fmtViews(n) {
@@ -196,6 +200,9 @@ function rowHtml(d) {
     <td class="right">
       <div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div>
       <div class="cpv-sub">/ 조회</div>
+    </td>
+    <td class="right">
+      <div class="views-val">${d.price ? d.price.toLocaleString() + '원' : '-'}</div>
     </td>
     <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
   </tr>`;
