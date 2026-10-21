@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connecting 일본 인플루언서</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #f7f6f4;
+    --bg2: #ffffff;
+    --fg: #1a1a1a;
+    --fg2: #5a5a5a;
+    --fg3: #999;
+    --border: #e4e2de;
+    --accent: #e05a6e;
+    --accent-soft: #fdf0f2;
+    --cpv-low: #2dab72;
+    --cpv-mid: #f0a030;
+    --cpv-high: #e05a6e;
+    --badge-bg: #edf0f5;
+    --badge-fg: #4a5568;
+    --nego-bg: #fff4e5;
+    --nego-fg: #c17b00;
+    --header-bg: #1c1c22;
+    --header-fg: #f0ece4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17171c; --bg2: #22222a; --fg: #f0ece4; --fg2: #aaa8a0;
+      --fg3: #666; --border: #2e2e38; --accent: #f07080;
+      --accent-soft: #2a1820; --cpv-low: #3dd88a; --cpv-mid: #f5b84a;
+      --cpv-high: #f07080; --badge-bg: #2a2a35; --badge-fg: #b0b8cc;
+      --nego-bg: #2a2010; --nego-fg: #e8a030;
+      --header-bg: #111115; --header-fg: #f0ece4;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17171c; --bg2: #22222a; --fg: #f0ece4; --fg2: #aaa8a0;
+    --fg3: #666; --border: #2e2e38; --accent: #f07080;
+    --accent-soft: #2a1820; --cpv-low: #3dd88a; --cpv-mid: #f5b84a;
+    --cpv-high: #f07080; --badge-bg: #2a2a35; --badge-fg: #b0b8cc;
+    --nego-bg: #2a2010; --nego-fg: #e8a030;
+    --header-bg: #111115; --header-fg: #f0ece4;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Pretendard', 'Apple SD Gothic Neo', sans-serif;
+    background: var(--bg); color: var(--fg);
+    font-size: 14px; line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+
+  .page-header {
+    background: var(--header-bg); color: var(--header-fg);
+    padding: 20px max(24px, env(safe-area-inset-left, 0px)) 18px;
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap;
+  }
+  .page-header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.3px; }
+  .page-header .sub { font-size: 12px; color: #888; }
+  .page-header .dot { color: var(--accent); font-weight: 700; }
+
+  .controls {
+    padding: 14px 0 10px;
+    display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+  }
+  .sort-btn {
+    background: var(--bg2); border: 1px solid var(--border);
+    color: var(--fg2); padding: 5px 12px; border-radius: 20px;
+    font-size: 12px; cursor: pointer; font-family: inherit; transition: all 0.15s;
+  }
+  .sort-btn:hover { border-color: var(--accent); color: var(--accent); }
+  .sort-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .count { font-size: 12px; color: var(--fg3); margin-left: auto; }
+
+  .legend {
+    display: flex; gap: 16px; font-size: 11px; color: var(--fg3);
+    padding-bottom: 10px; flex-wrap: wrap;
+  }
+  .legend-dot {
+    display: inline-block; width: 8px; height: 8px;
+    border-radius: 50%; margin-right: 4px; vertical-align: middle;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+    padding: 0 max(16px, env(safe-area-inset-left, 0px)) 32px;
+  }
+  table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  thead th {
+    background: var(--bg2); border-bottom: 2px solid var(--border);
+    padding: 10px 12px; text-align: left; font-size: 11px;
+    font-weight: 600; color: var(--fg3); letter-spacing: 0.5px;
+    text-transform: uppercase; white-space: nowrap;
+  }
+  thead th.right { text-align: right; }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
+  tbody tr:hover { background: var(--bg2); }
+  tbody td { padding: 12px 12px; vertical-align: top; }
+  tbody td.right { text-align: right; font-variant-numeric: tabular-nums; }
+
+  .acct-wrap { display: flex; flex-direction: column; gap: 3px; }
+  .acct-name a {
+    font-weight: 600; color: var(--fg);
+    text-decoration: none; font-size: 13px;
+  }
+  .acct-name a:hover { color: var(--accent); }
+  .acct-sub { font-size: 11px; color: var(--fg3); }
+
+  .views-val { font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .views-sub { font-size: 11px; color: var(--fg3); margin-top: 1px; }
+
+  .cpv-val { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .cpv-low { color: var(--cpv-low); }
+  .cpv-mid { color: var(--cpv-mid); }
+  .cpv-high { color: var(--cpv-high); }
+  .cpv-sub { font-size: 11px; color: var(--fg3); margin-top: 1px; }
+
+  .status-nego {
+    display: inline-block; background: var(--nego-bg); color: var(--nego-fg);
+    padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 600;
+  }
+
+  .note { font-size: 12px; color: var(--fg2); }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>Connecting<span class="dot"> · </span>일본 인플루언서 명단</h1>
+  <span class="sub">CPV 기준 정렬 · 2026-10</span>
+</div>
+
+<div class="controls">
+  <button class="sort-btn active" onclick="sortBy('cpv')">CPV 낮은순</button>
+  <button class="sort-btn" onclick="sortBy('views')">조회수 높은순</button>
+  <span class="count" id="count">4명</span>
+</div>
+
+<div class="legend">
+  <span><span class="legend-dot" style="background:var(--cpv-low)"></span>CPV ≤ 3원 (우수)</span>
+  <span><span class="legend-dot" style="background:var(--cpv-mid)"></span>CPV 3–8원 (보통)</span>
+  <span><span class="legend-dot" style="background:var(--cpv-high)"></span>CPV 8원↑ (고단가)</span>
+</div>
+
+<div class="table-wrap">
+  <table id="tbl">
+    <thead>
+      <tr>
+        <th>계정</th>
+        <th class="right">평균조회수</th>
+        <th class="right">CPV</th>
+        <th>상태</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+</div>
+
+<script>
+const data = [
+  { handle: 'silvery_ooo',      url: 'https://www.instagram.com/silvery_ooo/reels/',      views: 700000, cpv: 7.7,  nego: true,  note: '' },
+  { handle: 'yuura_ii',         url: 'https://www.instagram.com/yuura_ii/reels/',          views: 400000, cpv: 3.8,  nego: true,  note: '멍' },
+  { handle: 'rearin.designer',  url: 'https://www.instagram.com/rearin.designer/reels/',   views: 500000, cpv: 2.4,  nego: false, note: '' },
+  { handle: 'j7507775',         url: 'https://www.instagram.com/j7507775/reels/',          views: 400000, cpv: 11.1, nego: true,  note: '' },
+];
+
+function fmtViews(n) {
+  if (n >= 10000) return (n / 10000).toLocaleString() + '만';
+  return n.toLocaleString();
+}
+function cpvClass(v) {
+  if (v <= 3) return 'cpv-low';
+  if (v <= 8) return 'cpv-mid';
+  return 'cpv-high';
+}
+function rowHtml(d) {
+  return `<tr>
+    <td>
+      <div class="acct-wrap">
+        <div class="acct-name"><a href="${d.url}" target="_blank" rel="noopener">@${d.handle}</a></div>
+        ${d.note ? `<div class="acct-sub">${d.note}</div>` : ''}
+      </div>
+    </td>
+    <td class="right">
+      <div class="views-val">${fmtViews(d.views)}</div>
+      <div class="views-sub">평균 조회</div>
+    </td>
+    <td class="right">
+      <div class="cpv-val ${cpvClass(d.cpv)}">${d.cpv}원</div>
+      <div class="cpv-sub">/ 조회</div>
+    </td>
+    <td>${d.nego ? '<span class="status-nego">협상중</span>' : ''}</td>
+  </tr>`;
+}
+
+function render(arr) {
+  document.getElementById('tbody').innerHTML = arr.map(rowHtml).join('');
+  document.getElementById('count').textContent = arr.length + '명';
+}
+
+function sortBy(key) {
+  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+  const sorted = [...data].sort((a, b) =>
+    key === 'cpv' ? a.cpv - b.cpv : b.views - a.views
+  );
+  render(sorted);
+}
+
+render([...data].sort((a, b) => a.cpv - b.cpv));
+</script>
+</body>
+</html>
