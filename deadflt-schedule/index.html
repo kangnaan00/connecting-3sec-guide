@@ -29,14 +29,14 @@
     font-family: 'Noto Sans KR', system-ui, sans-serif;
     font-size: 14px; margin: 0;
     padding-inline: 16px; padding-block: 28px 48px;
-    max-width: 820px; margin-inline: auto;
+    max-width: 900px; margin-inline: auto;
   }
   .brand { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); display: block; margin-bottom: 4px; }
   h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
   .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
 
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 600px; }
+  table { width: 100%; border-collapse: collapse; min-width: 700px; }
   thead tr { background: var(--surface); border-bottom: 2px solid var(--accent); }
   th {
     padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em;
@@ -56,16 +56,12 @@
   .date-up { color: var(--fg-dim); font-weight: 400; }
   .time { white-space: nowrap; font-size: 12px; color: var(--fg-dim); }
   .cost { font-size: 13px; white-space: nowrap; }
-
   .badge {
     display: inline-block; font-size: 10px; padding: 2px 6px;
     border-radius: 20px; font-weight: 600; white-space: nowrap; margin-left: 5px;
     vertical-align: middle;
   }
-  .bg-check  { background: rgba(255,190,0,0.15);  color: #f0a500; }
-  .bg-done   { background: rgba(200,255,0,0.15);  color: var(--accent); }
-  .bg-alert  { background: rgba(255,80,80,0.13);  color: #ff6b6b; }
-  .bg-blue   { background: rgba(100,160,255,0.15); color: #7ab4ff; }
+  .bg-alert { background: rgba(255,80,80,0.13); color: #ff6b6b; }
 </style>
 </head>
 <body>
@@ -85,6 +81,7 @@
       <th>방문일</th>
       <th>시간</th>
       <th>업로드일</th>
+      <th>업로드링크</th>
     </tr>
   </thead>
   <tbody>
@@ -96,6 +93,7 @@
       <td class="date">10/19</td>
       <td class="time">오후 3~4시</td>
       <td class="date date-up">10/23</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">2</td>
@@ -105,6 +103,7 @@
       <td class="date">10/19</td>
       <td class="time">오후 2시</td>
       <td class="date date-up">10/27</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">3</td>
@@ -114,15 +113,17 @@
       <td class="date">10/19</td>
       <td class="time">오후 2시</td>
       <td class="date date-up">10/25</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">4</td>
       <td class="id">an.su_ring</td>
-      <td class="lk"><a href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">reel →</a></td>
+      <td class="lk"><a href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">reel →</a></td>
       <td class="cost">80만</td>
       <td class="date">10/21</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/22</td>
+      <td class="lk"><a href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">reel →</a></td>
     </tr>
     <tr>
       <td class="num">5</td>
@@ -132,6 +133,7 @@
       <td class="date">10/22</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/25</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">6</td>
@@ -141,6 +143,7 @@
       <td class="date">10/22</td>
       <td class="time">오후 2시</td>
       <td class="date date-up">10/23</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">7</td>
@@ -150,6 +153,7 @@
       <td class="date">10/22</td>
       <td class="time">오후 4시</td>
       <td class="date date-up">10/26</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">8</td>
@@ -159,6 +163,7 @@
       <td class="date">10/23</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/26</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">9</td>
@@ -168,6 +173,7 @@
       <td class="date">10/23</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/24</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">10</td>
@@ -177,6 +183,7 @@
       <td class="date">10/24</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/25</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">11</td>
@@ -186,6 +193,7 @@
       <td class="date">10/25</td>
       <td class="time">오후 12~1시</td>
       <td class="date date-up">10/26</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">12</td>
@@ -195,6 +203,7 @@
       <td class="date">10/26</td>
       <td class="time">오후 5시</td>
       <td class="date date-up">10/29</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">13</td>
@@ -204,6 +213,7 @@
       <td class="date">10/26</td>
       <td class="time">오전 11시</td>
       <td class="date date-up">10/27</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">14</td>
@@ -213,6 +223,7 @@
       <td class="date">10/26</td>
       <td class="time">오후 7시</td>
       <td class="date date-up">10/30</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">15</td>
@@ -222,6 +233,7 @@
       <td class="date">10/28</td>
       <td class="time">오후 4시</td>
       <td class="date date-up">10/30</td>
+      <td class="lk">—</td>
     </tr>
     <tr>
       <td class="num">16</td>
@@ -231,6 +243,7 @@
       <td class="date">10/29</td>
       <td class="time">오후 1~2시</td>
       <td class="date date-up">10/29</td>
+      <td class="lk">—</td>
     </tr>
   </tbody>
 </table>
