@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>플라워노즈 인플루언서 일정 (내부)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root {
+    --bg: #0a0a0a; --surface: #141414; --border: #222;
+    --fg: #f0f0f0; --fg-dim: #777; --accent: #4ade80;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
+      --fg: #111; --fg-dim: #888; --accent: #16a34a;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
+    --fg: #111; --fg-dim: #888; --accent: #16a34a;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 14px; margin: 0;
+    padding-inline: 16px; padding-block: 28px 48px;
+    max-width: 900px; margin-inline: auto;
+  }
+  h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
+  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
+  .internal-badge {
+    display: inline-block; font-size: 10px; padding: 2px 7px;
+    border-radius: 20px; font-weight: 600; margin-left: 8px;
+    background: rgba(255,200,0,0.13); color: #ffc800;
+    vertical-align: middle;
+  }
+
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 640px; }
+  thead tr { background: var(--surface); border-bottom: 2px solid var(--accent); }
+  th {
+    padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    font-weight: 700; text-align: left; white-space: nowrap;
+  }
+  td {
+    padding: 11px 12px; border-bottom: 1px solid var(--border);
+    font-size: 13px; vertical-align: middle;
+  }
+  tr:hover td { background: var(--surface); }
+  .num { color: var(--fg-dim); font-size: 11px; width: 28px; }
+  .id { font-weight: 700; white-space: nowrap; }
+  .lk a { color: var(--fg-dim); text-decoration: none; font-size: 12px; }
+  .lk a:hover { color: var(--accent); }
+  .date { white-space: nowrap; font-size: 13px; }
+  .date-shoot { color: var(--fg); font-weight: 700; }
+  .date-up { color: var(--fg-dim); }
+  .cost { font-size: 13px; font-weight: 700; white-space: nowrap; }
+  .badge {
+    display: inline-block; font-size: 10px; padding: 2px 6px;
+    border-radius: 20px; font-weight: 600; white-space: nowrap; margin-left: 5px;
+    vertical-align: middle;
+  }
+  .bg-neg { background: rgba(255,80,80,0.13); color: #ff6b6b; }
+  tfoot td {
+    padding: 12px 12px; font-size: 13px; font-weight: 700;
+    border-top: 2px solid var(--border);
+  }
+  tfoot .total-label { color: var(--fg-dim); text-align: right; }
+  tfoot .total-cost { color: var(--accent); font-size: 15px; }
+</style>
+</head>
+<body>
+
+<h1>플라워노즈 인플루언서 일정 <span class="internal-badge">내부공유</span></h1>
+<p class="meta">총 20명 · 업로드일 빠른순 · 합계 900만원</p>
+
+<div class="tbl-wrap">
+<table>
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>아이디</th>
+      <th>링크</th>
+      <th>촬영일</th>
+      <th>업로드일</th>
+      <th>업로드링크</th>
+      <th>금액</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td><td class="lk"><a href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">reel</a></td><td class="cost">70만</td></tr>
+    <tr><td class="num">2</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td><td class="lk"><a href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">3</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td><td class="lk"><a href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">reel</a></td><td class="cost">60만</td></tr>
+    <tr><td class="num">4</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td><td class="lk"><a href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">5</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/16</td><td class="lk"><a href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">reel</a></td><td class="cost">40만</td></tr>
+    <tr><td class="num">6</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></td><td class="date date-shoot">10/18</td><td class="date date-up">10/19</td><td class="lk"><a href="https://www.instagram.com/reel/Detq6IMO_dN/" target="_blank">reel</a></td><td class="cost">35만</td></tr>
+    <tr><td class="num">7</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/namuriki/reels/" target="_blank">instagram.com/namuriki</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/19</td><td class="lk"><a href="https://www.instagram.com/reel/Deq3Ck8JoIp/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">8</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="date date-shoot">10/16</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/DerIjcjTdI9/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">9</td><td class="id">seria_980</td><td class="lk"><a href="https://www.instagram.com/seria_980/reels/" target="_blank">instagram.com/seria_980</a></td><td class="date date-shoot">10/17</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/Dethrk_vCYn/" target="_blank">reel</a></td><td class="cost">15만</td></tr>
+    <tr><td class="num">10</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reels/DXx3BGeBWXA/" target="_blank">instagram.com/reels/DXx3BGeBWXA</a></td><td class="date date-shoot">10/17~18</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/DetgvOchHl7/" target="_blank">reel</a></td><td class="cost">40만</td></tr>
+    <tr><td class="num">11</td><td class="id">sol.han.day</td><td class="lk"><a href="https://www.instagram.com/sol.han.day/reels/" target="_blank">instagram.com/sol.han.day</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/DettqY7BL-B/" target="_blank">reel</a></td><td class="cost">25만</td></tr>
+    <tr><td class="num">12</td><td class="id">woonimong</td><td class="lk"><a href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/Detk54TSfT5/" target="_blank">reel</a></td><td class="cost">20만</td></tr>
+    <tr><td class="num">13</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/p/DetdlLbCINP/" target="_blank">reel</a></td><td class="cost">35만</td></tr>
+    <tr><td class="num">14</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel</a></td><td class="date date-shoot">10/19</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/DewSWjZocVN/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">15</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/Detrs_DTx8V/" target="_blank">reel</a></td><td class="cost">70만</td></tr>
+    <tr><td class="num">16</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="date date-shoot">10/20</td><td class="date date-up">10/20</td><td class="lk"><a href="https://www.instagram.com/reel/DesyMr0ttwf/" target="_blank">reel</a></td><td class="cost">40만</td></tr>
+    <tr><td class="num">17</td><td class="id">silvery_ooo</td><td class="lk"><a href="https://www.instagram.com/silvery_ooo/reels/" target="_blank">instagram.com/silvery_ooo</a></td><td class="date date-shoot">10/22</td><td class="date date-up">10/23</td><td class="lk"><a href="https://www.instagram.com/reel/De3BZ9VOjLq/" target="_blank">reel</a></td><td class="cost">70만</td></tr>
+    <tr><td class="num">18</td><td class="id">rearin.designer</td><td class="lk"><a href="https://www.instagram.com/rearin.designer/reels/" target="_blank">instagram.com/rearin.designer</a></td><td class="date date-shoot">10/22</td><td class="date date-up">10/23</td><td class="lk"><a href="https://www.instagram.com/reel/Dey023dgazQ/" target="_blank">reel</a></td><td class="cost">50만</td></tr>
+    <tr><td class="num">19</td><td class="id">yuura_ii <span class="badge bg-neg">협상중</span></td><td class="lk"><a href="https://www.instagram.com/yuura_ii/reels/" target="_blank">instagram.com/yuura_ii</a></td><td class="date date-shoot">10/22</td><td class="date date-up">10/23</td><td class="lk"><a href="https://www.instagram.com/reel/De1XN5SygFu/" target="_blank">reel</a></td><td class="cost">40만</td></tr>
+    <tr><td class="num">20</td><td class="id">j7507775 <span class="badge bg-neg">협상중</span></td><td class="lk"><a href="https://www.instagram.com/j7507775/reels/" target="_blank">instagram.com/j7507775</a></td><td class="date date-shoot">10/22</td><td class="date date-up">10/23</td><td class="lk"><a href="https://www.instagram.com/reel/De1MAtryHIx/" target="_blank">reel</a></td><td class="cost">40만</td></tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="6" class="total-label">합계</td>
+      <td class="total-cost">900만원</td>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+</body>
+</html>
