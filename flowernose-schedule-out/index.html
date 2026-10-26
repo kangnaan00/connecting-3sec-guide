@@ -64,6 +64,13 @@
   tfoot .total-label { color: var(--fg-dim); text-align: right; }
   tfoot .total-views { color: var(--accent); font-size: 15px; }
 
+  .stats { display:grid; grid-template-columns:repeat(auto-fit,minmax(130px,1fr)); gap:10px; margin-bottom:28px; }
+  .stat { background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:14px 16px; }
+  .stat-label { font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--fg-dim); margin-bottom:6px; }
+  .stat-value { font-size:24px; font-weight:700; font-variant-numeric:tabular-nums; line-height:1; }
+  .stat-value small { font-size:13px; font-weight:500; color:var(--fg-dim); margin-left:2px; }
+  .stat-value.hl { color:var(--accent); }
+
   h2 { font-size: 16px; font-weight: 700; margin: 40px 0 4px; }
   .sub { font-size: 12px; color: var(--fg-dim); margin: 0 0 16px; }
   .gallery { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
@@ -78,7 +85,30 @@
 <body>
 
 <h1>플라워노즈 인플루언서 캠페인 결과</h1>
-<p class="meta">총 20명 · 저장+공유 CPV 낮은순 · 총예산 3,000만원 · 총조회수 338.1만 · 평균 CPV 약 9원 · 저장+공유 CPV 약 293원</p>
+<p class="meta">총 20명 · 저장+공유 CPV 낮은순 · 기준 예산 3,000만원</p>
+
+<div class="stats">
+  <div class="stat">
+    <div class="stat-label">총 예산</div>
+    <div class="stat-value">3,000<small>만원</small></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">총 조회수</div>
+    <div class="stat-value">338.1<small>만</small></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">CPV</div>
+    <div class="stat-value hl">8.87<small>원</small></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">저장+공유 합계</div>
+    <div class="stat-value">10.2<small>만건</small></div>
+  </div>
+  <div class="stat">
+    <div class="stat-label">저장+공유 CPV</div>
+    <div class="stat-value hl">293<small>원</small></div>
+  </div>
+</div>
 
 <div class="tbl-wrap">
 <table>
