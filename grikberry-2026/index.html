@@ -68,7 +68,7 @@
     width: 100%;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
-    min-width: 520px;
+    min-width: 1200px;
   }
   thead tr { border-bottom: 2px solid #111; }
   th {
@@ -82,6 +82,7 @@
     white-space: nowrap;
   }
   th:first-child, th:nth-child(2), th:nth-child(3), th:nth-child(4), th:nth-child(5) { text-align: left; }
+  th:nth-child(n+11) { text-align: left; }
   td {
     padding: 11px 10px;
     border-bottom: 1px solid #e0e0e0;
@@ -90,11 +91,13 @@
     color: #111;
   }
   td:first-child, td:nth-child(2), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: left; }
+  td:nth-child(n+11) { text-align: left; }
   .id { font-weight: 700; }
   .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
   .lk a:hover { color: #8147d0; }
   .nv { color: #8147d0; font-weight: 700; }
   .ns { font-weight: 700; }
+  .sm { font-size: 12px; color: #444; }
   .r1 {
     display: inline-block;
     font-size: 11px; font-weight: 700;
@@ -123,7 +126,7 @@
     text-align: right;
     color: #111;
   }
-  tfoot td:first-child, tfoot td:nth-child(2), tfoot td:nth-child(3) {
+  tfoot td:first-child {
     text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
   }
 </style>
@@ -149,8 +152,20 @@
       <div class="stat-num hi">11.1<span class="stat-unit">원</span></div>
     </div>
     <div class="stat-box">
-      <div class="stat-label">총 계정</div>
-      <div class="stat-num">31<span class="stat-unit">개</span></div>
+      <div class="stat-label">저장공유 단가</div>
+      <div class="stat-num hi">755<span class="stat-unit">원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 공유</div>
+      <div class="stat-num">26,939<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 저장</div>
+      <div class="stat-num">6,164<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box wide">
+      <div class="stat-label">저장+공유 합계</div>
+      <div class="stat-num">33,103<span class="stat-unit">건</span></div>
     </div>
     <div class="stat-box wide">
       <div class="stat-label">1차 조회수</div>
@@ -175,45 +190,56 @@
           <th>회차</th>
           <th>업로드일</th>
           <th>조회수</th>
+          <th>공유</th>
+          <th>저장</th>
+          <th>저장+공유</th>
+          <th>단가</th>
+          <th>은행</th>
+          <th>예금주</th>
+          <th>계좌번호</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>1</td><td class="id">mukpresident</td><td class="lk"><a href="https://www.instagram.com/reel/DXgaiJMDmow/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.24</td><td class="nv">91만</td></tr>
-        <tr><td>2</td><td class="id">dessert_entrance</td><td class="lk"><a href="https://www.instagram.com/reel/DXoC-4BgYRd/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.27</td><td class="ns">7.7만</td></tr>
-        <tr><td>3</td><td class="id">omuk.official</td><td class="lk"><a href="https://www.instagram.com/reel/DXqGeOGiXFz/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.28</td><td class="nv">24.1만</td></tr>
-        <tr><td>4</td><td class="id">thingthing.kr</td><td class="lk"><a href="https://www.instagram.com/reel/DXs42gok1Gz/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">6.4만</td></tr>
-        <tr><td>5</td><td class="id">inssa_elf</td><td class="lk"><a href="https://www.instagram.com/reel/DXs4xAsiDF7/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">5.5만</td></tr>
-        <tr><td>6</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/reel/DXtyBdLE5jP/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">3.5만</td></tr>
-        <tr><td>7</td><td class="id">foozim</td><td class="lk"><a href="https://www.instagram.com/reels/DXsq1GbknnU/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">4.4만</td></tr>
-        <tr><td>8</td><td class="id">nemoy_a</td><td class="lk"><a href="https://www.instagram.com/reel/DX0ty2iPyfO/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.02</td><td class="ns">3.8만</td></tr>
-        <tr><td>9</td><td class="id">nanain.pig</td><td class="lk"><a href="https://www.instagram.com/reel/DYMYoKuJ7pE/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.12</td><td class="nv">14.9만</td></tr>
-        <tr><td>10</td><td class="id">musteat_official</td><td class="lk"><a href="https://www.instagram.com/reel/DXvTYRNp2ua/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.30</td><td class="ns">2.6만</td></tr>
-        <tr><td>11</td><td class="id">sh.cookkook</td><td class="lk"><a href="https://www.instagram.com/reel/DYOw3KIv2KE/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.12</td><td class="ns">6.7만</td></tr>
-        <tr><td>12</td><td class="id">jack_foodie</td><td class="lk"><a href="https://www.instagram.com/reel/DYRdhmYTTzV/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.13</td><td class="ns">3.1만</td></tr>
-        <tr><td>13</td><td class="id">ruri.food</td><td class="lk"><a href="https://www.instagram.com/reel/DYEJsskTE-N/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.08</td><td class="ns">2.6만</td></tr>
-        <tr><td>14</td><td class="id">eatjinyyy</td><td class="lk"><a href="https://www.instagram.com/reel/DYYvbp3h4aG/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.16</td><td class="ns">5.6만</td></tr>
-        <tr><td>15</td><td class="id">opetion_h</td><td class="lk"><a href="https://www.instagram.com/reel/DYQvY--TM8Z/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.13</td><td class="ns">2.3만</td></tr>
-        <tr><td>16</td><td class="id">asknavi.korea_food</td><td class="lk"><a href="https://www.instagram.com/reel/DYDz3jgz_Ba/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.08</td><td class="ns">5만</td></tr>
-        <tr class="row-sep"><td>17</td><td class="id">everybbang</td><td class="lk"><a href="https://www.instagram.com/reel/DZeuxvATw0b/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">7,794</td></tr>
-        <tr><td>18</td><td class="id">mukpresident</td><td class="lk"><a href="https://www.instagram.com/reel/DZcvuwYuZ5a/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">7.7만</td></tr>
-        <tr><td>19</td><td class="id">matprincess_</td><td class="lk"><a href="https://www.instagram.com/reel/DZMnH9-zkJM/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.05</td><td class="ns">5,958</td></tr>
-        <tr><td>20</td><td class="id">gge.juck</td><td class="lk"><a href="https://www.instagram.com/reel/DZeTxZdOHMs/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">1.5만</td></tr>
-        <tr><td>21</td><td class="id">mukddo_muk</td><td class="lk"><a href="https://www.instagram.com/p/DZUV9yHRIdQ/" target="_blank">post</a></td><td><span class="r2">2차</span></td><td>06.08</td><td class="ns">2.8만</td></tr>
-        <tr><td>22</td><td class="id">mukbears</td><td class="lk"><a href="https://www.instagram.com/reel/DZcJjEHpJTB/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">1만</td></tr>
-        <tr><td>23</td><td class="id">hey_jihye__</td><td class="lk"><a href="https://www.instagram.com/reel/DZb7tQiz1Md/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">6만</td></tr>
-        <tr><td>24</td><td class="id">matpic_</td><td class="lk"><a href="https://www.instagram.com/reel/DZfCvRmgCnP/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">9,823</td></tr>
-        <tr><td>25</td><td class="id">mukzido_</td><td class="lk"><a href="https://www.instagram.com/reel/DZZkfa-yP19/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.10</td><td class="ns">3.4만</td></tr>
-        <tr><td>26</td><td class="id">matzipgae</td><td class="lk"><a href="https://www.instagram.com/reel/DZZ4pnmB2-p/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.10</td><td class="ns">3.9만</td></tr>
-        <tr><td>27</td><td class="id">mukchoding</td><td class="lk"><a href="https://www.instagram.com/reel/DZfBIzkp7h_/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">3.4만</td></tr>
-        <tr><td>28</td><td class="id">food.dang</td><td class="lk"><a href="https://www.instagram.com/reel/DZceQiBJEkz/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">2,842</td></tr>
-        <tr><td>29</td><td class="id">rini._.siasia</td><td class="lk"><a href="https://www.instagram.com/reel/DZhLKq3vMyy/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.13</td><td class="ns">2만</td></tr>
-        <tr><td>30</td><td class="id">semogan_eat</td><td class="lk"><a href="https://www.instagram.com/reel/DZeh6wJPMZC/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">8,857</td></tr>
-        <tr><td>31</td><td class="id">ji_yu_mmy</td><td class="lk"><a href="https://www.instagram.com/reel/DZgoxeePyXG/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.13</td><td class="ns">4,925</td></tr>
+        <tr><td>1</td><td class="id">mukpresident</td><td class="lk"><a href="https://www.instagram.com/reel/DXgaiJMDmow/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.24</td><td class="nv">91만</td><td class="ns">12,000</td><td class="ns">3,109</td><td class="ns">15,109</td><td class="ns">150만+VAT</td><td>KB국민은행</td><td>김기용(먹세권)</td><td class="sm">355-137-04-000717</td></tr>
+        <tr><td>2</td><td class="id">dessert_entrance_</td><td class="lk"><a href="https://www.instagram.com/reel/DXoC-4BgYRd/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.27</td><td class="ns">7.7만</td><td class="ns">463</td><td class="ns">316</td><td class="ns">779</td><td class="ns">130만</td><td>카카오뱅크</td><td>이경익</td><td class="sm">3333-34-7443924</td></tr>
+        <tr><td>3</td><td class="id">omuk.official</td><td class="lk"><a href="https://www.instagram.com/reel/DXqGeOGiXFz/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.28</td><td class="nv">24.1만</td><td class="ns">421</td><td class="ns">273</td><td class="ns">694</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>4</td><td class="id">thingthing.kr</td><td class="lk"><a href="https://www.instagram.com/reel/DXs42gok1Gz/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">6.4만</td><td class="ns">90</td><td class="ns">53</td><td class="ns">143</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>5</td><td class="id">inssa_elf</td><td class="lk"><a href="https://www.instagram.com/reel/DXs4xAsiDF7/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">5.5만</td><td class="ns">67</td><td class="ns">63</td><td class="ns">130</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>6</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/reel/DXtyBdLE5jP/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">3.5만</td><td class="ns">162</td><td class="ns">102</td><td class="ns">264</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>7</td><td class="id">foozim</td><td class="lk"><a href="https://www.instagram.com/reels/DXsq1GbknnU/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.29</td><td class="ns">4.4만</td><td class="ns">106</td><td class="ns">72</td><td class="ns">178</td><td class="ns">55만</td><td>카카오뱅크</td><td>정병희</td><td class="sm">3333-34-1917303</td></tr>
+        <tr><td>8</td><td class="id">nemoy_a</td><td class="lk"><a href="https://www.instagram.com/reel/DX0ty2iPyfO/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.02</td><td class="ns">3.8만</td><td class="ns">1,051</td><td class="ns">1,095</td><td class="ns">2,146</td><td class="ns">35만</td><td></td><td></td><td></td></tr>
+        <tr><td>9</td><td class="id">nanain.pig</td><td class="lk"><a href="https://www.instagram.com/reel/DYMYoKuJ7pE/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.12</td><td class="nv">14.9만</td><td class="ns">784</td><td class="ns">76</td><td class="ns">860</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>10</td><td class="id">musteat_official</td><td class="lk"><a href="https://www.instagram.com/reel/DXvTYRNp2ua/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>04.30</td><td class="ns">2.6만</td><td class="ns">213</td><td class="ns">96</td><td class="ns">309</td><td class="ns">70만+VAT</td><td>신한은행</td><td>강민석</td><td class="sm">110-608-699826</td></tr>
+        <tr><td>11</td><td class="id">sh.cookkook</td><td class="lk"><a href="https://www.instagram.com/reel/DYOw3KIv2KE/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.12</td><td class="ns">6.7만</td><td class="ns">173</td><td class="ns">59</td><td class="ns">232</td><td class="ns">80만</td><td>카카오뱅크</td><td>신은정(신콕)</td><td class="sm">3333-30-3294549</td></tr>
+        <tr><td>12</td><td class="id">jack__foodie</td><td class="lk"><a href="https://www.instagram.com/reel/DYRdhmYTTzV/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.13</td><td class="ns">3.1만</td><td class="ns">21</td><td class="ns">19</td><td class="ns">40</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>13</td><td class="id">ruri.food</td><td class="lk"><a href="https://www.instagram.com/reel/DYEJsskTE-N/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.08</td><td class="ns">2.6만</td><td class="ns">64</td><td class="ns">26</td><td class="ns">90</td><td class="ns">45만</td><td>카카오뱅크</td><td>홍슬기(루리푸드)</td><td class="sm">3333-30-8241327</td></tr>
+        <tr><td>14</td><td class="id">eatjinyyy</td><td class="lk"><a href="https://www.instagram.com/reel/DYYvbp3h4aG/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.16</td><td class="ns">5.6만</td><td class="ns">324</td><td class="ns">162</td><td class="ns">486</td><td class="ns">30만</td><td>새마을금고</td><td>김미진</td><td class="sm">9002-14-3718756</td></tr>
+        <tr><td>15</td><td class="id">opetion_h</td><td class="lk"><a href="https://www.instagram.com/reel/DYQvY--TM8Z/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.13</td><td class="ns">2.3만</td><td class="ns">160</td><td class="ns">40</td><td class="ns">200</td><td class="ns">43만</td><td>KB국민은행</td><td>송사랑</td><td class="sm">74670101764220</td></tr>
+        <tr><td>16</td><td class="id">asknavi.korea_food</td><td class="lk"><a href="https://www.instagram.com/reel/DYDz3jgz_Ba/" target="_blank">reel</a></td><td><span class="r1">1차</span></td><td>05.08</td><td class="ns">5만</td><td></td><td></td><td></td><td class="ns">50만</td><td>카카오뱅크</td><td>오동원</td><td class="sm">3333-16-9565175</td></tr>
+        <tr class="row-sep"><td>17</td><td class="id">everybbang</td><td class="lk"><a href="https://www.instagram.com/reel/DZeuxvATw0b/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">7,794</td><td class="ns">24</td><td class="ns">12</td><td class="ns">36</td><td class="ns">8만</td><td>신협은행</td><td>강유나</td><td class="sm">303912010360</td></tr>
+        <tr><td>18</td><td class="id">mukpresident</td><td class="lk"><a href="https://www.instagram.com/reel/DZcvuwYuZ5a/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">7.7만</td><td class="ns">190</td><td class="ns">110</td><td class="ns">300</td><td class="ns">150만+VAT</td><td>KB국민은행</td><td>김기용(먹세권)</td><td class="sm">355-137-04-000717</td></tr>
+        <tr><td>19</td><td class="id">matprincess_</td><td class="lk"><a href="https://www.instagram.com/reel/DZMnH9-zkJM/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.05</td><td class="ns">5,958</td><td class="ns">25</td><td class="ns">15</td><td class="ns">40</td><td class="ns">15만</td><td>카카오뱅크</td><td>우선아</td><td class="sm">3333-37-3939635</td></tr>
+        <tr><td>20</td><td class="id">gge.juck</td><td class="lk"><a href="https://www.instagram.com/reel/DZeTxZdOHMs/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">1.5만</td><td class="ns">159</td><td class="ns">63</td><td class="ns">222</td><td class="ns">30만</td><td>우리은행</td><td>조석래</td><td class="sm">1002-961-397029</td></tr>
+        <tr><td>21</td><td class="id">mukddo_muk</td><td class="lk"><a href="https://www.instagram.com/p/DZUV9yHRIdQ/" target="_blank">post</a></td><td><span class="r2">2차</span></td><td>06.08</td><td class="ns">2.8만</td><td class="ns">212</td><td class="ns">34</td><td class="ns">246</td><td class="ns">50만</td><td>카카오뱅크</td><td>이가은</td><td class="sm">3333-07-9153038</td></tr>
+        <tr><td>22</td><td class="id">mukbears</td><td class="lk"><a href="https://www.instagram.com/reel/DZcJjEHpJTB/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">1만</td><td class="ns">248</td><td class="ns">32</td><td class="ns">280</td><td class="ns">25만</td><td>신한은행</td><td>최나영</td><td class="sm">110-536-974763</td></tr>
+        <tr><td>23</td><td class="id">hey_jihye__</td><td class="lk"><a href="https://www.instagram.com/reel/DZb7tQiz1Md/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">6만</td><td class="ns">262</td><td class="ns">81</td><td class="ns">343</td><td class="ns">100만</td><td>하나은행</td><td>김형준</td><td class="sm">38691045225507</td></tr>
+        <tr><td>24</td><td class="id">matpic_</td><td class="lk"><a href="https://www.instagram.com/reel/DZfCvRmgCnP/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">9,823</td><td class="ns">66</td><td class="ns">10</td><td class="ns">76</td><td class="ns">60만</td><td>KB국민은행</td><td>박진형(스테디빌로우)</td><td class="sm">368-101-01-136751</td></tr>
+        <tr><td>25</td><td class="id">mukzido_</td><td class="lk"><a href="https://www.instagram.com/reel/DZZkfa-yP19/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.10</td><td class="ns">3.4만</td><td class="ns">143</td><td class="ns">53</td><td class="ns">196</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>26</td><td class="id">matzipgae</td><td class="lk"><a href="https://www.instagram.com/reel/DZZ4pnmB2-p/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.10</td><td class="ns">3.9만</td><td class="ns">5,243</td><td class="ns">59</td><td class="ns">5,302</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>27</td><td class="id">mukchoding</td><td class="lk"><a href="https://www.instagram.com/reel/DZfBIzkp7h_/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">3.4만</td><td class="ns">3,943</td><td class="ns">44</td><td class="ns">3,987</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>28</td><td class="id">food.dang</td><td class="lk"><a href="https://www.instagram.com/reel/DZceQiBJEkz/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.11</td><td class="ns">2,842</td><td class="ns">34</td><td class="ns">12</td><td class="ns">46</td><td></td><td></td><td></td><td></td></tr>
+        <tr><td>29</td><td class="id">rini._.siasia</td><td class="lk"><a href="https://www.instagram.com/reel/DZhLKq3vMyy/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.13</td><td class="ns">2만</td><td class="ns">101</td><td class="ns">43</td><td class="ns">144</td><td class="ns">55만</td><td>농협은행</td><td>이혜린</td><td class="sm">3520890439123</td></tr>
+        <tr><td>30</td><td class="id">semogan_eat</td><td class="lk"><a href="https://www.instagram.com/reel/DZeh6wJPMZC/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.12</td><td class="ns">8,857</td><td class="ns">159</td><td class="ns">22</td><td class="ns">181</td><td class="ns">30만</td><td>농협은행</td><td>장다정</td><td class="sm">3520450997413</td></tr>
+        <tr><td>31</td><td class="id">ji_yu_mmy</td><td class="lk"><a href="https://www.instagram.com/reel/DZgoxeePyXG/" target="_blank">reel</a></td><td><span class="r2">2차</span></td><td>06.13</td><td class="ns">4,925</td><td class="ns">31</td><td class="ns">13</td><td class="ns">44</td><td class="ns">35만</td><td>KB국민은행</td><td>최지연</td><td class="sm">75710204456453</td></tr>
       </tbody>
       <tfoot>
         <tr>
           <td colspan="5">합계</td>
           <td class="nv">224.9만</td>
+          <td class="ns">26,939</td>
+          <td class="ns">6,164</td>
+          <td class="ns">33,103</td>
+          <td colspan="4"></td>
         </tr>
       </tfoot>
     </table>
