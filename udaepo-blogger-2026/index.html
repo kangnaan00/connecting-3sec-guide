@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>우대포 블로거 캠페인 결과</title>
+<title>우대포 인스타그램 캠페인 결과</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
 <style>
   :root { --c: #e55a00; }
@@ -34,12 +34,24 @@
   .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 960px; }
+  col.c-num  { width: 36px; }
+  col.c-id   { width: 160px; }
+  col.c-ch   { width: 52px; }
+  col.c-date { width: 60px; }
+  col.c-view { width: 80px; }
+  col.c-share{ width: 76px; }
+  col.c-save { width: 76px; }
+  col.c-ss   { width: 84px; }
+  col.c-cost { width: 96px; }
+  col.c-cpv  { width: 70px; }
+  col.c-ssp  { width: 80px; }
   thead tr { border-bottom: 2px solid #111; }
   th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
   th:nth-child(-n+3) { text-align: left; }
-  td { padding: 11px 10px 3px; border-bottom: none; font-size: 14px; text-align: right; color: #111; vertical-align: top; }
+  td { padding: 11px 10px 3px; border-bottom: none; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
   td:nth-child(-n+3) { text-align: left; }
+  td.id { white-space: normal; }
   .id { font-weight: 700; }
   .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
   .lk a:hover { color: var(--c); }
@@ -67,7 +79,7 @@
 <body>
 <div class="wrap">
   <span class="brand">우대포</span>
-  <p class="tagline">블로거 캠페인 결과 · 2026. 04 · 20개 계정</p>
+  <p class="tagline">인스타그램 캠페인 결과 · 2026. 04 · 20개 계정</p>
 
   <div class="view-tabs">
     <button class="view-tab active" data-view="internal">내부용</button>
@@ -89,6 +101,12 @@
   <div class="section-title">계정별 수치</div>
   <div class="tbl-wrap">
     <table>
+      <colgroup>
+        <col class="c-num"><col class="c-id"><col class="c-ch">
+        <col class="c-date"><col class="c-view"><col class="c-share">
+        <col class="c-save"><col class="c-ss"><col class="c-cost">
+        <col class="c-cpv"><col class="c-ssp">
+      </colgroup>
       <thead>
         <tr>
           <th>#</th><th>아이디</th><th>채널</th>
@@ -182,6 +200,11 @@
   <div class="section-title">계정별 수치</div>
   <div class="tbl-wrap">
     <table>
+      <colgroup>
+        <col class="c-num"><col class="c-id"><col class="c-ch">
+        <col class="c-date"><col class="c-view"><col class="c-share">
+        <col class="c-save"><col class="c-ss">
+      </colgroup>
       <thead>
         <tr>
           <th>#</th><th>아이디</th><th>채널</th>
