@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>루프808 인플루언서 캠페인 결과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+  :root { --c: #FF5733; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff; color: #111;
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 720px; margin-inline: auto; }
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 16vw, 96px);
+    letter-spacing: 0.06em;
+    color: var(--c); line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 24px; }
+  @media(min-width:480px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-box { border: 2px solid #111; border-radius: 6px; padding: 14px 14px 12px; }
+  .stat-box.wide { grid-column: span 2; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,7vw,36px); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: #111; line-height: 1; }
+  .stat-num.hi { color: var(--c); }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+  .round-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 32px; }
+  .round-box { border: 1.5px solid #e0e0e0; border-radius: 6px; padding: 12px 14px; }
+  .round-label { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #888; margin-bottom: 4px; }
+  .round-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px,5vw,26px); color: var(--c); line-height: 1; }
+  .round-detail { font-size: 11px; color: #888; margin-top: 3px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; min-width: 900px; }
+  thead tr { border-bottom: 2px solid #111; }
+  th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
+  th:nth-child(-n+5) { text-align: left; }
+  td { padding: 11px 10px; border-bottom: 1px solid #e0e0e0; font-size: 14px; text-align: right; color: #111; }
+  td:nth-child(-n+5) { text-align: left; }
+  .id { font-weight: 700; }
+  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .lk a:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
+  .ns { font-weight: 700; }
+  .sep td { background: #f5f5f5; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #666; padding: 7px 10px; border-bottom: none; text-align: left !important; border-top: 2px solid #ddd; }
+  tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
+  tfoot td:nth-child(-n+3) { text-align: left; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<span class="brand">LOOP 808</span>
+<p class="tagline">인플루언서 캠페인 결과 · 2026.08 · 14개 계정</p>
+
+<div class="summary-title">캠페인 전체 합계</div>
+<div class="stats-grid">
+  <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">1,065<span class="stat-unit">만원</span></div></div>
+  <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">537.6<span class="stat-unit">만</span></div></div>
+  <div class="stat-box"><div class="stat-label">CPV</div><div class="stat-num hi">1.98<span class="stat-unit">원</span></div></div>
+  <div class="stat-box"><div class="stat-label">총 리포스트</div><div class="stat-num">1,853<span class="stat-unit">건</span></div></div>
+  <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">53,646<span class="stat-unit">건</span></div></div>
+  <div class="stat-box"><div class="stat-label">총 좋아요</div><div class="stat-num">50,117<span class="stat-unit">건</span></div></div>
+  <div class="stat-box wide"><div class="stat-label">공유+좋아요 합계</div><div class="stat-num">103,763<span class="stat-unit">건</span></div></div>
+</div>
+
+<div class="summary-title">회차별 요약</div>
+<div class="round-grid">
+  <div class="round-box">
+    <div class="round-label">뷰위주</div>
+    <div class="round-num">275.7<span style="font-family:'Noto Sans KR';font-size:13px;font-weight:600;margin-left:2px">만</span></div>
+    <div class="round-detail">8개 · 505만원 · CPV 1.83원</div>
+    <div class="round-detail">08.09~08.19</div>
+  </div>
+  <div class="round-box">
+    <div class="round-label">빙수</div>
+    <div class="round-num">261.9<span style="font-family:'Noto Sans KR';font-size:13px;font-weight:600;margin-left:2px">만</span></div>
+    <div class="round-detail">6개 · 560만원 · CPV 2.14원</div>
+    <div class="round-detail">08.06~08.14</div>
+  </div>
+</div>
+
+<div class="section-title">계정별 수치</div>
+<div class="tbl-wrap">
+<table>
+<thead>
+  <tr>
+    <th>#</th><th>아이디</th><th>채널</th><th>회차</th><th>업로드일</th>
+    <th>조회수</th><th>좋아요</th><th>공유</th><th>리포스트</th><th>비용</th><th>구분</th>
+  </tr>
+</thead>
+<tbody>
+  <tr class="sep"><td colspan="11">뷰위주 · 2026.08.09~08.19 · 8개 · 5,050,000원</td></tr>
+  <tr><td>1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.10</td><td class="nv">221만</td><td class="ns">18,000</td><td class="ns">27,000</td><td class="ns">937</td><td class="ns">65만</td><td>사업자</td></tr>
+  <tr><td>2</td><td class="id">_plan_book</td><td class="lk"><a href="https://www.instagram.com/_plan_book/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.09</td><td class="nv">15.2만</td><td class="ns">2,429</td><td class="ns">2,115</td><td class="ns">121</td><td class="ns">90만</td><td>사업자</td></tr>
+  <tr><td>3</td><td class="id">tasty.gangnam</td><td class="lk"><a href="https://www.instagram.com/tasty.gangnam/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.13</td><td class="nv">2.3만</td><td class="ns">660</td><td class="ns">221</td><td class="ns">2</td><td class="ns">35만</td><td>사업자</td></tr>
+  <tr><td>4</td><td class="id">chloe__story</td><td class="lk"><a href="https://www.instagram.com/chloe__story/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.10</td><td class="nv">3.1만</td><td class="ns">484</td><td class="ns">776</td><td class="ns">49</td><td class="ns">60만</td><td>개인</td></tr>
+  <tr><td>5</td><td class="id">a.0_daily</td><td class="lk"><a href="https://www.instagram.com/a.0_daily/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.11</td><td class="nv">1.7만</td><td class="ns">190</td><td class="ns">78</td><td class="ns">14</td><td class="ns">45만</td><td>개인</td></tr>
+  <tr><td>6</td><td class="id">reneve__</td><td class="lk"><a href="https://www.instagram.com/reneve__/" target="_blank">링크</a></td><td>뷰위주</td><td>08.19</td><td class="nv">29.2만</td><td class="ns">2,362</td><td class="ns">3,202</td><td class="ns">196</td><td class="ns">95만</td><td>사업자</td></tr>
+  <tr><td>7</td><td class="id">mukbbo_date</td><td class="lk"><a href="https://www.instagram.com/reel/DZ2YqTxhe_e/" target="_blank">reel</a></td><td>뷰위주</td><td>08.12</td><td class="nv">1.8만</td><td class="ns">175</td><td class="ns">122</td><td class="ns">15</td><td class="ns">35만</td><td>개인</td></tr>
+  <tr><td>8</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/reels/" target="_blank">링크</a></td><td>뷰위주</td><td>08.19</td><td class="nv">1.4만</td><td class="ns">—</td><td class="ns">102</td><td class="ns">5</td><td class="ns">80만</td><td>개인</td></tr>
+
+  <tr class="sep"><td colspan="11">빙수 · 2026.08.06~08.14 · 6개 · 5,600,000원</td></tr>
+  <tr><td>9</td><td class="id">biteofyommy</td><td class="lk"><a href="https://www.instagram.com/reel/DafUHO5P_Zj/" target="_blank">reel</a></td><td>빙수</td><td>08.10</td><td class="nv">46.9만</td><td class="ns">5,541</td><td class="ns">4,790</td><td class="ns">148</td><td class="ns">90만</td><td>사업자</td></tr>
+  <tr><td>10</td><td class="id">my_season___</td><td class="lk"><a href="https://www.instagram.com/my_season___/reels/" target="_blank">링크</a></td><td>빙수</td><td>08.09</td><td class="nv">12.1만</td><td class="ns">2,564</td><td class="ns">1,484</td><td class="ns">53</td><td class="ns">180만</td><td>사업자</td></tr>
+  <tr><td>11</td><td class="id">seoulfeel_</td><td class="lk"><a href="https://www.instagram.com/p/DYBBDj7Bbjg/" target="_blank">링크</a></td><td>빙수</td><td>08.12</td><td class="nv">10만</td><td class="ns">669</td><td class="ns">621</td><td class="ns">37</td><td class="ns">50만</td><td>사업자</td></tr>
+  <tr><td>12</td><td class="id">sh.cookkook</td><td class="lk"><a href="https://www.instagram.com/sh.cookkook/reels/" target="_blank">링크</a></td><td>빙수</td><td>08.14</td><td class="nv">6.1만</td><td class="ns">551</td><td class="ns">627</td><td class="ns">22</td><td class="ns">80만</td><td>사업자</td></tr>
+  <tr><td>13</td><td class="id">min.ddo_o</td><td class="lk"><a href="https://www.instagram.com/min.ddo_o/" target="_blank">링크</a></td><td>빙수</td><td>08.13</td><td class="nv">56.8만</td><td class="ns">6,492</td><td class="ns">6,877</td><td class="ns">187</td><td class="ns">70만</td><td>사업자</td></tr>
+  <tr><td>14</td><td class="id">hey_jihye__</td><td class="lk"><a href="https://www.instagram.com/hey_jihye__/" target="_blank">링크</a></td><td>빙수</td><td>08.06</td><td class="nv">130만</td><td class="ns">10,000</td><td class="ns">5,631</td><td class="ns">67</td><td class="ns">90만</td><td>사업자</td></tr>
+</tbody>
+<tfoot>
+  <tr>
+    <td colspan="3">합계</td><td></td><td></td>
+    <td class="nv">537.6만</td><td class="ns">50,117</td><td class="ns">53,646</td><td class="ns">1,853</td>
+    <td class="ns">1,065만</td><td></td>
+  </tr>
+</tfoot>
+</table>
+</div>
+
+</div>
+</body>
+</html>
