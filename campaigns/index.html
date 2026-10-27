@@ -6,100 +6,95 @@
 <title>캠페인 결과</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { height: 100%; overflow: hidden; background: #111; }
-  body { display: flex; flex-direction: column; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
+  body { background: #111; font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif; }
 
-  .tabbar {
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  .nav {
+    position: sticky; top: 0; z-index: 100;
+    display: flex; align-items: center; gap: 4px;
     padding: 10px 14px;
-    background: #111;
-    overflow-x: auto;
-    flex-shrink: 0;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: max(10px, env(safe-area-inset-bottom));
     padding-left: max(14px, env(safe-area-inset-left));
     padding-right: max(14px, env(safe-area-inset-right));
+    background: #111;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
-  .tabbar::-webkit-scrollbar { display: none; }
+  .nav::-webkit-scrollbar { display: none; }
 
-  .tab-label {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    margin-right: 8px;
-    white-space: nowrap;
-    flex-shrink: 0;
+  .nav-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+    margin-right: 6px; white-space: nowrap; flex-shrink: 0;
   }
 
-  .tab {
+  .nav a {
+    display: block;
     padding: 7px 16px;
     border-radius: 20px;
-    font-size: 13px;
-    font-weight: 700;
-    cursor: pointer;
-    border: none;
-    background: rgba(255,255,255,0.1);
+    font-size: 13px; font-weight: 700;
     color: rgba(255,255,255,0.5);
-    white-space: nowrap;
+    background: rgba(255,255,255,0.1);
+    text-decoration: none;
+    white-space: nowrap; flex-shrink: 0;
     transition: background .15s, color .15s;
-    font-family: inherit;
-    flex-shrink: 0;
   }
-  .tab:hover { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.8); }
-  .tab.active { background: #fff; color: #111; }
+  .nav a:hover { background: rgba(255,255,255,0.18); color: rgba(255,255,255,0.8); }
 
-  .frame-wrap { flex: 1; position: relative; overflow: hidden; }
+  .brand-section { width: 100%; background: #fff; }
+  .brand-section + .brand-section { border-top: 8px solid #111; }
+
   iframe {
-    position: absolute;
-    inset: 0;
     width: 100%;
-    height: 100%;
     border: none;
-    background: #fff;
-    opacity: 1;
-    transition: opacity .1s;
+    display: block;
+    min-height: 400px;
   }
-  iframe.hidden { display: none; }
 </style>
 </head>
 <body>
 
-<nav class="tabbar">
-  <span class="tab-label">캠페인</span>
-  <button class="tab active" data-id="udaepo">우대포</button>
-  <button class="tab" data-id="grikberry">그릭베리</button>
-  <button class="tab" data-id="ampleplayground">앰플레이그라운드</button>
-  <button class="tab" data-id="loop808">루프808</button>
-  <button class="tab" data-id="jinhaeyanabong">진해양봉</button>
-  <button class="tab" data-id="chakhangudu">착한구두</button>
+<nav class="nav">
+  <span class="nav-label">캠페인</span>
+  <a href="#udaepo">우대포</a>
+  <a href="#grikberry">그릭베리</a>
+  <a href="#ampleplayground">앰플레이그라운드</a>
+  <a href="#loop808">루프808</a>
+  <a href="#jinhaeyanabong">진해양봉</a>
+  <a href="#chakhangudu">착한구두</a>
 </nav>
 
-<div class="frame-wrap">
-  <iframe id="frame-udaepo"         src="../udaepo-blogger-2026/"></iframe>
-  <iframe id="frame-grikberry"      src="../grikberry-2026/"        class="hidden"></iframe>
-  <iframe id="frame-ampleplayground" src="../ampleplayground-2026/" class="hidden"></iframe>
-  <iframe id="frame-loop808"        src="../loop808-2026/"          class="hidden"></iframe>
-  <iframe id="frame-jinhaeyanabong" src="../jinhaeyanabong-2026/"   class="hidden"></iframe>
-  <iframe id="frame-chakhangudu"    src="../chakhangudu-2026/"      class="hidden"></iframe>
-</div>
+<section class="brand-section" id="udaepo">
+  <iframe src="../udaepo-blogger-2026/" scrolling="no" id="f-udaepo"></iframe>
+</section>
+<section class="brand-section" id="grikberry">
+  <iframe src="../grikberry-2026/" scrolling="no" id="f-grikberry"></iframe>
+</section>
+<section class="brand-section" id="ampleplayground">
+  <iframe src="../ampleplayground-2026/" scrolling="no" id="f-ampleplayground"></iframe>
+</section>
+<section class="brand-section" id="loop808">
+  <iframe src="../loop808-2026/" scrolling="no" id="f-loop808"></iframe>
+</section>
+<section class="brand-section" id="jinhaeyanabong">
+  <iframe src="../jinhaeyanabong-2026/" scrolling="no" id="f-jinhaeyanabong"></iframe>
+</section>
+<section class="brand-section" id="chakhangudu">
+  <iframe src="../chakhangudu-2026/" scrolling="no" id="f-chakhangudu"></iframe>
+</section>
 
 <script>
-  const tabs   = document.querySelectorAll('.tab');
-  const loaded = new Set(['udaepo']);
+  function fitIframe(iframe) {
+    try {
+      const h = iframe.contentWindow.document.documentElement.scrollHeight;
+      if (h > 0) iframe.style.height = h + 'px';
+    } catch(e) {}
+  }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const id = tab.dataset.id;
-      tabs.forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.frame-wrap iframe').forEach(f => f.classList.add('hidden'));
-      tab.classList.add('active');
-      const frame = document.getElementById('frame-' + id);
-      frame.classList.remove('hidden');
+  document.querySelectorAll('iframe').forEach(function(iframe) {
+    iframe.addEventListener('load', function() {
+      fitIframe(this);
+      // 폰트 로딩 후 재측정
+      setTimeout(function() { fitIframe(iframe); }, 600);
     });
   });
 </script>
