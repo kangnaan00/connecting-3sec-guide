@@ -52,6 +52,15 @@
   .acct-num { color: #777; margin-left: 6px; letter-spacing: 0.03em; }
   tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
   tfoot td:nth-child(-n+3) { text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+  .view-tabs { display: flex; gap: 6px; margin-bottom: 28px; }
+  .view-tab {
+    padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 2px solid #111; background: #fff; color: #111;
+    font-family: inherit; transition: background .15s, color .15s;
+  }
+  .view-tab.active { background: #111; color: #fff; }
+  .section { display: none; }
+  .section.visible { display: block; }
 </style>
 </head>
 <body>
@@ -59,6 +68,12 @@
   <span class="brand">우대포</span>
   <p class="tagline">블로거 캠페인 결과 · 2026. 04 · 20개 계정</p>
 
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="internal">내부용</button>
+    <button class="view-tab" data-view="external">외부용</button>
+  </div>
+
+  <div class="section visible" id="view-internal">
   <div class="summary-title">캠페인 전체 합계</div>
   <div class="stats-grid">
     <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">1,070<span class="stat-unit">만원</span></div></div>
@@ -149,6 +164,71 @@
       </tfoot>
     </table>
   </div>
+  </div><!-- /view-internal -->
+
+  <div class="section" id="view-external">
+  <div class="summary-title">캠페인 전체 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">2,700<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">2,336<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">CPV</div><div class="stat-num hi">1.16<span class="stat-unit">원</span></div></div>
+    <div class="stat-box"><div class="stat-label">저장공유단가</div><div class="stat-num hi">71.8<span class="stat-unit">원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 저장</div><div class="stat-num">6.2<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">31.4<span class="stat-unit">만</span></div></div>
+    <div class="stat-box wide"><div class="stat-label">저장+공유 합계</div><div class="stat-num hi">37.6<span class="stat-unit">만</span></div></div>
+  </div>
+
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>아이디</th><th>채널</th>
+          <th>업로드일</th><th>조회수</th><th>공유</th><th>저장</th><th>저장+공유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="id">@sse_luv<span class="star">★★</span></td><td class="lk"><a href="https://www.instagram.com/p/DW6Pn2dj74F/" target="_blank">post</a></td><td>04.09</td><td class="nv">696.2만</td><td class="ns">8.2만</td><td class="ns">8,396</td><td class="ns">9만</td></tr>
+        <tr><td>2</td><td class="id">@muk..suzy</td><td class="lk"><a href="https://www.instagram.com/reel/DXG2gprEhls/" target="_blank">reel</a></td><td>04.14</td><td class="nv">20.5만</td><td class="ns">2,666</td><td class="ns">514</td><td class="ns">3,180</td></tr>
+        <tr><td>3</td><td class="id">@misikmann</td><td class="lk"><a href="https://www.instagram.com/reel/DXGrm-vhEEG/" target="_blank">reel</a></td><td>04.14</td><td class="nv">2.1만</td><td class="ns">236</td><td class="ns">89</td><td class="ns">325</td></tr>
+        <tr><td>4</td><td class="id">@kelly_hello380</td><td class="lk"><a href="https://www.instagram.com/p/DXNizZqEwLt/" target="_blank">post</a></td><td>04.17</td><td class="nv">44.3만</td><td class="ns">4,237</td><td class="ns">892</td><td class="ns">5,129</td></tr>
+        <tr><td>5</td><td class="id">@sanghoon.eat<span class="star">★★</span></td><td class="lk"><a href="https://www.instagram.com/reel/DXL9JLcERoJ/" target="_blank">reel</a></td><td>04.16</td><td class="nv">14.8만</td><td class="ns">296</td><td class="ns">97</td><td class="ns">393</td></tr>
+        <tr><td>6</td><td class="id">@incheon.eat</td><td class="lk"><a href="https://www.instagram.com/reel/DXMADQiEl9u/" target="_blank">reel</a></td><td>04.16</td><td class="nv">104.5만</td><td class="ns">1.1만</td><td class="ns">584</td><td class="ns">1.2만</td></tr>
+        <tr><td>7</td><td class="id">@ruri.food<span class="star">★★★</span></td><td class="lk"><a href="https://www.instagram.com/reel/DXgVV_WE-Si/" target="_blank">reel</a></td><td>04.19</td><td class="nv">2.3만</td><td class="ns">123</td><td class="ns">44</td><td class="ns">167</td></tr>
+        <tr><td>8</td><td class="id">@bbo_muksta</td><td class="lk"><a href="https://www.instagram.com/reel/DXYHzsZErv-/" target="_blank">reel</a></td><td>04.21</td><td class="nv">21.1만</td><td class="ns">3,628</td><td class="ns">196</td><td class="ns">3,824</td></tr>
+        <tr><td>9</td><td class="id">@mukpresident</td><td class="lk"><a href="https://www.instagram.com/reel/DXRu5ZvjOPX/" target="_blank">reel</a></td><td>04.19</td><td class="nv">100.4만</td><td class="ns">1.4만</td><td class="ns">5,974</td><td class="ns">2만</td></tr>
+        <tr><td>10</td><td class="id">@muckboeun</td><td class="lk"><a href="https://www.instagram.com/reel/DXRTx7Joziw/" target="_blank">reel</a></td><td>04.18</td><td class="nv">503.8만</td><td class="ns">8만</td><td class="ns">1.6만</td><td class="ns">9.6만</td></tr>
+        <tr><td>11</td><td class="id">@mukgenie</td><td class="lk"><a href="https://www.instagram.com/reel/DXWJdKcCT27/" target="_blank">reel</a></td><td>04.20</td><td class="nv">440.4만</td><td class="ns">4.1만</td><td class="ns">6,094</td><td class="ns">4.7만</td></tr>
+        <tr><td>12</td><td class="id">@matpic_</td><td class="lk"><a href="https://www.instagram.com/reel/DXWJvGNgA2J/" target="_blank">reel</a></td><td>04.20</td><td class="nv">47.9만</td><td class="ns">1.2만</td><td class="ns">697</td><td class="ns">1.3만</td></tr>
+        <tr><td>13</td><td class="id">@mukzido_</td><td class="lk"><a href="https://www.instagram.com/reel/DXOba1uEusp/" target="_blank">reel</a></td><td>04.17</td><td class="nv">3.1만</td><td class="ns">119</td><td class="ns">28</td><td class="ns">147</td></tr>
+        <tr><td>14</td><td class="id">@matzipgae</td><td class="lk"><a href="https://www.instagram.com/p/DXjAJmhh7Ux/" target="_blank">post</a></td><td>04.25</td><td class="nv">4,812</td><td class="ns">112</td><td class="ns">11</td><td class="ns">123</td></tr>
+        <tr><td>15</td><td class="id">@mukchoding</td><td class="lk"><a href="https://www.instagram.com/reel/DXeSr53CUNu/" target="_blank">reel</a></td><td>04.23</td><td class="nv">4.9만</td><td class="ns">1,085</td><td class="ns">38</td><td class="ns">1,123</td></tr>
+        <tr><td>16</td><td class="id">@food.dang</td><td class="lk"><a href="https://www.instagram.com/reel/DXoltl5ESht/" target="_blank">reel</a></td><td>04.27</td><td class="nv">1.2만</td><td class="ns">168</td><td class="ns">12</td><td class="ns">180</td></tr>
+        <tr><td>17</td><td class="id">@muck_mimi</td><td class="lk"><a href="https://www.instagram.com/reel/DXN13XCD-31/" target="_blank">reel</a></td><td>04.16</td><td class="nv">1.8만</td><td class="ns">46</td><td class="ns">14</td><td class="ns">60</td></tr>
+        <tr><td>18</td><td class="id">@wanteat._.eat</td><td class="lk"><a href="https://www.instagram.com/reel/DXeIemOEm17/" target="_blank">reel</a></td><td>04.22</td><td class="nv">1.5만</td><td class="ns">83</td><td class="ns">42</td><td class="ns">125</td></tr>
+        <tr><td>19</td><td class="id">@food._.lan</td><td class="lk"><a href="https://www.instagram.com/reel/DXmCsFKATrw/" target="_blank">reel</a></td><td>04.20</td><td class="nv">6.4만</td><td class="ns">282</td><td class="ns">91</td><td class="ns">373</td></tr>
+        <tr><td>20</td><td class="id">@gamsung_queen</td><td class="lk"><a href="https://www.instagram.com/reel/DXtXt8UkUe8/" target="_blank">reel</a></td><td>04.29</td><td class="nv">318.8만</td><td class="ns">6.1만</td><td class="ns">2.2만</td><td class="ns">8.3만</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">합계</td><td></td>
+          <td class="nv">2,336만</td><td class="ns">31.4만</td><td class="ns">6.2만</td><td class="nv">37.6만</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  </div><!-- /view-external -->
+
 </div>
+<script>
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+      tab.classList.add('active');
+      document.getElementById('view-' + tab.dataset.view).classList.add('visible');
+    });
+  });
+</script>
 </body>
 </html>
