@@ -6,6 +6,7 @@
 <title>그릭베리 인플루언서 캠페인 결과</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
 <style>
+  :root { --c: #8147d0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: #fff;
@@ -15,14 +16,14 @@
     padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
     padding-block: 40px 64px;
   }
-  .wrap { max-width: 720px; margin-inline: auto; }
+  .wrap { max-width: 1300px; margin-inline: auto; }
 
   .brand {
     font-family: 'Noto Sans KR', system-ui, sans-serif;
     font-size: clamp(52px, 15vw, 88px);
     font-weight: 700;
     letter-spacing: -0.02em;
-    color: #8147d0;
+    color: var(--c);
     line-height: 1;
     display: block;
     margin-bottom: 6px;
@@ -55,7 +56,7 @@
     color: #111;
     line-height: 1;
   }
-  .stat-num.hi { color: #8147d0; }
+  .stat-num.hi { color: var(--c); }
   .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
   .stat-sub { font-size: 11px; color: #666; margin-top: 5px; }
 
@@ -90,14 +91,14 @@
   }
   td:first-child, td:nth-child(2) { text-align: left; }
   .id-link { color: #111; text-decoration: none; font-weight: 700; font-size: 13px; }
-  .id-link:hover { color: #8147d0; }
-  .nv { color: #8147d0; font-weight: 700; }
+  .id-link:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
   .ns { font-weight: 700; }
   .r1 {
     display: inline-block;
     font-size: 10px; font-weight: 700;
-    color: #8147d0;
-    border: 1.5px solid #8147d0;
+    color: var(--c);
+    border: 1.5px solid var(--c);
     border-radius: 3px;
     padding: 1px 4px;
     white-space: nowrap;
