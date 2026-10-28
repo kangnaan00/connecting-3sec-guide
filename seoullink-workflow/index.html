@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>서울링크 워크프로세스</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+</head>
+<body>
+<style>
+/* Layout: 상단 헤더 + 세로 플로우 파이프라인 */
+:root {
+  --bg:     #f5f4f1;
+  --bg2:    #eceae4;
+  --bg3:    #ffffff;
+  --fg:     #191818;
+  --fg2:    #635f57;
+  --fg3:    #a09c94;
+  --border: #dedad2;
+  --line:   #cec9bf;
+
+  --c1: #2a6496;  --c1bg: #eaf2fb;
+  --c2: #7b4ea6;  --c2bg: #f3edfb;
+  --c3: #b06e2a;  --c3bg: #fdf4ea;
+  --c4: #b03060;  --c4bg: #fdedf3;
+  --c5: #2e7d52;  --c5bg: #eaf5f0;
+
+  --radius: 12px;
+  --radius-sm: 7px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:     #161514;
+    --bg2:    #1f1e1c;
+    --bg3:    #252420;
+    --fg:     #ede8df;
+    --fg2:    #9a9488;
+    --fg3:    #5e5a52;
+    --border: #302e28;
+    --line:   #3a3830;
+    --c1bg: #152030; --c2bg: #1e1428;
+    --c3bg: #261a0c; --c4bg: #2a1020;
+    --c5bg: #0e2018;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:     #161514;
+  --bg2:    #1f1e1c;
+  --bg3:    #252420;
+  --fg:     #ede8df;
+  --fg2:    #9a9488;
+  --fg3:    #5e5a52;
+  --border: #302e28;
+  --line:   #3a3830;
+  --c1bg: #152030; --c2bg: #1e1428;
+  --c3bg: #261a0c; --c4bg: #2a1020;
+  --c5bg: #0e2018;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 56px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.page-header { margin-bottom: 30px; }
+.eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  color: var(--fg3);
+  margin-bottom: 5px;
+}
+.page-title {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+  color: var(--fg);
+  text-wrap: balance;
+}
+
+/* 플로우 */
+.flow { display: flex; flex-direction: column; gap: 0; max-width: 640px; }
+
+.step {
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  overflow: hidden;
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px 11px;
+}
+.step-num {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700;
+  flex-shrink: 0;
+  color: #fff;
+}
+.step-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  flex: 1; min-width: 0;
+}
+.step-tag {
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  color: #fff;
+}
+
+.step-body { padding: 0 16px 14px 50px; }
+
+/* 체크리스트 */
+.checklist { display: flex; flex-direction: column; gap: 4px; }
+.check-item {
+  display: flex; align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--fg2);
+}
+.check-item::before {
+  content: "—";
+  font-size: 10px; color: var(--fg3);
+  flex-shrink: 0; margin-top: 3px;
+}
+.check-item strong { color: var(--fg); font-weight: 600; }
+
+/* 분기 박스 */
+.branch-box {
+  background: var(--bg2);
+  border-radius: var(--radius-sm);
+  padding: 9px 11px;
+  margin-bottom: 9px;
+  border: 1px solid var(--border);
+}
+.branch-label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.5px; text-transform: uppercase;
+  color: var(--fg3); margin-bottom: 6px;
+}
+.branch-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.branch-chip {
+  font-size: 12px; font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1.5px solid;
+}
+.chip-on  { background: var(--c2bg); border-color: var(--c2); color: var(--c2); }
+.chip-off { background: var(--bg2); border-color: var(--border); color: var(--fg2); }
+.branch-note { font-size: 11px; color: var(--fg3); margin-top: 4px; }
+
+/* 태그 */
+.tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+.tag {
+  font-size: 11.5px; font-weight: 500;
+  padding: 3px 9px;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  color: var(--fg2);
+}
+
+/* 서브 블록 */
+.sub-block {
+  border-left: 2px solid var(--border);
+  padding-left: 10px;
+  margin-top: 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.sub-label {
+  font-size: 10.5px; font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--fg3);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+/* 칼라웃 */
+.callout {
+  border-radius: var(--radius-sm);
+  padding: 8px 11px;
+  font-size: 12px;
+  color: var(--fg2);
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  margin-top: 9px;
+  line-height: 1.45;
+}
+.callout strong { color: var(--fg); font-weight: 600; }
+
+/* 화살표 */
+.connector {
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 28px;
+  height: 22px;
+  align-items: center;
+}
+.connector-line {
+  width: 2px; height: 100%;
+  background: var(--line);
+  border-radius: 2px;
+  position: relative;
+}
+.connector-line::after {
+  content: "";
+  position: absolute;
+  bottom: -4px; left: 50%;
+  transform: translateX(-50%);
+  width: 0; height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid var(--line);
+}
+
+/* 스텝 테마 매크로 */
+.s1 { background: var(--c1bg); border-color: color-mix(in srgb, var(--c1) 28%, var(--border)); }
+.s1 .step-num { background: var(--c1); }
+.s1 .step-title { color: var(--c1); }
+.s1 .step-tag { background: var(--c1); }
+
+.s2 { background: var(--c2bg); border-color: color-mix(in srgb, var(--c2) 28%, var(--border)); }
+.s2 .step-num { background: var(--c2); }
+.s2 .step-title { color: var(--c2); }
+.s2 .step-tag { background: var(--c2); }
+
+.s3 { background: var(--c3bg); border-color: color-mix(in srgb, var(--c3) 28%, var(--border)); }
+.s3 .step-num { background: var(--c3); }
+.s3 .step-title { color: var(--c3); }
+.s3 .step-tag { background: var(--c3); }
+
+.s4 { background: var(--c4bg); border-color: color-mix(in srgb, var(--c4) 28%, var(--border)); }
+.s4 .step-num { background: var(--c4); }
+.s4 .step-title { color: var(--c4); }
+.s4 .step-tag { background: var(--c4); }
+
+.s5 { background: var(--c5bg); border-color: color-mix(in srgb, var(--c5) 28%, var(--border)); }
+.s5 .step-num { background: var(--c5); }
+.s5 .step-title { color: var(--c5); }
+.s5 .step-tag { background: var(--c5); }
+</style>
+
+<div class="page-header">
+  <div class="eyebrow">서울링크</div>
+  <h1 class="page-title">브랜드 진행 워크프로세스</h1>
+</div>
+
+<div class="flow">
+
+  <!-- 1 -->
+  <div class="step s1">
+    <div class="step-header">
+      <div class="step-num">1</div>
+      <div class="step-title">브랜드 인바운드 확인</div>
+      <div class="step-tag">인테이크</div>
+    </div>
+    <div class="step-body">
+      <div class="checklist">
+        <div class="check-item"><strong>예산</strong> — 총 집행 예산 확인</div>
+        <div class="check-item"><strong>니즈</strong> — 목표(인지도·전환·팔로워 등) 파악</div>
+        <div class="check-item"><strong>이벤트 내용</strong> — 팝업·론칭·콜라보 등 캠페인 형태 확인</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- 2 -->
+  <div class="step s2">
+    <div class="step-header">
+      <div class="step-num">2</div>
+      <div class="step-title">채널 유형 결정 · 단가 예측</div>
+      <div class="step-tag">기획</div>
+    </div>
+    <div class="step-body">
+      <div class="branch-box">
+        <div class="branch-label">섭외 유형</div>
+        <div class="branch-row">
+          <div class="branch-chip chip-on">큐레이션 채널 ✓ 현재 다수</div>
+          <div class="branch-chip chip-off">인플루언서</div>
+        </div>
+        <div class="branch-note">예산·니즈에 따라 혼용 가능</div>
+      </div>
+      <div class="checklist">
+        <div class="check-item"><strong>인당 단가</strong> — 팔로워 규모·카테고리·과거 단가 기준 어림</div>
+        <div class="check-item"><strong>섭외 인원 수</strong> — 예산 ÷ 인당 단가</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- 3 -->
+  <div class="step s3">
+    <div class="step-header">
+      <div class="step-num">3</div>
+      <div class="step-title">레퍼런스 스터디 + 시딩 · 가이드 제작</div>
+      <div class="step-tag">리서치</div>
+    </div>
+    <div class="step-body">
+      <div class="sub-label">서칭 범위</div>
+      <div class="tag-row">
+        <span class="tag"># 브랜드 해시태그</span>
+        <span class="tag">관련 팝업·행사</span>
+        <span class="tag">현재 핫한 알고리즘</span>
+        <span class="tag">카테고리 트렌드</span>
+      </div>
+
+      <div class="sub-block">
+        <div class="sub-label">가이드 제작</div>
+        <div class="check-item">시기성·이벤트성·카테고리 반영하여 <strong>레퍼런스 조합</strong></div>
+        <div class="check-item">조합한 레퍼런스 기반으로 <strong>촬영·편집 가이드 제작</strong></div>
+        <div class="check-item"><strong>가이드 보고</strong> + <strong>시딩 인원 보고</strong></div>
+      </div>
+
+      <div class="sub-block" style="margin-top:9px;">
+        <div class="sub-label">시딩 연락</div>
+        <div class="check-item">기존 브랜드 진행 인원 중 <strong>핏 + 성과 좋은 인원 우선 연락</strong></div>
+        <div class="check-item">신규 발굴 인원 DM·이메일 시딩</div>
+      </div>
+
+      <div class="callout">
+        <strong>/ref</strong> 스킬 — 계정 아이디 + 단가 시트 줄 넘기면 계정 소개·릴스 목록·평균조회수·CPV 자동 출력
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- 4 -->
+  <div class="step s4">
+    <div class="step-header">
+      <div class="step-num">4</div>
+      <div class="step-title">추가 시딩 + 가이드 빌드업</div>
+      <div class="step-tag">보강</div>
+    </div>
+    <div class="step-body">
+      <div class="checklist">
+        <div class="check-item"><strong>드랍 인원</strong> — 핏·일정 등으로 빠진 자리 추가 시딩으로 보충</div>
+        <div class="check-item"><strong>가이드 빌드업</strong> — 시딩 진행 상황·피드백 반영해 가이드 고도화</div>
+        <div class="check-item">추가 시딩 · 가이드 수정 <strong>병행 진행</strong></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- 5 -->
+  <div class="step s5">
+    <div class="step-header">
+      <div class="step-num">5</div>
+      <div class="step-title">영상 컨펌</div>
+      <div class="step-tag">검수</div>
+    </div>
+    <div class="step-body">
+      <div class="checklist">
+        <div class="check-item">제출된 영상 가이드라인 준수 여부 확인</div>
+        <div class="check-item"><strong>컨펌 or 수정 요청</strong> — 피드백 전달</div>
+        <div class="check-item">최종 컨펌 완료 후 업로드 일정 조율</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="connector"><div class="connector-line"></div></div>
+
+  <!-- 6 -->
+  <div class="step" style="background:var(--bg2);border-color:var(--border);">
+    <div class="step-header">
+      <div class="step-num" style="background:var(--fg2);">6</div>
+      <div class="step-title" style="color:var(--fg2);">정산 진행</div>
+      <div class="step-tag" style="background:var(--fg2);">마감</div>
+    </div>
+    <div class="step-body">
+      <div class="checklist">
+        <div class="check-item"><strong>정산 정보 취합</strong> — 인원별 계좌·금액·세금계산서 등</div>
+        <div class="check-item"><strong>슬랙 작성</strong> — 취합한 정산 내용 정리 후 슬랙에 보고</div>
+      </div>
+      <div class="callout">
+        <strong>/settlement</strong> 스킬 — 정산 관련 작성 지원
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
