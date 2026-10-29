@@ -15,7 +15,7 @@
     padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
     padding-block: 40px 64px;
   }
-  .wrap { max-width: 1300px; margin-inline: auto; }
+  .wrap { max-width: 1400px; margin-inline: auto; }
   .brand {
     font-family: 'Noto Sans KR', sans-serif;
     font-size: clamp(44px, 13vw, 80px);
@@ -35,108 +35,253 @@
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; margin-top: 36px; }
   .section-title:first-of-type { margin-top: 0; }
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
-  table.wide { }
-  table.sched { }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; }
+  .tbl-int1 { min-width: 1100px; }
+  .tbl-ext1 { min-width: 580px; }
+  .tbl-sched { min-width: 700px; }
+  .tbl-sched-ext { min-width: 560px; }
+  col.c-num   { width: 36px; }
+  col.c-id    { width: 175px; }
+  col.c-cat   { width: 88px; }
+  col.c-cost  { width: 68px; }
+  col.c-meta  { width: 80px; }
+  col.c-total { width: 80px; }
+  col.c-nat   { width: 80px; }
+  col.c-ad    { width: 80px; }
+  col.c-ncpv  { width: 60px; }
+  col.c-acpv  { width: 60px; }
+  col.c-tcpv  { width: 60px; }
+  col.c-like  { width: 72px; }
+  col.c-cmt   { width: 56px; }
+  col.c-shr   { width: 76px; }
+  col.c-save  { width: 76px; }
+  col.c-stat  { width: 110px; }
+  col.c-scost { width: 90px; }
+  col.c-date  { width: 65px; }
+  col.c-time  { width: 65px; }
+  col.c-conf  { width: 65px; }
+  col.c-udate { width: 65px; }
   thead tr { border-bottom: 2px solid #111; }
   th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
-  .wide th:nth-child(-n+4), .sched th:nth-child(-n+4) { text-align: left; }
-  td { padding: 11px 10px; border-bottom: 1px solid #e0e0e0; font-size: 14px; text-align: right; color: #111; }
-  .wide td:nth-child(-n+4), .sched td:nth-child(-n+4) { text-align: left; }
-  .id { font-weight: 700; }
-  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
-  .lk a:hover { color: var(--c); }
+  th:nth-child(-n+2) { text-align: left; }
+  td { padding: 11px 10px 3px; border-bottom: none; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
+  td:nth-child(-n+2) { text-align: left; }
+  td.id { white-space: normal; }
+  .id-link { color: #111; text-decoration: none; font-weight: 700; font-size: 14px; }
+  .id-link:hover { color: var(--c); }
   .nv { color: var(--c); font-weight: 700; }
   .ns { font-weight: 700; }
   .na { color: #bbb; font-size: 12px; }
+  .cpv { font-weight: 700; color: #555; }
+  .r1 { display: inline-block; font-size: 10px; font-weight: 700; color: var(--c); border: 1.5px solid var(--c); border-radius: 3px; padding: 1px 4px; white-space: nowrap; vertical-align: middle; }
+  .r2 { display: inline-block; font-size: 10px; font-weight: 700; color: #555; border: 1.5px solid #bbb; border-radius: 3px; padding: 1px 4px; white-space: nowrap; vertical-align: middle; }
+  .acct-row td { padding: 2px 10px 11px; font-size: 12px; color: #555; text-align: left; border-bottom: 1px solid #e0e0e0; }
+  .acct-name { font-weight: 600; color: #333; }
+  .acct-num { color: #777; margin-left: 6px; letter-spacing: 0.03em; }
   .badge { display: inline-block; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 10px; white-space: nowrap; }
   .badge.done { background: #e8f5e9; color: #2e7d32; }
   .badge.pend { background: #fff3e0; color: #e65100; }
   .badge.comm { background: #e3f2fd; color: #1565c0; }
   tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
-  tfoot td:nth-child(-n+3) { text-align: left; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; }
-  .acct-row td { padding: 2px 10px 11px; font-size: 12px; color: #555; text-align: left; border-bottom: 1px solid #e0e0e0; }
-  .acct-name { font-weight: 600; color: #333; }
-  .acct-num { color: #777; margin-left: 6px; letter-spacing: 0.03em; }
+  tfoot td:nth-child(-n+2) { text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+  .view-tabs { display: flex; gap: 6px; margin-bottom: 28px; }
+  .view-tab {
+    padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 2px solid #111; background: #fff; color: #111;
+    font-family: inherit; transition: background .15s, color .15s;
+  }
+  .view-tab.active { background: #111; color: #fff; }
+  .section { display: none; }
+  .section.visible { display: block; }
 </style>
 </head>
 <body>
 <div class="wrap">
 
-<span class="brand">착한구두</span>
-<p class="tagline">인플루언서 캠페인 결과 · 2026 · 1차 13개 · 2차 7개 계정</p>
+  <span class="brand">착한구두</span>
+  <p class="tagline">인플루언서 캠페인 결과 · 2026 · 1차 13개 · 2차 7개 계정 · 좋아요·댓글 2026.10.29 기준</p>
 
-<div class="summary-title">1차 캠페인 합계</div>
-<div class="stats-grid">
-  <div class="stat-box"><div class="stat-label">게시광고비</div><div class="stat-num">1,108<span class="stat-unit">만원</span></div></div>
-  <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">1,116.5<span class="stat-unit">만</span></div></div>
-  <div class="stat-box"><div class="stat-label">게시비 CPV</div><div class="stat-num hi">1<span class="stat-unit">원</span></div></div>
-  <div class="stat-box"><div class="stat-label">총 좋아요</div><div class="stat-num">34,632<span class="stat-unit">건</span></div></div>
-  <div class="stat-box"><div class="stat-label">총 댓글</div><div class="stat-num">710<span class="stat-unit">건</span></div></div>
-  <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">41,193<span class="stat-unit">건</span></div></div>
-  <div class="stat-box wide"><div class="stat-label">총 저장</div><div class="stat-num">26,360<span class="stat-unit">건</span></div></div>
-</div>
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="internal">내부용</button>
+    <button class="view-tab" data-view="external">외부용</button>
+  </div>
 
-<div class="section-title">1차 · 계정별 수치</div>
-<div class="tbl-wrap">
-<table class="wide">
-<thead>
-  <tr>
-    <th>#</th><th>아이디</th><th>릴스</th><th>카테고리</th>
-    <th>게시비</th><th>메타광고비</th><th>총 조회수</th><th>자연조회수</th><th>광고조회수</th>
-    <th>자연CPV</th><th>광고CPV</th><th>총CPV</th>
-    <th>좋아요</th><th>댓글</th><th>공유</th><th>저장</th>
-  </tr>
-</thead>
-<tbody>
-  <tr><td>1</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/reel/DZPryj4OOee/" target="_blank">reel1</a></td><td>팝업큐레이션</td><td class="ns">22.5만</td><td class="ns">84.7만</td><td class="nv">66.4만</td><td class="ns">12.7만</td><td class="ns">53.8만</td><td class="ns">2</td><td class="ns">2</td><td class="ns">2</td><td class="ns">441</td><td class="ns">45</td><td class="ns">556</td><td class="ns">250</td></tr>
-  <tr><td>2</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/reel/DZO_vu9uC1F/" target="_blank">reel2</a></td><td>팝업큐레이션</td><td class="ns">22.5만</td><td class="ns">44.7만</td><td class="nv">47.5만</td><td class="ns">18.7만</td><td class="ns">28.8만</td><td class="ns">1</td><td class="ns">2</td><td class="ns">1</td><td class="ns">566</td><td class="ns">53</td><td class="ns">1,013</td><td class="ns">372</td></tr>
-  <tr><td>3</td><td class="id">cherr__iy</td><td class="lk"><a href="https://www.instagram.com/reel/DZPTh1KyK2W/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="ns">13.6만</td><td class="nv">10.1만</td><td class="ns">1.7만</td><td class="ns">8.4만</td><td class="ns">15</td><td class="ns">2</td><td class="ns">4</td><td class="ns">111</td><td class="ns">41</td><td class="ns">130</td><td class="ns">18</td></tr>
-  <tr><td>4</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reel/DZPI7wFBm9M/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">50만</td><td class="ns">101.9만</td><td class="nv">72.5만</td><td class="ns">7.3만</td><td class="ns">65.2만</td><td class="ns">7</td><td class="ns">2</td><td class="ns">2</td><td class="ns">746</td><td class="ns">17</td><td class="ns">1,062</td><td class="ns">332</td></tr>
-  <tr><td>5</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/reel/DZPWMESzmIa/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">45만</td><td class="ns">370만</td><td class="nv">310.6만</td><td class="ns">59만</td><td class="ns">251.6만</td><td class="ns">1</td><td class="ns">1</td><td class="ns">1</td><td class="ns">4,656</td><td class="ns">53</td><td class="ns">6,144</td><td class="ns">3,306</td></tr>
-  <tr><td>6</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/reel/DZQ_LsVT4Pp/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">60만</td><td class="ns">291.8만</td><td class="nv">249.3만</td><td class="ns">61.8만</td><td class="ns">187.5만</td><td class="ns">1</td><td class="ns">2</td><td class="ns">1</td><td class="ns">4,972</td><td class="ns">82</td><td class="ns">16,000</td><td class="ns">6,057</td></tr>
-  <tr><td>7</td><td class="id">gyang_map</td><td class="lk">—</td><td>팝업큐레이션</td><td class="ns">38만</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
-  <tr><td>8</td><td class="id">bangbang_place</td><td class="lk"><a href="https://www.instagram.com/p/DZcdWBIy2dC/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">650만</td><td class="ns">222.9만</td><td class="nv">212만</td><td class="ns">96만</td><td class="ns">115.9만</td><td class="ns">7</td><td class="ns">2</td><td class="ns">4</td><td class="ns">19,023</td><td class="ns">96</td><td class="ns">10,000</td><td class="ns">12,000</td></tr>
-  <tr><td>9</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/reel/DZciKOriZmf/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">40만</td><td class="ns">—</td><td class="nv">10.9만</td><td class="ns">10.9만</td><td class="ns">—</td><td class="ns">4</td><td class="ns">—</td><td class="ns">4</td><td class="ns">1,078</td><td class="ns">116</td><td class="ns">2,199</td><td class="ns">886</td></tr>
-  <tr><td>10</td><td class="id">jerry.note</td><td class="lk"><a href="https://www.instagram.com/reel/DZgmT4LSO2w/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="ns">—</td><td class="nv">7,785</td><td class="ns">7,785</td><td class="ns">—</td><td class="ns">32</td><td class="ns">—</td><td class="ns">32</td><td class="ns">148</td><td class="ns">38</td><td class="ns">36</td><td class="ns">12</td></tr>
-  <tr><td>11</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/reel/DZcHvhvPkFt/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">40만</td><td class="ns">—</td><td class="nv">6만</td><td class="ns">6만</td><td class="ns">—</td><td class="ns">7</td><td class="ns">—</td><td class="ns">7</td><td class="ns">180</td><td class="ns">20</td><td class="ns">326</td><td class="ns">148</td></tr>
-  <tr><td>12</td><td class="id">ye._.bbiiii</td><td class="lk"><a href="https://www.instagram.com/reel/DZemGS1ybwH/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="ns">23만</td><td class="nv">17.1만</td><td class="ns">3.4만</td><td class="ns">13.7만</td><td class="ns">7</td><td class="ns">2</td><td class="ns">3</td><td class="ns">777</td><td class="ns">35</td><td class="ns">496</td><td class="ns">1,310</td></tr>
-  <tr><td>13</td><td class="id">chloe__story</td><td class="lk"><a href="https://www.instagram.com/reel/DZcYTN0zS7q/" target="_blank">reel</a></td><td>팝업큐레이션</td><td class="ns">65만</td><td class="ns">139.6만</td><td class="nv">113.4만</td><td class="ns">26.4만</td><td class="ns">86.9만</td><td class="ns">2</td><td class="ns">2</td><td class="ns">2</td><td class="ns">1,934</td><td class="ns">114</td><td class="ns">3,231</td><td class="ns">1,669</td></tr>
-</tbody>
-<tfoot>
-  <tr>
-    <td colspan="3">합계</td><td></td>
-    <td class="ns">1,108만</td><td></td>
-    <td class="nv">1,116.5만</td><td></td><td></td><td></td><td></td><td></td>
-    <td class="ns">34,632</td><td class="ns">710</td><td class="ns">41,193</td><td class="ns">26,360</td>
-  </tr>
-</tfoot>
-</table>
-</div>
+  <!-- ===== 내부용 ===== -->
+  <div class="section visible" id="view-internal">
+  <div class="summary-title">1차 캠페인 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">게시광고비</div><div class="stat-num">1,108<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">1,116.5<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">게시비 CPV</div><div class="stat-num hi">1<span class="stat-unit">원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 좋아요</div><div class="stat-num">34,632<span class="stat-unit">건</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 댓글</div><div class="stat-num">710<span class="stat-unit">건</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">41,193<span class="stat-unit">건</span></div></div>
+    <div class="stat-box wide"><div class="stat-label">총 저장</div><div class="stat-num">26,360<span class="stat-unit">건</span></div></div>
+  </div>
 
-<div class="section-title">2차 · 일정 및 진행 현황</div>
-<div class="tbl-wrap">
-<table class="sched">
-<thead>
-  <tr>
-    <th>#</th><th>아이디</th><th>링크</th><th>진행여부</th>
-    <th>비용</th><th>방문일</th><th>방문시간</th><th>컨펌일</th><th>업로드일</th>
-  </tr>
-</thead>
-<tbody>
-  <tr><td>1</td><td class="id">seoul__log</td><td class="lk"><a href="https://www.instagram.com/p/DX3fovoTaWw/" target="_blank">링크</a></td><td><span class="badge done">가이드라인완료</span></td><td class="ns">33만</td><td>07.06</td><td>pm2:00</td><td>07.09</td><td>07.17</td></tr>
-  <tr><td>2</td><td class="id">hey_jihye__</td><td class="lk"><a href="https://www.instagram.com/reels/DY3-NHmzn2B/" target="_blank">링크</a></td><td><span class="badge done">가이드라인완료</span></td><td class="ns">99만(VAT)</td><td>07.06</td><td>pm3:00</td><td>—</td><td>07.10</td></tr>
-  <tr class="acct-row"><td colspan="9"><span class="acct-name">하나은행 · 김형준</span><span class="acct-num">38691045225507</span></td></tr>
-  <tr><td>3</td><td class="id">forest.of_seolin</td><td class="lk"><a href="https://www.instagram.com/forest.of_seolin/" target="_blank">링크</a></td><td><span class="badge pend">가이드라인필요</span></td><td class="ns">30만(3.3%)</td><td>07.09</td><td>pm2:00</td><td>07.10</td><td>07.11</td></tr>
-  <tr><td>4</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">링크</a></td><td><span class="badge comm">소통중</span></td><td class="ns">60만</td><td>07.12</td><td>pm4:00</td><td>07.13</td><td>07.15</td></tr>
-  <tr><td>5</td><td class="id">silvery_ooo</td><td class="lk">—</td><td>—</td><td class="ns">69만</td><td>07.15</td><td>pm3:00</td><td>07.17</td><td>07.23</td></tr>
-  <tr><td>6</td><td class="id">bae.sajang</td><td class="lk"><a href="https://www.instagram.com/p/DU8PrPyEZws/" target="_blank">링크</a></td><td><span class="badge comm">소통중</span></td><td class="ns">45만</td><td>07.20</td><td>pm12:30</td><td>07.23</td><td>07.23</td></tr>
-  <tr><td>7</td><td class="id">gamsung_queen</td><td class="lk"><a href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">링크</a></td><td><span class="badge comm">소통중</span></td><td class="ns">100만</td><td>07.21</td><td>pm4:00</td><td>07.30</td><td>07.30</td></tr>
-  <tr class="acct-row"><td colspan="9"><span class="acct-name">카카오뱅크 · 김경현(감성퀸 엔터테인먼트)</span><span class="acct-num">3333-29-9179922</span></td></tr>
-</tbody>
-</table>
-</div>
+  <div class="section-title">1차 · 계정별 수치</div>
+  <div class="tbl-wrap">
+  <table class="tbl-int1">
+    <colgroup>
+      <col class="c-num"><col class="c-id"><col class="c-cat">
+      <col class="c-cost"><col class="c-meta"><col class="c-total">
+      <col class="c-nat"><col class="c-ad">
+      <col class="c-ncpv"><col class="c-acpv"><col class="c-tcpv">
+      <col class="c-like"><col class="c-cmt"><col class="c-shr"><col class="c-save">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th><th>카테고리</th>
+        <th>게시비</th><th>메타광고비</th><th>총 조회수</th>
+        <th>자연조회수</th><th>광고조회수</th>
+        <th>자연CPV</th><th>광고CPV</th><th>총CPV</th>
+        <th>좋아요</th><th>댓글</th><th>공유</th><th>저장</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPryj4OOee/" target="_blank">anotherdoor_travel</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">22.5만</td><td class="ns">84.7만</td><td class="nv">66.4만</td><td class="ns">12.7만</td><td class="ns">53.8만</td><td class="cpv">2</td><td class="cpv">2</td><td class="cpv">2</td><td class="ns">441</td><td class="ns">45</td><td class="ns">556</td><td class="ns">250</td></tr>
+      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZO_vu9uC1F/" target="_blank">anotherdoor_travel</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">22.5만</td><td class="ns">44.7만</td><td class="nv">47.5만</td><td class="ns">18.7만</td><td class="ns">28.8만</td><td class="cpv">1</td><td class="cpv">2</td><td class="cpv">1</td><td class="ns">566</td><td class="ns">53</td><td class="ns">1,013</td><td class="ns">372</td></tr>
+      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPTh1KyK2W/" target="_blank">cherr__iy</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="ns">13.6만</td><td class="nv">10.1만</td><td class="ns">1.7만</td><td class="ns">8.4만</td><td class="cpv">15</td><td class="cpv">2</td><td class="cpv">4</td><td class="ns">111</td><td class="ns">41</td><td class="ns">130</td><td class="ns">18</td></tr>
+      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPI7wFBm9M/" target="_blank">hotple_honeytip</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">50만</td><td class="ns">101.9만</td><td class="nv">72.5만</td><td class="ns">7.3만</td><td class="ns">65.2만</td><td class="cpv">7</td><td class="cpv">2</td><td class="cpv">2</td><td class="ns">746</td><td class="ns">17</td><td class="ns">1,062</td><td class="ns">332</td></tr>
+      <tr><td>5</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPWMESzmIa/" target="_blank">popup_dangni</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">45만</td><td class="ns">370만</td><td class="nv">310.6만</td><td class="ns">59만</td><td class="ns">251.6만</td><td class="cpv">1</td><td class="cpv">1</td><td class="cpv">1</td><td class="ns">4,656</td><td class="ns">53</td><td class="ns">6,144</td><td class="ns">3,306</td></tr>
+      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZQ_LsVT4Pp/" target="_blank">hid_zip</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">60만</td><td class="ns">291.8만</td><td class="nv">249.3만</td><td class="ns">61.8만</td><td class="ns">187.5만</td><td class="cpv">1</td><td class="cpv">2</td><td class="cpv">1</td><td class="ns">4,972</td><td class="ns">82</td><td class="ns">16,000</td><td class="ns">6,057</td></tr>
+      <tr><td>7</td><td class="id">gyang_map <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">38만</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+      <tr><td>8</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DZcdWBIy2dC/" target="_blank">bangbang_place</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">650만</td><td class="ns">222.9만</td><td class="nv">212만</td><td class="ns">96만</td><td class="ns">115.9만</td><td class="cpv">7</td><td class="cpv">2</td><td class="cpv">4</td><td class="ns">19,023</td><td class="ns">96</td><td class="ns">10,000</td><td class="ns">12,000</td></tr>
+      <tr><td>9</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZciKOriZmf/" target="_blank">ha.liday</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">40만</td><td class="na">—</td><td class="nv">10.9만</td><td class="ns">10.9만</td><td class="na">—</td><td class="cpv">4</td><td class="na">—</td><td class="cpv">4</td><td class="ns">1,078</td><td class="ns">116</td><td class="ns">2,199</td><td class="ns">886</td></tr>
+      <tr><td>10</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZgmT4LSO2w/" target="_blank">jerry.note</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="na">—</td><td class="nv">7,785</td><td class="ns">7,785</td><td class="na">—</td><td class="cpv">32</td><td class="na">—</td><td class="cpv">32</td><td class="ns">148</td><td class="ns">38</td><td class="ns">36</td><td class="ns">12</td></tr>
+      <tr><td>11</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZcHvhvPkFt/" target="_blank">rorocouple_trip</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">40만</td><td class="na">—</td><td class="nv">6만</td><td class="ns">6만</td><td class="na">—</td><td class="cpv">7</td><td class="na">—</td><td class="cpv">7</td><td class="ns">180</td><td class="ns">20</td><td class="ns">326</td><td class="ns">148</td></tr>
+      <tr><td>12</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZemGS1ybwH/" target="_blank">ye._.bbiiii</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">25만</td><td class="ns">23만</td><td class="nv">17.1만</td><td class="ns">3.4만</td><td class="ns">13.7만</td><td class="cpv">7</td><td class="cpv">2</td><td class="cpv">3</td><td class="ns">777</td><td class="ns">35</td><td class="ns">496</td><td class="ns">1,310</td></tr>
+      <tr><td>13</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZcYTN0zS7q/" target="_blank">chloe__story</a> <span class="r1">1차</span></td><td>팝업큐레이션</td><td class="ns">65만</td><td class="ns">139.6만</td><td class="nv">113.4만</td><td class="ns">26.4만</td><td class="ns">86.9만</td><td class="cpv">2</td><td class="cpv">2</td><td class="cpv">2</td><td class="ns">1,934</td><td class="ns">114</td><td class="ns">3,231</td><td class="ns">1,669</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">합계</td>
+        <td></td>
+        <td class="ns">1,108만</td><td></td>
+        <td class="nv">1,116.5만</td><td></td><td></td><td></td><td></td><td></td>
+        <td class="ns">34,632</td><td class="ns">710</td><td class="ns">41,193</td><td class="ns">26,360</td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+
+  <div class="section-title">2차 · 일정 및 진행 현황</div>
+  <div class="tbl-wrap">
+  <table class="tbl-sched">
+    <colgroup>
+      <col class="c-num"><col class="c-id">
+      <col class="c-stat"><col class="c-scost">
+      <col class="c-date"><col class="c-time"><col class="c-conf"><col class="c-udate">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th>
+        <th>진행여부</th><th>비용</th>
+        <th>방문일</th><th>방문시간</th><th>컨펌일</th><th>업로드일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DX3fovoTaWw/" target="_blank">seoul__log</a> <span class="r2">2차</span></td><td><span class="badge done">가이드라인완료</span></td><td class="ns">33만</td><td>07.06</td><td>pm2:00</td><td>07.09</td><td>07.17</td></tr>
+      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reels/DY3-NHmzn2B/" target="_blank">hey_jihye__</a> <span class="r2">2차</span></td><td><span class="badge done">가이드라인완료</span></td><td class="ns">99만(VAT)</td><td>07.06</td><td>pm3:00</td><td>—</td><td>07.10</td></tr>
+      <tr class="acct-row"><td colspan="8"><span class="acct-name">하나은행 · 김형준</span><span class="acct-num">38691045225507</span></td></tr>
+      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/forest.of_seolin/" target="_blank">forest.of_seolin</a> <span class="r2">2차</span></td><td><span class="badge pend">가이드라인필요</span></td><td class="ns">30만(3.3%)</td><td>07.09</td><td>pm2:00</td><td>07.10</td><td>07.11</td></tr>
+      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/chocomi_travel/" target="_blank">chocomi_travel</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td class="ns">60만</td><td>07.12</td><td>pm4:00</td><td>07.13</td><td>07.15</td></tr>
+      <tr><td>5</td><td class="id">silvery_ooo <span class="r2">2차</span></td><td>—</td><td class="ns">69만</td><td>07.15</td><td>pm3:00</td><td>07.17</td><td>07.23</td></tr>
+      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DU8PrPyEZws/" target="_blank">bae.sajang</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td class="ns">45만</td><td>07.20</td><td>pm12:30</td><td>07.23</td><td>07.23</td></tr>
+      <tr><td>7</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">gamsung_queen</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td class="ns">100만</td><td>07.21</td><td>pm4:00</td><td>07.30</td><td>07.30</td></tr>
+      <tr class="acct-row"><td colspan="8"><span class="acct-name">카카오뱅크 · 김경현(감성퀸 엔터테인먼트)</span><span class="acct-num">3333-29-9179922</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div><!-- /view-internal -->
+
+  <!-- ===== 외부용 ===== -->
+  <div class="section" id="view-external">
+  <div class="summary-title">1차 캠페인 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">1,116.5<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 좋아요</div><div class="stat-num">34,632<span class="stat-unit">건</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 댓글</div><div class="stat-num">710<span class="stat-unit">건</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">41,193<span class="stat-unit">건</span></div></div>
+    <div class="stat-box wide"><div class="stat-label">총 저장</div><div class="stat-num hi">26,360<span class="stat-unit">건</span></div></div>
+  </div>
+
+  <div class="section-title">1차 · 계정별 수치</div>
+  <div class="tbl-wrap">
+  <table class="tbl-ext1">
+    <colgroup>
+      <col class="c-num"><col class="c-id">
+      <col class="c-total"><col class="c-like"><col class="c-cmt"><col class="c-shr"><col class="c-save">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th>
+        <th>총 조회수</th><th>좋아요</th><th>댓글</th><th>공유</th><th>저장</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPryj4OOee/" target="_blank">anotherdoor_travel</a> <span class="r1">1차</span></td><td class="nv">66.4만</td><td class="ns">441</td><td class="ns">45</td><td class="ns">556</td><td class="ns">250</td></tr>
+      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZO_vu9uC1F/" target="_blank">anotherdoor_travel</a> <span class="r1">1차</span></td><td class="nv">47.5만</td><td class="ns">566</td><td class="ns">53</td><td class="ns">1,013</td><td class="ns">372</td></tr>
+      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPTh1KyK2W/" target="_blank">cherr__iy</a> <span class="r1">1차</span></td><td class="nv">10.1만</td><td class="ns">111</td><td class="ns">41</td><td class="ns">130</td><td class="ns">18</td></tr>
+      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPI7wFBm9M/" target="_blank">hotple_honeytip</a> <span class="r1">1차</span></td><td class="nv">72.5만</td><td class="ns">746</td><td class="ns">17</td><td class="ns">1,062</td><td class="ns">332</td></tr>
+      <tr><td>5</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZPWMESzmIa/" target="_blank">popup_dangni</a> <span class="r1">1차</span></td><td class="nv">310.6만</td><td class="ns">4,656</td><td class="ns">53</td><td class="ns">6,144</td><td class="ns">3,306</td></tr>
+      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZQ_LsVT4Pp/" target="_blank">hid_zip</a> <span class="r1">1차</span></td><td class="nv">249.3만</td><td class="ns">4,972</td><td class="ns">82</td><td class="ns">16,000</td><td class="ns">6,057</td></tr>
+      <tr><td>7</td><td class="id">gyang_map <span class="r1">1차</span></td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td><td class="na">—</td></tr>
+      <tr><td>8</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DZcdWBIy2dC/" target="_blank">bangbang_place</a> <span class="r1">1차</span></td><td class="nv">212만</td><td class="ns">19,023</td><td class="ns">96</td><td class="ns">10,000</td><td class="ns">12,000</td></tr>
+      <tr><td>9</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZciKOriZmf/" target="_blank">ha.liday</a> <span class="r1">1차</span></td><td class="nv">10.9만</td><td class="ns">1,078</td><td class="ns">116</td><td class="ns">2,199</td><td class="ns">886</td></tr>
+      <tr><td>10</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZgmT4LSO2w/" target="_blank">jerry.note</a> <span class="r1">1차</span></td><td class="nv">7,785</td><td class="ns">148</td><td class="ns">38</td><td class="ns">36</td><td class="ns">12</td></tr>
+      <tr><td>11</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZcHvhvPkFt/" target="_blank">rorocouple_trip</a> <span class="r1">1차</span></td><td class="nv">6만</td><td class="ns">180</td><td class="ns">20</td><td class="ns">326</td><td class="ns">148</td></tr>
+      <tr><td>12</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZemGS1ybwH/" target="_blank">ye._.bbiiii</a> <span class="r1">1차</span></td><td class="nv">17.1만</td><td class="ns">777</td><td class="ns">35</td><td class="ns">496</td><td class="ns">1,310</td></tr>
+      <tr><td>13</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZcYTN0zS7q/" target="_blank">chloe__story</a> <span class="r1">1차</span></td><td class="nv">113.4만</td><td class="ns">1,934</td><td class="ns">114</td><td class="ns">3,231</td><td class="ns">1,669</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2">합계</td>
+        <td class="nv">1,116.5만</td>
+        <td class="ns">34,632</td><td class="ns">710</td><td class="ns">41,193</td><td class="ns">26,360</td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+
+  <div class="section-title">2차 · 일정 현황</div>
+  <div class="tbl-wrap">
+  <table class="tbl-sched-ext">
+    <colgroup>
+      <col class="c-num"><col class="c-id">
+      <col class="c-stat">
+      <col class="c-date"><col class="c-time"><col class="c-conf"><col class="c-udate">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th>
+        <th>진행여부</th>
+        <th>방문일</th><th>방문시간</th><th>컨펌일</th><th>업로드일</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DX3fovoTaWw/" target="_blank">seoul__log</a> <span class="r2">2차</span></td><td><span class="badge done">가이드라인완료</span></td><td>07.06</td><td>pm2:00</td><td>07.09</td><td>07.17</td></tr>
+      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reels/DY3-NHmzn2B/" target="_blank">hey_jihye__</a> <span class="r2">2차</span></td><td><span class="badge done">가이드라인완료</span></td><td>07.06</td><td>pm3:00</td><td>—</td><td>07.10</td></tr>
+      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/forest.of_seolin/" target="_blank">forest.of_seolin</a> <span class="r2">2차</span></td><td><span class="badge pend">가이드라인필요</span></td><td>07.09</td><td>pm2:00</td><td>07.10</td><td>07.11</td></tr>
+      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/chocomi_travel/" target="_blank">chocomi_travel</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td>07.12</td><td>pm4:00</td><td>07.13</td><td>07.15</td></tr>
+      <tr><td>5</td><td class="id">silvery_ooo <span class="r2">2차</span></td><td>—</td><td>07.15</td><td>pm3:00</td><td>07.17</td><td>07.23</td></tr>
+      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DU8PrPyEZws/" target="_blank">bae.sajang</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td>07.20</td><td>pm12:30</td><td>07.23</td><td>07.23</td></tr>
+      <tr><td>7</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">gamsung_queen</a> <span class="r2">2차</span></td><td><span class="badge comm">소통중</span></td><td>07.21</td><td>pm4:00</td><td>07.30</td><td>07.30</td></tr>
+    </tbody>
+  </table>
+  </div>
+  </div><!-- /view-external -->
 
 </div>
+<script>
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+      tab.classList.add('active');
+      document.getElementById('view-' + tab.dataset.view).classList.add('visible');
+    });
+  });
+</script>
 </body>
 </html>
