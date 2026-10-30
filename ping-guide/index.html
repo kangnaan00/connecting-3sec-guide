@@ -1,0 +1,571 @@
+<title>Ping! 커넥팅 촬영 가이드</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@600;700&family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: wide wrap, scene cards with side-by-side clip+desc */
+:root {
+  --paper: #FAF7F5;
+  --ink: #1A1520;
+  --ink-2: #564D5A;
+  --ink-3: #9A8FA0;
+  --line: #E8DDE5;
+  --panel: #FFFFFF;
+  --panel-2: #F3EDF1;
+  --rose: #C04572;
+  --rose-soft: #FAE5EE;
+  --amber: #8A6000;
+  --amber-soft: #F5EAD0;
+  --red: #C4361F;
+  --red-soft: #F8E5E0;
+  --shadow: 0 1px 2px rgba(20,10,25,.06), 0 6px 18px rgba(20,10,25,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #130F16;
+    --ink: #EDE7F0;
+    --ink-2: #B5A8BC;
+    --ink-3: #7A6E82;
+    --line: #2B2233;
+    --panel: #1C1825;
+    --panel-2: #251F2E;
+    --rose: #E87AA0;
+    --rose-soft: #3C1227;
+    --amber: #E8B850;
+    --amber-soft: #332810;
+    --red: #FF8A70;
+    --red-soft: #3A1F19;
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #130F16;
+  --ink: #EDE7F0;
+  --ink-2: #B5A8BC;
+  --ink-3: #7A6E82;
+  --line: #2B2233;
+  --panel: #1C1825;
+  --panel-2: #251F2E;
+  --rose: #E87AA0;
+  --rose-soft: #3C1227;
+  --amber: #E8B850;
+  --amber-soft: #332810;
+  --red: #FF8A70;
+  --red-soft: #3A1F19;
+  --shadow: 0 1px 2px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 72px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 780px; margin: 0 auto }
+.mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25 }
+p { margin: 0 }
+a { color: var(--rose) }
+
+/* header */
+.head { padding-block: 40px 28px; border-bottom: 1px solid var(--line) }
+.eyebrow {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+}
+h1 {
+  font-family: "Noto Serif KR", "Noto Sans KR", serif;
+  font-size: clamp(26px, 5.5vw, 38px); font-weight: 700; letter-spacing: -.01em;
+}
+.concept {
+  margin-top: 18px;
+  display: inline-block;
+  font-size: 17px; font-weight: 900;
+  background: var(--rose-soft); color: var(--rose);
+  border-left: 4px solid var(--rose);
+  padding: 12px 18px; border-radius: 0 10px 10px 0;
+}
+.meta {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  margin-top: 18px; font-size: 13px; color: var(--ink-3);
+}
+.meta b { color: var(--ink-2); font-weight: 500 }
+
+/* section */
+section { padding-block: 34px; border-bottom: 1px solid var(--line) }
+section:last-of-type { border-bottom: 0 }
+h2 { font-size: 21px; font-weight: 900; letter-spacing: -.01em }
+h2 .n { color: var(--ink-3); font-weight: 500; margin-right: 8px }
+.sub { color: var(--ink-2); margin-top: 8px; max-width: 64ch }
+
+/* scene cards */
+.scenes { display: grid; gap: 20px; margin-top: 24px }
+.scene {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 14px; box-shadow: var(--shadow); overflow: hidden;
+}
+.scene-h {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 14px 20px 10px; border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.scene-h .num { font-size: 11.5px; font-weight: 700; color: var(--rose); letter-spacing: .1em }
+.scene-h h3 { font-size: 17px; font-weight: 900; flex: 1 1 auto }
+.scene-h .dur { font-size: 12.5px; color: var(--ink-3) }
+.scene-b {
+  display: grid; grid-template-columns: 200px 1fr; gap: 20px;
+  padding: 18px 20px 20px;
+}
+@media (max-width: 600px) {
+  .scene-b { grid-template-columns: 1fr; gap: 14px; padding: 14px 16px 16px }
+}
+
+/* clip placeholder */
+.clip { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
+.ph {
+  aspect-ratio: 9/16; max-width: 200px; width: 100%;
+  border: 1.5px dashed var(--line); border-radius: 10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 14px;
+  background: var(--panel-2); color: var(--ink-3); font-size: 12.5px; line-height: 1.45;
+}
+.ph .ph-icon { font-size: 28px; margin-bottom: 8px; opacity: .5 }
+.ph .ph-label { font-weight: 700; font-size: 11.5px; color: var(--ink-2); margin-bottom: 4px }
+.clip-note { font-size: 11.5px; color: var(--ink-3); line-height: 1.4 }
+.clip-note b { color: var(--ink-2); font-weight: 500 }
+
+/* rows / rows content */
+.rows { display: grid; gap: 12px; align-content: start; min-width: 0 }
+.row { display: grid; grid-template-columns: 52px 1fr; gap: 10px; font-size: 14px }
+.row .lab { padding-top: 3px }
+.row .val { color: var(--ink); line-height: 1.6; min-width: 0 }
+.row .val b { font-weight: 700 }
+.line {
+  padding: 10px 14px; background: var(--panel-2); border-radius: 9px;
+  font-size: 14.5px; line-height: 1.55;
+}
+.line .q {
+  color: var(--ink-3); font-size: 11.5px; font-weight: 700;
+  letter-spacing: .06em; display: block; margin-bottom: 3px;
+}
+.ab { display: grid; gap: 8px }
+.ab .line { border-left: 3px solid var(--rose) }
+.ab .k { font-weight: 900; color: var(--rose); margin-right: 6px }
+
+/* tags */
+.tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; padding: 2px 8px; border-radius: 4px; vertical-align: middle;
+}
+.tag.must { background: var(--rose); color: #fff }
+.tag.opt { background: var(--panel-2); color: var(--ink-2) }
+.tag.no { background: var(--red); color: #fff }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.must,
+  :root:not([data-theme="light"]) .tag.no { color: #111 }
+}
+:root[data-theme="dark"] .tag.must,
+:root[data-theme="dark"] .tag.no { color: #111 }
+
+/* beat strip (hook highlights) */
+.beats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px }
+@media (max-width: 520px) { .beats { grid-template-columns: repeat(2, 1fr) } }
+.beat {
+  background: var(--rose-soft); border: 1px solid var(--rose);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 13px; line-height: 1.45; color: var(--ink);
+}
+.beat .bt { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--rose); display: block; margin-bottom: 4px }
+
+/* checklist */
+.check {
+  list-style: none; padding: 0; margin-top: 18px;
+  display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; background: var(--panel);
+}
+.check li {
+  margin: 0; display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14px;
+}
+.check li:last-child { border-bottom: 0 }
+.check .box {
+  flex: 0 0 18px; height: 18px; border: 2px solid var(--ink-3);
+  border-radius: 4px; margin-top: 3px;
+}
+.check li.no-item { background: var(--red-soft) }
+.check li.no-item .box { border-color: var(--red) }
+
+/* split 2-col */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px }
+@media (max-width: 560px) { .split { grid-template-columns: 1fr } }
+.pane {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 16px 18px;
+}
+.pane h3 { font-size: 13.5px; font-weight: 700; color: var(--ink-2); margin-bottom: 10px }
+
+/* caption guide */
+.caption-ex {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  overflow: hidden; margin-top: 16px;
+}
+.caption-ex .ce-head {
+  padding: 10px 16px; background: var(--panel-2); font-size: 12px;
+  font-weight: 700; color: var(--ink-3); letter-spacing: .06em;
+}
+.caption-ex .ce-body { padding: 14px 16px; font-size: 14px; line-height: 1.7; white-space: pre-wrap }
+.caption-ex .ce-body b { font-weight: 900; color: var(--rose) }
+.caption-ex .ce-body .blank {
+  display: inline-block; min-width: 80px;
+  border-bottom: 2px solid var(--amber); color: var(--amber); font-weight: 700;
+  text-align: center; padding-inline: 4px;
+}
+
+/* ref cards */
+.refs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px }
+@media (max-width: 520px) { .refs { grid-template-columns: 1fr } }
+.ref-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: box-shadow .15s;
+}
+.ref-card:hover { box-shadow: var(--shadow) }
+.ref-thumb {
+  aspect-ratio: 9/16; max-height: 280px; background: var(--panel-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; color: var(--ink-3);
+}
+.ref-info { padding: 12px 14px }
+.ref-info .rf-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--rose); display: block; margin-bottom: 4px }
+.ref-info .rf-title { font-size: 14px; font-weight: 700; line-height: 1.35 }
+.ref-info .rf-sub { font-size: 12.5px; color: var(--ink-3); margin-top: 4px }
+.ref-info .rf-link { font-size: 12px; color: var(--rose); margin-top: 6px; display: block; text-decoration: underline; text-underline-offset: 2px; word-break: break-all }
+
+/* note/warning */
+.note {
+  margin-top: 18px; padding: 14px 16px; background: var(--amber-soft);
+  border-radius: 9px; font-size: 14px; color: var(--ink);
+}
+.note b { color: var(--amber) }
+
+ul { margin: 12px 0 0; padding-left: 20px }
+li { margin-bottom: 5px }
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene { transition: box-shadow .2s }
+}
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px }
+</style>
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">커넥팅 · 실시간 통역 통화앱 · 인플루언서 릴스</div>
+  <h1>커넥팅 릴스 촬영 가이드</h1>
+  <div class="concept">"낯선사람과 사랑에 빠질 수 있을까?"</div>
+  <div class="meta">
+    <span><b>결과물</b> 릴스 1편</span>
+    <span><b>영상 길이</b> 45–60초</span>
+    <span><b>스팟</b> 2–3곳</span>
+    <span><b>촬영 및 업로드</b> <span style="font-weight:700">11월 내</span></span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">1</span>데이트 중 자연스럽게 담아야 할 커넥팅 소구점</h2>
+  <p class="sub">직접 홍보 없이, 이 3가지 감정이 영상에서 자연스럽게 느껴지도록 담아주세요.</p>
+  <div class="ab" style="margin-top:14px">
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">소구점 1 — 설레는 첫 인상</span>
+      "프사보다 실물이 훨씬 잘생겼다"
+    </div>
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">소구점 2 — 빠른 친밀감</span>
+      "커넥팅으로 서로 취향이 비슷하다는 걸 알아서 빨리 친해졌다"
+    </div>
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">소구점 3 — 어색함 제로</span>
+      "처음 만나는데도 통화를 해서 그런지 전혀 어색하지 않았다"
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>장면 순서</h2>
+  <p class="sub">영상은 총 5개 장면으로 구성합니다. 아래 순서와 장면별 필수 조건을 따라주세요.</p>
+
+  <div class="scenes">
+
+    <!-- Scene 1 -->
+    <article class="scene" id="s1">
+      <div class="scene-h">
+        <span class="num">장면 1</span>
+        <h3>후킹 — 데이트 중 가장 설레는 하이라이트 2~3개</h3>
+        <span class="dur mono">0–5초</span>
+      </div>
+      <div class="scene-b" style="grid-template-columns:1fr">
+        <div class="beats" style="grid-template-columns:repeat(3,1fr)">
+          <div class="beat"><span class="bt">예시 1</span>자연스러운 스킨쉽 장면<br>(손 잡기, 어깨 닿기 등)</div>
+          <div class="beat"><span class="bt">예시 2</span>같이 사진 찍는 모습 or 인생네컷 결과물</div>
+          <div class="beat"><span class="bt">예시 3</span>서로 눈 마주치며 웃는 장면</div>
+        </div>
+        <div class="rows">
+          <p style="font-size:15px;font-weight:700;color:var(--ink);margin:0"><b>2–3개 골라</b> 빠르게 컷 편집. 설레는 순간만 담는다.</p>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">데이트 중 <b>가장 설레는 순간 2–3개</b>를 5초 안에 보여준다. 영상의 첫 1초에 시청자 시선을 잡아야 한다.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 2 -->
+    <article class="scene" id="s2">
+      <div class="scene-h">
+        <span class="num">장면 2</span>
+        <h3>오프닝 — 커넥팅으로 통화, 만남 약속을 기약하는 장면</h3>
+        <span class="dur mono">5–15초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <video controls playsinline preload="metadata"
+            poster="videos/ref_call_poster.jpg"
+            src="videos/ref_call_trim.mp4"
+            style="width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:10px;display:block"></video>
+          <p class="clip-note"><b>커넥팅 공식 영상</b> @connecting_app_off · 일본어 버전 레퍼런스<br>동일한 방식으로 <b>대만어 버전</b> 촬영</p>
+        </div>
+        <div class="rows">
+          <div class="line" style="border-left:3px solid var(--ink-3)">
+            <span class="q">대본</span>
+            <div style="margin-top:8px;font-size:15px">"한국 가기 전에 통화만 했었는데"</div>
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">장면 — 대화 하이라이트만 보여주기</span>
+            <div style="display:grid;gap:8px;margin-top:8px">
+              <div style="display:flex;gap:10px">
+                <span style="font-weight:900;color:var(--ink-3);font-size:13px;white-space:nowrap;padding-top:2px">남</span>
+                <span>"그럼 한국 오시면 만날 수 있을까요?"</span>
+              </div>
+              <div style="display:flex;gap:10px">
+                <span style="font-weight:900;color:var(--rose);font-size:13px;white-space:nowrap;padding-top:2px">여</span>
+                <span style="color:var(--ink-2)">부끄러워하며 대답</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">통화 음성 + 화면 하단 <b>커넥팅 실시간 번역 자막</b>이 동시에 보이게 담는다</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val"><b>부끄러워하는 표정·리액션</b> 클로즈업 컷 포함</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 3 -->
+    <article class="scene" id="s3">
+      <div class="scene-h">
+        <span class="num">장면 3</span>
+        <h3>만나러 가는 장면 — 설레고 긴장되는 이동 중</h3>
+        <span class="dur mono">15–22초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">✈️</div>
+            <div class="ph-label">이동 장면</div>
+            비행기·공항<br>긴장하는 모습
+          </div>
+        </div>
+        <div class="rows">
+          <div class="line" style="border-left:3px solid var(--ink-3)">
+            <span class="q">대본</span>
+            <div style="margin-top:8px;font-size:15px">"만나러 가니 꽤 긴장되었어요"</div>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val"><b>비행기 좌석에 앉아서 긴장하는 모습</b> 클로즈업 컷.</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag opt">선택</span></span>
+            <span class="val">비행기 창문 밖, 공항 등 이동하는 장면 추가.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 4 -->
+    <article class="scene" id="s4b">
+      <div class="scene-h">
+        <span class="num">장면 4</span>
+        <h3>첫 번째 스팟 — 음식점</h3>
+        <span class="dur mono">22–32초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">🍽️</div>
+            <div class="ph-label">스팟 1</div>
+            음식점<br>처음 만나는 순간
+          </div>
+        </div>
+        <div class="rows">
+          <div class="line">
+            <span class="q">자막 예시</span>
+            "📍 <span style="border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700">음식점명</span> | 첫 번째"<br>
+            "원래 어색할 줄 알았는데…"
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">처음 만났을 때 <b>어색한 표정→웃음</b>으로 자연스럽게 풀리는 흐름을 담는다.</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">장소명 자막 <b>📍 음식점명</b> 필수 삽입.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 5 -->
+    <article class="scene" id="s5b">
+      <div class="scene-h">
+        <span class="num">장면 5</span>
+        <h3>두 번째 스팟 — 인생네컷</h3>
+        <span class="dur mono">32–44초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">📸</div>
+            <div class="ph-label">스팟 2</div>
+            인생네컷
+          </div>
+        </div>
+        <div class="rows">
+          <div class="line">
+            <span class="q">자막 예시</span>
+            "인생네컷 찍으러 왔는데 자꾸 웃겨"<br>
+            "진짜 웃겨 미치겠어"
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val"><b>인생네컷 결과물</b>을 화면에 보여준다.</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val"><b>스킨쉽·친밀감</b>이 느껴지는 컷 1개 이상 포함.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 6 -->
+    <article class="scene" id="s6b">
+      <div class="scene-h">
+        <span class="num">장면 6</span>
+        <h3>세 번째 스팟 — 카페</h3>
+        <span class="dur mono">44–52초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">☕</div>
+            <div class="ph-label">스팟 3</div>
+            카페
+          </div>
+        </div>
+        <div class="rows">
+          <div class="line">
+            <span class="q">자막 예시</span>
+            "📍 <span style="border-bottom:2px solid var(--amber);color:var(--amber);font-weight:700">카페명</span> | 세 번째"<br>
+            "이렇게 오래 얘기했는데 시간이 왜 이렇게 빨라요"
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">장소명 자막 <b>📍 카페명</b> 필수 삽입.</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag opt">선택</span></span>
+            <span class="val">카페 공간 분위기 샷 + 대화하며 웃는 컷 조합.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 7 -->
+    <article class="scene" id="s7">
+      <div class="scene-h">
+        <span class="num">장면 7</span>
+        <h3>클로징 — "다시 만날 것 같아"</h3>
+        <span class="dur mono">52–60초</span>
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">💌</div>
+            <div class="ph-label">클로징</div>
+            인생네컷 결과물<br>or 마지막 장면
+          </div>
+        </div>
+        <div class="rows">
+          <div class="ab">
+            <div class="line"><span class="q">클로징 멘트 예시</span><span class="k">A</span>"낯선사람과 사랑에 빠질 수 있냐고요? 저는 빠진 것 같아요"</div>
+            <div class="line"><span class="k">B</span>"다시 만날 것 같아요? 글쎄요… 연락처는 받았어요 😊"</div>
+            <div class="line"><span class="k">C</span>"커넥팅으로 처음 연결됐는데 이렇게 좋은 사람일 줄은 몰랐어요"</div>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val"><b>커넥팅 언급</b>이 마지막 장면 자막 또는 멘트에 반드시 들어간다.</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">필수</span></span>
+            <span class="val">인생네컷 or 같이 찍은 사진을 <b>마지막 프레임</b>에 보여준다.</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /scenes -->
+</section>
+
+<section>
+  <h2><span class="n">3</span>레퍼런스 영상</h2>
+  <p class="sub">아래 두 영상은 커넥팅과 유사한 서비스인 Ping!(대만) 캠페인 영상입니다. 구성 방식, 자막 형식, 스팟 전환 템포, 후킹 장면 배치를 참고하세요.</p>
+
+  <div class="refs">
+    <a class="ref-card" href="https://www.instagram.com/reel/DaSbIfqSync/" target="_blank" rel="noopener">
+      <div class="ref-thumb">🎬</div>
+      <div class="ref-info">
+        <span class="rf-tag">레퍼런스 1편</span>
+        <div class="rf-title">타오위안 하루여행</div>
+        <div class="rf-sub">@ffyxic · 낯선 사람 3명과 타오위안 3개 스팟<br>홍콩식 식당 → 그림/퀴즈 체험 → 망고빙수</div>
+        <span class="rf-link">instagram.com/reel/DaSbIfqSync/</span>
+      </div>
+    </a>
+    <a class="ref-card" href="https://www.instagram.com/reel/DcQjQgrSTv-/" target="_blank" rel="noopener">
+      <div class="ref-thumb">🎬</div>
+      <div class="ref-info">
+        <span class="rf-tag">레퍼런스 2편</span>
+        <div class="rf-title">칠석 동취 데이트</div>
+        <div class="rf-sub">@ffyxic · Ping! 앱(유사 서비스)으로 만났던 사람과 동취 데이트<br>식당 → 사진관(fotolab) → 카페(costumice)</div>
+        <span class="rf-link">instagram.com/reel/DcQjQgrSTv-/</span>
+      </div>
+    </a>
+  </div>
+
+  <div class="note" style="margin-top:16px">
+    <b>레퍼런스 포인트</b>: 자막에 <b>← 첫 번째 / 두 번째</b> 형식으로 스팟 전환을 알려주는 방식, 후킹에 하이라이트 장면을 먼저 배치하는 구성을 참고해주세요.
+  </div>
+</section>
+
+</div>
