@@ -44,20 +44,18 @@ h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
 .badge{display:inline-block;background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:4px;margin-bottom:10px}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{color:#111}}
 
-.brand-card{background:var(--brand-soft);border:1px solid var(--brand);border-radius:10px;padding:16px 18px;margin-bottom:12px}
-.brand-card .rows{font-size:14px;line-height:1.85;color:var(--ink)}
+.brand-card{background:var(--brand-soft);border:1px solid var(--brand);border-radius:10px;padding:16px 18px;margin-bottom:12px;font-size:14px;line-height:1.85}
 .brand-card .kw{font-weight:900;color:var(--brand);font-size:15px}
 
 .hooks{display:grid;gap:8px;margin-top:10px}
 .hook{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.6}
 .hook .label{font-size:11px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin-bottom:3px}
-.hook-note{font-size:12.5px;color:var(--ink-3);margin-top:12px;padding:10px 12px;background:var(--panel-2);border-radius:8px}
+.hook-note{font-size:13px;color:var(--ink-3);margin-top:12px;padding:10px 12px;background:var(--panel-2);border-radius:8px;line-height:1.7}
 
 .refs{display:grid;gap:10px;margin-top:14px}
 .ref-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit}
 .ref-card:hover{border-color:var(--brand)}
 .ref-card .ref-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand)}
-.ref-card .ref-title{font-size:15px;font-weight:700}
 .ref-card .ref-note{font-size:13px;color:var(--ink-2)}
 .ref-card .ref-url{font-size:12px;color:var(--blue);word-break:break-all}
 
@@ -68,7 +66,7 @@ h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
 .check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
 .check li:last-child{border-bottom:0}
 .check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:2px;flex-shrink:0}
-.note-inline{font-size:12px;color:var(--ink-3)}
+.empty-section{border:1px dashed var(--line);border-radius:10px;padding:14px 16px;font-size:13.5px;color:var(--ink-3)}
 </style>
 </head>
 <body>
@@ -79,33 +77,32 @@ h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
   <h1>크림라벨 촬영 가이드</h1>
   <div class="meta">
     <span><b>장소</b> 코엑스점 · 별마당 도서관 1층</span>
-    <span><b>출시</b> 2026.10.29 (목) 12:00</span>
+    <span><b>출시</b> 10.29 목요일 12:00</span>
   </div>
 </header>
 
 <section>
   <h2><span class="n">1</span>소구점</h2>
   <div class="brand-card">
-    <div class="badge">한정수량판매</div>
-    <div class="rows">
-      180번 반죽 테스트 끝에 탄생한<br>
-      <span class="kw">국내최초 생딸기 모찌 크레이프</span><br>
-      하루 20개 한정수량 판매<br>
-      우유크림과 백앙금 크림 2종 크림과 생딸기 조합
-    </div>
+    <div class="badge">한정수량판매</div><br>
+    180번 반죽 테스트 끝에 탄생한<br>
+    <span class="kw">국내최초 생딸기 모찌 크레이프</span><br>
+    하루 20개 한정수량 판매<br>
+    <a href="https://www.instagram.com/p/DfM7PKRThli/" target="_blank" rel="noopener">https://www.instagram.com/p/DfM7PKRThli/</a><br>
+    우유크림과 백앙금 크림 2종 크림과 생딸기 조합<br>
+    산더미 과일케익 맛집으로 유명한 크림라벨
   </div>
-  <p style="font-size:13.5px;color:var(--ink-2)">산더미 과일케익 맛집으로 유명한 크림라벨 · <a href="https://www.instagram.com/p/DfM7PKRThli/" target="_blank" rel="noopener">인스타그램 포스트</a></p>
 </section>
 
 <section>
-  <h2><span class="n">2</span>후킹 키워드</h2>
-  <p style="font-size:13px;color:var(--ink-3);margin-bottom:10px">(한정선, 고디바, 올기떡 등 유행관련 비교문구)</p>
+  <h2><span class="n">2</span>후킹키워드</h2>
+  <p style="font-size:13px;color:var(--ink-3);margin-bottom:10px">(한정선,고디바,올기떡등 유행관련 비교문구)</p>
   <div class="hooks">
-    <div class="hook"><div class="label">A</div>한정선, 고디바 올기떡 다음</div>
-    <div class="hook"><div class="label">B</div>한정선보다 난리난</div>
+    <div class="hook"><div class="label">A</div>한정선,고디바 올기떡 다음</div>
+    <div class="hook"><div class="label">B</div>한정선 보다 난리난</div>
     <div class="hook"><div class="label">C</div>고디바 한정선 치우자</div>
-    <div class="hook"><div class="label">D</div>선생님 진도가 빨라요 고디바, 한정선 겨우 따라 갔더니 (겨우 먹어 봤는데) 이번엔</div>
-    <div class="hook"><div class="label">E</div>초코찹쌀떡 (과일찹쌀떡) 유행 겨우 따라 갔더니 이번엔</div>
+    <div class="hook"><div class="label">D</div>선생님 진도가 빨라요 고디바,한정선 겨우 따라 갔더니(겨우 먹어 봤는데) 이번엔</div>
+    <div class="hook"><div class="label">E</div>초코찹쌀떡(과일찹쌀떡) 유행 겨우 따라 갔더니 이번엔</div>
   </div>
   <div class="hook-note">
     180번 반죽 테스트 끝에 탄생한<br>
@@ -114,62 +111,57 @@ h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
 </section>
 
 <section>
-  <h2><span class="n">3</span>레퍼런스 <span style="font-size:14px;font-weight:500;color:var(--ink-3)">(촬영 전 꼭 숙지해 주세요!)</span></h2>
+  <h2><span class="n">3</span>레퍼런스 <span style="font-size:14px;font-weight:500;color:var(--ink-3)">( 촬영 전 꼭 숙지해 주세요!)</span></h2>
   <div class="refs">
     <a class="ref-card" href="https://www.instagram.com/reel/DfLp72fx-4v/" target="_blank" rel="noopener">
       <div class="ref-num">REF 1</div>
-      <div class="ref-title">초반 떡 장면 참고</div>
-      <div class="ref-note">영상 제공예정</div>
-      <div class="ref-url">instagram.com/reel/DfLp72fx-4v</div>
+      <div class="ref-note">초반 떡 장면 참고 (영상 제공예정)</div>
+      <div class="ref-url">https://www.instagram.com/reel/DfLp72fx-4v/?exln=MW5hcHloc2YzdjluZg==</div>
     </a>
     <a class="ref-card" href="https://www.instagram.com/p/DenpAAcTQch/" target="_blank" rel="noopener">
       <div class="ref-num">REF 2</div>
-      <div class="ref-title">만드는 과정 위주로 봐주세요</div>
-      <div class="ref-note">만드는 과정도 찍어주세요</div>
-      <div class="ref-url">instagram.com/p/DenpAAcTQch</div>
+      <div class="ref-note">(만드는 과정 위주로 봐주세요/ 만드는 과정도 찍어주세요)</div>
+      <div class="ref-url">https://www.instagram.com/p/DenpAAcTQch/</div>
     </a>
     <a class="ref-card" href="https://www.instagram.com/reel/DFrHGnjyrL0/" target="_blank" rel="noopener">
       <div class="ref-num">REF 3</div>
-      <div class="ref-title">크레이프 단면표현 위주로 봐주세요</div>
-      <div class="ref-note">생딸기와 모찌 겹겹이 쌓여진 단면이 잘 보여야 합니다</div>
-      <div class="ref-url">instagram.com/reel/DFrHGnjyrL0</div>
+      <div class="ref-note">(크레이프 단면표현 위주로 봐주세요/생딸기와 모찌 겹겹이 쌓여진 단면이 잘 보여야 합니다)</div>
+      <div class="ref-url">https://www.instagram.com/reel/DFrHGnjyrL0/</div>
     </a>
   </div>
 </section>
 
 <section>
-  <h2><span class="n">4</span>꼭 찍어야 하는 장면</h2>
+  <h2><span class="n">4</span>꼭 찍어야 하는장면</h2>
 
   <div class="check-group">
     <h3>케익 찢는 장면과 매장소구</h3>
     <ul class="check">
-      <li><span class="box"></span><span>단면이 잘 보여지는 상태로 양옆으로 찢는 장면</span></li>
-      <li><span class="box"></span><span>포크로 양 옆으로 찢는 장면</span></li>
-      <li><span class="box"></span><span>포크를 위에서 아래로 눌러 생딸기가 튀어 나오는 장면</span></li>
-      <li><span class="box"></span><span>매장 줄이 섰으면 줄선 장면 / 없으면 마지막에 매장 외부나 계산대에서 계산장면 혹은 케익 한판을 매장앞에서 내미는 장면 등 매장(코엑스점)현장을 담은 방문유도 CTA 잘 담아주세요</span></li>
+      <li><span class="box"></span><span>단면이 잘 보여지는 상태로 양옆으로 찢는장면</span></li>
+      <li><span class="box"></span><span>포크로 양 옆으로 찢는장면</span></li>
+      <li><span class="box"></span><span>포크를 위에서 아래로 눌러 생딸기가 튀어 나오는장면</span></li>
+      <li><span class="box"></span><span>매장 줄이 섰으면 줄선 장면 / 없으면 마지막에 매장 외부나 계산대에서 계산장면 혹은 케익 한판을 매장앞에서 내미는 장면등 매장(코엑스점)현장을 담은 방문유도 cta 잘 담아주세요</span></li>
     </ul>
   </div>
 
   <div class="check-group">
-    <h3>만드는 장면</h3>
+    <h3>만드는장면</h3>
     <ul class="check">
-      <li><span class="box"></span><span>모찌떡 늘리는 장면 <span class="note-inline">(제공)</span></span></li>
-      <li><span class="box"></span><span>모찌를 얇게 피는 장면</span></li>
+      <li><span class="box"></span><span>모찌떡 늘리는장면(제공)</span></li>
+      <li><span class="box"></span><span>모찌를 얇게 피는장면</span></li>
       <li><span class="box"></span><span>모찌를 케익 위에 덮는 장면</span></li>
-      <li><span class="box"></span><span>우유크림 바르는 장면</span></li>
-      <li><span class="box"></span><span>백앙금크림 바르는 장면</span></li>
-      <li><span class="box"></span><span>딸기를 놓는 장면 <span class="note-inline">(최대한 가득 채워진 상태에서 넣어주세요)</span></span></li>
-      <li><span class="box"></span><span>케익 반 자르는 장면</span></li>
-      <li><span class="box"></span><span>케익 단면이 잘 보여지는 장면 <span class="note-inline">(반으로 갈라주시거나 한조각 빼서 들어올리거나 옆으로 빼서 보여주세요)</span></span></li>
+      <li><span class="box"></span><span>우유크림 바르는장면</span></li>
+      <li><span class="box"></span><span>백앙금크림 바르는장면</span></li>
+      <li><span class="box"></span><span>딸기를 놓는장면 (최대한 가득 채워진 상태에서 넣어주세요)</span></li>
+      <li><span class="box"></span><span>케익 반자르는 장면</span></li>
+      <li><span class="box"></span><span>케익 단면이 잘 보여지는 장면 (반으로 갈라주시거나 한조각 빼서 들어올리거나 옆으로 빼서 보여주세요)</span></li>
       <li><span class="box"></span><span>케익 한판을 앞으로 보여주는 장면</span></li>
     </ul>
   </div>
 
   <div class="check-group">
-    <h3>매장(코엑스점)을 담은 방문유도 CTA</h3>
-    <ul class="check">
-      <li><span class="box"></span><span>코엑스점 현장을 담은 방문유도 CTA</span></li>
-    </ul>
+    <h3>매장(코엑스점)을 담은 방문유도 cta</h3>
+    <div class="empty-section">내용 추가 예정</div>
   </div>
 </section>
 
