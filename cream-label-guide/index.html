@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}[hidden]{display:none!important}</style>
+<title>크림라벨 촬영 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --brand:#E84B8E; --brand-soft:#FDE8F3;
+  --blue:#1E4FD0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --shadow:0 1px 2px rgba(20,22,30,.06),0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --brand:#FF6EAE; --brand-soft:#3A1028;
+    --blue:#7A9BFF;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 6px 18px rgba(0,0,0,.35);
+  }
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+h1{font-size:clamp(24px,5.5vw,34px);font-weight:900;letter-spacing:-.01em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:19px;font-weight:900;letter-spacing:-.01em;margin-bottom:14px}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:4px;vertical-align:middle}
+.tag.must{background:var(--brand);color:#fff}
+.tag.note{background:var(--amber-soft);color:var(--amber)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.must{color:#111}}
+
+.brand-card{background:var(--brand-soft);border:1px solid var(--brand);border-radius:10px;padding:16px 18px;margin-bottom:14px}
+.brand-card .kw{font-weight:900;color:var(--brand);font-size:16px}
+.brand-card .desc{color:var(--ink);margin-top:8px;font-size:14px;line-height:1.75}
+
+.hooks{display:grid;gap:8px;margin-top:14px}
+.hook{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.6}
+.hook .label{font-size:11px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin-bottom:3px}
+
+.refs{display:grid;gap:10px;margin-top:14px}
+.ref-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit;transition:border-color .15s}
+.ref-card:hover{border-color:var(--brand)}
+.ref-card .ref-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand)}
+.ref-card .ref-title{font-size:15px;font-weight:700}
+.ref-card .ref-note{font-size:13px;color:var(--ink-2)}
+.ref-card .ref-url{font-size:12px;color:var(--blue);word-break:break-all}
+
+.check-group{margin-top:20px}
+.check-group:first-child{margin-top:0}
+.check-group h3{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px;letter-spacing:.02em}
+.check{list-style:none;padding:0;margin:0;display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+.check li:last-child{border-bottom:0}
+.check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:2px;flex-shrink:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">CREAM LABEL · 인플루언서 릴스</div>
+  <h1>크림라벨 촬영 가이드</h1>
+  <div class="meta">
+    <span><b>장소</b> 코엑스점 · 별마당 도서관 1층</span>
+    <span><b>출시</b> 2026.10.29 (목) 12:00</span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">1</span>소구점</h2>
+  <div class="brand-card">
+    <div class="kw">국내최초 생딸기 모찌 크레이프</div>
+    <div class="desc">
+      180번 반죽 테스트 끝에 탄생한<br>
+      하루 20개 <strong>한정수량 판매</strong><br>
+      우유크림 &amp; 백앙금크림 2종 + 생딸기 조합
+    </div>
+  </div>
+  <p style="font-size:13.5px;color:var(--ink-2)">산더미 과일케익 맛집으로 유명한 크림라벨 · <a href="https://www.instagram.com/p/DfM7PKRThli/" target="_blank" rel="noopener">인스타그램 포스트</a></p>
+</section>
+
+<section>
+  <h2><span class="n">2</span>후킹 키워드 (택1)</h2>
+  <p style="font-size:13.5px;color:var(--ink-2);margin-bottom:4px">한정선·고디바·올기떡 등 최근 유행 트렌드와 연결하는 비교 문구</p>
+  <div class="hooks">
+    <div class="hook"><div class="label">A</div>한정선, 고디바 올기떡 다음</div>
+    <div class="hook"><div class="label">B</div>한정선보다 난리난</div>
+    <div class="hook"><div class="label">C</div>고디바 한정선 치우자</div>
+    <div class="hook"><div class="label">D</div>선생님 진도가 빨라요 — 고디바, 한정선 겨우 따라 갔더니 (겨우 먹어 봤는데) 이번엔</div>
+    <div class="hook"><div class="label">E</div>초코찹쌀떡 (과일찹쌀떡) 유행 겨우 따라 갔더니 이번엔</div>
+  </div>
+  <p style="font-size:12.5px;color:var(--ink-3);margin-top:10px">+ 국내최초 생딸기 모찌 크레이프 / 180번 반죽 테스트 끝에 탄생한</p>
+</section>
+
+<section>
+  <h2><span class="n">3</span>레퍼런스 <span style="font-size:14px;font-weight:500;color:var(--ink-3)">(촬영 전 꼭 숙지하세요)</span></h2>
+  <div class="refs">
+    <a class="ref-card" href="https://www.instagram.com/reel/DfLp72fx-4v/" target="_blank" rel="noopener">
+      <div class="ref-num">REF 1</div>
+      <div class="ref-title">초반 떡 장면 참고</div>
+      <div class="ref-note">영상 제공 예정 — 떡을 들어올리는 장면</div>
+      <div class="ref-url">instagram.com/reel/DfLp72fx-4v</div>
+    </a>
+    <a class="ref-card" href="https://www.instagram.com/p/DenpAAcTQch/" target="_blank" rel="noopener">
+      <div class="ref-num">REF 2</div>
+      <div class="ref-title">만드는 과정 위주로</div>
+      <div class="ref-note">케익 만드는 과정 장면 위주 숙지 · 만드는 과정도 촬영</div>
+      <div class="ref-url">instagram.com/p/DenpAAcTQch</div>
+    </a>
+    <a class="ref-card" href="https://www.instagram.com/reel/DFrHGnjyrL0/" target="_blank" rel="noopener">
+      <div class="ref-num">REF 3</div>
+      <div class="ref-title">크레이프 단면 표현 위주로</div>
+      <div class="ref-note">생딸기와 모찌가 겹겹이 쌓인 단면이 잘 보여야 함</div>
+      <div class="ref-url">instagram.com/reel/DFrHGnjyrL0</div>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">4</span>꼭 찍어야 하는 장면</h2>
+
+  <div class="check-group">
+    <h3>케익 찢는 장면 &amp; 매장 소구</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>단면이 잘 보이는 상태로 양옆으로 찢는 장면</span></li>
+      <li><span class="box"></span><span>포크로 양옆으로 찢는 장면</span></li>
+      <li><span class="box"></span><span>포크를 위에서 아래로 눌러 생딸기가 튀어나오는 장면</span></li>
+      <li><span class="box"></span><span>매장 줄 선 장면 — 줄이 없으면 매장 외부·계산대 계산 장면 또는 케익 한판을 매장 앞에서 내미는 장면</span></li>
+      <li><span class="box"></span><span><span class="tag must">CTA</span> 코엑스점 현장을 담은 방문유도 CTA 잘 담기</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>만드는 장면</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>모찌떡 늘리는 장면 <span class="tag note">영상 제공 예정</span></span></li>
+      <li><span class="box"></span><span>모찌를 얇게 펴는 장면</span></li>
+      <li><span class="box"></span><span>모찌를 케익 위에 덮는 장면</span></li>
+      <li><span class="box"></span><span>우유크림 바르는 장면</span></li>
+      <li><span class="box"></span><span>백앙금크림 바르는 장면</span></li>
+      <li><span class="box"></span><span>딸기를 놓는 장면 <span class="tag note">최대한 가득 채운 상태에서</span></span></li>
+      <li><span class="box"></span><span>케익 반 자르는 장면</span></li>
+      <li><span class="box"></span><span>케익 단면이 잘 보이는 장면 (반으로 갈라주거나 · 한 조각 빼서 들어올리거나 · 옆으로 빼서 보여주기)</span></li>
+      <li><span class="box"></span><span>케익 한판을 앞으로 보여주는 장면</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>매장(코엑스점) 방문유도 CTA</h3>
+    <ul class="check">
+      <li><span class="box"></span><span><span class="tag must">CTA</span> 코엑스점 현장을 담은 방문유도 장면</span></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>
