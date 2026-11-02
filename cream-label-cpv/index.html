@@ -48,7 +48,34 @@
     margin-inline: auto;
   }
   h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
-  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
+  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 20px; }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--fg-dim);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   .row {
     display: grid;
@@ -68,6 +95,19 @@
   .row-right { text-align: right; flex-shrink: 0; }
   .cpv { font-size: 15px; font-weight: 700; color: var(--accent); }
   .sub { font-size: 11px; color: var(--fg-dim); margin-top: 2px; }
+  .budget {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 2;
+  }
+  .budget-title { font-weight: 700; margin-bottom: 6px; }
+  .budget-grid { display: grid; grid-template-columns: auto 1fr 1fr; gap: 4px 16px; color: var(--fg-dim); }
+  .budget-label { color: var(--fg); font-weight: 600; }
+  .budget-remain { color: var(--accent); font-weight: 600; }
   .count { font-size: 12px; color: var(--fg-dim); margin-top: 8px; text-align: right; }
   @media (max-width: 480px) {
     .row { grid-template-columns: 1fr; }
@@ -77,13 +117,21 @@
 </head>
 <body>
 <h1>크림라벨 CPV 리스트</h1>
-<p class="meta">총 7명 · CPV 낮은 순</p>
+<p class="meta">CPV 낮은 순</p>
 
-<div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px 16px;margin-bottom:24px;font-size:13px;line-height:2;">
-  <div style="font-weight:700;margin-bottom:6px;">예산 현황</div>
-  <div style="display:grid;grid-template-columns:auto 1fr 1fr;gap:4px 16px;color:var(--fg-dim);">
-    <span style="color:var(--fg);font-weight:600;">인플루언서</span><span>예산 500만 · 사용 385만</span><span style="color:var(--accent);font-weight:600;">잔여 115만</span>
-    <span style="color:var(--fg);font-weight:600;">파트너스코드</span><span>잔여예산 활용</span><span style="color:var(--accent);font-weight:600;">1,150,000원</span>
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('list1')">리스트 1</button>
+  <button class="tab-btn" onclick="switchTab('list2')">리스트 2</button>
+</div>
+
+<!-- 리스트 1 -->
+<div id="tab-list1" class="tab-panel active">
+
+<div class="budget">
+  <div class="budget-title">예산 현황</div>
+  <div class="budget-grid">
+    <span class="budget-label">인플루언서</span><span>예산 500만 · 사용 385만</span><span class="budget-remain">잔여 115만</span>
+    <span class="budget-label">파트너스코드</span><span>잔여예산 활용</span><span class="budget-remain">1,150,000원</span>
   </div>
 </div>
 
@@ -171,6 +219,114 @@
   </div>
 </div>
 
-<p class="count">총 6명</p>
+<p class="count">총 7명</p>
+</div>
+
+<!-- 리스트 2 -->
+<div id="tab-list2" class="tab-panel">
+
+<div class="budget">
+  <div class="budget-title">예산 현황</div>
+  <div class="budget-grid">
+    <span class="budget-label">총 단가</span><span>3,750,000원</span><span></span>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">parkyeny</div>
+    <div class="link"><a href="https://www.instagram.com/reel/DZd-XhHqHtT/" target="_blank">instagram.com/reel/DZd-XhHqHtT/</a></div>
+    <div class="sub">단가 250,000 · 평균조회수 7,606,583</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">0.03</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">hey_jihye__</div>
+    <div class="link"><a href="https://www.instagram.com/hey_jihye__/" target="_blank">instagram.com/hey_jihye__/</a></div>
+    <div class="sub">단가 900,000 · 평균조회수 1,231,667</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">0.73</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">jini_zzin</div>
+    <div class="link"><a href="https://www.instagram.com/jini_zzin/reels/" target="_blank">instagram.com/jini_zzin/reels/</a></div>
+    <div class="sub">단가 500,000 · 평균조회수 667,833</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">0.75</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">_ajummat</div>
+    <div class="link"><a href="https://www.instagram.com/_ajummat/reels/" target="_blank">instagram.com/_ajummat/reels/</a></div>
+    <div class="sub">단가 350,000 · 평균조회수 327,182</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">1.07</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">hid_zip</div>
+    <div class="link"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div>
+    <div class="sub">단가 750,000 · 평균조회수 339,250</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">2.21</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">min.ddo_o</div>
+    <div class="link"><a href="https://www.instagram.com/min.ddo_o/reels/" target="_blank">instagram.com/min.ddo_o/reels/</a></div>
+    <div class="sub">단가 700,000 · 평균조회수 162,500</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">4.31</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="row-left">
+    <div class="id">_foodmoa_</div>
+    <div class="link"><a href="https://www.instagram.com/reel/DcpepENspFW/" target="_blank">instagram.com/reel/DcpepENspFW/</a></div>
+    <div class="sub">단가 300,000 · 평균조회수 36,222</div>
+  </div>
+  <div class="row-right">
+    <div class="cpv">8.28</div>
+    <div class="sub">CPV</div>
+  </div>
+</div>
+
+<p class="count">총 7명</p>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active', (i === 0 && name === 'list1') || (i === 1 && name === 'list2'));
+  });
+  document.getElementById('tab-list1').classList.toggle('active', name === 'list1');
+  document.getElementById('tab-list2').classList.toggle('active', name === 'list2');
+}
+</script>
 </body>
 </html>
