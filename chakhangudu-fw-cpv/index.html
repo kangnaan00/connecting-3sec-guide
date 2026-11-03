@@ -1,6 +1,10 @@
-<title>부츠 인플루언서</title>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>착한구두 FW 인플루언서</title>
 <style>
-  /* layout: full-width sticky-header table, utilitarian */
   :root {
     --bg: #f8f7f6;
     --surface: #ffffff;
@@ -11,6 +15,7 @@
     --accent-dim: #f5e6f0;
     --row-hover: #faf9f8;
     --num: #2d5fe6;
+    --green: #16a34a;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
@@ -24,6 +29,7 @@
       --accent-dim: #2a1a24;
       --row-hover: #232220;
       --num: #7ba4f5;
+      --green: #4ade80;
       color-scheme: dark;
     }
   }
@@ -37,65 +43,102 @@
     --accent-dim: #2a1a24;
     --row-hover: #232220;
     --num: #7ba4f5;
+    --green: #4ade80;
     color-scheme: dark;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   body {
     background: var(--bg);
     color: var(--fg);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo", sans-serif;
     font-size: 14px;
     line-height: 1.5;
-    padding: 24px 20px;
-    padding-block: 24px;
+    padding: 20px;
   }
 
-  header {
+  /* 탭 */
+  .tabs {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
+    gap: 4px;
     margin-bottom: 20px;
-    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border);
   }
-
-  header h1 {
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: -0.02em;
-    color: var(--fg);
-  }
-
-  header span {
-    font-size: 13px;
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
     color: var(--fg-sub);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.15s;
   }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
+  /* 방문/업로드 일정 */
+  .date-group { margin-bottom: 20px; }
+  .date-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 14px;
+    align-items: center;
+    padding: 10px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 6px;
+  }
+  .row-left { min-width: 0; }
+  .rid { font-weight: 700; font-size: 13px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .rlink a { font-size: 11px; color: var(--fg-sub); text-decoration: none; word-break: break-all; }
+  .rlink a:hover { color: var(--accent); }
+  .row-right { text-align: right; flex-shrink: 0; }
+  .rtime { font-size: 13px; font-weight: 500; }
+  .rsub { font-size: 11px; color: var(--fg-sub); margin-top: 2px; }
   .badge {
     display: inline-block;
     font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
+    font-weight: 700;
+    color: #fff;
+    border-radius: 4px;
     padding: 2px 7px;
-    border-radius: 20px;
-    background: var(--accent-dim);
-    color: var(--accent);
+    margin-top: 4px;
+  }
+  .badge-reshoot { background: #d97706; }
+  .badge-model   { background: #e53e3e; }
+  .count { font-size: 12px; color: var(--fg-sub); margin-top: 8px; text-align: right; }
+  @media (max-width: 480px) {
+    .row { grid-template-columns: 1fr; }
+    .row-right { text-align: left; }
   }
 
+  /* CPV 테이블 */
   .table-wrap {
     overflow-x: auto;
     border-radius: 10px;
     border: 1px solid var(--border);
     background: var(--surface);
   }
-
   table {
     width: 100%;
     border-collapse: collapse;
     font-variant-numeric: tabular-nums;
   }
-
   thead th {
     background: var(--surface);
     position: sticky;
@@ -111,24 +154,12 @@
     border-bottom: 1px solid var(--border);
     white-space: nowrap;
   }
-
   thead th.right { text-align: right; }
-
-  tbody tr {
-    border-bottom: 1px solid var(--border);
-    transition: background 0.1s;
-  }
+  tbody tr { border-bottom: 1px solid var(--border); transition: background 0.1s; }
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: var(--row-hover); }
-
-  td {
-    padding: 10px 14px;
-    vertical-align: middle;
-    color: var(--fg);
-  }
-
+  td { padding: 10px 14px; vertical-align: middle; color: var(--fg); }
   td.right { text-align: right; }
-
   .account-link {
     display: inline-flex;
     align-items: center;
@@ -141,7 +172,6 @@
   .account-link:hover { color: var(--accent); }
   .account-link svg { opacity: 0.45; flex-shrink: 0; }
   .account-link:hover svg { opacity: 0.9; }
-
   .tag {
     display: inline-block;
     font-size: 11px;
@@ -151,60 +181,412 @@
     padding: 1px 5px;
     margin-left: 4px;
   }
-
-  .cpv-val {
-    font-weight: 700;
-    color: var(--num);
-  }
+  .cpv-val { font-weight: 700; }
   .cpv-low  { color: #2baa6e; }
   .cpv-mid  { color: var(--num); }
   .cpv-high { color: #d97a3c; }
-
-  .price {
-    font-weight: 500;
-    color: var(--fg);
-  }
-
-  .plan-text {
-    color: var(--fg-sub);
-    font-size: 13px;
-    max-width: 200px;
-    min-width: 0;
-  }
-
-  .dash { color: var(--border); }
-
-  .todo {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    padding: 2px 6px;
-    border-radius: 4px;
-    background: #fff3e0;
-    color: #b45309;
-    border: 1px solid #fcd34d;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) .todo {
-      background: #2d1f00;
-      color: #fbbf24;
-      border-color: #78350f;
-    }
-  }
-  :root[data-theme="dark"] .todo {
-    background: #2d1f00;
-    color: #fbbf24;
-    border-color: #78350f;
-  }
+  .price { font-weight: 500; }
+  .plan-text { color: var(--fg-sub); font-size: 13px; max-width: 200px; }
 </style>
+</head>
+<body>
 
-<header>
-  <h1>부츠 인플루언서</h1>
-  <span class="badge">협상중 8</span>
-  <span style="color:var(--fg-sub); font-size:13px;">· 2026.09.30 기준</span>
-</header>
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('visit')">방문 일정</button>
+  <button class="tab-btn" onclick="switchTab('upload')">업로드 일정</button>
+  <button class="tab-btn" onclick="switchTab('cpv')">CPV</button>
+</div>
 
+<!-- 방문 일정 -->
+<div id="tab-visit" class="tab-panel active">
+
+<div class="date-group">
+  <div class="date-label">10/19 (월)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">optatum_somnium</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">instagram.com/reel/DdjFhXoTqBX/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De1it4_TNFj/" target="_blank">instagram.com/reel/De1it4_TNFj/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 3~4시</div>
+      <div class="rsub">업로드 10/23</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">_oooooonyoo</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">instagram.com/reel/DcQnazjJQeM/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfKAmA_TsF-/" target="_blank">instagram.com/reel/DfKAmA_TsF-/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 2시</div>
+      <div class="rsub">업로드 10/31</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">9leeryeo</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">instagram.com/reel/DcswN03z3zL/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De5v7AfzuRS/" target="_blank">instagram.com/reel/De5v7AfzuRS/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 2시</div>
+      <div class="rsub">업로드 10/25</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/21 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">an.su_ring</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">instagram.com/reel/DdBxCNRJbzC/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">instagram.com/reel/Dey13OtKIaI/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/22</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/22 (목)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hiziyou_</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">instagram.com/reel/DdjQBZ1pEGD/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De25QGtyTDt/" target="_blank">instagram.com/reel/De25QGtyTDt/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 2시</div>
+      <div class="rsub">업로드 10/23</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">rorocouple_trip</div>
+      <div class="rlink"><a href="https://www.instagram.com/rorocouple_trip" target="_blank">instagram.com/rorocouple_trip</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De-_GVRSFdt/" target="_blank">instagram.com/reel/De-_GVRSFdt/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/27 · 40만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">daily__inn</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">instagram.com/reel/Db5r5jkTOYn/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De_bwWGzHpf/" target="_blank">instagram.com/reel/De_bwWGzHpf/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 4시</div>
+      <div class="rsub">업로드 10/27</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/23 (금)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">cherr__iy</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">instagram.com/reel/DX3ZCJkSw74/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/p/De_3rcyyF3e/" target="_blank">instagram.com/p/De_3rcyyF3e/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/27 · 25만 · 저녁</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">anotherdoor_travel</div>
+      <div class="rlink"><a href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">instagram.com/reels/audio/834002524568327/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De9KVnyOX1K/" target="_blank">instagram.com/reel/De9KVnyOX1K/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/26 · 45만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/24 (토)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">chloe__story</div>
+      <div class="rlink"><a href="https://www.instagram.com/chloe__story/" target="_blank">instagram.com/chloe__story/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfBYAOOzhqm/" target="_blank">instagram.com/reel/DfBYAOOzhqm/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/28 · 65만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/25 (일)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">chocomi_travel</div>
+      <div class="rlink"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfE8jBHIpwk/" target="_blank">instagram.com/reel/DfE8jBHIpwk/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 12~1시</div>
+      <div class="rsub">업로드 10/30 · 50만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/26 (월)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hyotiz_</div>
+      <div class="rlink"><a href="https://www.instagram.com/hyotiz_/reels/" target="_blank">instagram.com/hyotiz_/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfHQrgZTBaQ/" target="_blank">instagram.com/reel/DfHQrgZTBaQ/</a></div>
+      <div class="badge badge-reshoot">재촬영</div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 7시</div>
+      <div class="rsub">업로드 10/30</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hid_zip</div>
+      <div class="rlink"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De-xNi1Ts4g/" target="_blank">instagram.com/reel/De-xNi1Ts4g/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오전 11시</div>
+      <div class="rsub">업로드 10/27 · 75만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">ha.liday</div>
+      <div class="rlink"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfEoh2piwz1/" target="_blank">instagram.com/reel/DfEoh2piwz1/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 5시</div>
+      <div class="rsub">업로드 10/29 · 40만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/28 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">gamsung_queen</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">instagram.com/reel/DZYyRJrzIxH/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfI_drsTcAd/" target="_blank">instagram.com/reel/DfI_drsTcAd/</a></div>
+      <div class="badge badge-model">모델 필요</div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 4시</div>
+      <div class="rsub">업로드 10/31 · 100만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">popup_dangni</div>
+      <div class="rlink"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfEFp-JThi7/" target="_blank">instagram.com/reel/DfEFp-JThi7/</a></div>
+    </div>
+    <div class="row-right">
+      <div class="rtime">오후 12:30~1시</div>
+      <div class="rsub">업로드 10/29 · 55만</div>
+    </div>
+  </div>
+</div>
+
+<p class="count">총 16명</p>
+</div>
+
+<!-- 업로드 일정 -->
+<div id="tab-upload" class="tab-panel">
+
+<div class="date-group">
+  <div class="date-label">10/22 (목)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">an.su_ring</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">instagram.com/reel/DdBxCNRJbzC/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">instagram.com/reel/Dey13OtKIaI/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/21</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/23 (금)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">optatum_somnium</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">instagram.com/reel/DdjFhXoTqBX/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De1it4_TNFj/" target="_blank">instagram.com/reel/De1it4_TNFj/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/19</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hiziyou_</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">instagram.com/reel/DdjQBZ1pEGD/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De25QGtyTDt/" target="_blank">instagram.com/reel/De25QGtyTDt/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/22</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/25 (일)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">9leeryeo</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">instagram.com/reel/DcswN03z3zL/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De5v7AfzuRS/" target="_blank">instagram.com/reel/De5v7AfzuRS/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/19</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/26 (월)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">anotherdoor_travel</div>
+      <div class="rlink"><a href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">instagram.com/reels/audio/834002524568327/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De9KVnyOX1K/" target="_blank">instagram.com/reel/De9KVnyOX1K/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/23 · 45만</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/27 (화)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">daily__inn</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">instagram.com/reel/Db5r5jkTOYn/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De_bwWGzHpf/" target="_blank">instagram.com/reel/De_bwWGzHpf/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/22</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">rorocouple_trip</div>
+      <div class="rlink"><a href="https://www.instagram.com/rorocouple_trip" target="_blank">instagram.com/rorocouple_trip</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De-_GVRSFdt/" target="_blank">instagram.com/reel/De-_GVRSFdt/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/22 · 40만</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">cherr__iy</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">instagram.com/reel/DX3ZCJkSw74/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/p/De_3rcyyF3e/" target="_blank">instagram.com/p/De_3rcyyF3e/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/23 · 25만 · 저녁</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hid_zip</div>
+      <div class="rlink"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/De-xNi1Ts4g/" target="_blank">instagram.com/reel/De-xNi1Ts4g/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/26 · 75만</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/28 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">chloe__story</div>
+      <div class="rlink"><a href="https://www.instagram.com/chloe__story/" target="_blank">instagram.com/chloe__story/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfBYAOOzhqm/" target="_blank">instagram.com/reel/DfBYAOOzhqm/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/24 · 65만</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/29 (목)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">ha.liday</div>
+      <div class="rlink"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfEoh2piwz1/" target="_blank">instagram.com/reel/DfEoh2piwz1/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/26 · 40만</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">popup_dangni</div>
+      <div class="rlink"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfEFp-JThi7/" target="_blank">instagram.com/reel/DfEFp-JThi7/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/28 · 55만</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/30 (금)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">chocomi_travel</div>
+      <div class="rlink"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfE8jBHIpwk/" target="_blank">instagram.com/reel/DfE8jBHIpwk/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/25 · 50만</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">hyotiz_</div>
+      <div class="rlink"><a href="https://www.instagram.com/hyotiz_/reels/" target="_blank">instagram.com/hyotiz_/reels/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfHQrgZTBaQ/" target="_blank">instagram.com/reel/DfHQrgZTBaQ/</a></div>
+      <div class="badge badge-reshoot">재촬영</div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/26</div></div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">10/31 (토)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">_oooooonyoo</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">instagram.com/reel/DcQnazjJQeM/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfKAmA_TsF-/" target="_blank">instagram.com/reel/DfKAmA_TsF-/</a></div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/19</div></div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="rid">gamsung_queen</div>
+      <div class="rlink"><a href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">instagram.com/reel/DZYyRJrzIxH/</a></div>
+      <div class="rlink" style="margin-top:3px;"><span style="color:var(--fg-sub);font-size:11px;">업로드 · </span><a href="https://www.instagram.com/reel/DfI_drsTcAd/" target="_blank">instagram.com/reel/DfI_drsTcAd/</a></div>
+      <div class="badge badge-model">모델 필요</div>
+    </div>
+    <div class="row-right"><div class="rsub">방문 10/28 · 100만</div></div>
+  </div>
+</div>
+
+<p class="count">총 16명</p>
+</div>
+
+<!-- CPV -->
+<div id="tab-cpv" class="tab-panel">
 <div class="table-wrap">
   <table>
     <thead>
@@ -273,7 +655,23 @@
         <td class="right"><span class="cpv-val cpv-high">450.5</span></td>
         <td class="plan-text">핀터맛 부츠 / 어른여자추구미</td>
       </tr>
-
     </tbody>
   </table>
 </div>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active',
+      (i === 0 && name === 'visit') ||
+      (i === 1 && name === 'upload') ||
+      (i === 2 && name === 'cpv'));
+  });
+  ['tab-visit','tab-upload','tab-cpv'].forEach(function(id) {
+    document.getElementById(id).classList.toggle('active', id === 'tab-' + name);
+  });
+}
+</script>
+</body>
+</html>
