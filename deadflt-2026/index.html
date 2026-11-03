@@ -3,102 +3,79 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>DEADFLT 인플루언서 일정</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<title>DEADFLT 인플루언서 캠페인 결과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
 <style>
-  :root {
-    --bg: #0a0a0a; --surface: #141414; --border: #222;
-    --fg: #f0f0f0; --fg-dim: #777; --accent: #c8ff00;
-    color-scheme: dark;
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
-      --fg: #111; --fg-dim: #888; --accent: #4a8c00;
-      color-scheme: light;
-    }
-  }
-  :root[data-theme="light"] {
-    --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
-    --fg: #111; --fg-dim: #888; --accent: #4a8c00;
-    color-scheme: light;
-  }
-  * { box-sizing: border-box; }
+  :root { --c: #4a8c00; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: var(--bg); color: var(--fg);
+    background: #fff; color: #111;
     font-family: 'Noto Sans KR', system-ui, sans-serif;
-    font-size: 14px; margin: 0;
-    padding-inline: 16px; padding-block: 28px 48px;
-    max-width: 760px; margin-inline: auto;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
   }
-  .brand { font-family: 'Bebas Neue', sans-serif; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); display: block; margin-bottom: 4px; }
-  h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
-  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
-
+  .wrap { max-width: 1300px; margin-inline: auto; }
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 15vw, 88px);
+    font-weight: 400; letter-spacing: 0.04em;
+    color: var(--c); line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 32px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 480px; }
-  thead tr { background: var(--surface); border-bottom: 2px solid var(--accent); }
-  th {
-    padding: 10px 12px; font-size: 11px; letter-spacing: 0.1em;
-    text-transform: uppercase; color: var(--accent);
-    font-weight: 700; text-align: left; white-space: nowrap;
-  }
-  td {
-    padding: 11px 12px; border-bottom: 1px solid var(--border);
-    font-size: 13px; vertical-align: middle;
-  }
-  tr:hover td { background: var(--surface); }
-  .num { color: var(--fg-dim); font-size: 11px; width: 28px; }
-  .id { font-weight: 700; white-space: nowrap; }
-  .lk a { color: var(--fg-dim); text-decoration: none; font-size: 12px; }
-  .lk a:hover { color: var(--accent); }
-  .date { white-space: nowrap; font-size: 13px; }
-  .date-shoot { color: var(--fg); font-weight: 700; }
-  .date-up { color: var(--fg-dim); }
-  .views { font-size: 13px; font-weight: 700; color: var(--accent); white-space: nowrap; }
-  .badge {
-    display: inline-block; font-size: 10px; padding: 2px 6px;
-    border-radius: 20px; font-weight: 600; white-space: nowrap; margin-left: 5px;
-    vertical-align: middle; background: rgba(200,255,0,0.12); color: var(--accent);
-  }
-  .acct-row td { padding: 2px 10px 11px; font-size: 12px; color: #555; text-align: left; border-bottom: 1px solid #e0e0e0; }
-  .acct-name { font-weight: 600; color: #333; }
-  .acct-num { color: #777; margin-left: 6px; letter-spacing: 0.03em; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 500px; }
+  col.c-num  { width: 36px; }
+  col.c-id   { width: 180px; }
+  col.c-ch   { width: 60px; }
+  col.c-date { width: 64px; }
+  col.c-view { width: 100px; }
+  thead tr { border-bottom: 2px solid #111; }
+  th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
+  th:nth-child(-n+3) { text-align: left; }
+  td { padding: 11px 10px 11px; border-bottom: 1px solid #e8e8e8; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
+  td:nth-child(-n+3) { text-align: left; }
+  td.id { white-space: normal; font-weight: 700; }
+  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .lk a:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
+  .ns { font-weight: 700; }
+  .na { color: #bbb; font-size: 12px; }
+  tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
+  tfoot td:nth-child(-n+3) { text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
 </style>
 </head>
 <body>
+<div class="wrap">
 
-<span class="brand">DEADFLT</span>
-<h1>데드폴트 인플루언서 일정</h1>
-<p class="meta">총 9명 · 조회수 높은순</p>
+  <span class="brand">DEADFLT</span>
+  <p class="tagline">인플루언서 캠페인 결과 · 2026</p>
 
-<div class="tbl-wrap">
-<table>
-  <thead>
-    <tr>
-      <th>#</th>
-      <th>아이디</th>
-      <th>링크</th>
-      <th>촬영일</th>
-      <th>업로드일</th>
-      <th>업로드링크</th>
-      <th>조회수</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr><td class="num">1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3ttMOOw32/" target="_blank">reel</a></td><td class="views">29.5만</td></tr>
-    <tr><td class="num">2</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/reels/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3zqdjT-Ln/" target="_blank">reel</a></td><td class="views">26.2만</td></tr>
-    <tr class="acct-row"><td colspan="7"><span class="acct-name">농협 · 유지혜</span><span class="acct-num">356-0183-0700-63</span></td></tr>
-    <tr><td class="num">3</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3dxh_KeBt/" target="_blank">reel</a></td><td class="views">24.3만</td></tr>
-    <tr><td class="num">4</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/namuriki/" target="_blank">instagram.com/namuriki</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3jUcnJ8gs/" target="_blank">reel</a></td><td class="views">15.9만</td></tr>
-    <tr><td class="num">5</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3lJeBzIeW/" target="_blank">reel</a></td><td class="views">7.9만</td></tr>
-    <tr><td class="num">6</td><td class="id">cherr__iy</td><td class="lk"><a href="https://www.instagram.com/cherr__iy" target="_blank">instagram.com/cherr__iy</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3nwrDSqrB/" target="_blank">reel</a></td><td class="views">5.6만</td></tr>
-    <tr><td class="num">7</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De35MM4MBHu/" target="_blank">reel</a></td><td class="views">4.6만</td></tr>
-    <tr><td class="num">8</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3rdnptPSh/" target="_blank">reel</a></td><td class="views">3만</td></tr>
-    <tr><td class="num">9</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="date date-shoot">10/24</td><td class="date date-up">10/24</td><td class="lk"><a href="https://www.instagram.com/reel/De3sGMET7tY/" target="_blank">reel</a></td><td class="views">2.9만</td></tr>
-  </tbody>
-</table>
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup>
+      <col class="c-num"><col class="c-id"><col class="c-ch">
+      <col class="c-date"><col class="c-view">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th><th>링크</th>
+        <th>업로드일</th><th>조회수</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">합계</td><td></td>
+        <td class="nv">—</td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+
 </div>
-
 </body>
 </html>
