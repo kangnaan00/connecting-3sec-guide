@@ -255,6 +255,10 @@ body[data-ver="ugg"] div.vUshow{display:block}
 .vBHshow{}
 body[data-ver="ugg"] .vBHshow{display:none}
 
+/* ugg-info 탭 레이블 */
+.tab-ugg-info{display:none}
+body[data-ver="ugg-info"] .tab-default{display:none}
+body[data-ver="ugg-info"] .tab-ugg-info{display:inline}
 /* ugg-info: info 모드와 동일하되 텍스트만 어그로 교체 */
 body[data-ver="ugg-info"] .vN{display:block}
 body[data-ver="ugg-info"] span.vN{display:inline!important}
@@ -285,7 +289,7 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
 
 <div class="wrap">
 <div class="vswitch" role="tablist">
-  <button type="button" id="tab-curation">큐레이션</button>
+  <button type="button" id="tab-curation"><span class="tab-default">큐레이션</span><span class="tab-ugg-info">어그</span></button>
   <button type="button" id="tab-inf" class="on">인플루언서</button>
 </div>
 <div class="vswitch-sub" role="group">
@@ -814,7 +818,7 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
   }
   function set(v,push){
     b.setAttribute('data-ver',v);
-    swapText(v==='ugg'||v==='ugg-info',v==='ugg-info'?[['큐레이션','어그'],['가을','겨울'],['FW신상','겨울신상']]:v==='ugg'?[['가을','겨울'],['FW신상','겨울신상']]:null);
+    swapText(v==='ugg'||v==='ugg-info',v==='ugg-info'||v==='ugg'?[['가을','겨울'],['FW신상','겨울신상']]:null);
     updateUI(v);
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
