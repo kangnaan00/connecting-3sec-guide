@@ -236,6 +236,22 @@ body[data-ver="boots"] .lu-boots,body[data-ver="info"] .lu-boots,body[data-ver="
 body[data-ver="boots"] .inf-lineup,body[data-ver="height"] .inf-lineup,body[data-ver="info"] .inf-lineup{grid-template-columns:1fr}
 body[data-ver="boots"] div.vBshow,body[data-ver="info"] div.vBshow,body[data-ver="height"] div.vBshow{display:block}
 body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-ver="height"] .row.vBshow{display:grid}
+/* ugg version */
+body[data-ver="ugg"] .vN{display:block}
+body[data-ver="ugg"] span.vN{display:inline!important}
+body[data-ver="ugg"] span.vI,body[data-ver="ugg"] .vI{display:none}
+body[data-ver="ugg"] .vBshow{display:inline-block}
+body[data-ver="ugg"] div.vBshow,body[data-ver="ugg"] article.vBshow{display:block}
+body[data-ver="ugg"] .row.vBshow{display:grid}
+body[data-ver="ugg"] .inf-lineup{grid-template-columns:1fr}
+body[data-ver="ugg"] .lu-boots,body[data-ver="ugg"] .lu-height{display:none}
+.lu-ugg{display:none}
+body[data-ver="ugg"] .lu-ugg{display:block}
+.vUshow{display:none}
+body[data-ver="ugg"] .vUshow{display:inline-block}
+body[data-ver="ugg"] div.vUshow{display:block}
+.vBHshow{}
+body[data-ver="ugg"] .vBHshow{display:none}
 
 /* boot lineup */
 .lineup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
@@ -259,11 +275,12 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
 <div class="vswitch-sub" role="group">
   <button type="button" data-ver="boots" class="on">부츠</button>
   <button type="button" data-ver="height">키높이</button>
+  <button type="button" data-ver="ugg">어그</button>
 </div>
 
 <header class="head">
   <div class="eyebrow">착한구두 · 인플루언서 릴스 · FW 오프라인</div>
-  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
+  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vUshow">인플루언서 · 어그</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
   <div class="notice" role="alert">
     <span class="nt">⚠ 주의사항</span>
     부츠는 반드시 <b>부츠 촬영 예시컷</b>을 보고 같은 구도로 촬영해 주세요.<br>
@@ -367,6 +384,13 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
                 <li><b>놀킨 키높이 바이커 투웨이 미들부츠</b><span class="pr">69,900원</span></li>
                 <li><b>카민스 키높이 비율 보정 롱부츠</b><span class="pr">79,900원</span></li>
                 <li><b>종아리 커버 택1</b><span class="op">페탈 롱부츠 75,900원 또는 블래티 슬라우치 브라운(기장 택1)</span></li>
+              </ol>
+            </div>
+            <div class="lu lu-ugg"><h4>어그 구성 · 3개</h4>
+              <ol>
+                <li><b>디케인</b></li>
+                <li><b>풀문</b></li>
+                <li><b>모렌트</b></li>
               </ol>
             </div>
           </div>
@@ -528,11 +552,18 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
         <div class="rows">
           <div class="line"><span class="q">멘트·자막</span>아래 <a href="#boots">부츠 정보</a>의 설명 포인트를 부츠마다 1~2개 말한다. 부츠 3개.</div>
           <div class="lineup">
-            <div class="lu"><h4>기본 구성 · 3개</h4>
+            <div class="lu lu-boots"><h4>기본 구성 · 3개</h4>
               <ol>
                 <li><b>페탈 커스텀 멀티웨이 롱부츠</b><span class="pr">75,900원</span></li>
                 <li><b>블래티 슬라우치 부츠</b><span class="op">브라운 · 기장 숏/롱 택1</span></li>
                 <li><b>키높이 택1</b><span class="op">놀킨 미들부츠 69,900원 또는 카민스 롱부츠 79,900원</span></li>
+              </ol>
+            </div>
+            <div class="lu lu-ugg"><h4>어그 구성 · 3개</h4>
+              <ol>
+                <li><b>디케인</b></li>
+                <li><b>풀문</b></li>
+                <li><b>모렌트</b></li>
               </ol>
             </div>
           </div>
@@ -596,6 +627,8 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
 
 <section id="boots">
   <h2><span class="n">2</span>부츠 정보</h2>
+
+  <div class="vBHshow">
   <p class="sub">장면 <span class="vI">5</span><span class="vN">6</span> 부츠 소개 3개는 기본으로 페탈 커스텀 멀티웨이 롱부츠, 블래티 슬라우치 부츠 브라운(기장 택1) + 키높이 1개 선택으로 간다. 키가 작은 인플루언서는 키높이 2개 + 페탈/블래티 중 택1 로 바꾼다. 부츠 설명을 멘트로 말하고, 가을 코디와 조합한다 (바지 넣어 신기 등).</p>
 
   <h3 style="margin-top:26px;font-size:16px;font-weight:900">종아리 커버 제품 · 장면 <span class="vI">5</span><span class="vN">6</span> 부츠 소개</h3>
@@ -608,6 +641,20 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
   <div class="split">
     <div class="pane"><img src="products/nolkin.jpg" alt="1 · 놀킨 키높이 바이커 투웨이 미들부츠" loading="lazy"><h3>1 · 놀킨 키높이 바이커 투웨이 미들부츠 · <span class="pr">69,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>버클 포인트</li></ul></div>
     <div class="pane"><img src="products/carmins.jpg" alt="2 · 카민스 키높이 비율 보정 롱부츠" loading="lazy"><h3>2 · 카민스 키높이 비율 보정 롱부츠 · <span class="pr">79,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> <span class="tag opt">종아리 커버</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>종아리 커버</li></ul></div>
+  </div>
+  </div>
+
+  <div class="vUshow">
+  <p class="sub">장면 6 어그 소개 3개. 각 제품 설명 포인트를 1~2개 멘트로 말하고, 겨울 코디와 조합한다.</p>
+
+  <h3 style="margin-top:26px;font-size:16px;font-weight:900">어그 라인 · 장면 6 제품 소개</h3>
+  <div class="split">
+    <div class="pane"><img src="https://jehyeonyang-oss.github.io/chaakan-creator-guide/winter-products/images/4837.jpg" alt="1 · 디케인 폴딩 무스탕 롱부츠" loading="lazy"><h3>1 · 디케인 폴딩 무스탕 롱부츠</h3><ul><li>폴딩 디자인 (2가지 코디 가능)</li><li>무스탕 소재</li></ul></div>
+    <div class="pane"><img src="https://jehyeonyang-oss.github.io/chaakan-creator-guide/winter-products/images/4842.jpg" alt="2 · 풀문 키높이 퍼안감 방한 부츠" loading="lazy"><h3>2 · 풀문 키높이 퍼안감 방한 부츠</h3><ul><li>키높이 굽</li><li>퍼 안감 방한</li></ul></div>
+  </div>
+  <div class="split">
+    <div class="pane"><img src="https://jehyeonyang-oss.github.io/chaakan-creator-guide/winter-products/images/4836.jpg" alt="3 · 모렌트 퍼안감 플랫폼 클로그 뮬" loading="lazy"><h3>3 · 모렌트 퍼안감 플랫폼 클로그 뮬</h3><ul><li>플랫폼 굽</li><li>퍼 안감</li><li>클로그 뮬 스타일</li></ul></div>
+  </div>
   </div>
 </section>
 
@@ -746,12 +793,12 @@ body[data-ver="boots"] .row.vBshow,body[data-ver="info"] .row.vBshow,body[data-v
   if(tabCur)tabCur.addEventListener('click',function(){set('info',true)});
   if(tabInf)tabInf.addEventListener('click',function(){
     var s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
-    set(s==='height'?'height':'boots',true);
+    set(s==='height'?'height':s==='ugg'?'ugg':'boots',true);
   });
   subBtns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
   var q=new URL(location.href).searchParams.get('ver'),s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
   if(q==='inf')q='boots';
-  var valid=['boots','height','info'];
+  var valid=['boots','height','info','ugg'];
   set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
 })();
 </script>
