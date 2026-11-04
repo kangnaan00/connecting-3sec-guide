@@ -32,6 +32,7 @@
   .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,7vw,36px); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: #111; line-height: 1; }
   .stat-num.hi { color: var(--c); }
   .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .tbl-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 700px; }
@@ -88,9 +89,9 @@
 
   <!-- ===== 내부용 ===== -->
   <div class="section visible" id="view-internal">
-  <div class="summary-title">캠페인 전체 합계</div>
+  <div class="summary-title">캠페인 합계</div>
   <div class="stats-grid">
-    <div class="stat-box"><div class="stat-label">총 광고비</div><div class="stat-num">695<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">695<span class="stat-unit">만원</span></div></div>
     <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">32.1<span class="stat-unit">만</span></div></div>
     <div class="stat-box"><div class="stat-label">CPV</div><div class="stat-num hi">21.6<span class="stat-unit">원</span></div></div>
     <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">538<span class="stat-unit">건</span></div></div>
@@ -110,7 +111,7 @@
     <thead>
       <tr>
         <th>#</th><th>아이디</th>
-        <th>업로드일</th><th>광고단가</th><th>조회수</th><th>CPV</th>
+        <th>업로드일</th><th>비용</th><th>조회수</th><th>CPV</th>
         <th>공유</th><th>저장</th><th>유입수</th><th>결제수</th>
       </tr>
     </thead>
