@@ -30,6 +30,7 @@
   .section-title:first-of-type { margin-top: 0; }
   .tbl-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 880px; }
+  #view-internal table { min-width: 1020px; }
   col.c-num   { width: 34px; }
   col.c-id    { width: 170px; }
   col.c-ulink { width: 210px; }
@@ -39,6 +40,7 @@
   col.c-dm    { width: 74px; }
   col.c-cpv   { width: 66px; }
   col.c-cost  { width: 74px; }
+  col.c-uprice { width: 70px; }
   col.c-like  { width: 70px; }
   col.c-cmnt  { width: 60px; }
   col.c-share { width: 70px; }
@@ -95,59 +97,59 @@
   <div class="section-title">계정별 현황</div>
   <div class="tbl-wrap">
   <table>
-    <colgroup><col class="c-num"><col class="c-id"><col class="c-ulink"><col class="c-date"><col class="c-views"><col class="c-saves"><col class="c-dm"><col class="c-cpv"><col class="c-cost"></colgroup>
-    <thead><tr><th>#</th><th>아이디</th><th>업로드 링크</th><th>업로드일</th><th>조회수</th><th>저장</th><th>DM공유</th><th>CPV</th><th>비용</th></tr></thead>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ulink"><col class="c-date"><col class="c-views"><col class="c-saves"><col class="c-uprice"><col class="c-dm"><col class="c-uprice"><col class="c-cpv"><col class="c-cost"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>업로드 링크</th><th>업로드일</th><th>조회수</th><th>저장</th><th>저장단가</th><th>DM공유</th><th>공유단가</th><th>CPV</th><th>비용</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">an.su_ring</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">instagram.com/reel/Dey13OtKIaI/</a></td><td>10/22</td><td class="nv">14.4만</td><td class="nv">1,996</td><td class="nv">2,353</td><td class="nv">5.6원</td><td class="ns">80만</td></tr>
-      <tr class="acct-row"><td colspan="9">NH농협 · <span class="acct-name">안수현</span><span class="acct-num">352-1231-5639-83</span></td></tr>
+      <tr><td>1</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdBxCNRJbzC/" target="_blank">an.su_ring</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dey13OtKIaI/" target="_blank">instagram.com/reel/Dey13OtKIaI/</a></td><td>10/22</td><td class="nv">14.4만</td><td class="nv">1,996</td><td class="nv">401원</td><td class="nv">2,353</td><td class="nv">340원</td><td class="nv">5.6원</td><td class="ns">80만</td></tr>
+      <tr class="acct-row"><td colspan="11">NH농협 · <span class="acct-name">안수현</span><span class="acct-num">352-1231-5639-83</span></td></tr>
 
-      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">optatum_somnium</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De1it4_TNFj/" target="_blank">instagram.com/reel/De1it4_TNFj/</a></td><td>10/23</td><td class="nv">42.8만</td><td class="nv">2,221</td><td class="nv">4,099</td><td class="nv">1.2원</td><td class="ns">50만</td></tr>
-      <tr class="acct-row"><td colspan="9">IBK기업은행 · <span class="acct-name">김은솔</span><span class="acct-num">124-123094-01-011</span></td></tr>
+      <tr><td>2</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">optatum_somnium</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De1it4_TNFj/" target="_blank">instagram.com/reel/De1it4_TNFj/</a></td><td>10/23</td><td class="nv">42.8만</td><td class="nv">2,221</td><td class="nv">225원</td><td class="nv">4,099</td><td class="nv">122원</td><td class="nv">1.2원</td><td class="ns">50만</td></tr>
+      <tr class="acct-row"><td colspan="11">IBK기업은행 · <span class="acct-name">김은솔</span><span class="acct-num">124-123094-01-011</span></td></tr>
 
-      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">hiziyou_</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De25QGtyTDt/" target="_blank">instagram.com/reel/De25QGtyTDt/</a></td><td>10/23</td><td class="nv">9.6만</td><td class="nv">1,920</td><td class="nv">2,082</td><td class="nv">8.3원</td><td class="ns">80만</td></tr>
-      <tr class="acct-row"><td colspan="9"><span class="na">계좌 미수신 (사업자 · 정현지)</span></td></tr>
+      <tr><td>3</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdjQBZ1pEGD/" target="_blank">hiziyou_</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De25QGtyTDt/" target="_blank">instagram.com/reel/De25QGtyTDt/</a></td><td>10/23</td><td class="nv">9.6만</td><td class="nv">1,920</td><td class="nv">417원</td><td class="nv">2,082</td><td class="nv">384원</td><td class="nv">8.3원</td><td class="ns">80만</td></tr>
+      <tr class="acct-row"><td colspan="11"><span class="na">계좌 미수신 (사업자 · 정현지)</span></td></tr>
 
-      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">9leeryeo</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De5v7AfzuRS/" target="_blank">instagram.com/reel/De5v7AfzuRS/</a></td><td>10/25</td><td class="nv">24.5만</td><td class="nv">2,046</td><td class="nv">4,055</td><td class="nv">1.6원</td><td class="ns">40만</td></tr>
-      <tr class="acct-row"><td colspan="9">KB국민은행 · <span class="acct-name">구인영</span><span class="acct-num">045502-04-403510</span></td></tr>
+      <tr><td>4</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">9leeryeo</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De5v7AfzuRS/" target="_blank">instagram.com/reel/De5v7AfzuRS/</a></td><td>10/25</td><td class="nv">24.5만</td><td class="nv">2,046</td><td class="nv">196원</td><td class="nv">4,055</td><td class="nv">99원</td><td class="nv">1.6원</td><td class="ns">40만</td></tr>
+      <tr class="acct-row"><td colspan="11">KB국민은행 · <span class="acct-name">구인영</span><span class="acct-num">045502-04-403510</span></td></tr>
 
-      <tr><td>5</td><td class="id"><a class="id-link" href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">anotherdoor_travel</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De9KVnyOX1K/" target="_blank">instagram.com/reel/De9KVnyOX1K/</a></td><td>10/26</td><td class="nv">13.7만</td><td class="nv">1,601</td><td class="nv">2,017</td><td class="nv">3.3원</td><td class="ns">45만</td></tr>
-      <tr class="acct-row"><td colspan="9">카카오뱅크 · <span class="acct-name">김지혜</span><span class="acct-num">3333-10-8389187</span></td></tr>
+      <tr><td>5</td><td class="id"><a class="id-link" href="https://www.instagram.com/reels/audio/834002524568327/" target="_blank">anotherdoor_travel</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De9KVnyOX1K/" target="_blank">instagram.com/reel/De9KVnyOX1K/</a></td><td>10/26</td><td class="nv">13.7만</td><td class="nv">1,601</td><td class="nv">281원</td><td class="nv">2,017</td><td class="nv">223원</td><td class="nv">3.3원</td><td class="ns">45만</td></tr>
+      <tr class="acct-row"><td colspan="11">카카오뱅크 · <span class="acct-name">김지혜</span><span class="acct-num">3333-10-8389187</span></td></tr>
 
-      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">daily__inn</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De_bwWGzHpf/" target="_blank">instagram.com/reel/De_bwWGzHpf/</a></td><td>10/27</td><td class="nv">7,010</td><td class="nv">65</td><td class="nv">53</td><td class="nv">57.1원</td><td class="ns">40만</td></tr>
-      <tr class="acct-row"><td colspan="9">광주은행 · <span class="acct-name">오정인</span><span class="acct-num">153-121-414829</span></td></tr>
+      <tr><td>6</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/Db5r5jkTOYn/" target="_blank">daily__inn</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De_bwWGzHpf/" target="_blank">instagram.com/reel/De_bwWGzHpf/</a></td><td>10/27</td><td class="nv">7,010</td><td class="nv">65</td><td class="nv">6,154원</td><td class="nv">53</td><td class="nv">7,547원</td><td class="nv">57.1원</td><td class="ns">40만</td></tr>
+      <tr class="acct-row"><td colspan="11">광주은행 · <span class="acct-name">오정인</span><span class="acct-num">153-121-414829</span></td></tr>
 
-      <tr><td>7</td><td class="id"><a class="id-link" href="https://www.instagram.com/rorocouple_trip" target="_blank">rorocouple_trip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De-_GVRSFdt/" target="_blank">instagram.com/reel/De-_GVRSFdt/</a></td><td>10/27</td><td class="nv">20.8만</td><td class="nv">4,871</td><td class="nv">6,168</td><td class="nv">1.9원</td><td class="ns">40만</td></tr>
-      <tr class="acct-row"><td colspan="9">KB국민은행 · <span class="acct-name">윤주영</span><span class="acct-num">698902-01-370855</span></td></tr>
+      <tr><td>7</td><td class="id"><a class="id-link" href="https://www.instagram.com/rorocouple_trip" target="_blank">rorocouple_trip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De-_GVRSFdt/" target="_blank">instagram.com/reel/De-_GVRSFdt/</a></td><td>10/27</td><td class="nv">20.8만</td><td class="nv">4,871</td><td class="nv">82원</td><td class="nv">6,168</td><td class="nv">65원</td><td class="nv">1.9원</td><td class="ns">40만</td></tr>
+      <tr class="acct-row"><td colspan="11">KB국민은행 · <span class="acct-name">윤주영</span><span class="acct-num">698902-01-370855</span></td></tr>
 
-      <tr><td>8</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">cherr__iy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/p/De_3rcyyF3e/" target="_blank">instagram.com/p/De_3rcyyF3e/</a></td><td>10/27</td><td class="nv">8,745</td><td class="nv">28</td><td class="nv">92</td><td class="nv">28.6원</td><td class="ns">25만</td></tr>
-      <tr class="acct-row"><td colspan="9">KB국민은행 · <span class="acct-name">김수지</span><span class="acct-num">90227100578</span></td></tr>
+      <tr><td>8</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DX3ZCJkSw74/" target="_blank">cherr__iy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/p/De_3rcyyF3e/" target="_blank">instagram.com/p/De_3rcyyF3e/</a></td><td>10/27</td><td class="nv">8,745</td><td class="nv">28</td><td class="nv">8,929원</td><td class="nv">92</td><td class="nv">2,717원</td><td class="nv">28.6원</td><td class="ns">25만</td></tr>
+      <tr class="acct-row"><td colspan="11">KB국민은행 · <span class="acct-name">김수지</span><span class="acct-num">90227100578</span></td></tr>
 
-      <tr><td>9</td><td class="id"><a class="id-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">hid_zip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De-xNi1Ts4g/" target="_blank">instagram.com/reel/De-xNi1Ts4g/</a></td><td>10/27</td><td class="nv">107.4만</td><td class="nv">1.7만</td><td class="nv">5만</td><td class="nv">0.7원</td><td class="ns">75만</td></tr>
-      <tr class="acct-row"><td colspan="9">토스뱅크 · <span class="acct-name">노가연</span><span class="acct-num">1000-5770-4956</span></td></tr>
+      <tr><td>9</td><td class="id"><a class="id-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">hid_zip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De-xNi1Ts4g/" target="_blank">instagram.com/reel/De-xNi1Ts4g/</a></td><td>10/27</td><td class="nv">107.4만</td><td class="nv">1.7만</td><td class="nv">44원</td><td class="nv">5만</td><td class="nv">15원</td><td class="nv">0.7원</td><td class="ns">75만</td></tr>
+      <tr class="acct-row"><td colspan="11">토스뱅크 · <span class="acct-name">노가연</span><span class="acct-num">1000-5770-4956</span></td></tr>
 
-      <tr><td>10</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">_oooooonyoo</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfKAmA_TsF-/" target="_blank">instagram.com/reel/DfKAmA_TsF-/</a></td><td>10/27</td><td class="nv">3.2만</td><td class="nv">363</td><td class="nv">191</td><td class="nv">21.9원</td><td class="ns">70만</td></tr>
-      <tr class="acct-row"><td colspan="9">우리은행 · <span class="acct-name">박은유</span><span class="acct-num">1002-558-241150</span></td></tr>
+      <tr><td>10</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DcQnazjJQeM/" target="_blank">_oooooonyoo</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfKAmA_TsF-/" target="_blank">instagram.com/reel/DfKAmA_TsF-/</a></td><td>10/27</td><td class="nv">3.2만</td><td class="nv">363</td><td class="nv">1,928원</td><td class="nv">191</td><td class="nv">3,665원</td><td class="nv">21.9원</td><td class="ns">70만</td></tr>
+      <tr class="acct-row"><td colspan="11">우리은행 · <span class="acct-name">박은유</span><span class="acct-num">1002-558-241150</span></td></tr>
 
-      <tr><td>11</td><td class="id"><a class="id-link" href="https://www.instagram.com/chloe__story/" target="_blank">chloe__story</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfBYAOOzhqm/" target="_blank">instagram.com/reel/DfBYAOOzhqm/</a></td><td>10/28</td><td class="nv">3.8만</td><td class="nv">412</td><td class="nv">869</td><td class="nv">17.1원</td><td class="ns">65만</td></tr>
-      <tr class="acct-row"><td colspan="9">카카오뱅크 · <span class="acct-name">이세희</span><span class="acct-num">3333-06-2240443</span></td></tr>
+      <tr><td>11</td><td class="id"><a class="id-link" href="https://www.instagram.com/chloe__story/" target="_blank">chloe__story</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfBYAOOzhqm/" target="_blank">instagram.com/reel/DfBYAOOzhqm/</a></td><td>10/28</td><td class="nv">3.8만</td><td class="nv">412</td><td class="nv">1,578원</td><td class="nv">869</td><td class="nv">748원</td><td class="nv">17.1원</td><td class="ns">65만</td></tr>
+      <tr class="acct-row"><td colspan="11">카카오뱅크 · <span class="acct-name">이세희</span><span class="acct-num">3333-06-2240443</span></td></tr>
 
-      <tr><td>12</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">ha.liday</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfEoh2piwz1/" target="_blank">instagram.com/reel/DfEoh2piwz1/</a></td><td>10/29</td><td class="nv">38만</td><td class="nv">5,847</td><td class="nv">8,762</td><td class="nv">1.1원</td><td class="ns">40만</td></tr>
-      <tr class="acct-row"><td colspan="9">카카오뱅크 · <span class="acct-name">최하연</span><span class="acct-num">3333-13-4010153</span></td></tr>
+      <tr><td>12</td><td class="id"><a class="id-link" href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">ha.liday</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfEoh2piwz1/" target="_blank">instagram.com/reel/DfEoh2piwz1/</a></td><td>10/29</td><td class="nv">38만</td><td class="nv">5,847</td><td class="nv">68원</td><td class="nv">8,762</td><td class="nv">46원</td><td class="nv">1.1원</td><td class="ns">40만</td></tr>
+      <tr class="acct-row"><td colspan="11">카카오뱅크 · <span class="acct-name">최하연</span><span class="acct-num">3333-13-4010153</span></td></tr>
 
-      <tr><td>13</td><td class="id"><a class="id-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">popup_dangni</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfEFp-JThi7/" target="_blank">instagram.com/reel/DfEFp-JThi7/</a></td><td>10/29</td><td class="nv">35.6만</td><td class="nv">2,607</td><td class="nv">7,048</td><td class="nv">1.5원</td><td class="ns">55만</td></tr>
-      <tr class="acct-row"><td colspan="9">NH농협 · <span class="acct-name">이다윤</span><span class="acct-num">356-1366-9878-43</span></td></tr>
+      <tr><td>13</td><td class="id"><a class="id-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">popup_dangni</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfEFp-JThi7/" target="_blank">instagram.com/reel/DfEFp-JThi7/</a></td><td>10/29</td><td class="nv">35.6만</td><td class="nv">2,607</td><td class="nv">211원</td><td class="nv">7,048</td><td class="nv">78원</td><td class="nv">1.5원</td><td class="ns">55만</td></tr>
+      <tr class="acct-row"><td colspan="11">NH농협 · <span class="acct-name">이다윤</span><span class="acct-num">356-1366-9878-43</span></td></tr>
 
-      <tr><td>14</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">gamsung_queen</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfI_drsTcAd/" target="_blank">instagram.com/reel/DfI_drsTcAd/</a></td><td>10/30</td><td class="nv">31.9만</td><td class="nv">2,543</td><td class="nv">2,884</td><td class="nv">3.1원</td><td class="ns">100만</td></tr>
-      <tr class="acct-row"><td colspan="9">카카오뱅크 · <span class="acct-name">김경현</span><span class="acct-num">3333-29-9179922</span></td></tr>
+      <tr><td>14</td><td class="id"><a class="id-link" href="https://www.instagram.com/reel/DZYyRJrzIxH/" target="_blank">gamsung_queen</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfI_drsTcAd/" target="_blank">instagram.com/reel/DfI_drsTcAd/</a></td><td>10/30</td><td class="nv">31.9만</td><td class="nv">2,543</td><td class="nv">393원</td><td class="nv">2,884</td><td class="nv">347원</td><td class="nv">3.1원</td><td class="ns">100만</td></tr>
+      <tr class="acct-row"><td colspan="11">카카오뱅크 · <span class="acct-name">김경현</span><span class="acct-num">3333-29-9179922</span></td></tr>
 
-      <tr><td>15</td><td class="id"><a class="id-link" href="https://www.instagram.com/chocomi_travel/" target="_blank">chocomi_travel</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfE8jBHIpwk/" target="_blank">instagram.com/reel/DfE8jBHIpwk/</a></td><td>10/30</td><td class="nv">15.2만</td><td class="nv">1,533</td><td class="nv">2,615</td><td class="nv">3.3원</td><td class="ns">50만</td></tr>
-      <tr class="acct-row"><td colspan="9">카카오뱅크 · <span class="acct-name">안채은</span><span class="acct-num">3333-35-9781007</span></td></tr>
+      <tr><td>15</td><td class="id"><a class="id-link" href="https://www.instagram.com/chocomi_travel/" target="_blank">chocomi_travel</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfE8jBHIpwk/" target="_blank">instagram.com/reel/DfE8jBHIpwk/</a></td><td>10/30</td><td class="nv">15.2만</td><td class="nv">1,533</td><td class="nv">326원</td><td class="nv">2,615</td><td class="nv">191원</td><td class="nv">3.3원</td><td class="ns">50만</td></tr>
+      <tr class="acct-row"><td colspan="11">카카오뱅크 · <span class="acct-name">안채은</span><span class="acct-num">3333-35-9781007</span></td></tr>
 
-      <tr><td>16</td><td class="id"><a class="id-link" href="https://www.instagram.com/hyotiz_/reels/" target="_blank">hyotiz_</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfHQrgZTBaQ/" target="_blank">instagram.com/reel/DfHQrgZTBaQ/</a></td><td>10/30</td><td class="nv">6.2만</td><td class="nv">488</td><td class="nv">655</td><td class="nv">7.3원</td><td class="ns">45만</td></tr>
-      <tr class="acct-row"><td colspan="9">케이뱅크 · <span class="acct-name">박효진</span><span class="acct-num">100-130-130059</span></td></tr>
+      <tr><td>16</td><td class="id"><a class="id-link" href="https://www.instagram.com/hyotiz_/reels/" target="_blank">hyotiz_</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DfHQrgZTBaQ/" target="_blank">instagram.com/reel/DfHQrgZTBaQ/</a></td><td>10/30</td><td class="nv">6.2만</td><td class="nv">488</td><td class="nv">922원</td><td class="nv">655</td><td class="nv">687원</td><td class="nv">7.3원</td><td class="ns">45만</td></tr>
+      <tr class="acct-row"><td colspan="11">케이뱅크 · <span class="acct-name">박효진</span><span class="acct-num">100-130-130059</span></td></tr>
     </tbody>
     <tfoot>
-      <tr><td colspan="2">합계</td><td></td><td></td><td class="ns">368.7만</td><td class="ns">4.6만</td><td class="ns">9.4만</td><td class="ns">2.4원</td><td class="ns">900만</td></tr>
+      <tr><td colspan="2">합계</td><td></td><td></td><td class="ns">368.7만</td><td class="ns">4.6만</td><td></td><td class="ns">9.4만</td><td></td><td class="ns">2.4원</td><td class="ns">900만</td></tr>
     </tfoot>
   </table>
   </div>
