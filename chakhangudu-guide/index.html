@@ -280,7 +280,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
 
 <header class="head">
   <div class="eyebrow">착한구두 · 인플루언서 릴스 · FW 오프라인</div>
-  <h1>착한구두 릴스 촬영 가이드<br>FW 신상 부츠 <span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vUshow">인플루언서 · 어그</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
+  <h1>착한구두 릴스 촬영 가이드<br><span class="vBHshow">FW 신상 부츠 </span><span class="vUshow">2026신상 겨울어그 </span><span class="vbadge vBshow">인플루언서 · 부츠</span><span class="vbadge vHshow">인플루언서 · 키높이</span><span class="vbadge vUshow">인플루언서 · 어그</span><span class="vbadge vN" style="display:none">정보성 버전</span></h1>
   <div class="notice" role="alert">
     <span class="nt">⚠ 주의사항</span>
     부츠는 반드시 <b>부츠 촬영 예시컷</b>을 보고 같은 구도로 촬영해 주세요.<br>
@@ -777,6 +777,14 @@ body[data-ver="ugg"] .vBHshow{display:none}
   var tabInf=document.getElementById('tab-inf');
   var subRow=document.querySelector('.vswitch-sub');
   var subBtns=document.querySelectorAll('.vswitch-sub button');
+  function swapText(toUgg){
+    var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode;return(p&&(p.tagName==='SCRIPT'||p.tagName==='STYLE'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});
+    var n;
+    while(n=walker.nextNode()){
+      if(toUgg){if(n.textContent.indexOf('부츠')>=0){n._orig=n.textContent;n.textContent=n.textContent.replace(/부츠/g,'어그');}}
+      else if(n._orig!=null){n.textContent=n._orig;delete n._orig;}
+    }
+  }
   function updateUI(v){
     var isInfo=v==='info';
     if(tabCur)tabCur.classList.toggle('on',isInfo);
@@ -786,6 +794,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
   }
   function set(v,push){
     b.setAttribute('data-ver',v);
+    swapText(v==='ugg');
     updateUI(v);
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
