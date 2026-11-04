@@ -819,7 +819,7 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
   }
-  if(tabCur)tabCur.addEventListener('click',function(){set('info',true)});
+  if(tabCur)tabCur.addEventListener('click',function(){set(b.getAttribute('data-ver')==='ugg-info'?'ugg-info':'info',true)});
   if(tabInf)tabInf.addEventListener('click',function(){
     var s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
     set(s==='height'?'height':s==='ugg'?'ugg':'boots',true);
