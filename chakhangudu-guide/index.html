@@ -814,7 +814,7 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
   }
   function set(v,push){
     b.setAttribute('data-ver',v);
-    swapText(v==='ugg'||v==='ugg-info',v==='ugg-info'?[['큐레이션','어그']]:null);
+    swapText(v==='ugg'||v==='ugg-info',v==='ugg-info'?[['큐레이션','어그'],['가을','겨울'],['FW신상','겨울신상']]:v==='ugg'?[['가을','겨울'],['FW신상','겨울신상']]:null);
     updateUI(v);
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
