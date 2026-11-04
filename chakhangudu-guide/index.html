@@ -255,6 +255,20 @@ body[data-ver="ugg"] div.vUshow{display:block}
 .vBHshow{}
 body[data-ver="ugg"] .vBHshow{display:none}
 
+/* ugg-info: info 모드와 동일하되 텍스트만 어그로 교체 */
+body[data-ver="ugg-info"] .vN{display:block}
+body[data-ver="ugg-info"] span.vN{display:inline!important}
+body[data-ver="ugg-info"] span.vI,body[data-ver="ugg-info"] .vI{display:none}
+body[data-ver="ugg-info"] .vBshow{display:inline-block}
+body[data-ver="ugg-info"] div.vBshow,body[data-ver="ugg-info"] article.vBshow{display:block}
+body[data-ver="ugg-info"] .row.vBshow{display:grid}
+body[data-ver="ugg-info"] .inf-lineup{grid-template-columns:1fr}
+body[data-ver="ugg-info"] .lu-boots,body[data-ver="ugg-info"] .lu-height{display:none}
+body[data-ver="ugg-info"] .lu-ugg{display:block}
+body[data-ver="ugg-info"] .vBHshow{display:none}
+body[data-ver="ugg-info"] .vUshow{display:inline-block}
+body[data-ver="ugg-info"] div.vUshow{display:block}
+
 /* boot lineup */
 .lineup{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media (max-width:640px){.lineup{grid-template-columns:1fr}}
@@ -788,7 +802,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
     }
   }
   function updateUI(v){
-    var isInfo=v==='info';
+    var isInfo=v==='info'||v==='ugg-info';
     if(tabCur)tabCur.classList.toggle('on',isInfo);
     if(tabInf)tabInf.classList.toggle('on',!isInfo);
     if(subRow)subRow.style.display=isInfo?'none':'flex';
@@ -796,7 +810,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
   }
   function set(v,push){
     b.setAttribute('data-ver',v);
-    swapText(v==='ugg');
+    swapText(v==='ugg'||v==='ugg-info');
     updateUI(v);
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
@@ -809,7 +823,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
   subBtns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
   var q=new URL(location.href).searchParams.get('ver'),s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
   if(q==='inf')q='boots';
-  var valid=['boots','height','info','ugg'];
+  var valid=['boots','height','info','ugg','ugg-info'];
   set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'boots'),false);
 })();
 </script>
