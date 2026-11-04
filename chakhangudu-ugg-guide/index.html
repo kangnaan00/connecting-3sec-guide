@@ -271,13 +271,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
 
 <div class="wrap">
 <div class="vswitch" role="tablist">
-  <button type="button" id="tab-curation">큐레이션</button>
-  <button type="button" id="tab-inf" class="on">인플루언서</button>
-</div>
-<div class="vswitch-sub" role="group">
-  <button type="button" data-ver="boots" class="on">어그</button>
-  <button type="button" data-ver="height">키높이</button>
-  <button type="button" data-ver="ugg">어그</button>
+  <button type="button" id="tab-curation" class="on">큐레이션</button>
 </div>
 
 <header class="head">
@@ -630,23 +624,6 @@ body[data-ver="ugg"] .vBHshow{display:none}
 <section id="boots">
   <h2><span class="n">2</span>어그 정보</h2>
 
-  <div class="vBHshow">
-  <p class="sub">장면 <span class="vI">5</span><span class="vN">6</span> 어그 소개 3개는 기본으로 페탈 커스텀 멀티웨이 롱어그, 블래티 슬라우치 어그 브라운(기장 택1) + 키높이 1개 선택으로 간다. 키가 작은 인플루언서는 키높이 2개 + 페탈/블래티 중 택1 로 바꾼다. 어그 설명을 멘트로 말하고, 가을 코디와 조합한다 (바지 넣어 신기 등).</p>
-
-  <h3 style="margin-top:26px;font-size:16px;font-weight:900">종아리 커버 제품 · 장면 <span class="vI">5</span><span class="vN">6</span> 어그 소개</h3>
-  <div class="split">
-    <div class="pane"><img src="../chakhangudu-guide/products/petal.jpg" alt="1 · 페탈 커스텀 멀티웨이 롱어그" loading="lazy"><h3>1 · 페탈 커스텀 멀티웨이 롱어그 · <span class="pr">75,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">접어 신는 어그</span> <span class="tag opt">종아리 커버</span> </p><ul><li>요즘 유행하는 접어 신는 어그 (2가지 코디 가능)</li><li>종아리 커버 가능 (체형 보정)</li></ul></div>
-    <div class="pane"><img src="../chakhangudu-guide/products/blatty.jpg" alt="2 · 블래티 슬라우치 어그" loading="lazy"><h3>2 · 블래티 슬라우치 어그</h3><p style="margin:2px 0 6px"><span class="tag opt">종아리 커버</span> </p><ul><li>통이 넓어 다리가 얇아 보임</li><li>기장 · 숏, 롱 2개 버전</li><li>재질 · 스웨이드, 레더 2개 버전</li></ul></div>
-  </div>
-
-  <h3 style="margin-top:26px;font-size:16px;font-weight:900">키높이 라인 · 7.5cm UP · 장면 <span class="vI">5</span><span class="vN">6</span> 어그 소개</h3>
-  <div class="split">
-    <div class="pane"><img src="../chakhangudu-guide/products/nolkin.jpg" alt="1 · 놀킨 키높이 바이커 투웨이 미들어그" loading="lazy"><h3>1 · 놀킨 키높이 바이커 투웨이 미들어그 · <span class="pr">69,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>버클 포인트</li></ul></div>
-    <div class="pane"><img src="../chakhangudu-guide/products/carmins.jpg" alt="2 · 카민스 키높이 비율 보정 롱어그" loading="lazy"><h3>2 · 카민스 키높이 비율 보정 롱어그 · <span class="pr">79,900원</span></h3><p style="margin:2px 0 6px"><span class="tag opt">7.5cm 키높이</span> <span class="tag opt">종아리 커버</span> </p><ul><li>다리 길어 보임, 비율 좋아 보임 (키 작은 분, 체형 보정)</li><li>7.5cm 키높이 굽</li><li>편한 착화감</li><li>종아리 커버</li></ul></div>
-  </div>
-  </div>
-
-  <div class="vUshow">
   <p class="sub">장면 6 어그 소개 3개. 각 제품 설명 포인트를 1~2개 멘트로 말하고, 겨울 코디와 조합한다.</p>
 
   <h3 style="margin-top:26px;font-size:16px;font-weight:900">어그 라인 · 장면 6 제품 소개</h3>
@@ -656,7 +633,6 @@ body[data-ver="ugg"] .vBHshow{display:none}
   </div>
   <div class="split">
     <div class="pane"><img src="https://jehyeonyang-oss.github.io/chaakan-creator-guide/winter-products/images/4836.jpg" alt="3 · 모렌트 퍼안감 플랫폼 클로그 뮬" loading="lazy"><h3>3 · 모렌트 퍼안감 플랫폼 클로그 뮬</h3><ul><li>플랫폼 굽</li><li>퍼 안감</li><li>클로그 뮬 스타일</li></ul></div>
-  </div>
   </div>
 </section>
 
@@ -801,16 +777,7 @@ body[data-ver="ugg"] .vBHshow{display:none}
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
   }
-  if(tabCur)tabCur.addEventListener('click',function(){set('info',true)});
-  if(tabInf)tabInf.addEventListener('click',function(){
-    var s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
-    set(s==='height'?'height':s==='ugg'?'ugg':'boots',true);
-  });
-  subBtns.forEach(function(x){x.addEventListener('click',function(){set(x.dataset.ver,true)})});
-  var q=new URL(location.href).searchParams.get('ver'),s=null;try{s=localStorage.getItem('ck-ver')}catch(e){}
-  if(q==='inf')q='boots';
-  var valid=['boots','height','info','ugg'];
-  set(valid.indexOf(q)>=0?q:(valid.indexOf(s)>=0?s:'ugg'),false);
+  set('ugg',false);
 })();
 </script>
 </body>
