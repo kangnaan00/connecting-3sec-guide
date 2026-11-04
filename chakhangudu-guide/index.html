@@ -793,12 +793,16 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
   var tabInf=document.getElementById('tab-inf');
   var subRow=document.querySelector('.vswitch-sub');
   var subBtns=document.querySelectorAll('.vswitch-sub button');
-  function swapText(toUgg){
+  function swapText(toUgg,extra){
     var walker=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){var p=n.parentNode;return(p&&(p.tagName==='SCRIPT'||p.tagName==='STYLE'))?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT}});
     var n;
     while(n=walker.nextNode()){
-      if(toUgg){if(n.textContent.indexOf('부츠')>=0){n._orig=n.textContent;n.textContent=n.textContent.replace(/부츠/g,'어그');}}
-      else if(n._orig!=null){n.textContent=n._orig;delete n._orig;}
+      if(toUgg){
+        var t=n.textContent,changed=false;
+        if(t.indexOf('부츠')>=0){t=t.replace(/부츠/g,'어그');changed=true;}
+        if(extra){for(var i=0;i<extra.length;i++){if(t.indexOf(extra[i][0])>=0){t=t.replace(new RegExp(extra[i][0],'g'),extra[i][1]);changed=true;}}}
+        if(changed){n._orig=n.textContent;n.textContent=t;}
+      }else if(n._orig!=null){n.textContent=n._orig;delete n._orig;}
     }
   }
   function updateUI(v){
@@ -810,7 +814,7 @@ body[data-ver="ugg-info"] div.vUshow{display:block}
   }
   function set(v,push){
     b.setAttribute('data-ver',v);
-    swapText(v==='ugg'||v==='ugg-info');
+    swapText(v==='ugg'||v==='ugg-info',v==='ugg-info'?[['큐레이션','어그']]:null);
     updateUI(v);
     try{localStorage.setItem('ck-ver',v)}catch(e){}
     if(push){var u=new URL(location.href);u.searchParams.set('ver',v);history.replaceState(null,'',u)}
