@@ -22,23 +22,32 @@
     font-weight: 400; letter-spacing: 0.04em;
     color: var(--c); line-height: 1; display: block; margin-bottom: 6px;
   }
-  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 32px; }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 32px; }
+  @media(min-width:480px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-box { border: 2px solid #111; border-radius: 6px; padding: 14px 14px 12px; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,7vw,36px); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: #111; line-height: 1; }
+  .stat-num.hi { color: var(--c); }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 500px; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 540px; }
   col.c-num  { width: 36px; }
-  col.c-id   { width: 180px; }
-  col.c-ch   { width: 60px; }
-  col.c-date { width: 64px; }
-  col.c-view { width: 100px; }
+  col.c-id   { width: 190px; }
+  col.c-ch   { width: 220px; }
+  col.c-date { width: 70px; }
+  col.c-cost { width: 80px; }
   thead tr { border-bottom: 2px solid #111; }
   th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
   th:nth-child(-n+3) { text-align: left; }
   td { padding: 11px 10px 11px; border-bottom: 1px solid #e8e8e8; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
   td:nth-child(-n+3) { text-align: left; }
   td.id { white-space: normal; font-weight: 700; }
-  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
-  .lk a:hover { color: var(--c); }
+  td.ulink { text-align: left; white-space: normal; }
+  .u-link { color: #888; text-decoration: none; font-size: 12px; font-weight: 500; }
+  .u-link:hover { color: var(--c); }
   .nv { color: var(--c); font-weight: 700; }
   .ns { font-weight: 700; }
   .na { color: #bbb; font-size: 12px; }
@@ -50,27 +59,42 @@
 <div class="wrap">
 
   <span class="brand">DEADFLT</span>
-  <p class="tagline">인플루언서 캠페인 결과 · 2026</p>
+  <p class="tagline">인플루언서 캠페인 결과 · 2026 · 9개 계정</p>
 
-  <div class="section-title">계정별 수치</div>
+  <div class="summary-title">캠페인 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 예산</div><div class="stat-num">485<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">9<span class="stat-unit">명</span></div></div>
+  </div>
+
+  <div class="section-title">계정별 현황</div>
   <div class="tbl-wrap">
   <table>
     <colgroup>
       <col class="c-num"><col class="c-id"><col class="c-ch">
-      <col class="c-date"><col class="c-view">
+      <col class="c-date"><col class="c-cost">
     </colgroup>
     <thead>
       <tr>
-        <th>#</th><th>아이디</th><th>링크</th>
-        <th>업로드일</th><th>조회수</th>
+        <th>#</th><th>아이디</th><th>프로필</th>
+        <th>업로드일</th><th>비용</th>
       </tr>
     </thead>
     <tbody>
+      <tr><td>1</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>2</td><td class="id">popup_dangni</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td>10/24</td><td class="ns">50만원</td></tr>
+      <tr><td>3</td><td class="id">someda._.ily</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>4</td><td class="id">j_o_o_sy<span class="na"> · 날짜협의</span></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td>10/24</td><td class="ns">45만원</td></tr>
+      <tr><td>5</td><td class="id">a.zihyyyy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/a.zihyyyy/reels/" target="_blank">instagram.com/a.zihyyyy</a></td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>6</td><td class="id">namuriki</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/namuriki/" target="_blank">instagram.com/namuriki</a></td><td>10/24</td><td class="ns">55만원</td></tr>
+      <tr><td>7</td><td class="id">cherr__iy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/cherr__iy/" target="_blank">instagram.com/cherr__iy</a></td><td>10/24</td><td class="ns">25만원</td></tr>
+      <tr><td>8</td><td class="id">pickstival</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td>10/24</td><td class="ns">50만원</td></tr>
+      <tr><td>9</td><td class="id">honey___pick</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td>10/6</td><td class="ns">50만원</td></tr>
     </tbody>
     <tfoot>
       <tr>
         <td colspan="3">합계</td><td></td>
-        <td class="nv">—</td>
+        <td class="ns">485만원</td>
       </tr>
     </tfoot>
   </table>
