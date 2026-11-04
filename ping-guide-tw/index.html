@@ -1,0 +1,533 @@
+<title>Ping! Connecting 拍攝指南</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Noto+Sans+TC:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: wide wrap, scene cards with side-by-side clip+desc */
+:root {
+  --paper: #FAF7F5;
+  --ink: #1A1520;
+  --ink-2: #564D5A;
+  --ink-3: #9A8FA0;
+  --line: #E8DDE5;
+  --panel: #FFFFFF;
+  --panel-2: #F3EDF1;
+  --rose: #C04572;
+  --rose-soft: #FAE5EE;
+  --amber: #8A6000;
+  --amber-soft: #F5EAD0;
+  --red: #C4361F;
+  --red-soft: #F8E5E0;
+  --shadow: 0 1px 2px rgba(20,10,25,.06), 0 6px 18px rgba(20,10,25,.07);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #130F16;
+    --ink: #EDE7F0;
+    --ink-2: #B5A8BC;
+    --ink-3: #7A6E82;
+    --line: #2B2233;
+    --panel: #1C1825;
+    --panel-2: #251F2E;
+    --rose: #E87AA0;
+    --rose-soft: #3C1227;
+    --amber: #E8B850;
+    --amber-soft: #332810;
+    --red: #FF8A70;
+    --red-soft: #3A1F19;
+    --shadow: 0 1px 2px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #130F16;
+  --ink: #EDE7F0;
+  --ink-2: #B5A8BC;
+  --ink-3: #7A6E82;
+  --line: #2B2233;
+  --panel: #1C1825;
+  --panel-2: #251F2E;
+  --rose: #E87AA0;
+  --rose-soft: #3C1227;
+  --amber: #E8B850;
+  --amber-soft: #332810;
+  --red: #FF8A70;
+  --red-soft: #3A1F19;
+  --shadow: 0 1px 2px rgba(0,0,0,.45), 0 6px 18px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Noto Sans TC", -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 72px;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 780px; margin: 0 auto }
+.mono { font-family: "IBM Plex Mono", ui-monospace, Menlo, monospace; font-variant-numeric: tabular-nums }
+h1, h2, h3 { text-wrap: balance; margin: 0; line-height: 1.25 }
+p { margin: 0 }
+a { color: var(--rose) }
+
+/* header */
+.head { padding-block: 40px 28px; border-bottom: 1px solid var(--line) }
+.eyebrow {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--rose); margin-bottom: 12px;
+}
+h1 {
+  font-family: "Noto Serif TC", "Noto Sans TC", serif;
+  font-size: clamp(26px, 5.5vw, 38px); font-weight: 700; letter-spacing: -.01em;
+}
+.concept {
+  margin-top: 18px;
+  display: inline-block;
+  font-size: 17px; font-weight: 900;
+  background: var(--rose-soft); color: var(--rose);
+  border-left: 4px solid var(--rose);
+  padding: 12px 18px; border-radius: 0 10px 10px 0;
+}
+.meta {
+  display: flex; flex-wrap: wrap; gap: 6px 20px;
+  margin-top: 18px; font-size: 16px; color: var(--ink);
+}
+.meta b { color: var(--ink); font-weight: 700 }
+
+/* section */
+section { padding-block: 34px; border-bottom: 1px solid var(--line) }
+section:last-of-type { border-bottom: 0 }
+h2 { font-size: 21px; font-weight: 900; letter-spacing: -.01em }
+h2 .n { color: var(--ink-3); font-weight: 500; margin-right: 8px }
+.sub { color: var(--ink-2); margin-top: 8px; max-width: 64ch }
+
+/* scene cards */
+.scenes { display: grid; gap: 20px; margin-top: 24px }
+.scene {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 14px; box-shadow: var(--shadow); overflow: hidden;
+}
+.scene-h {
+  display: flex; align-items: baseline; gap: 12px;
+  padding: 14px 20px 10px; border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.scene-h .num { font-size: 16px; font-weight: 700; color: var(--rose); letter-spacing: .1em }
+.scene-h h3 { font-size: 17px; font-weight: 900; flex: 1 1 auto }
+.scene-h .dur { font-size: 12.5px; color: var(--ink-3) }
+.scene-b {
+  display: grid; grid-template-columns: 200px 1fr; gap: 20px;
+  padding: 18px 20px 20px;
+}
+@media (max-width: 600px) {
+  .scene-b { grid-template-columns: 1fr; gap: 14px; padding: 14px 16px 16px }
+}
+
+/* clip placeholder */
+.clip { display: flex; flex-direction: column; gap: 8px; min-width: 0 }
+.ph {
+  aspect-ratio: 9/16; max-width: 200px; width: 100%;
+  border: 1.5px dashed var(--line); border-radius: 10px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 14px;
+  background: var(--panel-2); color: var(--ink-3); font-size: 12.5px; line-height: 1.45;
+}
+.ph .ph-icon { font-size: 28px; margin-bottom: 8px; opacity: .5 }
+.ph .ph-label { font-weight: 700; font-size: 11.5px; color: var(--ink-2); margin-bottom: 4px }
+.clip-note { font-size: 11.5px; color: var(--ink-3); line-height: 1.4 }
+.clip-note b { color: var(--ink-2); font-weight: 500 }
+
+/* rows / rows content */
+.rows { display: grid; gap: 12px; align-content: start; min-width: 0 }
+.row { display: grid; grid-template-columns: 52px 1fr; gap: 10px; font-size: 14px }
+.row .lab { padding-top: 3px }
+.row .val { color: var(--ink); line-height: 1.6; min-width: 0 }
+.row .val b { font-weight: 700 }
+.line {
+  padding: 10px 14px; background: var(--panel-2); border-radius: 9px;
+  font-size: 14.5px; line-height: 1.55;
+}
+.line .q {
+  color: var(--ink-3); font-size: 11.5px; font-weight: 700;
+  letter-spacing: .06em; display: block; margin-bottom: 3px;
+}
+.ab { display: grid; gap: 8px }
+.ab .line { border-left: 3px solid var(--rose) }
+.ab .k { font-weight: 900; color: var(--rose); margin-right: 6px }
+
+/* tags */
+.tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  letter-spacing: .06em; padding: 2px 8px; border-radius: 4px; vertical-align: middle;
+}
+.tag.must { background: var(--rose); color: #fff }
+.tag.opt { background: var(--panel-2); color: var(--ink-2) }
+.tag.no { background: var(--red); color: #fff }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tag.must,
+  :root:not([data-theme="light"]) .tag.no { color: #111 }
+}
+:root[data-theme="dark"] .tag.must,
+:root[data-theme="dark"] .tag.no { color: #111 }
+
+/* beat strip (hook highlights) */
+.beats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 4px }
+@media (max-width: 520px) { .beats { grid-template-columns: repeat(2, 1fr) } }
+.beat {
+  background: var(--rose-soft); border: 1px solid var(--rose);
+  border-radius: 10px; padding: 12px 14px;
+  font-size: 13px; line-height: 1.45; color: var(--ink);
+}
+.beat .bt { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--rose); display: block; margin-bottom: 4px }
+
+/* checklist */
+.check {
+  list-style: none; padding: 0; margin-top: 18px;
+  display: grid; gap: 0; border: 1px solid var(--line); border-radius: 12px;
+  overflow: hidden; background: var(--panel);
+}
+.check li {
+  margin: 0; display: flex; gap: 12px; align-items: flex-start;
+  padding: 12px 16px; border-bottom: 1px solid var(--line); font-size: 14px;
+}
+.check li:last-child { border-bottom: 0 }
+.check .box {
+  flex: 0 0 18px; height: 18px; border: 2px solid var(--ink-3);
+  border-radius: 4px; margin-top: 3px;
+}
+.check li.no-item { background: var(--red-soft) }
+.check li.no-item .box { border-color: var(--red) }
+
+/* split 2-col */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 18px }
+@media (max-width: 560px) { .split { grid-template-columns: 1fr } }
+.pane {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 10px; padding: 16px 18px;
+}
+.pane h3 { font-size: 13.5px; font-weight: 700; color: var(--ink-2); margin-bottom: 10px }
+
+/* caption guide */
+.caption-ex {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  overflow: hidden; margin-top: 16px;
+}
+.caption-ex .ce-head {
+  padding: 10px 16px; background: var(--panel-2); font-size: 12px;
+  font-weight: 700; color: var(--ink-3); letter-spacing: .06em;
+}
+.caption-ex .ce-body { padding: 14px 16px; font-size: 14px; line-height: 1.7; white-space: pre-wrap }
+.caption-ex .ce-body b { font-weight: 900; color: var(--rose) }
+.caption-ex .ce-body .blank {
+  display: inline-block; min-width: 80px;
+  border-bottom: 2px solid var(--amber); color: var(--amber); font-weight: 700;
+  text-align: center; padding-inline: 4px;
+}
+
+/* ref cards */
+.refs { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 18px }
+@media (max-width: 520px) { .refs { grid-template-columns: 1fr } }
+.ref-card {
+  background: var(--panel); border: 1px solid var(--line);
+  border-radius: 12px; overflow: hidden; text-decoration: none; color: inherit;
+  display: flex; flex-direction: column;
+  transition: box-shadow .15s;
+}
+.ref-card:hover { box-shadow: var(--shadow) }
+.ref-thumb {
+  aspect-ratio: 9/16; max-height: 280px; background: var(--panel-2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; color: var(--ink-3);
+}
+.ref-info { padding: 12px 14px }
+.ref-info .rf-tag { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--rose); display: block; margin-bottom: 4px }
+.ref-info .rf-title { font-size: 14px; font-weight: 700; line-height: 1.35 }
+.ref-info .rf-sub { font-size: 12.5px; color: var(--ink-3); margin-top: 4px }
+.ref-info .rf-link { font-size: 12px; color: var(--rose); margin-top: 6px; display: block; text-decoration: underline; text-underline-offset: 2px; word-break: break-all }
+
+/* note/warning */
+.note {
+  margin-top: 18px; padding: 14px 16px; background: var(--amber-soft);
+  border-radius: 9px; font-size: 14px; color: var(--ink);
+}
+.note b { color: var(--amber) }
+
+ul { margin: 12px 0 0; padding-left: 20px }
+li { margin-bottom: 5px }
+
+@media (prefers-reduced-motion: no-preference) {
+  .scene { transition: box-shadow .2s }
+}
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 2px }
+</style>
+
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">Connecting · 即時翻譯通話App · 網紅Reels</div>
+  <h1>Connecting Reels 拍攝指南</h1>
+  <div class="concept">「能和陌生人墜入愛河嗎？」</div>
+  <div class="meta">
+    <span><b>成品</b> Reels 1支</span>
+    <span><b>共同協作者</b> @connecting_app_official</span>
+    <span><b>拍攝及上傳</b> <span style="font-weight:700">11月內</span></span>
+  </div>
+</header>
+
+<section>
+  <h2><span class="n">1</span>約會中需自然呈現的Connecting訴求點</h2>
+  <p class="sub">不要直接宣傳，請讓這3種情感在影片中自然流露。</p>
+  <div class="ab" style="margin-top:14px">
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">訴求點1 — 怦然心動的第一印象</span>
+      「本人比大頭貼帥多了」
+    </div>
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">訴求點2 — 迅速建立的親密感</span>
+      「透過Connecting知道彼此品味相近，所以很快就熟了」
+    </div>
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">訴求點3 — 零尷尬</span>
+      「雖然是第一次見面，可能是因為有通過話，完全不覺得尷尬」
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2><span class="n">2</span>場景順序</h2>
+  <p class="sub">影片共由6個場景組成。請按照以下順序及各場景的必要條件拍攝。</p>
+
+  <div class="scenes">
+
+    <!-- Scene 1 -->
+    <article class="scene" id="s1">
+      <div class="scene-h">
+        <span class="num">場景 1</span>
+        <h3 style="font-size:21px">約會中最心動的精彩片段2~3個</h3>
+
+      </div>
+      <div class="scene-b" style="grid-template-columns:1fr;font-size:17px">
+        <div class="beats" style="grid-template-columns:repeat(3,1fr)">
+          <div class="beat"><span class="bt">示例 1</span>自然的肢體接觸<br>（牽手、肩膀碰觸等）</div>
+          <div class="beat"><span class="bt">示例 2</span>一起拍照的樣子 or 大頭貼機的照片成品</div>
+          <div class="beat"><span class="bt">示例 3</span>四目相對、相視而笑的場景</div>
+        </div>
+        <div class="rows">
+          <p style="font-size:15px;font-weight:700;color:var(--ink);margin:0"><b>選2–3個</b>快速剪輯。只收錄心動瞬間。</p>
+          <div class="row">
+            <span class="lab"><span class="tag must">必須</span></span>
+            <span class="val">在5秒內呈現約會中<b>最心動的2–3個瞬間</b>。影片前1秒必須抓住觀眾目光。</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 2 -->
+    <article class="scene" id="s2">
+      <div class="scene-h">
+        <span class="num">場景 2</span>
+        <h3 style="font-size:21px">透過Connecting通話、約定見面的場景</h3>
+
+      </div>
+      <div class="scene-b" style="font-size:17px">
+        <div class="clip">
+          <video controls playsinline preload="metadata"
+            poster="../ping-guide/videos/ref_call_poster.jpg"
+            src="../ping-guide/videos/ref_call_trim.mp4"
+            style="width:100%;max-width:100%;aspect-ratio:9/16;background:#000;border-radius:10px;display:block"></video>
+          <p class="clip-note"><b>Connecting官方影片</b> @connecting_app_off · 日文版參考<br>以相同方式拍攝<b>繁體中文版</b></p>
+        </div>
+        <div class="rows">
+          <div class="line" style="border-left:3px solid var(--ink-3)">
+            <span class="q">台詞</span>
+            <div style="margin-top:8px;font-size:15px">「去韓國之前只是通了個話而已」</div>
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">場景 — 只呈現對話精華</span>
+            <div style="display:grid;gap:8px;margin-top:8px">
+              <div style="display:flex;gap:10px">
+                <span style="font-weight:900;color:var(--ink-3);font-size:13px;white-space:nowrap;padding-top:2px">男</span>
+                <span>「那您來韓國的話，可以見面嗎？」</span>
+              </div>
+              <div style="display:flex;gap:10px">
+                <span style="font-weight:900;color:var(--rose);font-size:13px;white-space:nowrap;padding-top:2px">女</span>
+                <span style="color:var(--ink-2)">害羞地回答</span>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">必須</span></span>
+            <span class="val">同時呈現通話聲音 + 畫面下方<b>Connecting即時翻譯字幕</b></span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">必須</span></span>
+            <span class="val">包含<b>害羞表情及反應</b>的特寫鏡頭</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 3 -->
+    <article class="scene" id="s3">
+      <div class="scene-h">
+        <span class="num">場景 3</span>
+        <h3>前往見面的場景 — 既期待又緊張的途中</h3>
+
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">✈️</div>
+            <div class="ph-label">移動場景</div>
+            飛機、機場<br>緊張的樣子
+          </div>
+        </div>
+        <div class="rows">
+          <div class="line" style="border-left:3px solid var(--ink-3)">
+            <span class="q">台詞</span>
+            <div style="margin-top:8px;font-size:15px">「要去見面了，好緊張啊」</div>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag must">必須</span></span>
+            <span class="val"><b>坐在飛機座位上緊張模樣</b>的特寫鏡頭。</span>
+          </div>
+          <div class="row">
+            <span class="lab"><span class="tag opt">可選</span></span>
+            <span class="val">可加入飛機窗外、機場等移動途中的場景。</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 4 -->
+    <article class="scene" id="s4">
+      <div class="scene-h">
+        <span class="num">場景 4</span>
+        <h3>見面的場景</h3>
+
+      </div>
+      <div class="scene-b">
+        <div class="clip">
+          <div class="ph">
+            <div class="ph-icon">✈️</div>
+            <div class="ph-label">初次見面</div>
+          </div>
+        </div>
+        <div class="rows">
+          <div class="row">
+            <span class="lab"><span class="tag must">必須</span></span>
+            <span class="val"><b>初次見面的場景</b><br><span style="color:var(--ink);font-size:16px">例如：等待對方的瞬間 / 初次相遇的瞬間 / 在機場接機時驚喜相遇的瞬間 等</span></span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- Scene 5 -->
+    <article class="scene" id="s5">
+      <div class="scene-h">
+        <span class="num">場景 5</span>
+        <h3>約會行程 — 餐廳 → 大頭貼機 → 咖啡廳</h3>
+
+      </div>
+      <div class="scene-b" style="grid-template-columns:1fr">
+        <div class="beats" style="grid-template-columns:repeat(3,1fr)">
+          <div class="beat"><span class="bt">🍽️ 第一站</span>餐廳<br><br>他體貼照顧的溫馨場景<br>（拉椅子、拿水和餐具）<br>自然呈現逐漸熟絡的氛圍
+<div style="margin-top:10px;padding-top:8px;border-top:1px solid var(--rose);font-size:12px;color:var(--rose)">💖 心動點</div>
+<div style="font-size:12px;color:var(--ink-2);line-height:1.5;margin-top:4px">· 走路時讓她走內側<br>· 帶她去了在韓國一直想去的地方<br>· 幫她拉椅子、準備餐具和水<br><span style="font-weight:700">→ 「有種像公主一樣的感覺，好心動」</span></div></div>
+          <div class="beat"><span class="bt">📸 第二站</span>大頭貼機<br><br>展示成品照片<br>包含肢體接觸和親密感的鏡頭</div>
+          <div class="beat"><span class="bt">☕ 第三站</span>咖啡廳<br><br>自然聊天、相視而笑的鏡頭<br>不知不覺時間就過了<br>聊了又聊，話永遠說不完</div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /scenes -->
+
+  <h2 style="margin-top:32px"><span class="n">✓</span>約會中需自然呈現的Connecting訴求點</h2>
+  <p class="sub" style="margin-top:8px">不要直接宣傳，請讓這3種情感在影片中自然流露。</p>
+  <div class="ab" style="margin-top:14px">
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">訴求點1 — 怦然心動的第一印象</span>
+      「本人比大頭貼帥多了」
+    </div>
+    <div class="line" style="border-left:3px solid var(--rose)">
+      <span class="q">訴求點2 — 迅速建立的親密感</span>
+      「透過Connecting知道彼此品味相近，所以很快就熟了」
+      <div style="margin-top:10px;font-size:13px;color:var(--ink-2)">📱 <b>Connecting App畫面</b>插入顯示品味的個人資料</div>
+    </div>
+  </div>
+
+  <div class="scenes" style="margin-top:24px">
+
+    <!-- Scene 6 -->
+    <article class="scene" id="s6">
+      <div class="scene-h">
+        <span class="num">場景 6</span>
+        <h3>約會 · Connecting 心得</h3>
+      </div>
+      <div class="scene-b" style="grid-template-columns:1fr">
+        <div class="rows">
+          <p style="font-weight:700;font-size:15px;margin:0 0 10px;color:var(--rose)">Connecting必要訴求點 <span style="font-weight:400;font-size:13px;color:var(--ink-3)">(2~3個)</span></p>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">示例 1</span>
+            「本來擔心語言不通，但有即時翻譯，完全感覺不到語言障礙」
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">示例 2</span>
+            「以為第一次見面會很尷尬，但因為有先通過話，比想像中自然多了」
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">示例 3</span>
+            「有這個就能交外國女朋友（男朋友）了」
+          </div>
+          <p style="font-weight:700;font-size:15px;margin:18px 0 10px;color:var(--rose)">約會必要訴求點 <span style="font-weight:400;font-size:13px;color:var(--ink-3)">(2~3個)</span></p>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">示例 1</span>
+            「見到他，感覺像在做夢一樣」
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">示例 2</span>
+            「真的好溫柔，就跟韓劇裡演的一模一樣」
+          </div>
+          <div class="line" style="border-left:3px solid var(--rose)">
+            <span class="q">結尾</span>
+            「還能再見面嗎？」
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div><!-- /scenes -->
+
+</section>
+
+<section>
+  <h2><span class="n">3</span>參考影片</h2>
+  <p class="sub">以下兩支影片是與Connecting類似的服務Ping!（台灣）的活動影片。請參考構成方式、字幕格式、切換節奏、鉤子場景的配置。</p>
+
+  <div class="refs">
+    <a class="ref-card" href="https://www.instagram.com/reel/DaSbIfqSync/" target="_blank" rel="noopener">
+      <div class="ref-thumb">🎬</div>
+      <div class="ref-info">
+        <span class="rf-tag">參考影片1</span>
+        <div class="rf-title">桃園一日遊</div>
+        <div class="rf-sub">@ffyxic · 與3位陌生人逛桃園3個景點<br>港式餐廳 → 繪畫/猜謎體驗 → 芒果冰</div>
+        <span class="rf-link">instagram.com/reel/DaSbIfqSync/</span>
+      </div>
+    </a>
+    <a class="ref-card" href="https://www.instagram.com/reel/DcQjQgrSTv-/" target="_blank" rel="noopener">
+      <div class="ref-thumb">🎬</div>
+      <div class="ref-info">
+        <span class="rf-tag">參考影片2</span>
+        <div class="rf-title">七夕東區約會</div>
+        <div class="rf-sub">@ffyxic · 與透過Ping! App（類似服務）認識的人在東區約會<br>餐廳 → 照相館（fotolab） → 咖啡廳（costumice）</div>
+        <span class="rf-link">instagram.com/reel/DcQjQgrSTv-/</span>
+      </div>
+    </a>
+  </div>
+
+</section>
+
+</div>
