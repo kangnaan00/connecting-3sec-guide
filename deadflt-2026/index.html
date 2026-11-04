@@ -34,11 +34,12 @@
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
   .tbl-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 540px; }
-  col.c-num  { width: 36px; }
-  col.c-id   { width: 190px; }
-  col.c-ch   { width: 220px; }
-  col.c-date { width: 70px; }
-  col.c-cost { width: 80px; }
+  col.c-num   { width: 36px; }
+  col.c-id    { width: 190px; }
+  col.c-ch    { width: 220px; }
+  col.c-views { width: 80px; }
+  col.c-date  { width: 70px; }
+  col.c-cost  { width: 80px; }
   thead tr { border-bottom: 2px solid #111; }
   th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
   th:nth-child(-n+3) { text-align: left; }
@@ -65,6 +66,7 @@
   <div class="stats-grid">
     <div class="stat-box"><div class="stat-label">총 예산</div><div class="stat-num">485<span class="stat-unit">만원</span></div></div>
     <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">9<span class="stat-unit">명</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">125.4<span class="stat-unit">만</span></div></div>
   </div>
 
   <div class="section-title">계정별 현황</div>
@@ -72,28 +74,28 @@
   <table>
     <colgroup>
       <col class="c-num"><col class="c-id"><col class="c-ch">
-      <col class="c-ch"><col class="c-date"><col class="c-cost">
+      <col class="c-ch"><col class="c-views"><col class="c-date"><col class="c-cost">
     </colgroup>
     <thead>
       <tr>
         <th>#</th><th>아이디</th><th>프로필</th>
-        <th>업로드링크</th><th>업로드일</th><th>비용</th>
+        <th>업로드링크</th><th>조회수</th><th>업로드일</th><th>비용</th>
       </tr>
     </thead>
     <tbody>
-      <tr><td>1</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3ttMOOw32/" target="_blank">instagram.com/reel/De3ttMOOw32</a></td><td>10/24</td><td class="ns">70만원</td></tr>
-      <tr><td>2</td><td class="id">popup_dangni</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3dxh_KeBt/" target="_blank">instagram.com/reel/De3dxh_KeBt</a></td><td>10/24</td><td class="ns">50만원</td></tr>
-      <tr><td>3</td><td class="id">someda._.ily</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3lJeBzIeW/" target="_blank">instagram.com/reel/De3lJeBzIeW</a></td><td>10/24</td><td class="ns">70만원</td></tr>
-      <tr><td>4</td><td class="id">j_o_o_sy<span class="na"> · 날짜협의</span></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3rdnptPSh/" target="_blank">instagram.com/reel/De3rdnptPSh</a></td><td>10/24</td><td class="ns">45만원</td></tr>
-      <tr><td>5</td><td class="id">a.zihyyyy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/a.zihyyyy/reels/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3zqdjT-Ln/" target="_blank">instagram.com/reel/De3zqdjT-Ln</a></td><td>10/24</td><td class="ns">70만원</td></tr>
-      <tr><td>6</td><td class="id">namuriki</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/namuriki/" target="_blank">instagram.com/namuriki</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3jUcnJ8gs/" target="_blank">instagram.com/reel/De3jUcnJ8gs</a></td><td>10/24</td><td class="ns">55만원</td></tr>
-      <tr><td>7</td><td class="id">cherr__iy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/cherr__iy/" target="_blank">instagram.com/cherr__iy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3nwrDSqrB/" target="_blank">instagram.com/reel/De3nwrDSqrB</a></td><td>10/24</td><td class="ns">25만원</td></tr>
-      <tr><td>8</td><td class="id">pickstival</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3sGMET7tY/" target="_blank">instagram.com/reel/De3sGMET7tY</a></td><td>10/24</td><td class="ns">50만원</td></tr>
-      <tr><td>9</td><td class="id">honey___pick</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De35MM4MBHu/" target="_blank">instagram.com/reel/De35MM4MBHu</a></td><td>10/6</td><td class="ns">50만원</td></tr>
+      <tr><td>1</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3ttMOOw32/" target="_blank">instagram.com/reel/De3ttMOOw32</a></td><td class="nv">31.2만</td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>2</td><td class="id">popup_dangni</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3dxh_KeBt/" target="_blank">instagram.com/reel/De3dxh_KeBt</a></td><td class="nv">25.1만</td><td>10/24</td><td class="ns">50만원</td></tr>
+      <tr><td>3</td><td class="id">someda._.ily</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3lJeBzIeW/" target="_blank">instagram.com/reel/De3lJeBzIeW</a></td><td class="nv">8.2만</td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>4</td><td class="id">j_o_o_sy<span class="na"> · 날짜협의</span></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3rdnptPSh/" target="_blank">instagram.com/reel/De3rdnptPSh</a></td><td class="nv">3.3만</td><td>10/24</td><td class="ns">45만원</td></tr>
+      <tr><td>5</td><td class="id">a.zihyyyy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/a.zihyyyy/reels/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3zqdjT-Ln/" target="_blank">instagram.com/reel/De3zqdjT-Ln</a></td><td class="nv">26.8만</td><td>10/24</td><td class="ns">70만원</td></tr>
+      <tr><td>6</td><td class="id">namuriki</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/namuriki/" target="_blank">instagram.com/namuriki</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3jUcnJ8gs/" target="_blank">instagram.com/reel/De3jUcnJ8gs</a></td><td class="nv">16.6만</td><td>10/24</td><td class="ns">55만원</td></tr>
+      <tr><td>7</td><td class="id">cherr__iy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/cherr__iy/" target="_blank">instagram.com/cherr__iy</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3nwrDSqrB/" target="_blank">instagram.com/reel/De3nwrDSqrB</a></td><td class="nv">5.6만</td><td>10/24</td><td class="ns">25만원</td></tr>
+      <tr><td>8</td><td class="id">pickstival</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De3sGMET7tY/" target="_blank">instagram.com/reel/De3sGMET7tY</a></td><td class="nv">3.2만</td><td>10/24</td><td class="ns">50만원</td></tr>
+      <tr><td>9</td><td class="id">honey___pick</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/De35MM4MBHu/" target="_blank">instagram.com/reel/De35MM4MBHu</a></td><td class="nv">5.4만</td><td>10/6</td><td class="ns">50만원</td></tr>
     </tbody>
     <tfoot>
       <tr>
-        <td colspan="4">합계</td><td></td>
+        <td colspan="4">합계</td><td class="nv">125.4만</td><td></td>
         <td class="ns">485만원</td>
       </tr>
     </tfoot>
