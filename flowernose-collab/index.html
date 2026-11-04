@@ -3,195 +3,200 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>플라워노즈 캠페인</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Bebas+Neue&display=swap">
+<title>플라워노즈 캠페인 결과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
 <style>
-  :root {
-    --bg: #0a0a0a; --surface: #141414; --border: #222;
-    --fg: #f0f0f0; --fg-dim: #777; --accent: #4ade80;
-    --badge-done: #166534; --badge-done-fg: #bbf7d0;
-    --badge-guide: #1e3a5f; --badge-guide-fg: #93c5fd;
-    --badge-nego: #3b2a00; --badge-nego-fg: #fbbf24;
-    color-scheme: dark;
-  }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
-      --fg: #111; --fg-dim: #888; --accent: #16a34a;
-      --badge-done: #dcfce7; --badge-done-fg: #166534;
-      --badge-guide: #dbeafe; --badge-guide-fg: #1d4ed8;
-      --badge-nego: #fef3c7; --badge-nego-fg: #92400e;
-      color-scheme: light;
-    }
-  }
-  :root[data-theme="light"] {
-    --bg: #f7f7f7; --surface: #fff; --border: #e0e0e0;
-    --fg: #111; --fg-dim: #888; --accent: #16a34a;
-    --badge-done: #dcfce7; --badge-done-fg: #166534;
-    --badge-guide: #dbeafe; --badge-guide-fg: #1d4ed8;
-    --badge-nego: #fef3c7; --badge-nego-fg: #92400e;
-    color-scheme: light;
-  }
-  * { box-sizing: border-box; }
+  :root { --c: #e91e63; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
-    background: var(--bg); color: var(--fg);
+    background: #fff; color: #111;
     font-family: 'Noto Sans KR', system-ui, sans-serif;
-    font-size: 14px; margin: 0;
-    padding-inline: 16px; padding-block: 28px 64px;
-    max-width: 960px; margin-inline: auto;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
   }
-  h1 { font-size: clamp(28px, 6vw, 40px); font-weight: 700; margin: 0 0 4px; letter-spacing: -.01em; color: var(--accent); }
-  .sub { font-size: 12px; color: var(--fg-dim); margin-bottom: 20px; }
-
-  /* view tabs */
-  .view-tabs { display: flex; gap: 6px; margin-bottom: 20px; }
+  .wrap { max-width: 1300px; margin-inline: auto; }
+  .brand {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: clamp(52px, 15vw, 88px);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--c); line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 32px; }
+  @media(min-width:480px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-box { border: 2px solid #111; border-radius: 6px; padding: 14px 14px 12px; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,7vw,36px); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: #111; line-height: 1; }
+  .stat-num.hi { color: var(--c); }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 560px; }
+  col.c-num   { width: 34px; }
+  col.c-id    { width: 190px; }
+  col.c-ulink { width: 260px; }
+  col.c-cost  { width: 90px; }
+  thead tr { border-bottom: 2px solid #111; }
+  th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
+  th:nth-child(-n+2) { text-align: left; }
+  td { padding: 11px 10px 3px; border-bottom: none; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
+  td:nth-child(-n+2) { text-align: left; }
+  td.id { white-space: normal; font-weight: 700; }
+  td.ulink { text-align: left; white-space: normal; }
+  .u-link { color: #888; text-decoration: none; font-size: 12px; font-weight: 500; }
+  .u-link:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
+  .ns { font-weight: 700; }
+  .na { color: #bbb; font-size: 12px; }
+  .acct-row td { padding: 2px 10px 11px; font-size: 12px; color: #555; text-align: left; border-bottom: 1px solid #e0e0e0; }
+  .acct-name { font-weight: 600; color: #333; }
+  .acct-num { color: #777; margin-left: 6px; letter-spacing: 0.03em; }
+  tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
+  tfoot td:nth-child(-n+2) { text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+  .view-tabs { display: flex; gap: 6px; margin-bottom: 28px; }
   .view-tab {
-    padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700;
-    cursor: pointer; border: none; font-family: inherit;
-    background: var(--surface); color: var(--fg-dim);
-    border: 1px solid var(--border); transition: all .15s;
+    padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 2px solid #111; background: #fff; color: #111;
+    font-family: inherit; transition: background .15s, color .15s;
   }
-  .view-tab:hover { color: var(--fg); }
-  .view-tab.active { background: var(--accent); color: #111; border-color: var(--accent); }
-
+  .view-tab.active { background: #111; color: #fff; }
   .section { display: none; }
   .section.visible { display: block; }
-
-  /* stats */
-  .stats-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 24px; }
-  .stat-box {
-    background: var(--surface); border: 1px solid var(--border);
-    border-radius: 10px; padding: 12px 16px; min-width: 110px;
-  }
-  .stat-label { font-size: 11px; color: var(--fg-dim); margin-bottom: 4px; font-weight: 600; }
-  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: .02em; line-height: 1; }
-  .stat-num.hi { color: var(--accent); }
-  .stat-unit { font-size: 14px; font-weight: 400; font-family: 'Noto Sans KR', sans-serif; margin-left: 2px; }
-
-  /* table */
-  .tbl-wrap { overflow-x: auto; }
-  table { width: 100%; border-collapse: collapse; min-width: 640px; }
-  thead tr { background: var(--surface); border-bottom: 2px solid var(--accent); }
-  th {
-    padding: 10px 12px; font-size: 11px; letter-spacing: .1em;
-    text-transform: uppercase; color: var(--accent);
-    font-weight: 700; text-align: left; white-space: nowrap;
-  }
-  td {
-    padding: 10px 12px; border-bottom: 1px solid var(--border);
-    font-size: 13px; vertical-align: middle;
-  }
-  tr:hover td { background: var(--surface); }
-  .num { color: var(--fg-dim); font-size: 11px; width: 28px; }
-  .id { font-weight: 700; white-space: nowrap; }
-  .lk a { color: var(--fg-dim); text-decoration: none; font-size: 12px; }
-  .lk a:hover { color: var(--accent); }
-  .amt { font-weight: 700; white-space: nowrap; text-align: right; }
-  .acct { font-size: 12px; color: var(--fg-dim); white-space: nowrap; }
-  .acct .bank { font-size: 10px; color: var(--fg-dim); opacity: .7; display: block; margin-bottom: 2px; }
-  .acct .no { font-weight: 600; color: var(--fg); letter-spacing: .02em; }
-  .badge {
-    display: inline-block; font-size: 10px; font-weight: 700;
-    padding: 2px 7px; border-radius: 10px; white-space: nowrap;
-  }
-  .badge-done  { background: var(--badge-done);  color: var(--badge-done-fg); }
-  .badge-guide { background: var(--badge-guide); color: var(--badge-guide-fg); }
-  .badge-nego  { background: var(--badge-nego);  color: var(--badge-nego-fg); }
-  tfoot td { font-weight: 700; color: var(--fg-dim); font-size: 12px; padding-top: 12px; }
-  tfoot .amt { color: var(--accent); font-size: 14px; }
 </style>
 </head>
 <body>
+<div class="wrap">
+  <span class="brand">플라워노즈</span>
+  <p class="tagline">인플루언서 캠페인 결과 · 서울 팝업 · 2025.10 · 20개 계정</p>
 
-<h1>FLOWER NOSE</h1>
-<p class="sub">인플루언서 캠페인 · 서울 팝업 · 2025.10</p>
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="internal">내부용</button>
+    <button class="view-tab" data-view="external">외부용</button>
+  </div>
 
-<div class="view-tabs">
-  <button class="view-tab active" data-view="internal">내부용</button>
-  <button class="view-tab" data-view="external">외부용</button>
-</div>
-
-<!-- 내부용 -->
-<div id="view-internal" class="section visible">
-  <div class="stats-row">
+  <!-- 내부용 -->
+  <div class="section visible" id="view-internal">
+  <div class="summary-title">캠페인 합계</div>
+  <div class="stats-grid">
     <div class="stat-box"><div class="stat-label">총 예산</div><div class="stat-num">915<span class="stat-unit">만원</span></div></div>
     <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">20<span class="stat-unit">명</span></div></div>
-    <div class="stat-box"><div class="stat-label">업로드완료</div><div class="stat-num hi">18<span class="stat-unit">명</span></div></div>
-    <div class="stat-box"><div class="stat-label">가이드전송</div><div class="stat-num">1<span class="stat-unit">명</span></div></div>
-    <div class="stat-box"><div class="stat-label">협상중</div><div class="stat-num">1<span class="stat-unit">명</span></div></div>
+    <div class="stat-box"><div class="stat-label">업로드 완료</div><div class="stat-num hi">18<span class="stat-unit">명</span></div></div>
   </div>
+
+  <div class="section-title">계정별 현황</div>
   <div class="tbl-wrap">
   <table>
-    <thead>
-      <tr><th>#</th><th>아이디</th><th>링크</th><th>금액</th><th>계좌번호</th><th>업로드링크</th></tr>
-    </thead>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ulink"><col class="c-cost"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>업로드 링크</th><th>비용</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="amt">700,000<br><span style="font-size:11px;font-weight:400;color:var(--fg-dim)">+파트너스코드 150,000</span></td><td class="acct"><span class="bank">토스뱅크</span><span class="no">1000-5770-4956</span></td><td class="lk"><a href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">2</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">NH농협</span><span class="no">356-1366-9878-43</span></td><td class="lk"><a href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">3</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="amt">600,000</td><td class="acct"><span class="bank">하나은행</span><span class="no">119-910461-24407</span></td><td class="lk"><a href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">4</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">650737-01-009997</span></td><td class="lk"><a href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">5</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></td><td class="amt">400,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">698902-01-370855</span></td><td class="lk"><a href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">6</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">697601-01-739003</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">7</td><td class="id">seria_980</td><td class="lk"><a href="https://www.instagram.com/seria_980/reels/" target="_blank">instagram.com/seria_980</a></td><td class="amt">150,000</td><td class="acct"><span class="bank">카카오뱅크</span><span class="no">3333-33-2529079</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">8</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="amt">400,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">217002-04-662963</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">9</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reels/DXx3BGeBWXA/" target="_blank">instagram.com/reels/DXx3BGeBWXA</a></td><td class="amt">400,000</td><td class="acct"><span class="bank">신한은행</span><span class="no">110-515-431457</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">10</td><td class="id">sol.han.day</td><td class="lk"><a href="https://www.instagram.com/sol.han.day/reels/" target="_blank">instagram.com/sol.han.day</a></td><td class="amt">250,000</td><td class="acct"><span class="bank">신한은행</span><span class="no">110-538-630558</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">11</td><td class="id">woonimong</td><td class="lk"><a href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong</a></td><td class="amt">200,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">290302-04-259315</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">12</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></td><td class="amt">350,000</td><td class="acct"><span class="bank">카카오뱅크</span><span class="no">3333-10-8389187</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">13</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="amt">700,000</td><td class="acct"><span class="bank">NH농협</span><span class="no">356-0183-0700-63</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">14</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz</a></td><td class="amt">350,000</td><td class="acct"><span class="bank">카카오뱅크</span><span class="no">3333-13-4010153</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">15</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">카카오뱅크</span><span class="no">3333-35-9781007</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">16</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/namuriki/reels/" target="_blank">instagram.com/namuriki</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">NH농협</span><span class="no">352-0544-2302-33</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">17</td><td class="id">silvery_ooo</td><td class="lk"><a href="https://www.instagram.com/silvery_ooo/reels/" target="_blank">instagram.com/silvery_ooo</a></td><td class="amt">700,000</td><td class="acct"><span class="bank">KB국민은행</span><span class="no">218101-04-403377</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">18</td><td class="id">rearin.designer</td><td class="lk"><a href="https://www.instagram.com/rearin.designer/reels/" target="_blank">instagram.com/rearin.designer</a></td><td class="amt">500,000</td><td class="acct"><span class="bank">신한은행</span><span class="no">110-350-182044</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">19</td><td class="id">yuura_ii</td><td class="lk"><a href="https://www.instagram.com/yuura_ii/reels/" target="_blank">instagram.com/yuura_ii</a></td><td class="amt">400,000</td><td class="acct"><span class="bank">신한은행</span><span class="no">110-430-552690</span></td><td class="lk">—</td></tr>
-      <tr><td class="num">20</td><td class="id">j7507775</td><td class="lk"><a href="https://www.instagram.com/j7507775/reels/" target="_blank">instagram.com/j7507775</a></td><td class="amt">400,000</td><td class="acct"><span class="bank">카카오뱅크</span><span class="no">3333-38-0438254</span></td><td class="lk">—</td></tr>
+      <tr><td>1</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">instagram.com/reel/DejRYKqhClM/</a></td><td class="ns">70만원<br><span class="na">+파트너스 15만</span></td></tr>
+      <tr class="acct-row"><td colspan="4">토스뱅크<span class="acct-num">1000-5770-4956</span></td></tr>
+
+      <tr><td>2</td><td class="id">popup_dangni</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">instagram.com/reel/DeitvYPKXtQ/</a></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">NH농협<span class="acct-num">356-1366-9878-43</span></td></tr>
+
+      <tr><td>3</td><td class="id">someda._.ily</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">instagram.com/reel/DeiuCoozbmT/</a></td><td class="ns">60만원</td></tr>
+      <tr class="acct-row"><td colspan="4">하나은행<span class="acct-num">119-910461-24407</span></td></tr>
+
+      <tr><td>4</td><td class="id">honey___pick</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">instagram.com/reel/Dejb2CvO0Oo/</a></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">650737-01-009997</span></td></tr>
+
+      <tr><td>5</td><td class="id">rorocouple_trip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">instagram.com/p/DejWSMBSzTS/</a></td><td class="ns">40만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">698902-01-370855</span></td></tr>
+
+      <tr><td>6</td><td class="id">pickstival</td><td class="ulink"><span class="na">—</span></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">697601-01-739003</span></td></tr>
+
+      <tr><td>7</td><td class="id">seria_980</td><td class="ulink"><span class="na">—</span></td><td class="ns">15만원</td></tr>
+      <tr class="acct-row"><td colspan="4">카카오뱅크<span class="acct-num">3333-33-2529079</span></td></tr>
+
+      <tr><td>8</td><td class="id">j_o_o_sy</td><td class="ulink"><span class="na">—</span></td><td class="ns">40만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">217002-04-662963</span></td></tr>
+
+      <tr><td>9</td><td class="id">hotple_honeytip</td><td class="ulink"><span class="na">—</span></td><td class="ns">40만원</td></tr>
+      <tr class="acct-row"><td colspan="4">신한은행<span class="acct-num">110-515-431457</span></td></tr>
+
+      <tr><td>10</td><td class="id">sol.han.day</td><td class="ulink"><span class="na">—</span></td><td class="ns">25만원</td></tr>
+      <tr class="acct-row"><td colspan="4">신한은행<span class="acct-num">110-538-630558</span></td></tr>
+
+      <tr><td>11</td><td class="id">woonimong</td><td class="ulink"><span class="na">—</span></td><td class="ns">20만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">290302-04-259315</span></td></tr>
+
+      <tr><td>12</td><td class="id">anotherdoor_travel</td><td class="ulink"><span class="na">—</span></td><td class="ns">35만원</td></tr>
+      <tr class="acct-row"><td colspan="4">카카오뱅크<span class="acct-num">3333-10-8389187</span></td></tr>
+
+      <tr><td>13</td><td class="id">a.zihyyyy</td><td class="ulink"><span class="na">—</span></td><td class="ns">70만원</td></tr>
+      <tr class="acct-row"><td colspan="4">NH농협<span class="acct-num">356-0183-0700-63</span></td></tr>
+
+      <tr><td>14</td><td class="id">ha.liday</td><td class="ulink"><span class="na">—</span></td><td class="ns">35만원</td></tr>
+      <tr class="acct-row"><td colspan="4">카카오뱅크<span class="acct-num">3333-13-4010153</span></td></tr>
+
+      <tr><td>15</td><td class="id">chocomi_travel</td><td class="ulink"><span class="na">—</span></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">카카오뱅크<span class="acct-num">3333-35-9781007</span></td></tr>
+
+      <tr><td>16</td><td class="id">namuriki</td><td class="ulink"><span class="na">—</span></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">NH농협<span class="acct-num">352-0544-2302-33</span></td></tr>
+
+      <tr><td>17</td><td class="id">silvery_ooo</td><td class="ulink"><span class="na">—</span></td><td class="ns">70만원</td></tr>
+      <tr class="acct-row"><td colspan="4">KB국민은행<span class="acct-num">218101-04-403377</span></td></tr>
+
+      <tr><td>18</td><td class="id">rearin.designer</td><td class="ulink"><span class="na">—</span></td><td class="ns">50만원</td></tr>
+      <tr class="acct-row"><td colspan="4">신한은행<span class="acct-num">110-350-182044</span></td></tr>
+
+      <tr><td>19</td><td class="id">yuura_ii</td><td class="ulink"><span class="na">—</span></td><td class="ns">40만원</td></tr>
+      <tr class="acct-row"><td colspan="4">신한은행<span class="acct-num">110-430-552690</span></td></tr>
+
+      <tr><td>20</td><td class="id">j7507775</td><td class="ulink"><span class="na">—</span></td><td class="ns">40만원</td></tr>
+      <tr class="acct-row"><td colspan="4">카카오뱅크<span class="acct-num">3333-38-0438254</span></td></tr>
     </tbody>
     <tfoot>
-      <tr><td colspan="3">합계</td><td class="amt">9,150,000원</td><td colspan="2"></td></tr>
+      <tr><td colspan="2">합계</td><td></td><td class="ns">915만원</td></tr>
     </tfoot>
   </table>
   </div>
-</div>
-
-<!-- 외부용 -->
-<div id="view-external" class="section">
-  <div class="stats-row">
-    <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">3,000<span class="stat-unit">만원</span></div></div>
-    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">20<span class="stat-unit">명</span></div></div>
-    <div class="stat-box"><div class="stat-label">업로드완료</div><div class="stat-num hi">18<span class="stat-unit">명</span></div></div>
   </div>
+
+  <!-- 외부용 -->
+  <div class="section" id="view-external">
+  <div class="summary-title">캠페인 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">20<span class="stat-unit">명</span></div></div>
+    <div class="stat-box"><div class="stat-label">업로드 완료</div><div class="stat-num hi">18<span class="stat-unit">명</span></div></div>
+  </div>
+  <div class="section-title">계정별 업로드</div>
   <div class="tbl-wrap">
   <table>
-    <thead>
-      <tr><th>#</th><th>아이디</th><th>링크</th><th>업로드링크</th></tr>
-    </thead>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ulink"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>업로드 링크</th></tr></thead>
     <tbody>
-      <tr><td class="num">1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip</a></td><td class="lk"><a href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">2</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni</a></td><td class="lk"><a href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">3</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/someda._.ily/reels/" target="_blank">instagram.com/someda._.ily</a></td><td class="lk"><a href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">4</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick</a></td><td class="lk"><a href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">5</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></td><td class="lk"><a href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">reel</a></td></tr>
-      <tr><td class="num">6</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/pickstival/reels/" target="_blank">instagram.com/pickstival</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">7</td><td class="id">seria_980</td><td class="lk"><a href="https://www.instagram.com/seria_980/reels/" target="_blank">instagram.com/seria_980</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">8</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/j_o_o_sy/reels/" target="_blank">instagram.com/j_o_o_sy</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">9</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reels/DXx3BGeBWXA/" target="_blank">instagram.com/reels/DXx3BGeBWXA</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">10</td><td class="id">sol.han.day</td><td class="lk"><a href="https://www.instagram.com/sol.han.day/reels/" target="_blank">instagram.com/sol.han.day</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">11</td><td class="id">woonimong</td><td class="lk"><a href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">12</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">13</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/a.zihyyyy/" target="_blank">instagram.com/a.zihyyyy</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">14</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/p/DRUA2hGESuz/" target="_blank">instagram.com/p/DRUA2hGESuz</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">15</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/chocomi_travel/" target="_blank">instagram.com/chocomi_travel</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">16</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/namuriki/reels/" target="_blank">instagram.com/namuriki</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">17</td><td class="id">silvery_ooo</td><td class="lk"><a href="https://www.instagram.com/silvery_ooo/reels/" target="_blank">instagram.com/silvery_ooo</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">18</td><td class="id">rearin.designer</td><td class="lk"><a href="https://www.instagram.com/rearin.designer/reels/" target="_blank">instagram.com/rearin.designer</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">19</td><td class="id">yuura_ii</td><td class="lk"><a href="https://www.instagram.com/yuura_ii/reels/" target="_blank">instagram.com/yuura_ii</a></td><td class="lk">—</td></tr>
-      <tr><td class="num">20</td><td class="id">j7507775</td><td class="lk"><a href="https://www.instagram.com/j7507775/reels/" target="_blank">instagram.com/j7507775</a></td><td class="lk">—</td></tr>
+      <tr><td>1</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">instagram.com/reel/DejRYKqhClM/</a></td></tr>
+      <tr><td>2</td><td class="id">popup_dangni</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">instagram.com/reel/DeitvYPKXtQ/</a></td></tr>
+      <tr><td>3</td><td class="id">someda._.ily</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">instagram.com/reel/DeiuCoozbmT/</a></td></tr>
+      <tr><td>4</td><td class="id">honey___pick</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">instagram.com/reel/Dejb2CvO0Oo/</a></td></tr>
+      <tr><td>5</td><td class="id">rorocouple_trip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">instagram.com/p/DejWSMBSzTS/</a></td></tr>
+      <tr><td>6</td><td class="id">pickstival</td><td class="na">—</td></tr>
+      <tr><td>7</td><td class="id">seria_980</td><td class="na">—</td></tr>
+      <tr><td>8</td><td class="id">j_o_o_sy</td><td class="na">—</td></tr>
+      <tr><td>9</td><td class="id">hotple_honeytip</td><td class="na">—</td></tr>
+      <tr><td>10</td><td class="id">sol.han.day</td><td class="na">—</td></tr>
+      <tr><td>11</td><td class="id">woonimong</td><td class="na">—</td></tr>
+      <tr><td>12</td><td class="id">anotherdoor_travel</td><td class="na">—</td></tr>
+      <tr><td>13</td><td class="id">a.zihyyyy</td><td class="na">—</td></tr>
+      <tr><td>14</td><td class="id">ha.liday</td><td class="na">—</td></tr>
+      <tr><td>15</td><td class="id">chocomi_travel</td><td class="na">—</td></tr>
+      <tr><td>16</td><td class="id">namuriki</td><td class="na">—</td></tr>
+      <tr><td>17</td><td class="id">silvery_ooo</td><td class="na">—</td></tr>
+      <tr><td>18</td><td class="id">rearin.designer</td><td class="na">—</td></tr>
+      <tr><td>19</td><td class="id">yuura_ii</td><td class="na">—</td></tr>
+      <tr><td>20</td><td class="id">j7507775</td><td class="na">—</td></tr>
     </tbody>
   </table>
   </div>
-</div>
+  </div>
 
+</div>
 <script>
   document.querySelectorAll('.view-tab').forEach(tab => {
     tab.addEventListener('click', () => {
