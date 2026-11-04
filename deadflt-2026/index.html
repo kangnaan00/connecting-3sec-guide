@@ -33,6 +33,15 @@
   .stat-num.hi { color: var(--c); }
   .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
   .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .view-tabs { display: flex; gap: 6px; margin-bottom: 28px; }
+  .view-tab {
+    padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 2px solid #111; background: #fff; color: #111;
+    font-family: inherit; transition: background .15s, color .15s;
+  }
+  .view-tab.active { background: #111; color: #fff; }
+  .section { display: none; }
+  .section.visible { display: block; }
   .tbl-wrap { overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 860px; }
   col.c-num  { width: 36px; }
@@ -69,6 +78,12 @@
   <span class="brand">DEADFLT</span>
   <p class="tagline">인플루언서 캠페인 결과 · 2026. 10 · 9개 계정</p>
 
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="internal">내부용</button>
+    <button class="view-tab" data-view="external">외부용</button>
+  </div>
+
+  <div class="section visible" id="view-internal">
   <div class="summary-title">캠페인 합계</div>
   <div class="stats-grid">
     <div class="stat-box"><div class="stat-label">예산</div><div class="stat-num">485<span class="stat-unit">만원</span></div></div>
@@ -115,7 +130,63 @@
     </tfoot>
   </table>
   </div>
+  </div><!-- /view-internal -->
+
+  <div class="section" id="view-external">
+  <div class="summary-title">캠페인 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 조회수</div><div class="stat-num hi">125.4<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 저장</div><div class="stat-num">0.41<span class="stat-unit">만</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 공유</div><div class="stat-num">1.96<span class="stat-unit">만</span></div></div>
+    <div class="stat-box wide"><div class="stat-label">저장+공유 합계</div><div class="stat-num hi">2.37<span class="stat-unit">만</span></div></div>
+  </div>
+
+  <div class="section-title">계정별 현황</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup>
+      <col class="c-num"><col class="c-id"><col class="c-ch">
+      <col class="c-date"><col class="c-view"><col class="c-share">
+      <col class="c-save"><col class="c-ss">
+    </colgroup>
+    <thead>
+      <tr>
+        <th>#</th><th>아이디</th><th>채널</th>
+        <th>업로드일</th><th>조회수</th><th>공유</th><th>저장</th><th>저장+공유</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="data-row"><td>1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/reel/De3ttMOOw32/" target="_blank">reel</a></td><td>10/24</td><td class="nv">31.2만</td><td class="ns">6,267</td><td class="ns">902</td><td class="ns">7,169</td></tr>
+      <tr class="data-row"><td>2</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/reel/De3dxh_KeBt/" target="_blank">reel</a></td><td>10/24</td><td class="nv">25.1만</td><td class="ns">3,562</td><td class="ns">953</td><td class="ns">4,515</td></tr>
+      <tr class="data-row"><td>3</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/reel/De3lJeBzIeW/" target="_blank">reel</a></td><td>10/24</td><td class="nv">8.2만</td><td class="ns">373</td><td class="ns">141</td><td class="ns">514</td></tr>
+      <tr class="data-row"><td>4</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/reel/De3rdnptPSh/" target="_blank">reel</a></td><td>10/24</td><td class="nv">3.3만</td><td class="ns">341</td><td class="ns">43</td><td class="ns">384</td></tr>
+      <tr class="data-row"><td>5</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/reel/De3zqdjT-Ln/" target="_blank">reel</a></td><td>10/24</td><td class="nv">26.8만</td><td class="ns">5,211</td><td class="ns">1,311</td><td class="ns">6,522</td></tr>
+      <tr class="data-row"><td>6</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/reel/De3jUcnJ8gs/" target="_blank">reel</a></td><td>10/24</td><td class="nv">16.6만</td><td class="ns">2,464</td><td class="ns">461</td><td class="ns">2,925</td></tr>
+      <tr class="data-row"><td>7</td><td class="id">cherr__iy</td><td class="lk"><a href="https://www.instagram.com/reel/De3nwrDSqrB/" target="_blank">reel</a></td><td>10/24</td><td class="nv">5.6만</td><td class="ns">922</td><td class="ns">14</td><td class="ns">936</td></tr>
+      <tr class="data-row"><td>8</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/reel/De3sGMET7tY/" target="_blank">reel</a></td><td>10/24</td><td class="nv">3.2만</td><td class="ns">203</td><td class="ns">76</td><td class="ns">279</td></tr>
+      <tr class="data-row"><td>9</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/reel/De35MM4MBHu/" target="_blank">reel</a></td><td>10/6</td><td class="nv">5.4만</td><td class="ns">295</td><td class="ns">191</td><td class="ns">486</td></tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3">합계</td><td></td>
+        <td class="nv">125.4만</td><td class="ns">1.96만</td><td class="ns">0.41만</td><td class="nv">2.37만</td>
+      </tr>
+    </tfoot>
+  </table>
+  </div>
+  </div><!-- /view-external -->
 
 </div>
+<script>
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+      tab.classList.add('active');
+      document.getElementById('view-' + tab.dataset.view).classList.remove('hidden');
+      document.getElementById('view-' + tab.dataset.view).classList.add('visible');
+    });
+  });
+</script>
 </body>
 </html>
