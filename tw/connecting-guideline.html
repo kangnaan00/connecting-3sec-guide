@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커넥팅 가이드라인</title>
+<meta name="description" content="대만 여자 × 서울 남자 커넥팅 인터뷰 스크립트 및 에피소드 구성 가이드">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap">
+<style>
+  :root {
+    --bg: #F9F8F5;
+    --surface: #EFECE5;
+    --surface2: #E8E4DB;
+    --fg: #1A1714;
+    --fg-sub: #706A62;
+    --accent: #C07A2C;
+    --accent-dim: rgba(192,122,44,0.10);
+    --rule: #D8D3C8;
+    --girl-hue: #C0517C;
+    --girl-bg: rgba(192,81,124,0.08);
+    --boy-hue: #2C6EC0;
+    --boy-bg: rgba(44,110,192,0.08);
+    --badge-bg: #1A1714;
+    --badge-fg: #F9F8F5;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #121110;
+      --surface: #1D1B17;
+      --surface2: #252219;
+      --fg: #EDE8DF;
+      --fg-sub: #9A9288;
+      --accent: #D49240;
+      --accent-dim: rgba(212,146,64,0.10);
+      --rule: #2D2A24;
+      --girl-hue: #E0739A;
+      --girl-bg: rgba(224,115,154,0.10);
+      --boy-hue: #5B9BE0;
+      --boy-bg: rgba(91,155,224,0.10);
+      --badge-bg: #EDE8DF;
+      --badge-fg: #121110;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .page {
+    max-width: 740px;
+    margin: 0 auto;
+    padding-block: 52px 80px;
+  }
+
+  .header { margin-bottom: 44px; }
+  .header-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .header h1 {
+    margin: 0 0 8px;
+    font-size: clamp(24px, 5vw, 34px);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1.2;
+  }
+  .header-sub { font-size: 14px; color: var(--fg-sub); margin: 0 0 20px; }
+  .header-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+  .htag {
+    font-size: 12px; font-weight: 600; padding: 4px 10px;
+    border-radius: 20px; border: 1px solid var(--rule); color: var(--fg-sub);
+  }
+
+  .personas {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 44px;
+  }
+  @media (max-width: 480px) { .personas { grid-template-columns: 1fr; } }
+  .persona { border-radius: 12px; padding: 18px 20px; border: 1px solid var(--rule); }
+  .persona.girl { background: var(--girl-bg); border-color: rgba(192,81,124,0.18); }
+  .persona.boy  { background: var(--boy-bg);  border-color: rgba(44,110,192,0.18); }
+  .persona-role { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .girl .persona-role { color: var(--girl-hue); }
+  .boy  .persona-role { color: var(--boy-hue); }
+  .persona-name { font-size: 17px; font-weight: 700; color: var(--fg); margin-bottom: 10px; }
+  .persona-detail { font-size: 13px; color: var(--fg-sub); line-height: 1.55; }
+  .persona-detail strong { color: var(--fg); font-weight: 600; }
+
+  .section { margin-bottom: 44px; }
+  .section-head {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-bottom: 20px; border-bottom: 1px solid var(--rule); padding-bottom: 12px;
+  }
+  .section-num { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: var(--accent); }
+  .section-title { font-size: 16px; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+
+  .script-block { margin-bottom: 20px; }
+  .script-block:last-child { margin-bottom: 0; }
+  .script-label { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+  .script-who {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+  }
+  .script-who.interviewer { background: var(--accent-dim); color: var(--accent); }
+  .script-who.girl { background: var(--girl-bg); color: var(--girl-hue); }
+  .script-who.boy  { background: var(--boy-bg);  color: var(--boy-hue); }
+  .script-target { font-size: 12px; color: var(--fg-sub); }
+
+  .script-q {
+    background: var(--surface); border-radius: 10px 10px 10px 3px;
+    padding: 13px 16px; font-size: 14px; font-weight: 500; color: var(--fg); margin-bottom: 8px;
+  }
+  .script-q.girl-target { border-left: 3px solid var(--girl-hue); }
+  .script-q.boy-target  { border-left: 3px solid var(--boy-hue); }
+  .script-a {
+    background: var(--surface2); border-radius: 3px 10px 10px 10px;
+    padding: 11px 16px; font-size: 14px; color: var(--fg); margin-left: 20px;
+  }
+  .script-a.girl { border-right: 3px solid var(--girl-hue); }
+  .script-a.boy  { border-right: 3px solid var(--boy-hue); }
+  .script-note { font-size: 12px; color: var(--fg-sub); margin-left: 20px; margin-top: 5px; font-style: italic; }
+
+  .scene-divider {
+    display: flex; align-items: center; gap: 10px; margin: 28px 0;
+    font-size: 12px; color: var(--fg-sub); font-weight: 600;
+    letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .scene-divider::before, .scene-divider::after {
+    content: ''; flex: 1; height: 1px; background: var(--rule);
+  }
+
+  .climax {
+    background: var(--accent-dim); border: 1px solid rgba(192,122,44,0.25);
+    border-radius: 12px; padding: 20px 22px; margin-top: 10px;
+  }
+  .climax-label {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
+  }
+  .climax-q { font-size: 15px; font-weight: 600; color: var(--fg); margin-bottom: 8px; }
+  .climax-a { font-size: 18px; font-weight: 700; color: var(--accent); letter-spacing: -0.01em; }
+  .climax-note { font-size: 12px; color: var(--fg-sub); margin-top: 6px; }
+
+  .tip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 480px) { .tip-grid { grid-template-columns: 1fr; } }
+  .tip-card { background: var(--surface); border-radius: 10px; padding: 15px 16px; }
+  .tip-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-sub); margin-bottom: 7px; }
+  .tip-val { font-size: 14px; font-weight: 500; color: var(--fg); line-height: 1.5; }
+  .tip-sub { font-size: 12px; color: var(--fg-sub); margin-top: 3px; line-height: 1.5; }
+
+  .footer {
+    border-top: 1px solid var(--rule); padding-top: 22px; margin-top: 44px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
+  }
+  .footer-left { font-size: 12px; color: var(--fg-sub); }
+  .footer-badge {
+    font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+    background: var(--badge-bg); color: var(--badge-fg); padding: 5px 12px; border-radius: 20px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <p class="header-eyebrow">Connecting Contents · Interview Script</p>
+    <h1>대만 여자 × 서울 남자<br>커넥팅 가이드라인</h1>
+    <p class="header-sub">언어 장벽을 넘는 설레는 첫 만남 — 인터뷰형 커넥팅 숏폼 콘텐츠 제작 스크립트</p>
+    <div class="header-tags">
+      <span class="htag">인터뷰형</span>
+      <span class="htag">한국 × 대만</span>
+      <span class="htag">Instagram Reels</span>
+      <span class="htag">45 – 60초</span>
+    </div>
+  </header>
+
+  <div class="personas">
+    <div class="persona girl">
+      <div class="persona-role">Subject A</div>
+      <div class="persona-name">🇹🇼 대만 여자</div>
+      <div class="persona-detail">
+        <strong>한국 여행 중</strong><br>
+        한국말 잘 못함<br>
+        이상형: 드라마에서 본 <strong>다정한 한국 남자</strong>
+      </div>
+    </div>
+    <div class="persona boy">
+      <div class="persona-role">Subject B</div>
+      <div class="persona-name">🇰🇷 서울 남자</div>
+      <div class="persona-detail">
+        <strong>서울 현지인</strong><br>
+        이상형: 귀엽고 눈 큰 사람<br>
+        <strong>외국인도 만나보고 싶음</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 인터뷰 스크립트 -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">01</span>
+      <h2 class="section-title">인터뷰 스크립트</h2>
+    </div>
+
+    <div class="scene-divider">Scene 1 · 대만 여자 인터뷰</div>
+
+    <div class="script-block">
+      <div class="script-label">
+        <span class="script-who interviewer">인터뷰어</span>
+        <span class="script-target">→ 대만 여자에게</span>
+      </div>
+      <div class="script-q girl-target">안녕하세요, 혹시 어디 사람이세요?</div>
+      <div class="script-a girl">저 한국말 잘 못해요 😅<br>한국 여행 왔어요!</div>
+      <div class="script-note">※ 언어 장벽 자체가 콘텐츠 포인트 — 귀여운 리액션 클로즈업</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-label">
+        <span class="script-who interviewer">인터뷰어</span>
+        <span class="script-target">→ 대만 여자에게</span>
+      </div>
+      <div class="script-q girl-target">혹시 이상형이 어떻게 되세요?</div>
+      <div class="script-a girl">한국 남자 만나보고 싶어요!<br>드라마 보니까 다정하더라고요 🥹<br>다정한 사람이 이상형이에요.</div>
+      <div class="script-note">※ 한국 드라마 언급 → 시청자 공감 포인트, 자막 처리 강조</div>
+    </div>
+
+    <div class="scene-divider">Scene 2 · 서울 남자 인터뷰</div>
+
+    <div class="script-block">
+      <div class="script-label">
+        <span class="script-who interviewer">인터뷰어</span>
+        <span class="script-target">→ 서울 남자에게</span>
+      </div>
+      <div class="script-q boy-target">안녕하세요, 혹시 어디 사람이세요?</div>
+      <div class="script-a boy">서울 사람이에요!</div>
+    </div>
+
+    <div class="script-block">
+      <div class="script-label">
+        <span class="script-who interviewer">인터뷰어</span>
+        <span class="script-target">→ 서울 남자에게</span>
+      </div>
+      <div class="script-q boy-target">혹시 이상형이 어떻게 되세요?</div>
+      <div class="script-a boy">귀엽고 눈 큰 사람이요 👀<br>약간 외국인도 만나보고 싶어요!</div>
+      <div class="script-note">※ 두 사람의 이상형이 서로 맞아떨어지는 것을 편집에서 강조</div>
+    </div>
+
+    <div class="scene-divider">Scene 3 · 커넥팅 제안 (클라이맥스)</div>
+
+    <div class="script-block">
+      <div class="climax">
+        <div class="climax-label">🎬 대만 여자에게</div>
+        <div class="climax-q">그러면 다정한 한국 남자랑 데이트(소개팅) 할 수 있다면 하실 의향 있으신가요?</div>
+        <div class="climax-a">음… 네!! 🩷</div>
+        <div class="climax-note">※ 반응 클로즈업 + 슬로우 모션 처리 권장</div>
+      </div>
+    </div>
+
+    <div class="script-block">
+      <div class="climax">
+        <div class="climax-label">🎬 서울 남자에게 <span style="font-weight:400; font-size:11px; opacity:0.7;">(영상에서 생략 가능)</span></div>
+        <div class="climax-q">그러면 대만 사람과 데이트(소개팅) 할 수 있다면 하실 의향 있으신가요?</div>
+        <div class="climax-a">네, 상대방이 괜찮다면 전 좋아요 😊</div>
+        <div class="climax-note">※ 두 사람 모두 YES → 에피소드 구성 선택 (아래 참고)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 에피소드 구성 -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">02</span>
+      <h2 class="section-title">에피소드 구성</h2>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:0;">
+      <div style="background:var(--surface); border-radius:12px; padding:18px 18px 16px; border:1.5px solid var(--rule);">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; color:var(--accent); margin-bottom:10px;">1편 엔딩 · A안</div>
+        <div style="font-size:13px; color:var(--fg-sub); line-height:1.65;">두 사람 YES 반응 직후<br><strong style="color:var(--fg);">바로 데이트 장면</strong>으로 연결</div>
+        <div style="height:1px; background:var(--rule); margin:12px 0;"></div>
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.06em; color:var(--fg-sub); margin-bottom:6px;">A안 후속 콘텐츠</div>
+        <div style="font-size:13px; color:var(--fg-sub); line-height:1.65; margin-bottom:10px;">각자 나라로 돌아간 후<br><strong style="color:var(--fg);">커넥팅으로 통화하는 장면</strong>을 콘텐츠로 업로드</div>
+        <div style="background:var(--accent-dim); border-radius:8px; padding:10px 12px; font-size:12px; color:var(--fg-sub); line-height:1.6;">💡 A안으로 서사를 먼저 쌓으면 B안의 어플 소구가 광고 반감 없이 자연스럽게 연결됨<br>A안이 성과 미달 시 기획 보충으로 회생 가능</div>
+      </div>
+      <div style="background:var(--surface); border-radius:12px; padding:18px 18px 16px; border:1.5px solid var(--rule);">
+        <div style="font-size:12px; font-weight:700; letter-spacing:0.08em; color:var(--accent); margin-bottom:10px;">2편 콘텐츠 · B안</div>
+        <div style="font-size:13px; color:var(--fg-sub); line-height:1.65;">어플로 대화하다가 같은 카페에서<br><strong style="color:var(--fg);">서로를 알아보는 순간</strong>에 끊기<br><span style="font-size:12px; margin-top:4px; display:block;">(클리프행어) → 2편에서 데이트 장면 풀로 담기</span></div>
+        <div style="background:var(--accent-dim); border-radius:8px; padding:10px 12px; font-size:12px; color:var(--fg-sub); line-height:1.6; margin-top:10px;">💡 가장 궁금한 순간에 끊어서 시청자가 자연스럽게 2편을 기다리게 유도<br>댓글·저장·팔로우 전환율 극대화</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 편집 포인트 -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">03</span>
+      <h2 class="section-title">편집 포인트</h2>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-label">오프닝 자막</div>
+        <div class="tip-val">"처음 봤는데 설렐 수 있을까? (여행지에서)"</div>
+        <div class="tip-sub">영문 병기: Can Strangers Fall for Each Other? (While Traveling)</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">엔딩 자막</div>
+        <div class="tip-val">데이트 후 후속 인터뷰 삽입</div>
+        <div class="tip-sub">▶ 또 데이트하실 의향이 있으신가요?<br>여자: 네 😊<br>남자: 네, 그때는 제가 대만에 가야죠 😄</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">자막 언어</div>
+        <div class="tip-val">한국어 + 중국어 동시 표기</div>
+        <div class="tip-sub">모든 대사를 한국어·중국어 함께 한 화면에 표시<br>예) '다정한 사람이 이상형이에요 / 我的理想型是溫柔的人'</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">배경음악</div>
+        <div class="tip-val">잔잔한 감성 인디 / 어쿠스틱</div>
+        <div class="tip-sub">저작권 무료 트랙 필수</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 촬영 주의사항 -->
+  <section class="section">
+    <div class="section-head">
+      <span class="section-num">04</span>
+      <h2 class="section-title">촬영 주의사항</h2>
+    </div>
+    <div class="tip-grid">
+      <div class="tip-card">
+        <div class="tip-label">장소</div>
+        <div class="tip-val">밝은 야외 — 카페 앞, 공원, 쇼핑거리</div>
+        <div class="tip-sub">자연광 확보, 소음 최소화</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">동의</div>
+        <div class="tip-val">촬영 전 반드시 동의 확인</div>
+        <div class="tip-sub">업로드 동의까지 별도 확인 필수</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">카메라</div>
+        <div class="tip-val">두 사람이 보이는 측면 각도</div>
+        <div class="tip-sub">리액션 클로즈업 컷 별도 확보</div>
+      </div>
+      <div class="tip-card">
+        <div class="tip-label">언어 지원</div>
+        <div class="tip-val">언어가 안 될 때 중간중간 커넥팅 사용</div>
+        <div class="tip-sub">커넥팅 앱으로 대화 진행 → 번역 없이 연결되는 장면 자체가 콘텐츠</div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-left">커넥팅 가이드라인 · 서울링크</div>
+    <div class="footer-badge">CONNECTING SCRIPT</div>
+  </footer>
+
+</div>
+</body>
+</html>

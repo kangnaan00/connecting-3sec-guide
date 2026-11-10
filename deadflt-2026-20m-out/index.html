@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEADFLT 인플루언서 캠페인 결과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff;
+    color: #111;
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 640px; margin-inline: auto; }
+
+  /* ── 헤더 ── */
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 16vw, 96px);
+    letter-spacing: 0.05em;
+    color: #5a8f00;
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+
+  /* ── 요약 그리드 ── */
+  .summary-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 12px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 480px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+  .stat-box {
+    border: 2px solid #111;
+    border-radius: 6px;
+    padding: 14px 14px 12px;
+  }
+  .stat-box.wide { grid-column: span 2; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 7vw, 36px);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: #111;
+    line-height: 1;
+  }
+  .stat-num.hi { color: #5a8f00; }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+
+  /* ── 계정 표 ── */
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 10px;
+  }
+  .tbl-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    min-width: 420px;
+  }
+  thead tr { border-bottom: 2px solid #111; }
+  th {
+    padding: 9px 10px;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #111;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+  }
+  th:first-child, th:nth-child(2), th:nth-child(3) { text-align: left; }
+  td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    text-align: right;
+    color: #111;
+  }
+  td:first-child, td:nth-child(2), td:nth-child(3) { text-align: left; }
+  .id { font-weight: 700; }
+  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .lk a:hover { color: #5a8f00; }
+  .nv { color: #5a8f00; font-weight: 700; }
+  .ns { font-weight: 700; }
+  tfoot td {
+    padding: 13px 10px;
+    border-top: 2px solid #111;
+    border-bottom: none;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+    color: #111;
+  }
+  tfoot td:first-child, tfoot td:nth-child(2), tfoot td:nth-child(3) {
+    text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="brand">DEADFLT</span>
+  <p class="tagline">인플루언서 캠페인 결과 · 2026. 10. 24 · 9개 계정</p>
+
+  <div class="summary-title">캠페인 전체 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-label">예산</div>
+      <div class="stat-num">2,000<span class="stat-unit">만원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 조회수</div>
+      <div class="stat-num hi">119.9<span class="stat-unit">만</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">CPV</div>
+      <div class="stat-num hi">16.7<span class="stat-unit">원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">저장+공유단가</div>
+      <div class="stat-num hi">863<span class="stat-unit">원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 공유</div>
+      <div class="stat-num">19,177<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 저장</div>
+      <div class="stat-num">4,004<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box wide">
+      <div class="stat-label">저장+공유 합계</div>
+      <div class="stat-num">23,181<span class="stat-unit">건</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>아이디</th>
+          <th>릴스</th>
+          <th>조회수</th>
+          <th>공유</th>
+          <th>저장</th>
+          <th>저장+공유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/reel/De3ttMOOw32/" target="_blank">reel</a></td><td class="nv">29.5만</td><td class="ns">6,046</td><td class="ns">867</td><td class="ns">6,913</td></tr>
+        <tr><td>2</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/reel/De3zqdjT-Ln/" target="_blank">reel</a></td><td class="nv">26.2만</td><td class="ns">5,181</td><td class="ns">1,316</td><td class="ns">6,497</td></tr>
+        <tr><td>3</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/reel/De3dxh_KeBt/" target="_blank">reel</a></td><td class="nv">24.3만</td><td class="ns">3,450</td><td class="ns">940</td><td class="ns">4,390</td></tr>
+        <tr><td>4</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/reel/De3jUcnJ8gs/" target="_blank">reel</a></td><td class="nv">15.9만</td><td class="ns">2,385</td><td class="ns">434</td><td class="ns">2,819</td></tr>
+        <tr><td>5</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/reel/De3lJeBzIeW/" target="_blank">reel</a></td><td class="nv">7.9만</td><td class="ns">369</td><td class="ns">143</td><td class="ns">512</td></tr>
+        <tr><td>6</td><td class="id">cherr__iy</td><td class="lk"><a href="https://www.instagram.com/reel/De3nwrDSqrB/" target="_blank">reel</a></td><td class="nv">5.6만</td><td class="ns">922</td><td class="ns">13</td><td class="ns">935</td></tr>
+        <tr><td>7</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/reel/De35MM4MBHu/" target="_blank">reel</a></td><td class="nv">4.6만</td><td class="ns">295</td><td class="ns">177</td><td class="ns">472</td></tr>
+        <tr><td>8</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/reel/De3rdnptPSh/" target="_blank">reel</a></td><td class="nv">3만</td><td class="ns">341</td><td class="ns">40</td><td class="ns">381</td></tr>
+        <tr><td>9</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/reel/De3sGMET7tY/" target="_blank">reel</a></td><td class="nv">2.9만</td><td class="ns">188</td><td class="ns">74</td><td class="ns">262</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">합계</td>
+          <td class="nv">119.9만</td>
+          <td class="ns">19,177</td>
+          <td class="ns">4,004</td>
+          <td class="ns">23,181</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>

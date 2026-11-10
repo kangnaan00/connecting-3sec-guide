@@ -1,0 +1,464 @@
+<title>캣츠투나잇 릴스 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+
+<style>
+  /* Layout: single-column scannable card stack, mobile-first */
+  :root {
+    --bg: #080810;
+    --surface: #11111f;
+    --surface2: #191928;
+    --border: #2a2a40;
+    --fg: #f0eeff;
+    --fg-dim: #8888aa;
+    --accent: #b07aff;
+    --accent-dim: rgba(176,122,255,0.13);
+    --accent2: #ff6bbd;
+    --tag-bg: #1e1e30;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f5f4ff;
+      --surface: #ffffff;
+      --surface2: #eeeeff;
+      --border: #d4d0ee;
+      --fg: #111022;
+      --fg-dim: #6655aa;
+      --accent: #6c35c9;
+      --accent-dim: rgba(108,53,201,0.1);
+      --accent2: #c9356c;
+      --tag-bg: #e8e6f8;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f5f4ff;
+    --surface: #ffffff;
+    --surface2: #eeeeff;
+    --border: #d4d0ee;
+    --fg: #111022;
+    --fg-dim: #6655aa;
+    --accent: #6c35c9;
+    --accent-dim: rgba(108,53,201,0.1);
+    --accent2: #c9356c;
+    --tag-bg: #e8e6f8;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+    padding-inline: 16px;
+    padding-block: 28px 48px;
+    max-width: 680px;
+    margin-inline: auto;
+  }
+
+  /* Header */
+  .brand-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    color: var(--accent);
+    margin-bottom: 4px;
+    display: block;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(30px, 8vw, 52px);
+    letter-spacing: 0.05em;
+    margin: 0 0 2px;
+    line-height: 1.05;
+  }
+  .title-sub {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(14px, 4vw, 20px);
+    letter-spacing: 0.12em;
+    color: var(--accent2);
+    margin-bottom: 6px;
+  }
+  .subtitle {
+    color: var(--fg-dim);
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+
+  /* Info grid */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .info-cell {
+    background: var(--surface);
+    padding: 14px 16px;
+  }
+  .info-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .info-value {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  /* Highlight cards */
+  .highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .highlight-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .highlight-name {
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .highlight-desc {
+    font-size: 11px;
+    color: var(--fg-dim);
+    margin-top: 3px;
+    line-height: 1.4;
+  }
+
+  /* Section heading */
+  .section-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 32px 0 14px;
+  }
+  .section-head h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  .section-head::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* Scene card */
+  .scene {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+  }
+  .scene-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .scene-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    color: var(--accent);
+    line-height: 1;
+    min-width: 24px;
+  }
+  .scene-title {
+    font-weight: 700;
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+  }
+  .scene-tag {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    background: var(--tag-bg);
+    color: var(--fg-dim);
+    padding: 3px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  .scene-body {
+    padding: 14px 16px;
+    display: grid;
+    gap: 10px;
+  }
+  .scene-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 8px;
+    align-items: start;
+  }
+  .row-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    padding-top: 2px;
+    font-weight: 500;
+  }
+  .row-content {
+    font-size: 13px;
+    line-height: 1.65;
+    min-width: 0;
+  }
+  .caption-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.65;
+  }
+  .note-box {
+    background: var(--surface2);
+    border-left: 3px solid var(--accent2);
+    padding: 8px 12px;
+    border-radius: 0 6px 6px 0;
+    font-size: 12px;
+    color: var(--fg-dim);
+    line-height: 1.6;
+  }
+  .note-box strong { color: var(--accent2); }
+
+  /* Caption required block */
+  .caption-required {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 28px;
+  }
+  .caption-required .cr-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 10px;
+  }
+  .caption-required .cr-row {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    margin-bottom: 4px;
+  }
+  .caption-required .cr-key {
+    color: var(--fg-dim);
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12px;
+    color: var(--fg-dim);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+</style>
+
+<span class="brand-label">릴스 촬영 가이드라인</span>
+<h1>CATS TONIGHT<br>FESTIVAL</h1>
+<div class="title-sub">캣츠투나잇 페스티벌 2026</div>
+<p class="subtitle">경기도 고양시 원마운트 스노우파크 특설공연장 · 10/15 – 10/31</p>
+
+<!-- 기본 정보 -->
+<div class="info-grid">
+  <div class="info-cell">
+    <span class="info-label">행사명</span>
+    <div class="info-value">2026 CATS TONIGHT FESTIVAL</div>
+  </div>
+  <div class="info-cell">
+    <span class="info-label">기간</span>
+    <div class="info-value">10/15(목) – 10/31(토)<br>총 17일간</div>
+  </div>
+  <div class="info-cell">
+    <span class="info-label">장소</span>
+    <div class="info-value">경기도 고양시<br>원마운트 스노우파크 특설공연장</div>
+  </div>
+</div>
+
+<!-- 소구 포인트 -->
+<div class="highlight-grid">
+  <div class="highlight-card">
+    <span class="highlight-icon">DJ</span>
+    <div class="highlight-name">박명수 · 윤형빈</div>
+    <div class="highlight-desc">스페셜 DJ (이미지자료 제공)</div>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-icon">ORCHESTRA</span>
+    <div class="highlight-name">안현성 지휘<br>52인 필하모니</div>
+    <div class="highlight-desc">오케스트라 라이브 (이미지자료 제공)</div>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-icon">LOCATION</span>
+    <div class="highlight-name">고양 원마운트</div>
+    <div class="highlight-desc">할로윈 특설공연장</div>
+  </div>
+  <div class="highlight-card">
+    <span class="highlight-icon">PERIOD</span>
+    <div class="highlight-name">17일간 운영</div>
+    <div class="highlight-desc">10/15 ~ 10/31</div>
+  </div>
+</div>
+
+<!-- 필수 캡션 -->
+<div class="caption-required">
+  <div class="cr-title">캡션 필수 소구 (그대로 사용)</div>
+  <div class="cr-row">
+    <span class="cr-key">행사명</span>
+    <span>2026 CATS TONIGHT FESTIVAL / 캣츠투나잇 페스티벌</span>
+  </div>
+  <div class="cr-row">
+    <span class="cr-key">기간</span>
+    <span>2026년 10월 15일(목) ~ 10월 31일(토), 총 17일</span>
+  </div>
+  <div class="cr-row">
+    <span class="cr-key">장소</span>
+    <span>경기도 고양시 원마운트 스노우파크 특설공연장</span>
+  </div>
+</div>
+
+<!-- 장면 가이드 -->
+<div class="section-head">
+  <h2>릴스 촬영 가이드 (5장면)</h2>
+</div>
+
+<!-- Scene 1 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">01</div>
+    <div class="scene-title">도입 — 고양 할로윈 축제</div>
+    <div class="scene-tag">HOOK</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">고양(시)에 펼쳐지는 할로윈 축제</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">제공 영상 활용</div>
+    </div>
+    <div class="note-box">
+      <strong>소재:</strong> 제공 영상 활용
+    </div>
+  </div>
+</div>
+
+<!-- Scene 2 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">02</div>
+    <div class="scene-title">스페셜 DJ — 박명수 · 윤형빈</div>
+    <div class="scene-tag">SOCIAL PROOF</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">스페셜 DJ 박명수, 윤형빈까지</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">제공 이미지자료 활용 — 두 사람 사진 또는 공연 컷</div>
+    </div>
+    <div class="note-box">
+      <strong>소재:</strong> 이미지자료 제공 예정 — 확인 후 삽입
+    </div>
+  </div>
+</div>
+
+<!-- Scene 3 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">03</div>
+    <div class="scene-title">52인 필하모니 오케스트라</div>
+    <div class="scene-tag">HIGHLIGHT</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">안현성 지휘자가 선사하는 52인 필하모니 오케스트라까지</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">제공 이미지자료 활용 — 지휘자 및 오케스트라 공연 컷</div>
+    </div>
+    <div class="note-box">
+      <strong>소재:</strong> 이미지자료 제공 예정 — 확인 후 삽입
+    </div>
+  </div>
+</div>
+
+<!-- Scene 4 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">04</div>
+    <div class="scene-title">기간 강조</div>
+    <div class="scene-tag">OFFER</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">10/15 ~ 10/31, 17일간 진행</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">제공 영상 활용</div>
+    </div>
+    <div class="note-box">
+      <strong>소재:</strong> 제공 영상 활용
+    </div>
+  </div>
+</div>
+
+<!-- Scene 5 -->
+<div class="scene">
+  <div class="scene-header">
+    <div class="scene-num">05</div>
+    <div class="scene-title">CTA — 방문 유도</div>
+    <div class="scene-tag">CTA</div>
+  </div>
+  <div class="scene-body">
+    <div class="caption-box">지금 당장 가세요 / 같이 갈 친구 @ (자유 연출)</div>
+    <div class="scene-row">
+      <span class="row-label">장면</span>
+      <div class="row-content">제공 영상 활용</div>
+    </div>
+    <div class="note-box">
+      <strong>소재:</strong> 제공 영상 활용
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <span>2026 CATS TONIGHT FESTIVAL · 고양 원마운트 스노우파크</span>
+  <span>10/15 – 10/31 · 17일간</span>
+</div>

@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}[hidden]{display:none!important}</style>
+<title>크림라벨 촬영 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --brand:#E84B8E; --brand-soft:#FDE8F3;
+  --blue:#1E4FD0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --green:#1A6B3A; --green-soft:#E6F5ED;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --brand:#FF6EAE; --brand-soft:#3A1028;
+    --blue:#7A9BFF;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --green:#5FD68E; --green-soft:#0F2A1A;
+  }
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+h1{font-size:clamp(24px,5.5vw,34px);font-weight:900;letter-spacing:-.01em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:19px;font-weight:900;letter-spacing:-.01em;margin-bottom:14px}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+
+.badge{display:inline-block;background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:4px;margin-bottom:10px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{color:#111}}
+.badge-green{background:var(--green)}
+.badge-amber{background:var(--amber)}
+
+.brand-card{background:var(--brand-soft);border:1px solid var(--brand);border-radius:10px;padding:16px 18px;margin-bottom:12px;font-size:14px;line-height:1.85}
+.brand-card .kw{font-weight:900;color:var(--brand);font-size:15px}
+
+/* 출시 일정 카드 */
+.launch-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+@media(max-width:460px){.launch-grid{grid-template-columns:1fr}}
+.launch-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.launch-card .lc-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand);margin-bottom:4px}
+.launch-card .lc-title{font-size:16px;font-weight:900;line-height:1.3;margin-bottom:4px}
+.launch-card .lc-sub{font-size:13px;color:var(--ink-2)}
+
+/* 이미지 그리드 */
+.img-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:16px 0}
+.img-strip img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;display:block}
+.img-strip-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:16px 0}
+.img-strip-2 img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:8px;display:block}
+.img-hero{width:100%;max-height:460px;object-fit:cover;border-radius:12px;margin:16px 0;display:block}
+.img-label{font-size:11px;color:var(--ink-3);text-align:center;margin-top:-10px;margin-bottom:10px}
+
+.hooks{display:grid;gap:8px;margin-top:10px}
+.hook{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.6}
+.hook .label{font-size:11px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin-bottom:3px}
+.hook-note{font-size:13px;color:var(--ink-3);margin-top:12px;padding:10px 12px;background:var(--panel-2);border-radius:8px;line-height:1.7}
+
+/* 장면 카드 */
+.scene{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:12px}
+.scene-head{padding:12px 14px 10px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.scene-num{width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scene-title{font-weight:700;font-size:14px}
+.scene-body{padding:12px 14px;font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+.scene-body b{color:var(--ink);font-weight:700}
+
+.refs{display:grid;gap:10px;margin-top:14px}
+.ref-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:inherit}
+.ref-card:hover{border-color:var(--brand)}
+.ref-card .ref-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand)}
+.ref-card .ref-note{font-size:13px;color:var(--ink-2)}
+.ref-card .ref-url{font-size:12px;color:var(--blue);word-break:break-all}
+
+.check-group{margin-top:20px}
+.check-group:first-child{margin-top:0}
+.check-group h3{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px;letter-spacing:.02em}
+.check{list-style:none;padding:0;margin:0;display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
+.check li:last-child{border-bottom:0}
+.check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:2px;flex-shrink:0}
+.tip{background:var(--amber-soft);border:1px solid var(--amber);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--amber);margin-top:12px;line-height:1.7}
+.tip b{font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">CREAM LABEL · 인플루언서 릴스 가이드</div>
+  <h1>생딸기 모찌 크레이프</h1>
+  <div class="meta">
+    <span><b>브랜드</b> 크림라벨</span>
+    <span><b>제품</b> 국내최초 생딸기 모찌 크레이프</span>
+    <span><b>수량</b> 하루 선착순 20개 한정</span>
+  </div>
+</header>
+
+<!-- 출시 일정 -->
+<section>
+  <h2><span class="n">1</span>출시 일정</h2>
+  <div class="launch-card" style="margin-bottom:14px">
+    <div class="lc-label">소구점 전매장</div>
+    <div class="lc-title">11월 16일 출시</div>
+    <div class="lc-sub">전매장</div>
+  </div>
+
+  <div class="brand-card">
+    <div class="badge">한정수량 · 선착순 20개</div><br>
+    180번 반죽 테스트 끝에 탄생한<br>
+    <span class="kw">국내최초 생딸기 모찌 크레이프</span><br><br>
+    커스터드크림 · 백앙금크림 · 우유크림 <b>3종 크림</b>과 생딸기 조합<br>
+    <b>생딸기 통모찌</b>가 데코로 통으로 들어감 (1판에 생딸기모찌 3개)<br>
+    <small style="color:var(--ink-3)">홀케익은 별도 예약만 가능 · 산더미 과일케익 맛집으로 유명한 크림라벨</small>
+  </div>
+
+  <a href="https://www.instagram.com/p/DfM7PKRThli/" target="_blank" rel="noopener" style="font-size:13px">📌 크림라벨 공식 게시물 →</a>
+</section>
+
+<!-- 장면 구성 -->
+<section>
+  <h2><span class="n">3</span>장면 구성</h2>
+
+  <div class="scene">
+    <div class="scene-head">
+      <div class="scene-num">1</div>
+      <div class="scene-title">썸네일</div>
+    </div>
+    <div class="scene-body">
+      완성샷에서 <b>단면이 층층히 잘 보여지는 장면</b> 또는<br>
+      케이크 단면이 보여진 채로 <b>찢는 장면</b> (늘어나는 게 잘 보이게)<br>
+      혹은 <b>딸기 떡반죽이 길게 늘어나는 장면</b><br><br>
+      ⚡ 반으로 자르는컷 / 늘리는컷 / 케이크 데코로 얹는 장면 — 필수
+    </div>
+  </div>
+
+  <div class="hooks" style="margin-bottom:12px">
+    <p style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px">후킹 키워드 예시</p>
+    <p style="font-size:12px;color:var(--ink-3);margin-bottom:8px">비교문 예시</p>
+    <div class="hook"><div class="label">A</div>한정선,고디바 올기떡 다음</div>
+    <div class="hook"><div class="label">B</div>한정선 보다 난리난</div>
+    <div class="hook"><div class="label">C</div>고디바 한정선 치우자</div>
+    <div class="hook"><div class="label">D</div>선생님 진도가 빨라요 고디바,한정선 겨우 따라 갔더니 이번엔</div>
+    <div class="hook"><div class="label">E</div>초코찹쌀떡(과일찹쌀떡) 유행 겨우 따라 갔더니 이번엔</div>
+  </div>
+  <p style="font-size:12px;color:var(--ink-3);margin:10px 0 6px">국내최초 키워드 사용</p>
+  <div class="hooks">
+    <div class="hook"><div class="label">소구</div>180번 반죽 테스트 끝에 탄생한, 딸기 모찌가 통으로 들어간<br>국내최초 생딸기 모찌 크레이프</div>
+  </div>
+
+  <div class="scene" style="margin-top:16px">
+    <div class="scene-head">
+      <div class="scene-num">2</div>
+      <div class="scene-title">만드는 장면</div>
+    </div>
+    <div class="scene-body">
+      <video src="reel-making.mp4" controls playsinline style="width:100%;border-radius:10px;margin-bottom:14px;display:block"></video>
+
+      <div style="background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;line-height:2;margin-bottom:16px">
+        -180번 반죽 테스트 끝에 탄생한<br>
+        -매일 아침 직접 반죽한 쫀득한 딸기 모찌를<br>
+        -얇게 펴고<br>
+        -우유크림,커스터드크림,백앙금크림 3종크림을 발라<br>
+        -신선한 생딸기를 층층이 쌓아<br>
+        -딸기 모찌를 통으로 얹어
+      </div>
+
+      <b>180번 반죽 테스트 끝에 탄생한</b> <span style="font-size:12px;color:var(--ink-3);font-weight:400">(영상제공)</span>
+      <div class="img-strip-2" style="margin-top:10px;margin-bottom:4px">
+        <img src="dough-test-1.jpg" alt="믹서에서 쏟아지는 반죽" style="border-radius:8px;width:100%;aspect-ratio:9/16;object-fit:cover">
+        <img src="dough-test-2.jpg" alt="반죽 쏟아지는 장면" style="border-radius:8px;width:100%;aspect-ratio:9/16;object-fit:cover">
+      </div>
+      <span style="font-size:12px;color:var(--ink-3)">▲ 믹서에서 쏟아지는 쫀득한 분홍 반죽</span><br><br>
+
+      <b>매일 아침 직접 반죽한 쫀득한 딸기 모찌를 얇게 펴고</b> <span style="font-size:12px;color:var(--ink-3);font-weight:400">(영상제공)</span>
+      <div class="img-strip-2" style="margin-top:10px;margin-bottom:4px">
+        <img src="dough-morning-1.jpg" alt="반죽 치는 장면" style="border-radius:8px;width:100%;aspect-ratio:9/16;object-fit:cover">
+        <img src="dough-morning-2.jpg" alt="반죽 길게 늘리는 장면" style="border-radius:8px;width:100%;aspect-ratio:9/16;object-fit:cover">
+      </div>
+      <span style="font-size:12px;color:var(--ink-3)">▲ 직접 반죽·늘리는 장면 — 오른쪽이 썸네일 후보</span><br><br>
+
+      <b>딸기 모찌를 통으로 얹어</b><br>
+      <span style="font-size:12px;color:var(--ink-3)">↳ 초반 자르고 늘리는 장면 참고</span>
+      <video src="reel-reference.mp4" controls playsinline style="width:100%;border-radius:10px;margin-top:8px;display:block"></video><br><br>
+
+    </div>
+  </div>
+
+  <div class="scene">
+    <div class="scene-head">
+      <div class="scene-num">3</div>
+      <div class="scene-title">단면 · 완성샷 + CTA</div>
+    </div>
+    <div class="scene-body">
+      <video src="reel-cross-section.mp4" controls playsinline style="width:100%;border-radius:10px;margin-bottom:16px;display:block"></video>
+      딸기 크레이프 단면 클로즈업<br><br>
+      <b>CTA 멘트:</b><br>
+      하루 선착순 20개 한정수량 판매<br>
+      소문나기 전에 / 웨이팅 전에 / 한정선·고디바·올기떡 다음 / 대신<br>
+      <b>품절되기 전에 빠르게 다녀오세요!</b>
+    </div>
+  </div>
+
+  <div class="tip">
+    <b>진짜 생딸기 모찌가 들어가요!</b><br>
+    반으로 자르는 컷 · 늘리는 컷 · 케이크 데코로 얹는 장면을 꼭 찍어주세요.
+  </div>
+</section>
+
+<!-- 꼭 찍어야 하는 장면 체크리스트 -->
+<section>
+  <div style="background:#fff0f0;border:1.5px solid #e53e3e;border-radius:12px;padding:16px 18px;margin-bottom:20px">
+    <p style="color:#e53e3e;font-size:16px;font-weight:800;margin:0 0 10px;letter-spacing:.04em">⚠️ 주의사항</p>
+    <p style="color:#c0392b;font-size:14px;line-height:1.8;margin:0">
+      · 매장이나 촬영 뒤에 배경을 깨끗이 치우고 촬영해주세요.<br>
+      · 어수선한 부분이나 걸리는 부분이 있다면 매장직원분에게 요청해 정돈 후 촬영을 진행해 주세요.<br>
+      · 직원의 얼굴은 안 나오게 영상을 만들어주세요.
+    </p>
+  </div>
+  <h2><span class="n">4</span>꼭 찍어야 하는 장면</h2>
+
+  <div class="check-group">
+    <h3>케이크 단면 · 찢는 장면</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>단면이 잘 보여지는 상태로 양옆으로 찢는 장면</span></li>
+      <li><span class="box"></span><span>포크로 양 옆으로 찢는 장면</span></li>
+      <li><span class="box"></span><span>포크를 위에서 아래로 눌러 생딸기가 튀어나오는 장면</span></li>
+      <li><span class="box"></span><span>딸기 모찌 반죽이 길게 늘어나는 장면</span></li>
+      <li><span class="box"></span><span>생딸기 통모찌를 케이크 데코로 얹는 장면 (클로즈업)</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>만드는 장면</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>모찌떡 늘리는 장면 (제공)</span></li>
+      <li><span class="box"></span><span>모찌를 얇게 피는 장면</span></li>
+      <li><span class="box"></span><span>모찌를 케이크 위에 덮는 장면</span></li>
+      <li><span class="box"></span><span>우유크림 바르는 장면</span></li>
+      <li><span class="box"></span><span>백앙금크림 바르는 장면</span></li>
+      <li><span class="box"></span><span>커스터드크림 바르는 장면</span></li>
+      <li><span class="box"></span><span>딸기를 놓는 장면 (최대한 가득 채워진 상태에서)</span></li>
+      <li><span class="box"></span><span>케이크 반 자르는 장면</span></li>
+      <li><span class="box"></span><span>케이크 단면이 잘 보여지는 장면 (반으로 갈라주시거나 한 조각 빼서 들어올리거나)</span></li>
+      <li><span class="box"></span><span>케이크 한판을 앞으로 보여주는 장면</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>매장 방문 유도 CTA (코엑스점)</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>줄 섰으면 줄 선 장면</span></li>
+      <li><span class="box"></span><span>줄 없으면 매장 외부 or 계산대에서 계산하는 장면</span></li>
+      <li><span class="box"></span><span>케이크 한판을 매장 앞에서 내미는 장면</span></li>
+      <li><span class="box"></span><span>별마당 도서관 1층 코엑스 현장을 담은 현장감 있는 컷</span></li>
+    </ul>
+  </div>
+</section>
+
+</div>
+</body>
+</html>

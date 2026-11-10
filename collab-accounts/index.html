@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>커넥팅 협업 계정 분석 S2</title>
+<meta name="description" content="커넥팅 협업 후보 12계정 종합 분석: CPV·공유+저장 단가 비교, 드랍 판정, 앱 레퍼런스 유무">
+<style>
+:root{
+  --bg:#ffffff;--bg2:#f6f5f1;--fg:#1a1a1a;--fg2:#5b5b5b;--line:#e3e1da;
+  --accent:#f5c518;--accent-fg:#1a1a1a;--ok:#1f7a4d;--warn:#b4560c;--drop:#c0392b;--card:#ffffff;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--drop:#e74c3c;
+  }
+}
+:root[data-theme="dark"]{--bg:#131313;--bg2:#1d1d1d;--fg:#ececec;--fg2:#a8a8a8;--line:#2e2e2e;--card:#1a1a1a;--ok:#5fcf8f;--warn:#f0a35a;--drop:#e74c3c;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Pretendard","Noto Sans KR",system-ui,sans-serif;line-height:1.6;font-size:16px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 16px 64px}
+header{padding:40px 0 24px;border-bottom:2px solid var(--fg)}
+.kicker{display:inline-block;background:var(--accent);color:var(--accent-fg);font-weight:700;padding:2px 10px;border-radius:4px;font-size:13px;letter-spacing:.02em}
+h1{font-size:clamp(24px,5vw,38px);margin:12px 0 6px;line-height:1.2}
+.sub{color:var(--fg2);font-size:15px;margin-top:8px}
+h2{font-size:22px;margin:48px 0 14px;padding-left:12px;border-left:5px solid var(--accent)}
+h3{font-size:19px;margin:32px 0 10px;padding-left:10px;border-left:3px solid var(--line)}
+p{margin:8px 0}
+a{color:inherit}
+table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:middle}
+th{background:var(--bg2);font-weight:600}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.card{border:1px solid var(--line);border-radius:12px;padding:16px 18px 12px;margin:16px 0;background:var(--card)}
+.card.drop{border-color:var(--drop);border-width:2px;opacity:.7}
+.cardhead{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.cardtitle{font-size:19px;font-weight:700;margin:0}
+.cardmeta{font-size:13px;color:var(--fg2)}
+.ok{color:var(--ok);font-weight:700}
+.warn{color:var(--warn);font-weight:700}
+.drop{color:var(--drop);font-weight:700}
+.badge{display:inline-block;font-size:12px;font-weight:700;padding:2px 9px;border-radius:999px;margin-right:4px;white-space:nowrap}
+.badge-ok{background:#d4edda;color:#155724}
+.badge-drop{background:#f8d7da;color:#721c24}
+.badge-app{background:#cce5ff;color:#004085}
+.badge-korea{background:#fff3cd;color:#856404}
+.badge-confirm{background:#d4edda;color:#155724}
+.kv{font-size:14px;margin:0 0 8px}
+.kv table{margin:0}
+.kv th{width:130px;background:var(--bg2);white-space:nowrap;font-weight:600}
+.kv td.num{text-align:left}
+.refs{font-size:14px;margin:12px 0 0;padding-left:4px}
+.refs h4{font-size:15px;margin:10px 0 4px;color:var(--fg2)}
+.refs ul{margin:4px 0;padding-left:18px}
+.refs li{margin:3px 0}
+small,.small{font-size:13px;color:var(--fg2)}
+.notice{background:var(--bg2);border-left:5px solid var(--accent);padding:12px 16px;border-radius:0 8px 8px 0;margin:16px 0;font-size:14px}
+video{width:100%;max-width:280px;aspect-ratio:9/16;background:#000;border-radius:12px;border:1px solid var(--line);display:block}
+.video-row{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--fg2)}
+@media(max-width:640px){th,td{padding:6px 8px;font-size:13px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <span class="kicker">커넥팅 · 협업 후보 계정 분석</span>
+  <h1>대만 인플루언서 12계정 — 2차 라운드</h1>
+  <div class="sub">분석일 2026-09-30 · 조회수·공유+저장 이중 기준 · 관련 공유+저장 단가 3,000원 초과 시 드랍</div>
+</header>
+
+<h2>전체 요약 비교표</h2>
+<p class="small">CPV = 원/조회수. 공유+저장 단가 = 원/건. 낮을수록 좋습니다. 관련 공유+저장 단가 <strong>3,000원 초과 → 드랍</strong>.</p>
+
+<table>
+<thead>
+<tr>
+  <th>계정</th>
+  <th class="num">금액</th>
+  <th class="num">기본 CPV</th>
+  <th class="num">기본<br>공유+저장</th>
+  <th class="num">관련 CPV</th>
+  <th class="num">관련<br>공유+저장</th>
+  <th>판정</th>
+  <th>앱 레퍼런스</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td><a href="#ian">ian.black_</a></td>
+  <td class="num">800,000</td>
+  <td class="num">5.0원</td>
+  <td class="num">228원</td>
+  <td class="num">0.8원</td>
+  <td class="num ok">103원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td><span class="badge badge-app">앱 광고 ✓</span></td>
+</tr>
+<tr>
+  <td><a href="#seas">_seas11</a></td>
+  <td class="num">950,000</td>
+  <td class="num">11.4원</td>
+  <td class="num warn">4,075원</td>
+  <td class="num">8.2원</td>
+  <td class="num ok">1,327원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td class="small"><span class="badge badge-korea">한국생활</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#hl">hl_yuan</a></td>
+  <td class="num">3,000,000</td>
+  <td class="num">7.6원</td>
+  <td class="num warn">7,328원</td>
+  <td class="num">8.9원</td>
+  <td class="num drop">7,970원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국/밴쿠버</span></td>
+</tr>
+<tr>
+  <td><a href="#mx">mxuannc</a></td>
+  <td class="num">335,000</td>
+  <td class="num">4.3원</td>
+  <td class="num">981원</td>
+  <td class="num">3.3원</td>
+  <td class="num ok">920원</td>
+  <td><span class="badge badge-ok">통과</span></td>
+  <td><span class="badge badge-app">Ping! 앱 ✓</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#k0960">0960kim0960</a></td>
+  <td class="num">875,000</td>
+  <td class="num">3.6원</td>
+  <td class="num">1,192원</td>
+  <td class="num">3.6원</td>
+  <td class="num drop">4,551원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#yujo">yujouli_73</a></td>
+  <td class="num">500,000</td>
+  <td class="num">5.6원</td>
+  <td class="num warn">7,079원</td>
+  <td class="num">7.5원</td>
+  <td class="num drop">6,849원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small">없음 (연애/앱무관)</td>
+</tr>
+<tr>
+  <td><a href="#aries">aries_8248</a></td>
+  <td class="num">2,000,000</td>
+  <td class="num">6.4원</td>
+  <td class="num">2,485원</td>
+  <td class="num">4.9원</td>
+  <td class="num ok">2,469원</td>
+  <td><span class="badge badge-ok">통과</span> <span class="badge badge-korea">앱 레퍼런스 없음</span></td>
+  <td class="small">없음 (낯선사람/외국인)</td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#micki">micki.bb</a></td>
+  <td class="num">800,000</td>
+  <td class="num">13.8원</td>
+  <td class="num warn">18,214원</td>
+  <td class="num">14.6원</td>
+  <td class="num drop">43,243원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행/뷰티</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#ladyann">ladyann.happy.nail</a></td>
+  <td class="num">387,555</td>
+  <td class="num">9.4원</td>
+  <td class="num warn">16,148원</td>
+  <td class="num">16.1원</td>
+  <td class="num drop">7,599원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">한국여행 토크</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#becca">becca__atlanta__</a></td>
+  <td class="num">600,000</td>
+  <td class="num">28.9원</td>
+  <td class="num warn">7,595원</td>
+  <td class="num">27.2원</td>
+  <td class="num drop">5,634원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small"><span class="badge badge-korea">해외(미국)경험</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#k000">000.4.2</a></td>
+  <td class="num">1,085,000</td>
+  <td class="num">3.2원</td>
+  <td class="num warn">7,045원</td>
+  <td class="num">4.5원</td>
+  <td class="num drop">8,220원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td><span class="badge badge-app">Ping! 앱 ✓</span> <span class="small">(단가 높음)</span></td>
+</tr>
+<tr style="opacity:.6">
+  <td><a href="#mengqi">mengqi.4454</a></td>
+  <td class="num">606,183</td>
+  <td class="num">2.7원</td>
+  <td class="num">3,549원</td>
+  <td class="num">13.3원</td>
+  <td class="num">1,793원</td>
+  <td><span class="badge badge-drop">드랍</span></td>
+  <td class="small">소재 약함</td>
+</tr>
+</tbody>
+</table>
+
+<div class="notice">
+  ⚠ <strong>앱 레퍼런스 없음 — 한국/해외 경험만</strong>: _seas11, hl_yuan, 0960kim0960, aries_8248, micki.bb, ladyann.happy.nail, becca__atlanta__ — 앱 협찬 경험이 없고 한국 여행·생활 또는 해외 경험 콘텐츠만 해당됩니다.
+</div>
+
+<!-- ===== 예산 현황 ===== -->
+<h2>예산 현황</h2>
+<table>
+<thead>
+<tr>
+  <th>항목</th>
+  <th class="num">금액</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>총 예산</td>
+  <td class="num">10,000,000원</td>
+</tr>
+<tr>
+  <td>확정 인원 합계 (ian.black_ + _seas11 + mxuannc + aries_8248)</td>
+  <td class="num">4,085,000원</td>
+</tr>
+<tr style="font-weight:700">
+  <td class="ok">잔여 예산</td>
+  <td class="num ok">5,915,000원</td>
+</tr>
+</tbody>
+</table>
+
+<!-- ===== 통과 계정 상세 ===== -->
+<h2>통과 계정 상세</h2>
+
+<!-- ian.black_ -->
+<div class="card" id="ian">
+  <div class="cardhead">
+    <span class="cardtitle">@ian.black_</span>
+    <span class="cardmeta">검은형 IAN · 대만 · 팔로워 5.8만</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-app">앱 광고 ✓</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">800,000원</td><th>기본 CPV</th><td class="num">5.0원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">228원</td><th>관련 CPV</th><td class="num">0.8원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">103원</td><th>앱 레퍼런스</th><td>Flixseek 구독 플랫폼 · 모바일 게임 광고</td></tr>
+  </table>
+  <div class="refs">
+    <h4>연애 · 상황극</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/ian.black_/reel/DRRZfIIEwCm/" target="_blank">학교에서 눈빛으로 crush 반하게 만들기</a> — 369.1만 조회 (고정) · 저장 9,943 · 공유 15만</li>
+      <li><a href="https://www.instagram.com/ian.black_/reel/DcqCRpMz4Ew/" target="_blank">여름방학 숙제를 끝까지 안 하는 그 친구</a> — 81.1만 조회, 9초 원테이크 개그 · 저장 714 · 공유 2.7만</li>
+    </ul>
+    <h4>앱 광고 (커넥팅 무관)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DYJy-56zwsc/" target="_blank">Flixseek 구독 플랫폼 광고</a> — 2.8만 · 저장 45 · 공유 93</li>
+      <li><a href="https://www.instagram.com/reel/Db29XNvToqM/" target="_blank">모바일 게임 광고</a> — 6.5만 · 저장 69 · 공유 1,750</li>
+    </ul>
+  </div>
+</div>
+
+<!-- _seas11 -->
+<div class="card" id="seas">
+  <div class="cardhead">
+    <span class="cardtitle">@_seas11</span>
+    <span class="cardmeta">Seas · 대만 54.1% · 팔로워 미기재</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-korea">한국생활 레퍼런스만</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">950,000원</td><th>기본 CPV</th><td class="num warn">11.4원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num warn">4,075원</td><th>관련 CPV</th><td class="num">8.2원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">1,327원</td><th>앱 레퍼런스</th><td>없음 — 한국 취업·생활 정보</td></tr>
+  </table>
+  <div class="refs">
+    <h4>한국생활 · 정보</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/_seas11/reel/Dc-7XOZizKU/" target="_blank">한국 취업·비자 Notion 가이드</a> — 7.9만 · 저장 1,072 · 공유 795</li>
+      <li><a href="https://www.instagram.com/_seas11/reel/DZ7P9AkCXlf/" target="_blank">홍대 환전 어디서</a> — 5.8만 · 저장 613 · 공유 567</li>
+    </ul>
+    <p class="small">→ 한국 생활 정보 제공에 능함. 커넥팅 앱 유사 레퍼런스 없음.</p>
+  </div>
+</div>
+
+<!-- mxuannc -->
+<div class="card" id="mx">
+  <div class="cardhead">
+    <span class="cardtitle">@mxuannc</span>
+    <span class="cardmeta">샤오멍 · 대만</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-app">Ping! 앱 레퍼런스 ✓</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">335,000원</td><th>기본 CPV</th><td class="num">4.3원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">981원</td><th>관련 CPV</th><td class="num">3.3원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">920원</td><th>앱 레퍼런스</th><td><strong>Ping! 데이팅 앱</strong> 협찬 다수</td></tr>
+  </table>
+  <div class="refs">
+    <h4>연애 · 낯선 사람과 대화 (Ping! 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DcTLwAZlb-H/" target="_blank">36個問題讓你跟陌生人墜入愛河 (낯선 사람과 사랑에 빠지게 하는 36가지 질문)</a> — 349.8만 (고정), Ping! 협찬 · 저장 1,439 · 공유 4,991</li>
+      <li><a href="https://www.instagram.com/reel/Ddn8yvZnAjX/" target="_blank">3招上手 Deep Talk (딥토크 3가지 요령)</a> — 37.7만, Ping! 협찬 · 저장 497 · 공유 581</li>
+    </ul>
+    <h4>외국 · 번역 앱</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdYsm7zjCR4/" target="_blank">去日本必備!翻譯App (일본 갈 때 필수 번역 앱)</a> — 3.8만, KuliKuli 협찬 · 저장 355 · 공유 234</li>
+    </ul>
+  </div>
+  <div id="mx-videos" class="video-row"></div>
+</div>
+
+<!-- aries_8248 -->
+<div class="card" id="aries">
+  <div class="cardhead">
+    <span class="cardtitle">@aries_8248</span>
+    <span class="cardmeta">대만</span>
+    <span class="badge badge-ok">통과</span>
+    <span class="badge badge-korea">앱 레퍼런스 없음</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">2,000,000원</td><th>기본 CPV</th><td class="num">6.4원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num ok">2,485원</td><th>관련 CPV</th><td class="num">4.9원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num ok">2,469원</td><th>앱 레퍼런스</th><td>없음 — 낯선 사람 대화·외국인 인터뷰</td></tr>
+  </table>
+  <div class="refs">
+    <h4>낯선 사람과 대화 · 외국인 (거리 인터뷰)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdgPDhYJzVF/" target="_blank">Straight or gay? 1</a> — 114만 조회, 좋아요 3.2만, 외국인 등장. 최근 비고정 2위 · 저장 1,358 · 공유 2만</li>
+      <li><a href="https://www.instagram.com/reel/DdyQ5_Gp584/" target="_blank">Straight or gay? 2</a> — 34.1만, 외국인 커플에게 말 걸기 · 저장 761 · 공유 2,198</li>
+    </ul>
+    <h4>연애 · 데이트 시리즈</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/Dc8Tx9jBvzK/" target="_blank">第10期: 台灣02年185聲音低沉 (10기: 대만 02년생 185cm 저음)</a> — 7.6만 · 저장 74 · 공유 0</li>
+    </ul>
+    <h4>언어 · 영어</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DdJKe41pMRt/" target="_blank">你是哪種🥚 (넌 어떤 종류의 알이야?) — 욕하는 영어 레슨 3강</a> — 12만 · 저장 159 · 공유 0</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== 드랍 계정 ===== -->
+<h2>드랍 계정</h2>
+
+<!-- mengqi.4454 -->
+<div class="card drop" id="mengqi">
+  <div class="cardhead">
+    <span class="cardtitle">@mengqi.4454</span>
+    <span class="cardmeta">천멍치</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">최근 업로드 5주 전</span>
+  </div>
+  <table class="kv">
+    <tr><th>금액</th><td class="num">606,183원</td><th>기본 CPV</th><td class="num">2.7원</td></tr>
+    <tr><th>기본 공유+저장</th><td class="num">3,549원</td><th>관련 CPV</th><td class="num">13.3원</td></tr>
+    <tr><th>관련 공유+저장</th><td class="num">1,793원</td><th>앱 레퍼런스</th><td>소개팅 앱 소재 (약함) + Winning plus 영어교육 협찬</td></tr>
+  </table>
+  <div class="refs">
+    <h4>낯선 사람과 대화 · 외국친구 (GU×SUNSUN 잠옷 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DbDkjyWzUWc/" target="_blank">我現在耳邊還會響起three thousand 的氣音聲 (지금도 귀에 "three thousand" 기식음이 울린다)</a> — 20.5만, 좋아요 14K. 도쿄 언어학교에서 만난 낯선 일본인 소년. GU×SUNSUN 잠옷 협찬.</li>
+    </ul>
+    <h4>약함 — 소개팅 앱 소재 (Winning plus 영어교육 협찬)</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/reel/DcdxvDRyIq1/" target="_blank">我即將幫交友軟體上的人們都報名一堂免費試聽 (교우 앱 사람들 무료 수업 등록시켜 주겠다)</a> — 6.1만, 좋아요 3.6K. 소개팅 앱 소재로 시작 → Winning plus 협찬.</li>
+    </ul>
+  </div>
+</div>
+
+<div class="card drop" id="hl">
+  <div class="cardhead">
+    <span class="cardtitle">@hl_yuan</span>
+    <span class="cardmeta">Ally · 대만 86% · 금액 3,000,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국/밴쿠버 레퍼런스만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,328원</strong> / 관련 공유+저장 <strong>7,970원</strong>. 기본 CPV 7.6원 · 관련 CPV 8.9원. 한국 외국친구 영상과 밴쿠버 유학 영상 위주. 커넥팅 앱 유사 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="k0960">
+  <div class="cardhead">
+    <span class="cardtitle">@0960kim0960</span>
+    <span class="cardmeta">대만 53.7% · 금액 875,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>1,192원</strong> / 관련 공유+저장 <strong>4,551원</strong>. 기본 CPV 3.6원 · 관련 CPV 3.6원. 한국 관련 레퍼런스만 있음. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="yujo">
+  <div class="cardhead">
+    <span class="cardtitle">@yujouli_73</span>
+    <span class="cardmeta">금액 500,000원</span>
+    <span class="badge badge-drop">드랍</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,079원</strong> / 관련 공유+저장 <strong>6,849원</strong>. 기본 CPV 5.6원 · 관련 CPV 7.5원. 연애·커플 콘텐츠 위주, 앱 협찬은 운세 앱·구독 플랫폼(커넥팅과 무관).</p>
+</div>
+
+<div class="card drop" id="micki">
+  <div class="cardhead">
+    <span class="cardtitle">@micki.bb</span>
+    <span class="cardmeta">금액 800,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행/뷰티만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>18,214원</strong> / 관련 공유+저장 <strong>43,243원</strong>. 기본 CPV 13.8원 · 관련 CPV 14.6원. 한국 뷰티 시술·맛집 위주. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="ladyann">
+  <div class="cardhead">
+    <span class="cardtitle">@ladyann.happy.nail</span>
+    <span class="cardmeta">금액 387,555원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">한국여행 토크만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>16,148원</strong> / 관련 공유+저장 <strong>7,599원</strong>. 기본 CPV 9.4원 · 관련 CPV 16.1원. 홍대 여행 토크 2편. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="becca">
+  <div class="cardhead">
+    <span class="cardtitle">@becca__atlanta__</span>
+    <span class="cardmeta">금액 600,000원</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-korea">해외(미국)경험만</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,595원</strong> / 관련 공유+저장 <strong>5,634원</strong>. 기본 CPV 28.9원 · 관련 CPV 27.2원. 미국 직장 생활 경험 위주. 앱 협찬 없음.</p>
+</div>
+
+<div class="card drop" id="k000">
+  <div class="cardhead">
+    <span class="cardtitle">@000.4.2</span>
+    <span class="cardmeta">금액 1,085,000원 (+파트너스코드 130,000)</span>
+    <span class="badge badge-drop">드랍</span>
+    <span class="badge badge-app">Ping! 앱 ✓ (단가 높음)</span>
+  </div>
+  <p class="small">기본 공유+저장 <strong>7,045원</strong> / 관련 공유+저장 <strong>8,220원</strong>. 기본 CPV 3.2원 · 관련 CPV 4.5원. Ping! 협찬 경험 있으나 관련 공유+저장 단가가 기준 초과. 한국 맛집·외국친구 병행.</p>
+</div>
+
+<footer>
+  <p>커넥팅 협업 분석 · 분석일 2026-09-30 · 조회수 기준: 2026-09-30 프로필 릴스 탭</p>
+</footer>
+
+</div>
+</body>
+</html>

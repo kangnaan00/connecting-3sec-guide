@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DEADFLT × 착한구두 카드뉴스 레퍼런스</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --accent:#C0392B; --accent-soft:#F8E5E0; --accent-bright:#E74C3C;
+  --tag-bg:#EEEDE7;
+  --shadow:0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0C0C0C; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#6A6B73;
+    --line:#222222; --panel:#141414; --panel-2:#1A1A1A;
+    --accent:#E74C3C; --accent-soft:#2D1512; --accent-bright:#FF6B5B;
+    --tag-bg:#1C1C1C;
+    --shadow:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0C0C0C; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#6A6B73;
+  --line:#222222; --panel:#141414; --panel-2:#1A1A1A;
+  --accent:#E74C3C; --accent-soft:#2D1512; --accent-bright:#FF6B5B;
+  --tag-bg:#1C1C1C;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 6px 18px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box}
+html{color-scheme:light dark}
+body{
+  background:var(--paper);color:var(--ink);
+  font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;
+  font-size:15px;line-height:1.65;
+  padding-inline:16px;
+  padding-block:0 72px;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.2}
+p{margin:0}
+
+/* ── Header ── */
+.page-top{
+  padding-block:36px 24px;
+  border-bottom:2px solid var(--ink);
+  margin-bottom:32px;
+}
+.eyebrow{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);font-weight:700;margin-bottom:10px;
+}
+.brand-title{
+  font-family:"Bebas Neue",sans-serif;
+  font-size:clamp(40px,10vw,72px);
+  line-height:1; letter-spacing:.03em;
+  color:var(--ink);
+}
+.brand-title .x{ color:var(--ink-3); font-size:.7em; }
+.brand-sub{
+  margin-top:8px;font-size:13px;color:var(--ink-3);font-weight:400;
+}
+
+/* ── Section ── */
+.section{margin-bottom:32px}
+.section-label{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;
+  margin-bottom:14px;
+  padding-bottom:8px;
+  border-bottom:1px solid var(--line);
+}
+
+/* ── Identity card ── */
+.identity{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-left:3px solid var(--accent);
+  border-radius:8px;
+  padding:20px 22px;
+  box-shadow:var(--shadow);
+}
+.identity-philosophy{
+  font-family:"Bebas Neue",sans-serif;
+  font-size:clamp(24px,5vw,38px);
+  line-height:1.1;
+  color:var(--ink);
+  margin-bottom:10px;
+}
+.identity-desc{
+  font-size:13.5px;color:var(--ink-2);line-height:1.75;
+}
+.identity-desc strong{color:var(--ink);font-weight:700}
+.slogan{
+  margin-top:14px;padding-top:14px;
+  border-top:1px solid var(--line);
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);line-height:1.7;font-weight:500;
+}
+
+/* ── Info rows ── */
+.info-table{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.info-row{
+  display:flex;gap:0;
+  border-bottom:1px solid var(--line);
+}
+.info-row:last-child{border-bottom:none}
+.info-key{
+  width:72px; flex-shrink:0;
+  background:var(--panel-2);
+  padding:12px 14px;
+  font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:700;
+  display:flex;align-items:center;
+}
+.info-val{
+  flex:1;padding:12px 16px;
+  font-size:13.5px;color:var(--ink);line-height:1.6;
+  min-width:0;
+}
+.badge{
+  display:inline-block;
+  background:var(--accent);color:#fff;
+  font-size:11.5px;font-weight:900;letter-spacing:.06em;
+  padding:3px 9px;border-radius:3px;
+}
+
+/* ── Event box ── */
+.event-box{
+  background:var(--accent-soft);
+  border:1px solid var(--accent);
+  border-radius:8px;
+  padding:16px 18px;
+  margin-top:12px;
+}
+.event-title{
+  font-size:13px;font-weight:900;color:var(--accent);
+  letter-spacing:.03em;margin-bottom:8px;
+}
+.event-body{
+  font-size:13.5px;color:var(--ink-2);line-height:1.75;
+}
+.event-body strong{color:var(--ink);font-weight:700}
+
+/* ── Product tags ── */
+.product-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.ptag{
+  background:var(--tag-bg);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:5px 11px;
+  font-size:13px;color:var(--ink-2);
+}
+.color-note{margin-top:10px;font-size:12.5px;color:var(--ink-3)}
+
+/* ── Hooks ── */
+.hook-list{
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:8px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.hook-item{
+  display:flex;gap:0;
+  border-bottom:1px solid var(--line);
+  align-items:stretch;
+}
+.hook-item:last-child{border-bottom:none}
+.hook-num{
+  width:44px;flex-shrink:0;
+  background:var(--panel-2);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Bebas Neue",sans-serif;
+  font-size:20px;color:var(--accent);
+  border-right:1px solid var(--line);
+}
+.hook-body{
+  flex:1;padding:12px 16px;
+  display:flex;flex-direction:column;gap:6px;
+  min-width:0;
+}
+.hook-text{font-size:14px;color:var(--ink);line-height:1.55;word-break:keep-all}
+.copy-btn{
+  align-self:flex-start;
+  background:transparent;
+  border:1px solid var(--line);
+  color:var(--ink-3);
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  padding:3px 9px;border-radius:3px;
+  cursor:pointer;
+  font-family:"Noto Sans KR",sans-serif;
+  transition:border-color .15s, color .15s;
+}
+.copy-btn:hover{border-color:var(--ink-3);color:var(--ink)}
+.copy-btn.ok{border-color:var(--accent);color:var(--accent)}
+
+/* ── Footer ── */
+.page-footer{
+  margin-top:40px;padding-top:20px;
+  border-top:1px solid var(--line);
+  font-size:12px;color:var(--ink-3);
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- Header -->
+  <div class="page-top">
+    <div class="eyebrow">카드뉴스 바이럴 레퍼런스</div>
+    <h1 class="brand-title">DEADFLT <span class="x">×</span> 착한구두</h1>
+    <p class="brand-sub">팝업 기간 10/8(목) – 11/8(일) &nbsp;·&nbsp; 성수 무신사 메가스토어 옆</p>
+  </div>
+
+  <!-- 브랜드 아이덴티티 -->
+  <div class="section">
+    <div class="section-label">브랜드 아이덴티티</div>
+    <div class="identity">
+      <div class="identity-philosophy">The Default is Dead.</div>
+      <div class="identity-desc">
+        <strong>DEADFLT</strong> = DEAD + DEFAULT &nbsp;—&nbsp; 디폴트는 죽었다.<br>
+        <strong>익숙함에서 다름을 보는 이를 위한 브랜드.</strong> 2026년 7월 런칭.
+      </div>
+      <div class="slogan">
+        WHAT MATTERS IS NOT WHAT YOU SEE,<br>BUT HOW YOU SEE
+      </div>
+    </div>
+  </div>
+
+  <!-- 팝업 정보 -->
+  <div class="section">
+    <div class="section-label">팝업 정보</div>
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-key">장소</span>
+        <span class="info-val">성동구 성수이로 58, 지하 1층<br>착한구두 매장 지하 (무신사 메가스토어 성수 옆)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">기간</span>
+        <span class="info-val">10/8(목) – 11/8(일)</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">할인</span>
+        <span class="info-val"><span class="badge">전품목 50% SALE</span></span>
+      </div>
+    </div>
+
+    <div class="event-box">
+      <div class="event-title">🎽 성수로운 후드 장례식 이벤트</div>
+      <div class="event-body">
+        <strong>10/17(금) 12시</strong> 시작<br>
+        헌 후드 → DEADFLT 새 후드 or 집업 <strong>1벌 교환</strong><br>
+        선착순 <strong>100명</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- 제품 라인업 -->
+  <div class="section">
+    <div class="section-label">제품 라인업</div>
+    <div class="product-tags">
+      <span class="ptag">후드 3종</span>
+      <span class="ptag">후드집업 3종</span>
+      <span class="ptag">반팔 티셔츠 4종</span>
+      <span class="ptag">모자 6종</span>
+      <span class="ptag">양말 7종</span>
+    </div>
+    <p class="color-note">컬러: 블랙 · 멜란지 · 아이보리 &nbsp;/&nbsp; 사이즈: S · M · L</p>
+  </div>
+
+  <!-- 김요한 후킹 문구 -->
+  <div class="section">
+    <div class="section-label">김요한 후킹 문구</div>
+    <div class="hook-list">
+
+      <div class="hook-item">
+        <span class="hook-num">01</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한 후드티 신상 브랜드</span>
+          <button class="copy-btn" onclick="cp(this,'김요한 후드티 신상 브랜드')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">02</span>
+        <div class="hook-body">
+          <span class="hook-text">팬 아니여도 갖고 싶은 김요한 후드티</span>
+          <button class="copy-btn" onclick="cp(this,'팬 아니여도 갖고 싶은 김요한 후드티')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">03</span>
+        <div class="hook-body">
+          <span class="hook-text">성수에 김요한 떴다 데드폴트 팝업</span>
+          <button class="copy-btn" onclick="cp(this,'성수에 김요한 떴다 데드폴트 팝업')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">04</span>
+        <div class="hook-body">
+          <span class="hook-text">성수 ㄹㅇ 큰거왔다 김요한도 들린 신상브랜드</span>
+          <button class="copy-btn" onclick="cp(this,'성수 ㄹㅇ 큰거왔다 김요한도 들린 신상브랜드')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">05</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한도 들린 성수 신상브랜드 팝업</span>
+          <button class="copy-btn" onclick="cp(this,'김요한도 들린 성수 신상브랜드 팝업')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">06</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한이 성수에 왔다고?</span>
+          <button class="copy-btn" onclick="cp(this,'김요한이 성수에 왔다고?')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">07</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한도 들린 성수팝업 어딘데?</span>
+          <button class="copy-btn" onclick="cp(this,'김요한도 들린 성수팝업 어딘데?')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">08</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한도 입은 요즘 힙한 패션 브랜드 나 빼고 다 알고 있었음</span>
+          <button class="copy-btn" onclick="cp(this,'김요한도 입은 요즘 힙한 패션 브랜드 나 빼고 다 알고 있었음')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">09</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한도 입은 감다살 신상 브랜드</span>
+          <button class="copy-btn" onclick="cp(this,'김요한도 입은 감다살 신상 브랜드')">COPY</button>
+        </div>
+      </div>
+
+      <div class="hook-item">
+        <span class="hook-num">10</span>
+        <div class="hook-body">
+          <span class="hook-text">김요한도 입은 나만알고싶은 힙한 신상 브랜드</span>
+          <button class="copy-btn" onclick="cp(this,'김요한도 입은 나만알고싶은 힙한 신상 브랜드')">COPY</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <span>DEADFLT × 착한구두 팝업 · 성수 · 2026.10.8–11.8</span>
+    <span>카드뉴스 제작용 내부 레퍼런스</span>
+  </div>
+
+</div>
+
+<script>
+function cp(btn, text) {
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'COPIED';
+    btn.classList.add('ok');
+    setTimeout(() => { btn.textContent = 'COPY'; btn.classList.remove('ok'); }, 1500);
+  }).catch(() => {
+    const sel = window.getSelection();
+    const range = document.createRange();
+    range.selectNode(btn.previousElementSibling);
+    sel.removeAllRanges(); sel.addRange(range);
+  });
+}
+</script>
+</body>
+</html>

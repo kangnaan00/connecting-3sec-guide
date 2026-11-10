@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>크림라벨 CPV 리스트</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+  :root { --c: #E8C4A0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff; color: #111;
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 1300px; margin-inline: auto; }
+  .brand {
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: clamp(44px, 12vw, 80px);
+    font-weight: 700; letter-spacing: -0.02em;
+    color: var(--c); line-height: 1; display: block; margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 32px; }
+  @media(min-width:480px){.stats-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat-box { border: 2px solid #111; border-radius: 6px; padding: 14px 14px 12px; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(28px,7vw,36px); letter-spacing: 0.02em; font-variant-numeric: tabular-nums; color: #111; line-height: 1; }
+  .stat-num.hi { color: var(--c); }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 600px; }
+  col.c-num  { width: 36px; }
+  col.c-id   { width: 200px; }
+  col.c-ch   { width: 240px; }
+  col.c-view { width: 100px; }
+  col.c-cost { width: 80px; }
+  col.c-cpv  { width: 70px; }
+  col.c-ssp  { width: 80px; }
+  thead tr { border-bottom: 2px solid #111; }
+  th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
+  th:nth-child(-n+3) { text-align: left; }
+  td { padding: 11px 10px; border-bottom: 1px solid #e8e8e8; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
+  td:nth-child(-n+3) { text-align: left; }
+  td.id { white-space: normal; font-weight: 700; }
+  td.ulink { text-align: left; white-space: normal; }
+  .u-link { color: #888; text-decoration: none; font-size: 12px; font-weight: 500; }
+  .u-link:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
+  .ns { font-weight: 700; }
+  .na { color: #bbb; font-size: 12px; }
+  tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 18px; font-weight: 700; text-align: right; color: #111; }
+  tfoot td:nth-child(-n+3) { text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; }
+  .view-tabs { display: flex; gap: 6px; margin-bottom: 28px; }
+  .view-tab {
+    padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+    cursor: pointer; border: 2px solid #111; background: #fff; color: #111;
+    font-family: inherit; transition: background .15s, color .15s;
+  }
+  .view-tab.active { background: #111; color: #fff; }
+  .section { display: none; }
+  .section.visible { display: block; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="brand">크림라벨</span>
+  <p class="tagline">인플루언서 후보 리스트 · CPV 낮은 순 · <a href="https://kangnaan00.github.io/connecting-3sec-guide/cream-label-guide/" target="_blank" style="color:#111;font-weight:700;text-decoration:underline;text-underline-offset:3px;">가이드 보기 →</a></p>
+
+  <div class="view-tabs">
+    <button class="view-tab active" data-view="r1">1차</button>
+    <button class="view-tab" data-view="r2">2차</button>
+    <button class="view-tab" data-view="rf">최종</button>
+  </div>
+
+  <!-- ===== 1차 ===== -->
+  <div class="section visible" id="view-r1">
+  <div class="summary-title">1차 후보</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 단가</div><div class="stat-num">380<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">7<span class="stat-unit">명</span></div></div>
+  </div>
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ch"><col class="c-view"><col class="c-cost"><col class="c-cpv"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>프로필</th><th>평균조회수</th><th>단가</th><th>CPV</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="id">mat.terview</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/mat.terview/reels/" target="_blank">instagram.com/mat.terview/reels/</a></td><td class="ns">140.4만</td><td class="ns">25만</td><td class="nv">0.18</td></tr>
+      <tr><td>2</td><td class="id">sikhookyung</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/sikhookyung/" target="_blank">instagram.com/sikhookyung/</a></td><td class="ns">153.8만</td><td class="ns">30만</td><td class="nv">0.20</td></tr>
+      <tr><td>3</td><td class="id">_bbangya_bbangya_</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/_bbangya_bbangya_/" target="_blank">instagram.com/_bbangya_bbangya_/</a></td><td class="ns">232.4만</td><td class="ns">55만</td><td class="nv">0.24</td></tr>
+      <tr><td>4</td><td class="id">___foodtour</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/___foodtour/" target="_blank">instagram.com/___foodtour/</a></td><td class="ns">169.6만</td><td class="ns">55만</td><td class="nv">0.32</td></tr>
+      <tr><td>5</td><td class="id">reneve__</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dc97OXuNrBo/" target="_blank">instagram.com/reel/Dc97OXuNrBo/</a></td><td class="ns">227.2만</td><td class="ns">95만</td><td class="ns">0.42</td></tr>
+      <tr><td>6</td><td class="id">musteat_official</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/musteat_official/" target="_blank">instagram.com/musteat_official/</a></td><td class="ns">133.7만</td><td class="ns">60만</td><td class="ns">0.45</td></tr>
+      <tr><td>7</td><td class="id">dama.dessert</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/dama.dessert/reels/" target="_blank">instagram.com/dama.dessert/reels/</a></td><td class="ns">104.9만</td><td class="ns">60만</td><td class="ns">0.57</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">합계</td><td class="na">—</td><td class="ns">380만원</td><td></td></tr></tfoot>
+  </table>
+  </div>
+  </div>
+
+  <!-- ===== 2차 ===== -->
+  <div class="section" id="view-r2">
+  <div class="summary-title">2차 후보</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 단가</div><div class="stat-num">375<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">7<span class="stat-unit">명</span></div></div>
+  </div>
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ch"><col class="c-view"><col class="c-cost"><col class="c-cpv"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>프로필</th><th>평균조회수</th><th>단가</th><th>CPV</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="id">parkyeny</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/DZd-XhHqHtT/" target="_blank">instagram.com/reel/DZd-XhHqHtT/</a></td><td class="ns">760.7만</td><td class="ns">25만</td><td class="nv">0.03</td></tr>
+      <tr><td>2</td><td class="id">hey_jihye__</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hey_jihye__/" target="_blank">instagram.com/hey_jihye__/</a></td><td class="ns">123.2만</td><td class="ns">90만</td><td class="nv">0.73</td></tr>
+      <tr><td>3</td><td class="id">jini_zzin</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/jini_zzin/" target="_blank">instagram.com/jini_zzin/</a></td><td class="ns">66.8만</td><td class="ns">50만</td><td class="ns">0.75</td></tr>
+      <tr><td>4</td><td class="id">_ajummat</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/_ajummat/" target="_blank">instagram.com/_ajummat/</a></td><td class="ns">32.7만</td><td class="ns">35만</td><td class="ns">1.07</td></tr>
+      <tr><td>5</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></td><td class="ns">33.9만</td><td class="ns">75만</td><td class="ns">2.21</td></tr>
+      <tr><td>6</td><td class="id">min.ddo_o</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/min.ddo_o/reels/" target="_blank">instagram.com/min.ddo_o/reels/</a></td><td class="ns">16.3만</td><td class="ns">70만</td><td class="ns">4.31</td></tr>
+      <tr><td>7</td><td class="id">_foodmoa_</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/_foodmoa_/" target="_blank">instagram.com/_foodmoa_/</a></td><td class="ns">3.6만</td><td class="ns">30만</td><td class="ns">8.28</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">합계</td><td class="na">—</td><td class="ns">375만원</td><td></td></tr></tfoot>
+  </table>
+  </div>
+  </div>
+
+  <!-- ===== 최종 ===== -->
+  <div class="section" id="view-rf">
+  <div class="summary-title">최종 선정</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">총 단가</div><div class="stat-num">390<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">총 계정</div><div class="stat-num hi">6<span class="stat-unit">명</span></div></div>
+  </div>
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-ch"><col class="c-view"><col class="c-cost"><col class="c-cpv"></colgroup>
+    <thead><tr><th>#</th><th>아이디</th><th>프로필</th><th>평균조회수</th><th>단가</th><th>CPV</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td class="id">mat.terview</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/mat.terview/reels/" target="_blank">instagram.com/mat.terview/reels/</a></td><td class="ns">140.4만</td><td class="ns">10만</td><td class="nv">0.07</td></tr>
+      <tr><td>2</td><td class="id">_bbangya_bbangya_</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/_bbangya_bbangya_/" target="_blank">instagram.com/_bbangya_bbangya_/</a></td><td class="ns">232.4만</td><td class="ns">55만</td><td class="nv">0.24</td></tr>
+      <tr><td>3</td><td class="id">reneve__</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/reel/Dc97OXuNrBo/" target="_blank">instagram.com/reel/Dc97OXuNrBo/</a></td><td class="ns">227.2만</td><td class="ns">90만</td><td class="nv">0.40</td></tr>
+      <tr><td>4</td><td class="id">dama.dessert</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/dama.dessert/reels/" target="_blank">instagram.com/dama.dessert/reels/</a></td><td class="ns">104.9만</td><td class="ns">60만</td><td class="ns">0.57</td></tr>
+      <tr><td>5</td><td class="id">hid_zip</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></td><td class="ns">33.9만</td><td class="ns">75만</td><td class="ns">2.21</td></tr>
+      <tr><td>6</td><td class="id">biteofyommy</td><td class="ulink"><a class="u-link" href="https://www.instagram.com/biteofyommy/" target="_blank">instagram.com/biteofyommy/</a></td><td class="na">—</td><td class="ns">100만</td><td class="na">—</td></tr>
+    </tbody>
+    <tfoot><tr><td colspan="3">합계</td><td class="na">—</td><td class="ns">390만원</td><td></td></tr></tfoot>
+  </table>
+  </div>
+  </div>
+
+</div>
+<script>
+  document.querySelectorAll('.view-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.view-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.section').forEach(s => s.classList.remove('visible'));
+      tab.classList.add('active');
+      document.getElementById('view-' + tab.dataset.view).classList.add('visible');
+    });
+  });
+</script>
+</body>
+</html>

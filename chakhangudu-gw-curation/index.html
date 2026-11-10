@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>착한구두 겨울 큐레이션</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+  :root { --c: #2C5FCC; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff; color: #111;
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 1100px; margin-inline: auto; }
+  .brand { font-family: 'Noto Sans KR', sans-serif; font-size: clamp(40px, 12vw, 72px); font-weight: 700; letter-spacing: -0.02em; color: var(--c); line-height: 1; display: block; margin-bottom: 6px; }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 32px; }
+  .summary-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #111; margin-bottom: 12px; }
+  .stats-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; margin-bottom: 32px; }
+  @media(min-width:480px){ .stats-grid { grid-template-columns: repeat(4,1fr); } }
+  .stat-box { border: 2px solid #111; border-radius: 6px; padding: 14px 14px 12px; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: clamp(26px,6vw,34px); letter-spacing: 0.02em; color: #111; line-height: 1; }
+  .stat-num.hi { color: var(--c); }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 13px; font-weight: 600; margin-left: 2px; }
+  .section-title { font-size: 13px; font-weight: 700; letter-spacing: 0.10em; text-transform: uppercase; color: #111; margin-bottom: 10px; }
+  .tbl-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; table-layout: fixed; min-width: 680px; }
+  col.c-num   { width: 34px; }
+  col.c-id    { width: 190px; }
+  col.c-link  { width: 220px; }
+  col.c-price { width: 72px; }
+  col.c-cpv   { width: 72px; }
+  col.c-ssp   { width: 100px; }
+  thead tr { border-bottom: 2px solid #111; }
+  th { padding: 9px 10px; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: #111; font-weight: 700; text-align: right; white-space: nowrap; }
+  th:nth-child(-n+3) { text-align: left; }
+  td { padding: 12px 10px; border-bottom: 1px solid #e8e8e8; font-size: 14px; text-align: right; color: #111; vertical-align: middle; white-space: nowrap; }
+  td:nth-child(-n+3) { text-align: left; }
+  td.id { white-space: normal; }
+  td.lnk { white-space: normal; }
+  .id-link { color: #111; text-decoration: none; font-weight: 700; font-size: 14px; }
+  .id-link:hover { color: var(--c); }
+  .u-link { color: #888; text-decoration: none; font-size: 12px; font-weight: 500; word-break: break-all; }
+  .u-link:hover { color: var(--c); }
+  .nv { color: var(--c); font-weight: 700; }
+  .ns { font-weight: 700; }
+  .na { color: #bbb; font-size: 12px; }
+  tfoot td { padding: 13px 10px; border-top: 2px solid #111; border-bottom: none; font-size: 15px; font-weight: 700; text-align: right; color: #111; }
+  tfoot td:nth-child(-n+3) { text-align: left; font-size: 13px; letter-spacing: .04em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="brand">착한구두 겨울</span>
+  <p class="tagline">인플루언서 큐레이션 후보 · 2026 · 10개 계정</p>
+
+  <div class="summary-title">후보 요약</div>
+  <div class="stats-grid">
+    <div class="stat-box"><div class="stat-label">후보 계정</div><div class="stat-num hi">19<span class="stat-unit">명</span></div></div>
+    <div class="stat-box"><div class="stat-label">예산 합계</div><div class="stat-num hi">865<span class="stat-unit">만원</span></div></div>
+    <div class="stat-box"><div class="stat-label">최저 CPV</div><div class="stat-num hi">0.61<span class="stat-unit">원</span></div></div>
+    <div class="stat-box"><div class="stat-label">최저 저장공유단가</div><div class="stat-num hi">37.6<span class="stat-unit">원</span></div></div>
+  </div>
+
+  <div class="section-title">계정 목록</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-link"><col class="c-price"><col class="c-cpv"><col class="c-ssp"></colgroup>
+    <thead>
+      <tr><th>#</th><th>아이디</th><th>링크</th><th>단가</th><th>CPV</th><th>저장공유단가</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">hid_zip</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/hid_zip/reels/" target="_blank">instagram.com/hid_zip/reels/</a></td>
+        <td class="ns">65만</td><td class="nv">4.29원</td><td class="nv">47.6원</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/anotherdoor_travel/reels/" target="_blank">anotherdoor_travel</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/anotherdoor_travel/reels/" target="_blank">instagram.com/anotherdoor_travel/reels/</a></td>
+        <td class="ns">35만</td><td class="nv">3.3원</td><td>232.8원</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">popup_dangni</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/popup_dangni/reels/" target="_blank">instagram.com/popup_dangni/reels/</a></td>
+        <td class="ns">50만</td><td class="nv">3.8원</td><td>298원</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/rorocouple_trip/reels/" target="_blank">rorocouple_trip</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/rorocouple_trip/reels/" target="_blank">instagram.com/rorocouple_trip/reels/</a></td>
+        <td class="ns">40만</td><td class="nv">2.4원</td><td>148.6원</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/ha.liday/reels/" target="_blank">ha.liday</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/ha.liday/reels/" target="_blank">instagram.com/ha.liday/reels/</a></td>
+        <td class="ns">40만</td><td class="nv">4.1원</td><td class="nv">84.2원</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/thu__ravel/reels/" target="_blank">thu__ravel</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/thu__ravel/reels/" target="_blank">instagram.com/thu__ravel/reels/</a></td>
+        <td class="ns">60만</td><td class="nv">0.61원</td><td>189.7원</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/themukeou/reels/" target="_blank">themukeou</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/themukeou/reels/" target="_blank">instagram.com/themukeou/reels/</a></td>
+        <td class="ns">60만</td><td>14.4원</td><td class="nv">37.6원</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/parkyeny/reels/" target="_blank">parkyeny</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/parkyeny/reels/" target="_blank">instagram.com/parkyeny/reels/</a></td>
+        <td class="ns">25만</td><td class="nv">0.75원</td><td class="nv">103.8원</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/woonimong/reels/" target="_blank">woonimong</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/woonimong/reels/" target="_blank">instagram.com/woonimong/reels/</a></td>
+        <td class="ns">20만</td><td>7.84원</td><td class="nv">80.8원</td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/hey_jihye__/" target="_blank">hey_jihye__</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/hey_jihye__/" target="_blank">instagram.com/hey_jihye__/</a></td>
+        <td class="ns">90만</td><td>5.85원</td><td class="nv">46.8원</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">합계 / 최저</td><td class="ns">495만</td><td class="ns">0.61원</td><td class="ns">37.6원</td></tr>
+    </tfoot>
+  </table>
+  </div>
+
+  <div style="margin-top:48px; border-top:3px solid #111; padding-top:32px;">
+  <div class="section-title">착한구두겨울_인플루언서 · 9개 계정</div>
+  <div class="tbl-wrap">
+  <table>
+    <colgroup><col class="c-num"><col class="c-id"><col class="c-link"><col class="c-price"><col class="c-cpv"><col class="c-ssp"></colgroup>
+    <thead>
+      <tr><th>#</th><th>아이디</th><th>링크</th><th>단가</th><th>CPV</th><th>저장공유단가</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/hyotiz_/reels/" target="_blank">hyotiz_</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/hyotiz_/reels/" target="_blank">instagram.com/hyotiz_/reels/</a></td>
+        <td class="ns">45만</td><td class="nv">4.7원</td><td class="nv">46.8원</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">9leeryeo</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/reel/DcswN03z3zL/" target="_blank">instagram.com/reel/DcswN03z3zL/</a></td>
+        <td class="ns">40만</td><td>6.2원</td><td>402원</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">optatum_somnium</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/reel/DdjFhXoTqBX/" target="_blank">instagram.com/reel/DdjFhXoTqBX/</a></td>
+        <td class="ns">50만</td><td>6.8원</td><td>388원</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/yeni.record/reels/" target="_blank">yeni.record</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/yeni.record/reels/" target="_blank">instagram.com/yeni.record/reels/</a></td>
+        <td class="ns">20만</td><td>6.3원</td><td>127.9원</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/oeksql5/reels/" target="_blank">oeksql5</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/oeksql5/reels/" target="_blank">instagram.com/oeksql5/reels/</a></td>
+        <td class="ns">30만</td><td class="nv">4.7원</td><td class="nv">56.5원</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/youandyoubin/reels/" target="_blank">youandyoubin</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/youandyoubin/reels/" target="_blank">instagram.com/youandyoubin/reels/</a></td>
+        <td class="ns">40만</td><td>10원</td><td class="nv">67원</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/99_juback/reels/" target="_blank">99_juback</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/99_juback/reels/" target="_blank">instagram.com/99_juback/reels/</a></td>
+        <td class="ns">35만</td><td class="nv">2.1원</td><td>143.8원</td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/eunbiyeyo_/reels/" target="_blank">eunbiyeyo_</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/eunbiyeyo_/reels/" target="_blank">instagram.com/eunbiyeyo_/reels/</a></td>
+        <td class="ns">50만</td><td>8.9원</td><td>169원</td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="id"><a class="id-link" href="https://www.instagram.com/mumppuball/reels/" target="_blank">mumppuball</a></td>
+        <td class="lnk"><a class="u-link" href="https://www.instagram.com/mumppuball/reels/" target="_blank">instagram.com/mumppuball/reels/</a></td>
+        <td class="ns">60만</td><td>14.9원</td><td>358.4원</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3">합계 / 최저</td><td class="ns">370만</td><td class="ns">2.1원</td><td class="ns">46.8원</td></tr>
+    </tfoot>
+  </table>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>

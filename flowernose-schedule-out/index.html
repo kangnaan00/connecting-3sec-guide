@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FLOWER KNOWS 인플루언서 캠페인 결과</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+KR:wght@400;600;700&display=swap">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #fff;
+    color: #111;
+    font-family: 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 15px;
+    padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
+    padding-block: 40px 64px;
+  }
+  .wrap { max-width: 640px; margin-inline: auto; }
+
+  /* ── 헤더 ── */
+  .brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(56px, 16vw, 96px);
+    letter-spacing: 0.05em;
+    color: #5a8f00;
+    line-height: 1;
+    display: block;
+    margin-bottom: 6px;
+  }
+  .tagline { font-size: 14px; font-weight: 600; color: #111; margin-bottom: 28px; }
+
+  /* ── 요약 그리드 ── */
+  .summary-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 12px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  @media (min-width: 480px) { .stats-grid { grid-template-columns: repeat(4, 1fr); } }
+  .stat-box {
+    border: 2px solid #111;
+    border-radius: 6px;
+    padding: 14px 14px 12px;
+  }
+  .stat-box.wide { grid-column: span 2; }
+  .stat-label { font-size: 12px; font-weight: 600; color: #111; margin-bottom: 6px; }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(28px, 7vw, 36px);
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+    color: #111;
+    line-height: 1;
+  }
+  .stat-num.hi { color: #5a8f00; }
+  .stat-unit { font-family: 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 600; margin-left: 2px; }
+
+  /* ── 계정 표 ── */
+  .section-title {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: #111;
+    margin-bottom: 10px;
+  }
+  .tbl-wrap { overflow-x: auto; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-variant-numeric: tabular-nums;
+    min-width: 420px;
+  }
+  thead tr { border-bottom: 2px solid #111; }
+  th {
+    padding: 9px 10px;
+    font-size: 12px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: #111;
+    font-weight: 700;
+    text-align: right;
+    white-space: nowrap;
+  }
+  th:first-child, th:nth-child(2), th:nth-child(3) { text-align: left; }
+  td {
+    padding: 11px 10px;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 14px;
+    text-align: right;
+    color: #111;
+  }
+  td:first-child, td:nth-child(2), td:nth-child(3) { text-align: left; }
+  .id { font-weight: 700; }
+  .lk a { color: #111; text-decoration: none; font-size: 13px; font-weight: 600; }
+  .lk a:hover { color: #5a8f00; }
+  .nv { color: #5a8f00; font-weight: 700; }
+  .ns { font-weight: 700; }
+  tfoot td {
+    padding: 13px 10px;
+    border-top: 2px solid #111;
+    border-bottom: none;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+    color: #111;
+  }
+  tfoot td:first-child, tfoot td:nth-child(2), tfoot td:nth-child(3) {
+    text-align: left; font-size: 15px; letter-spacing: .04em; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <span class="brand">FLOWER KNOWS</span>
+  <p class="tagline">인플루언서 캠페인 결과 · 2026. 10 · 20개 계정</p>
+
+  <div class="summary-title">캠페인 전체 합계</div>
+  <div class="stats-grid">
+    <div class="stat-box">
+      <div class="stat-label">예산</div>
+      <div class="stat-num">3,000<span class="stat-unit">만원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 조회수</div>
+      <div class="stat-num hi">338.1<span class="stat-unit">만</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">CPV</div>
+      <div class="stat-num hi">8.87<span class="stat-unit">원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">저장+공유단가</div>
+      <div class="stat-num hi">293<span class="stat-unit">원</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 공유</div>
+      <div class="stat-num">89,829<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-label">총 저장</div>
+      <div class="stat-num">12,620<span class="stat-unit">건</span></div>
+    </div>
+    <div class="stat-box wide">
+      <div class="stat-label">저장+공유 합계</div>
+      <div class="stat-num">102,449<span class="stat-unit">건</span></div>
+    </div>
+  </div>
+
+  <div class="section-title">계정별 수치</div>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>아이디</th>
+          <th>릴스</th>
+          <th>조회수</th>
+          <th>공유</th>
+          <th>저장</th>
+          <th>저장+공유</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="id">someda._.ily</td><td class="lk"><a href="https://www.instagram.com/reel/DeiuCoozbmT/" target="_blank">reel</a></td><td class="nv">179만</td><td class="ns">64,000</td><td class="ns">8,127</td><td class="ns">72,127</td></tr>
+        <tr><td>2</td><td class="id">hid_zip</td><td class="lk"><a href="https://www.instagram.com/reel/DejRYKqhClM/" target="_blank">reel</a></td><td class="nv">32.9만</td><td class="ns">8,806</td><td class="ns">857</td><td class="ns">9,663</td></tr>
+        <tr><td>3</td><td class="id">seria_980</td><td class="lk"><a href="https://www.instagram.com/reel/Dethrk_vCYn/" target="_blank">reel</a></td><td class="nv">28.4만</td><td class="ns">5,558</td><td class="ns">675</td><td class="ns">6,233</td></tr>
+        <tr><td>4</td><td class="id">yuura_ii</td><td class="lk"><a href="https://www.instagram.com/reel/De1XN5SygFu/" target="_blank">reel</a></td><td class="nv">24.9만</td><td class="ns">276</td><td class="ns">126</td><td class="ns">402</td></tr>
+        <tr><td>5</td><td class="id">rorocouple_trip</td><td class="lk"><a href="https://www.instagram.com/p/DejWSMBSzTS/" target="_blank">reel</a></td><td class="nv">16.4만</td><td class="ns">4,056</td><td class="ns">1,264</td><td class="ns">5,320</td></tr>
+        <tr><td>6</td><td class="id">popup_dangni</td><td class="lk"><a href="https://www.instagram.com/reel/DeitvYPKXtQ/" target="_blank">reel</a></td><td class="nv">12.2만</td><td class="ns">2,629</td><td class="ns">376</td><td class="ns">3,005</td></tr>
+        <tr><td>7</td><td class="id">honey___pick</td><td class="lk"><a href="https://www.instagram.com/reel/Dejb2CvO0Oo/" target="_blank">reel</a></td><td class="nv">8.1만</td><td class="ns">928</td><td class="ns">184</td><td class="ns">1,112</td></tr>
+        <tr><td>8</td><td class="id">chocomi_travel</td><td class="lk"><a href="https://www.instagram.com/reel/DewSWjZocVN/" target="_blank">reel</a></td><td class="nv">6.7만</td><td class="ns">720</td><td class="ns">257</td><td class="ns">977</td></tr>
+        <tr><td>9</td><td class="id">anotherdoor_travel</td><td class="lk"><a href="https://www.instagram.com/reel/Detq6IMO_dN/" target="_blank">reel</a></td><td class="nv">4.9만</td><td class="ns">369</td><td class="ns">153</td><td class="ns">522</td></tr>
+        <tr><td>10</td><td class="id">ha.liday</td><td class="lk"><a href="https://www.instagram.com/p/DetdlLbCINP/" target="_blank">reel</a></td><td class="nv">4.5만</td><td class="ns">539</td><td class="ns">95</td><td class="ns">634</td></tr>
+        <tr><td>11</td><td class="id">namuriki</td><td class="lk"><a href="https://www.instagram.com/reel/Deq3Ck8JoIp/" target="_blank">reel</a></td><td class="nv">4.2만</td><td class="ns">422</td><td class="ns">88</td><td class="ns">510</td></tr>
+        <tr><td>12</td><td class="id">rearin.designer</td><td class="lk"><a href="https://www.instagram.com/reel/Dey023dgazQ/" target="_blank">reel</a></td><td class="nv">3.5만</td><td class="ns">72</td><td class="ns">60</td><td class="ns">132</td></tr>
+        <tr><td>13</td><td class="id">woonimong</td><td class="lk"><a href="https://www.instagram.com/reel/Detk54TSfT5/" target="_blank">reel</a></td><td class="nv">3.4만</td><td class="ns">433</td><td class="ns">82</td><td class="ns">515</td></tr>
+        <tr><td>14</td><td class="id">silvery_ooo</td><td class="lk"><a href="https://www.instagram.com/reel/De3BZ9VOjLq/" target="_blank">reel</a></td><td class="nv">3만</td><td class="ns">375</td><td class="ns">104</td><td class="ns">479</td></tr>
+        <tr><td>15</td><td class="id">j_o_o_sy</td><td class="lk"><a href="https://www.instagram.com/reel/DesyMr0ttwf/" target="_blank">reel</a></td><td class="nv">1.4만</td><td class="ns">78</td><td class="ns">26</td><td class="ns">104</td></tr>
+        <tr><td>16</td><td class="id">a.zihyyyy</td><td class="lk"><a href="https://www.instagram.com/reel/Detrs_DTx8V/" target="_blank">reel</a></td><td class="nv">1.1만</td><td class="ns">214</td><td class="ns">37</td><td class="ns">251</td></tr>
+        <tr><td>17</td><td class="id">pickstival</td><td class="lk"><a href="https://www.instagram.com/reel/DerIjcjTdI9/" target="_blank">reel</a></td><td class="nv">1.1만</td><td class="ns">54</td><td class="ns">52</td><td class="ns">106</td></tr>
+        <tr><td>18</td><td class="id">j7507775</td><td class="lk"><a href="https://www.instagram.com/reel/De1MAtryHIx/" target="_blank">reel</a></td><td class="nv">1.1만</td><td class="ns">253</td><td class="ns">40</td><td class="ns">293</td></tr>
+        <tr><td>19</td><td class="id">sol.han.day</td><td class="lk"><a href="https://www.instagram.com/reel/DettqY7BL-B/" target="_blank">reel</a></td><td class="nv">8,740</td><td class="ns">6</td><td class="ns">5</td><td class="ns">11</td></tr>
+        <tr><td>20</td><td class="id">hotple_honeytip</td><td class="lk"><a href="https://www.instagram.com/reel/DetgvOchHl7/" target="_blank">reel</a></td><td class="nv">4,551</td><td class="ns">41</td><td class="ns">12</td><td class="ns">53</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">합계</td>
+          <td class="nv">338.1만</td>
+          <td class="ns">89,829</td>
+          <td class="ns">12,620</td>
+          <td class="ns">102,449</td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+</div>
+</body>
+</html>

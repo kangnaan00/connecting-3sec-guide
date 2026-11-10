@@ -1,0 +1,321 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>회의 요약 — 양화로12길</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  :root {
+    --bg: #0d0d0d; --surface: #161616; --surface2: #1e1e1e;
+    --border: #2a2a2a; --fg: #ebebeb; --fg-dim: #888; --fg-faint: #555;
+    --accent: #5bc490; --warn: #f5a623; --red: #f05252;
+    --tag-bg: rgba(91,196,144,0.1);
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f4f4f2; --surface: #fff; --surface2: #f0f0ee;
+      --border: #ddd; --fg: #111; --fg-dim: #666; --fg-faint: #aaa;
+      --accent: #1a7f4b; --warn: #c07000; --red: #c0392b;
+      --tag-bg: rgba(26,127,75,0.08);
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f4f4f2; --surface: #fff; --surface2: #f0f0ee;
+    --border: #ddd; --fg: #111; --fg-dim: #666; --fg-faint: #aaa;
+    --accent: #1a7f4b; --warn: #c07000; --red: #c0392b;
+    --tag-bg: rgba(26,127,75,0.08);
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--fg);
+    font-family: 'Pretendard', 'Noto Sans KR', system-ui, sans-serif;
+    font-size: 14px; margin: 0; line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left,0px));
+    padding-right: max(16px, env(safe-area-inset-right,0px));
+    padding-block: 32px 64px;
+    max-width: 860px; margin-inline: auto;
+  }
+
+  .hd { margin-bottom: 32px; border-bottom: 1px solid var(--border); padding-bottom: 20px; }
+  .hd-label { font-size: 11px; letter-spacing: 0.12em; color: var(--fg-faint); text-transform: uppercase; margin-bottom: 6px; }
+  .hd-title { font-size: 22px; font-weight: 700; margin: 0 0 6px; }
+  .hd-meta { font-size: 12px; color: var(--fg-dim); }
+
+  .section { margin-bottom: 28px; }
+  .section-title {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--accent);
+    margin: 0 0 12px; display: flex; align-items: center; gap: 8px;
+  }
+  .section-title::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+  .cards { display: grid; gap: 10px; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; }
+  .card-head { font-size: 13px; font-weight: 700; margin-bottom: 6px; display: flex; align-items: flex-start; gap: 8px; }
+  .card-body { font-size: 13px; color: var(--fg-dim); line-height: 1.65; }
+  .card-body ul { margin: 4px 0 0; padding-left: 16px; }
+  .card-body li { margin-bottom: 3px; }
+
+  .budget-tbl { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 12px; }
+  .budget-tbl th { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--fg-faint); font-weight: 600; padding: 5px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+  .budget-tbl th:first-child { text-align: left; }
+  .budget-tbl td { padding: 6px 8px; border-bottom: 1px solid var(--border); text-align: right; }
+  .budget-tbl td:first-child { text-align: left; font-weight: 600; }
+  .budget-tbl tr:last-child td { border-bottom: none; font-weight: 700; border-top: 1px solid var(--border); }
+  .budget-tbl .remain { color: var(--accent); font-weight: 700; }
+
+  .actions { width: 100%; border-collapse: collapse; }
+  .actions th {
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--fg-faint); font-weight: 600; padding: 8px 12px;
+    border-bottom: 1px solid var(--border); text-align: left;
+    background: var(--surface2);
+  }
+  .actions td { padding: 10px 12px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: top; }
+  .actions tr:last-child td { border-bottom: none; }
+  .actions tr:hover td { background: var(--surface2); }
+  .priority-high { color: var(--red); font-weight: 700; font-size: 11px; }
+  .priority-mid { color: var(--warn); font-weight: 700; font-size: 11px; }
+  .due { font-size: 12px; color: var(--fg-dim); white-space: nowrap; }
+  .tag { display: inline-block; font-size: 10px; padding: 2px 7px; border-radius: 20px; font-weight: 600; white-space: nowrap; background: var(--tag-bg); color: var(--accent); margin-right: 4px; }
+  .tbl-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--border); border-radius: 8px; }
+  .done { text-decoration: line-through; opacity: .5; }
+</style>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+
+<div class="hd">
+  <div class="hd-label">Meeting Notes</div>
+  <h1 class="hd-title">회의 요약 — 양화로12길</h1>
+  <div class="hd-meta">2026년 10월 26일 · 대표 &amp; 담당자</div>
+</div>
+
+<!-- 업무 정리 지시 -->
+<div class="section">
+  <h2 class="section-title">업무 관리 체계 개편</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head">⚠️ 업무 정리 전면 재편 지시</div>
+      <div class="card-body">
+        <ul>
+          <li>현재 업무가 각각 흩어진 링크로 관리 중 — <strong>링크 하나에 전체 통합</strong>하도록 지시</li>
+          <li>브랜드명 클릭 시 관련 정보(계좌·예산·결과·업로드링크)가 한눈에 보이도록 구성</li>
+          <li>양식이 브랜드마다 달라 파악 불가 — 양식 통일 후 검사받고 진행할 것</li>
+          <li>시트 + 링크 병행 체계로 전환 — <strong>금요일 완성 / 월요일 공유</strong></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 인플루언서 캠페인 리뷰 -->
+<div class="section">
+  <h2 class="section-title">캠페인 성과 리뷰</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head">💀 데드폴트</div>
+      <div class="card-body">
+        <ul>
+          <li>✅ <strong>"무료 체험권" 이벤트 포맷 반응 나쁘지 않음</strong> (17만원 상당 제품 제공) — 항상 터지는 이벤트 포맷</li>
+          <li>잘 된 계정은 원래 잘 하는 계정들 — 20~30% 핏 안 맞는 계정이 효율 떨어뜨림</li>
+          <li>cherr__iy(25만): 애매한 계정이지만 단가 때문에 해볼만</li>
+          <li>j_o_o_sy · pickstival · namuriki: 생각 필요</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">👟 착한구두</div>
+      <div class="card-body">
+        <ul>
+          <li>현재 1,000명 목표 중 330명 연락, 120명 단가 수령 완료 → 나머지는 대표님이 진행, 소통만 내가 진행</li>
+          <li>제현에게 자료요청 <strong>(완료)</strong></li>
+          <li>⚠️ 대표님께 연락망 리스트 요청 필요</li>
+        </ul>
+        <table class="budget-tbl">
+          <thead>
+            <tr><th>구분</th><th>예산</th><th>사용</th><th>잔여</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>큐레이션</td><td>500만</td><td>495만</td><td class="remain">5만</td></tr>
+            <tr><td>인플루언서</td><td>1,200만</td><td>405만</td><td class="remain">795만</td></tr>
+            <tr><td>합계</td><td>1,700만</td><td>900만</td><td class="remain">800만</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">🏷 크림라벨</div>
+      <div class="card-body">
+        <ul>
+          <li>연락 오면 진행, 예산 축소 전환 예정</li>
+          <li>해외 진출 여부 미결 — 금주 내 결정</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- AI 활용 가이드 -->
+<div class="section">
+  <h2 class="section-title">AI 활용 방법 가이드</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head">🤖 대표 공유 스킬 · 도구</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>Agentic(언웨이즈) 스킬</strong> — 24시간 멈추지 않고 목표 달성. GitHub 공개 스킬. 퇴근 전 돌려놓고 다음날 결과 확인</li>
+          <li><strong>GSTACK</strong> — 다방면 관점 제공, 코딩·기획 시 활용. 계획 먼저 세우고 OK 받은 뒤 실행하도록 설계</li>
+          <li><strong>Hiku(바이코) API</strong> — 인스타/유튜브 크롤링, 10달러 충전으로 꽤 활용 가능. 이메일 가입 후 충전해줄 예정</li>
+          <li><strong>Claude Fable + Opus 토론</strong> — 두 모델이 서로 토론·스터디하게 하여 인플루언서 선별 근거 강화</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">📋 AI로 인플루언서 선별 프로세스 — 7일 과정</div>
+      <div class="card-body">
+        <ul>
+          <li>1차: 평균 CPV + 핏 맞는 CPV 두 개 기준으로 후보 뽑기</li>
+          <li>2차: 핏(키높이 부츠 등 조건) 맞는 애만 재추출</li>
+          <li>3~6차: <strong>GSTACK</strong>(다방면 관점) + <strong>Claude Fable·Opus 토론</strong>(인플루언서 선별 근거 강화)으로 단계적 기준 올려가며 탈락시키기</li>
+          <li>가이드 제작: 잘된 레퍼런스·안된 레퍼런스 추출 후 학습 → <strong>GSTACK</strong>으로 가이드라인 작성 → <strong>Claude Fable·Opus</strong> 토론으로 최종 검증</li>
+          <li>최종: 대표가 소수 리스트 확인 후 결정 → 가이드라인 컨펌</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 커넥팅 채널 기획 -->
+<div class="section">
+  <h2 class="section-title">커넥팅 채널 콘텐츠 기획</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head">🎬 콘텐츠 구성 (해외 인플루언서 × 한국 커넥팅)</div>
+      <div class="card-body">
+        <ul>
+          <li><strong>1편</strong>: 온라인 커넥팅 — 해외 인플루언서가 자체 촬영 후 업로드</li>
+          <li><strong>2편</strong>: 한국 방문 데이트 — 촬영감독·편집자가 외주 촬영 (앰플·착한구두 장소 포함 가능)</li>
+          <li>남자 모델 섭외 필요, 대만인 있으면 추천</li>
+          <li>인플루언서 2명 섭외 목표 — <strong>11월 내 촬영 및 업로드</strong></li>
+          <li>예산: 인플루언서 300~500만원, 촬영편집 50만원 이내</li>
+          <li>웅철님께 가능 인플루언서 확인 요청 (기획안 정리 후 전달)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 앰플레이그라운드 -->
+<div class="section">
+  <h2 class="section-title">앰플레이그라운드 광장시장점 오픈 준비</h2>
+  <div class="cards">
+    <div class="card">
+      <div class="card-head">🏪 오픈 기본 정보</div>
+      <div class="card-body">
+        <ul>
+          <li>1월 오픈 예정 (200평)</li>
+          <li>국내 + 해외 인플루언서 시딩 동시 준비</li>
+          <li>외국인 전용 인스타 계정 별도 운영</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">🎪 공간 기획 아이디어</div>
+      <div class="card-body">
+        <ul>
+          <li>스티커 사진기 + 한복 + 아이돌 스타일링 체험존</li>
+          <li>메이크업 + 스타일링 → "한국 연예인 체험" 콘텐츠 소재</li>
+          <li>잡화존(가방·말랑이·양말 등) 가격 소구로 자연 확산 유도</li>
+          <li>인스타 운영</li>
+          <li>아이돌 콘서트 시기 맞춘 기획 아이디어</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-head">📋 인플루언서 후보 구성 방식</div>
+      <div class="card-body">
+        <ul>
+          <li>확실 / 애매 / 가능성 낮음 3단계로 분류</li>
+          <li>1차 과감하게 많이 후보 잡고 → 예산 맞게 단계적 축소</li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 액션 아이템 -->
+<div class="section">
+  <h2 class="section-title">액션 아이템</h2>
+  <div class="tbl-wrap">
+    <table class="actions">
+      <thead>
+        <tr>
+          <th>우선순위</th>
+          <th>할 일</th>
+          <th>기한</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="priority-high">긴급</span></td>
+          <td>착한구두 인플루언서 소통 마무리 (소통만, 검수 제외)</td>
+          <td class="due">이번 주</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td><span class="done">플라워노즈·데드폴트 결과보고서 완성</span></td>
+          <td class="due">수요일</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td>업무 전체 링크 하나로 통합 정리 (브랜드별 계좌·예산·링크 포함) — 내부+외부용 완성 및 공유</td>
+          <td class="due">금요일</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td>본인 업무 프로세스 + AI 활용 현황 상세 정리 (정량 포함) → 대표 검토</td>
+          <td class="due">수요일</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td>국내/해외 가이드라인 완성 기획 3~4개</td>
+          <td class="due">11월 20일</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td>커넥팅 콘텐츠 1차 기획안</td>
+          <td class="due">수요일</td>
+        </tr>
+        <tr>
+          <td><span class="priority-high">높음</span></td>
+          <td>웅철님에게 인플루언서 리스트 전달</td>
+          <td class="due">화요일</td>
+        </tr>
+
+        <tr>
+          <td><span class="priority-mid">중간</span></td>
+          <td>앰플레이그라운드 오픈 인플루언서 기획안 (국내+해외) 1차 준비 — 시딩리스트 확실/애매/별로 3단계, 가이드라인 각 1개씩</td>
+          <td class="due">다음주</td>
+        </tr>
+        <tr>
+          <td><span class="priority-mid">중간</span></td>
+          <td>Agentic(언웨이즈) + GSTACK 스킬 설치 및 활용 시작</td>
+          <td class="due">이번 주</td>
+        </tr>
+        <tr>
+          <td><span class="priority-mid">중간</span></td>
+          <td>Hiku(바이코) API 이메일 가입</td>
+          <td class="due">이번 주</td>
+        </tr>
+        <tr>
+          <td><span class="priority-mid">중간</span></td>
+          <td>크림라벨 연락 대기, 해외 여부 금주 결정 후 대표에게 보고</td>
+          <td class="due">이번 주</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body></html>

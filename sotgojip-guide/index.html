@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light dark}body{margin:0}[hidden]{display:none!important}</style>
+<title>솥고집 촬영 가이드</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --brand:#D94F2B; --brand-soft:#FAEEE9;
+  --blue:#1E4FD0;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --green:#1A6B3A; --green-soft:#E6F5ED;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+    --brand:#FF7A56; --brand-soft:#3A1508;
+    --blue:#7A9BFF;
+    --amber:#E8B85A; --amber-soft:#3A2E12;
+    --green:#5FD68E; --green-soft:#0F2A1A;
+  }
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:680px;margin:0 auto}
+h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
+p{margin:0}
+a{color:var(--blue)}
+
+.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:10px}
+h1{font-size:clamp(24px,5.5vw,34px);font-weight:900;letter-spacing:-.01em}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
+.meta b{color:var(--ink-2);font-weight:500}
+
+section{padding-block:28px;border-bottom:1px solid var(--line)}
+section:last-of-type{border-bottom:0}
+h2{font-size:19px;font-weight:900;letter-spacing:-.01em;margin-bottom:14px}
+h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
+
+.badge{display:inline-block;background:var(--brand);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em;padding:3px 9px;border-radius:4px;margin-bottom:10px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .badge{color:#111}}
+
+/* 메뉴 블록 */
+.menu-block{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-bottom:16px}
+.menu-head{padding:14px 16px 12px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px;background:var(--brand-soft)}
+.menu-icon{font-size:20px;line-height:1}
+.menu-title{font-weight:900;font-size:17px;color:var(--brand)}
+.menu-body{padding:14px 16px}
+
+/* 장면 카드 */
+.scene{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:10px}
+.scene-head{padding:11px 14px 9px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:10px}
+.scene-num{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.scene-title{font-weight:700;font-size:14px}
+.scene-body{padding:11px 14px;font-size:13.5px;line-height:1.75;color:var(--ink-2)}
+.scene-body b{color:var(--ink);font-weight:700}
+
+/* 참고 영상 */
+.refs{display:grid;gap:10px;margin-top:12px}
+.ref-card{background:var(--panel-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:4px;text-decoration:none;color:inherit}
+.ref-card:hover{border-color:var(--brand)}
+.ref-card .ref-num{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--brand)}
+.ref-card .ref-note{font-size:13px;color:var(--ink-2)}
+.ref-card .ref-url{font-size:12px;color:var(--blue);word-break:break-all}
+
+/* 체크리스트 */
+.check-group{margin-top:18px}
+.check-group:first-child{margin-top:0}
+.check-group h3{font-size:14px;font-weight:700;color:var(--ink-2);margin-bottom:8px}
+.check{list-style:none;padding:0;margin:0;display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
+.check li{margin:0;display:flex;gap:12px;align-items:flex-start;padding:11px 14px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.55}
+.check li:last-child{border-bottom:0}
+.check .box{flex:0 0 18px;height:18px;border:2px solid var(--ink-3);border-radius:4px;margin-top:2px;flex-shrink:0}
+
+.tip{background:var(--amber-soft);border:1px solid var(--amber);border-radius:8px;padding:12px 14px;font-size:13px;color:var(--amber);margin-top:14px;line-height:1.7}
+.tip b{font-weight:700}
+
+.warn{background:#fff0f0;border:1.5px solid #e53e3e;border-radius:12px;padding:16px 18px;margin-bottom:20px}
+.warn-title{color:#e53e3e;font-size:16px;font-weight:800;margin:0 0 10px;letter-spacing:.04em}
+.warn p{color:#c0392b;font-size:14px;line-height:1.8;margin:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <div class="eyebrow">솥고집 · 인플루언서 릴스 가이드</div>
+  <h1>솥고집 삼겹살</h1>
+  <div class="meta">
+    <span><b>브랜드</b> 솥고집</span>
+    <span><b>촬영</b> 삼겹살 · 쭈꾸미 · 볶음밥</span>
+  </div>
+</header>
+
+<!-- B빠삼 버전 -->
+<section>
+  <div class="menu-block">
+    <div class="menu-head">
+      <div class="menu-icon">🥩</div>
+      <div class="menu-title">버터 삼겹살 (B빠삼 버전)</div>
+    </div>
+    <div class="menu-body">
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">1</div>
+          <div class="scene-title">버터 삼겹살 등장</div>
+        </div>
+        <div class="scene-body">
+          <b>접시 위에 통째로 등장</b>하는 장면<br>
+          <b>크게 커 보이게</b> 찍어주세요 — <span style="color:var(--brand);font-weight:700">버터 층이 잘 보이도록</span> 각도 잡기
+          <video src="butter-appear.mp4?v=1" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+        <a class="ref-card" href="https://www.instagram.com/reels/C2GpWrNyuC6/" target="_blank" rel="noopener">
+          <div class="ref-num">참고 영상 ①</div>
+          <div class="ref-note">버터 삼겹살 레퍼런스</div>
+          <div class="ref-url">instagram.com/reels/C2GpWrNyuC6/</div>
+        </a>
+          </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">2</div>
+          <div class="scene-title">고기 등장</div>
+        </div>
+        <div class="scene-body">
+          고기가 <b>등장하는</b> 장면
+          <video src="meat-appear.mp4?v=1" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+          <a class="ref-card" href="https://www.instagram.com/p/DVF5TaPE8VT/" target="_blank" rel="noopener" style="margin-top:10px">
+            <div class="ref-num">참고 영상 ②</div>
+            <div class="ref-note">고기 등장 레퍼런스</div>
+            <div class="ref-url">instagram.com/p/DVF5TaPE8VT/</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">3</div>
+          <div class="scene-title">고기 뒤집기</div>
+        </div>
+        <div class="scene-body">
+          고기를 <b>뒤집는</b> 장면 — <b>노릇한 면</b>이 잘 보이도록
+          <video src="meat-flip.mp4?v=1" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+          <a class="ref-card" href="https://www.instagram.com/p/DVF5TaPE8VT/" target="_blank" rel="noopener" style="margin-top:10px">
+            <div class="ref-num">참고 영상 ②</div>
+            <div class="ref-note">고기 등장 레퍼런스</div>
+            <div class="ref-url">instagram.com/p/DVF5TaPE8VT/</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">4</div>
+          <div class="scene-title">고기 한번에 밀어 넣기</div>
+        </div>
+        <div class="scene-body">
+          고기를 <b>한번에 싹 밀어 넣는</b> 장면<br>
+          풍성함과 대용량 느낌이 잘 전달되도록
+          <video src="meat-push.mp4?v=1" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+        </div>
+      </div>
+
+      <div class="refs">
+        <a class="ref-card" href="https://www.instagram.com/p/DVF5TaPE8VT/" target="_blank" rel="noopener">
+          <div class="ref-num">참고 영상 ②</div>
+          <div class="ref-note">고기 등장 레퍼런스</div>
+          <div class="ref-url">instagram.com/p/DVF5TaPE8VT/</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 쭈꾸미 + 밥 버전 -->
+<section>
+  <div class="menu-block">
+    <div class="menu-head">
+      <div class="menu-icon">🐙</div>
+      <div class="menu-title">쭈꾸미 + 밥</div>
+    </div>
+    <div class="menu-body">
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">1</div>
+          <div class="scene-title">쭈꾸미 한번에 싹 넣기</div>
+        </div>
+        <div class="scene-body">
+          쭈꾸미를 <b>한번에 싹 쏟아 넣는</b> 장면<br>
+          주변에 <b>삼겹살을 둘러주세요</b> 솥뚜껑 삼겹살처럼
+          <video src="jukumi-pour.mp4?v=3" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">2</div>
+          <div class="scene-title">밥 한 그릇 통으로 넣기</div>
+        </div>
+        <div class="scene-body">
+          밥 한 그릇을 <b>통으로 넣는</b> 장면<br>
+          한 번에 넣는 호쾌함이 포인트
+          <video src="rice-pour.mp4?v=1" controls playsinline loop style="width:100%;border-radius:10px;margin-top:12px;display:block"></video>
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">3</div>
+          <div class="scene-title">비비기</div>
+        </div>
+        <div class="scene-body">
+          고기 + 쭈꾸미 + 밥을 <b>비비는</b> 장면
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">4</div>
+          <div class="scene-title">들어올리기</div>
+        </div>
+        <div class="scene-body">
+          <b>큰 고기 + 쭈꾸미 + 밥</b>을 한번에 들어올리는 장면<br>
+          풍성하게 가득 올려서 클로즈업
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 고추장 삼겹 -->
+<section>
+  <div class="menu-block">
+    <div class="menu-head">
+      <div class="menu-icon">🌶️</div>
+      <div class="menu-title">고추장 삼겹</div>
+    </div>
+    <div class="menu-body">
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">1</div>
+          <div class="scene-title">접시 등장</div>
+        </div>
+        <div class="scene-body">
+          고추장 삼겹 접시가 <b>등장하는</b> 장면
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">2</div>
+          <div class="scene-title">뒤집는 장면</div>
+        </div>
+        <div class="scene-body">
+          고기 <b>뒤집는</b> 장면 (색 변화 포착)
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">3</div>
+          <div class="scene-title">들어올리기</div>
+        </div>
+        <div class="scene-body">
+          밥 위에 <b>큰 고기 한 점</b> 올려두고 들어올리는 장면
+        </div>
+      </div>
+
+      <div class="refs">
+        <a class="ref-card" href="https://www.instagram.com/p/C0gigCtyixu/" target="_blank" rel="noopener">
+          <div class="ref-num">참고 영상</div>
+          <div class="ref-note">고추장 삼겹 레퍼런스</div>
+          <div class="ref-url">instagram.com/p/C0gigCtyixu/</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 볶음밥 -->
+<section>
+  <div class="menu-block">
+    <div class="menu-head">
+      <div class="menu-icon">🍳</div>
+      <div class="menu-title">볶음밥</div>
+    </div>
+    <div class="menu-body">
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">1</div>
+          <div class="scene-title">볶음밥 등장</div>
+        </div>
+        <div class="scene-body">
+          볶음밥이 <b>등장하는</b> 장면
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">2</div>
+          <div class="scene-title">반접기</div>
+        </div>
+        <div class="scene-body">
+          볶음밥을 <b>반으로 접는</b> 장면
+        </div>
+      </div>
+
+      <div class="scene">
+        <div class="scene-head">
+          <div class="scene-num">3</div>
+          <div class="scene-title">들어올리기</div>
+        </div>
+        <div class="scene-body">
+          볶음밥을 <b>들어올리는</b> 장면 (클로즈업)
+        </div>
+      </div>
+
+      <div class="refs">
+        <a class="ref-card" href="https://www.instagram.com/p/Dafjxf-SIA2/" target="_blank" rel="noopener">
+          <div class="ref-num">참고 영상</div>
+          <div class="ref-note">볶음밥 레퍼런스</div>
+          <div class="ref-url">instagram.com/p/Dafjxf-SIA2/</div>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 전체 체크리스트 -->
+<section>
+  <div class="warn">
+    <p class="warn-title">⚠️ 주의사항</p>
+    <p>
+      · 불판·배경 주변을 깨끗이 정돈한 뒤 촬영해주세요.<br>
+      · 직원 얼굴은 나오지 않게 편집해주세요.<br>
+      · 어수선한 부분은 매장 직원에게 요청해 정돈 후 진행해주세요.
+    </p>
+  </div>
+
+  <h2><span class="n">체크</span>꼭 찍어야 하는 장면</h2>
+
+  <div class="check-group">
+    <h3>버터 삼겹살</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>버터 삼겹살 접시 위 통째 등장샷 (크게·버터 층 잘 보이게)</span></li>
+      <li><span class="box"></span><span>고기 뒤집는 장면 (색 변화)</span></li>
+      <li><span class="box"></span><span>고기 뒤집기</span></li>
+      <li><span class="box"></span><span>고기 한번에 밀어 넣기</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>쭈꾸미 + 밥</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>쭈꾸미 한번에 싹 넣기</span></li>
+      <li><span class="box"></span><span>밥 한 그릇 통으로 넣기</span></li>
+      <li><span class="box"></span><span>비비는 장면</span></li>
+      <li><span class="box"></span><span>고기(큰거)+쭈꾸미+밥 한번에 들어올리기</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>고추장 삼겹</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>접시 등장샷</span></li>
+      <li><span class="box"></span><span>고기 뒤집는 장면</span></li>
+      <li><span class="box"></span><span>밥 위에 큰 고기 한 점 올리고 들어올리기</span></li>
+    </ul>
+  </div>
+
+  <div class="check-group">
+    <h3>볶음밥</h3>
+    <ul class="check">
+      <li><span class="box"></span><span>볶음밥 등장샷</span></li>
+      <li><span class="box"></span><span>반접기</span></li>
+      <li><span class="box"></span><span>들어올리기</span></li>
+    </ul>
+  </div>
+
+  <div class="tip">
+    <b>참고 영상 꼭 확인하세요!</b><br>
+    각 메뉴 아래 참고 영상 링크가 있습니다. 촬영 전 미리 보고 방향을 잡아주세요.
+  </div>
+</section>
+
+</div>
+</body>
+</html>
