@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>솥고집 레퍼런스 현황</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
+  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
+  --brand:#D94F2B; --brand-soft:#FAEEE9;
+  --blue:#1E4FD0; --blue-soft:#EBF0FD;
+  --green:#1A6B3A; --green-soft:#E6F5ED;
+  --amber:#8A5A00; --amber-soft:#F6ECD2;
+  --gray:#606166; --gray-soft:#F2F1EC;
+}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
+  --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
+  --brand:#FF7A56; --brand-soft:#3A1508;
+  --blue:#7A9BFF; --blue-soft:#111A3A;
+  --green:#5FD68E; --green-soft:#0F2A1A;
+  --amber:#E8B85A; --amber-soft:#3A2E12;
+  --gray:#9A9BA3; --gray-soft:#1E1F24;
+}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo",sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.header{background:var(--panel);border-bottom:1px solid var(--line);padding:16px 20px;position:sticky;top:0;z-index:10}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.brand-dot{width:10px;height:10px;border-radius:50%;background:var(--brand);flex-shrink:0}
+h1{font-size:16px;font-weight:700;color:var(--ink)}
+.meta{font-size:12px;color:var(--ink-3);margin-left:auto}
+.wrap{max-width:1100px;margin:0 auto;padding:20px 20px 60px}
+.stats-row{display:flex;gap:12px;margin-bottom:20px;flex-wrap:wrap}
+.stat-card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px 16px;min-width:100px;flex:1}
+.stat-card .label{font-size:11px;color:var(--ink-3);margin-bottom:4px}
+.stat-card .value{font-size:20px;font-weight:700;color:var(--ink)}
+.section-title{font-size:13px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px;margin-top:24px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;min-width:720px}
+th{background:var(--panel-2);font-size:11px;font-weight:700;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em;padding:10px 12px;text-align:left;white-space:nowrap;border-bottom:1px solid var(--line)}
+td{padding:10px 12px;border-bottom:1px solid var(--line);vertical-align:middle;font-size:13px}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:var(--panel-2)}
+.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:500}
+.num-em{color:var(--brand);font-weight:700}
+.handle a{color:var(--blue);text-decoration:none;font-weight:500}
+.handle a:hover{text-decoration:underline}
+.badge{display:inline-block;padding:2px 7px;border-radius:4px;font-size:11px;font-weight:600;letter-spacing:.02em}
+.badge-ig{background:var(--brand-soft);color:var(--brand)}
+.badge-xhs{background:var(--green-soft);color:var(--green)}
+.badge-tt{background:var(--blue-soft);color:var(--blue)}
+.dash{color:var(--ink-3)}
+.error td{opacity:.5}
+.error .badge-xhs{background:var(--gray-soft);color:var(--gray)}
+.note{font-size:11px;color:var(--ink-3);margin-top:16px}
+.top3 td:first-child::before{content:"🏆 ";font-size:11px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="brand-dot"></div>
+    <h1>솥고집 레퍼런스 현황</h1>
+    <div class="meta">총 52건 · 2026-11-11 기준</div>
+  </div>
+</div>
+<div class="wrap">
+
+  <div class="stats-row">
+    <div class="stat-card"><div class="label">총 게시물</div><div class="value">52</div></div>
+    <div class="stat-card"><div class="label">Instagram</div><div class="value">33</div></div>
+    <div class="stat-card"><div class="label">XHS/Rednote</div><div class="value">18</div></div>
+    <div class="stat-card"><div class="label">TikTok</div><div class="value">1</div></div>
+    <div class="stat-card"><div class="label">접속 가능</div><div class="value">40</div></div>
+    <div class="stat-card"><div class="label">접속 불가</div><div class="value">12</div></div>
+  </div>
+
+  <div class="section-title">Instagram · 33건</div>
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>계정 아이디</th>
+      <th>링크</th>
+      <th class="num">좋아요</th>
+      <th class="num">댓글</th>
+      <th class="num">공유</th>
+      <th class="num">저장</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td class="handle"><a href="https://www.instagram.com/foodsearchers/" target="_blank">@foodsearchers</a></td>
+      <td><a href="https://www.instagram.com/reels/Db8S7DdC7JA/" target="_blank">Db8S7DdC7JA</a></td>
+      <td class="num">106</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num num-em">2.6만<span style="font-size:10px;font-weight:400;color:var(--ink-3)"> 조회</span></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td class="handle"><a href="https://www.instagram.com/aya_tuan/" target="_blank">@aya_tuan</a></td>
+      <td><a href="https://www.instagram.com/reel/DcOCr5CAswB/" target="_blank">DcOCr5CAswB</a></td>
+      <td class="num">415</td>
+      <td class="num">22</td>
+      <td class="num">1</td>
+      <td class="num">83</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td class="handle"><a href="https://www.instagram.com/pocha_ele/" target="_blank">@pocha_ele</a></td>
+      <td><a href="https://www.instagram.com/reel/Db0NgM_xJPY/" target="_blank">Db0NgM_xJPY</a></td>
+      <td class="num">461</td>
+      <td class="num">21</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td class="handle"><a href="https://www.instagram.com/_dfen_bb/" target="_blank">@_dfen_bb</a></td>
+      <td><a href="https://www.instagram.com/reel/Dbskpr5yhEJ/" target="_blank">Dbskpr5yhEJ</a></td>
+      <td class="num">98</td>
+      <td class="num">8</td>
+      <td class="num">2</td>
+      <td class="num">15</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td class="handle"><a href="https://www.instagram.com/gekikara.tabetai/" target="_blank">@gekikara.tabetai</a></td>
+      <td><a href="https://www.instagram.com/p/DdEAA07zV8i/" target="_blank">DdEAA07zV8i</a></td>
+      <td class="num">777</td>
+      <td class="num">8</td>
+      <td class="num">7</td>
+      <td class="num">1</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td class="handle"><a href="https://www.instagram.com/mirakky_official_24/" target="_blank">@mirakky_official_24</a></td>
+      <td><a href="https://www.instagram.com/reel/DdV8rOUTowP/" target="_blank">DdV8rOUTowP</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num">4</td>
+      <td class="num">6</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td class="handle"><a href="https://www.instagram.com/joaneat.food/" target="_blank">@joaneat.food</a></td>
+      <td><a href="https://www.instagram.com/reel/Dd2voMlyVQb/" target="_blank">Dd2voMlyVQb</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td class="handle"><a href="https://www.instagram.com/foodieyanyannn/" target="_blank">@foodieyanyannn</a></td>
+      <td><a href="https://www.instagram.com/reels/DeZc70Jx1gx/" target="_blank">DeZc70Jx1gx</a></td>
+      <td class="num num-em">1,098</td>
+      <td class="num">21</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td class="handle"><a href="https://www.instagram.com/mardi.130/" target="_blank">@mardi.130</a></td>
+      <td><a href="https://www.instagram.com/reel/DdvvAY2SB1G/" target="_blank">DdvvAY2SB1G</a></td>
+      <td class="num num-em">1,768</td>
+      <td class="num">31</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td class="handle"><a href="https://www.instagram.com/yumuken_gourmet/" target="_blank">@yumuken_gourmet</a></td>
+      <td><a href="https://www.instagram.com/reel/DdGOsLbxYQK/" target="_blank">DdGOsLbxYQK</a></td>
+      <td class="num num-em">1,834</td>
+      <td class="num">5</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td class="handle"><a href="https://www.instagram.com/teartravelchannel/" target="_blank">@teartravelchannel</a></td>
+      <td><a href="https://www.instagram.com/p/DdUW86szTj0/" target="_blank">DdUW86szTj0</a></td>
+      <td class="num num-em">1,724</td>
+      <td class="num">52</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td class="handle"><a href="https://www.instagram.com/cosupa_korea/" target="_blank">@cosupa_korea</a></td>
+      <td><a href="https://www.instagram.com/reel/DcAXUH-yJEb/" target="_blank">DcAXUH-yJEb</a></td>
+      <td class="num">122</td>
+      <td class="num">0</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td class="handle"><a href="https://www.instagram.com/sacu_ryu/" target="_blank">@sacu_ryu</a></td>
+      <td><a href="https://www.instagram.com/p/DbcedWwxOPj/" target="_blank">DbcedWwxOPj</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td class="handle"><a href="https://www.instagram.com/ninifashionpro/" target="_blank">@ninifashionpro</a></td>
+      <td><a href="https://www.instagram.com/p/Db913iWzZHJ/" target="_blank">Db913iWzZHJ</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num">22</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td class="handle"><a href="https://www.instagram.com/milife999/" target="_blank">@milife999</a></td>
+      <td><a href="https://www.instagram.com/reel/DciaEJTJNdo/" target="_blank">DciaEJTJNdo</a></td>
+      <td class="num">137</td>
+      <td class="num">18</td>
+      <td class="num dash">–</td>
+      <td class="num">24</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td class="handle"><a href="https://www.instagram.com/toto_tongpuiyee/" target="_blank">@toto_tongpuiyee</a></td>
+      <td><a href="https://www.instagram.com/reel/Dc3ZuT9StwK/" target="_blank">Dc3ZuT9StwK</a></td>
+      <td class="num">263</td>
+      <td class="num">14</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td class="handle"><a href="https://www.instagram.com/hiroshima_kuisi/" target="_blank">@hiroshima_kuisi</a></td>
+      <td><a href="https://www.instagram.com/reel/DdG10viTYN6/" target="_blank">DdG10viTYN6</a></td>
+      <td class="num">772</td>
+      <td class="num">9</td>
+      <td class="num">35</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td class="handle"><a href="https://www.instagram.com/ruiruichan_0918/" target="_blank">@ruiruichan_0918</a></td>
+      <td><a href="https://www.instagram.com/reels/Dc0eMMCyayl/" target="_blank">Dc0eMMCyayl</a></td>
+      <td class="num">197</td>
+      <td class="num">8</td>
+      <td class="num dash">–</td>
+      <td class="num">6</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td class="handle"><a href="https://www.instagram.com/sushi.ronin999/" target="_blank">@sushi.ronin999</a></td>
+      <td><a href="https://www.instagram.com/reel/DdVTRuKT7NV/" target="_blank">DdVTRuKT7NV</a></td>
+      <td class="num">472</td>
+      <td class="num">36</td>
+      <td class="num">4</td>
+      <td class="num num-em">176</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td class="handle"><a href="https://www.instagram.com/sanaekakei/" target="_blank">@sanaekakei</a></td>
+      <td><a href="https://www.instagram.com/reels/Db75hNxAxg1/" target="_blank">Db75hNxAxg1</a></td>
+      <td class="num">89</td>
+      <td class="num">0</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td class="handle"><a href="https://www.instagram.com/joyfood.joyjourney/" target="_blank">@joyfood.joyjourney</a></td>
+      <td><a href="https://www.instagram.com/reels/Db-uWbKS1RK/" target="_blank">Db-uWbKS1RK</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td class="handle"><a href="https://www.instagram.com/velvetgintonic/" target="_blank">@velvetgintonic</a></td>
+      <td><a href="https://www.instagram.com/reels/Db-Ezl_TYn3/" target="_blank">Db-Ezl_TYn3</a></td>
+      <td class="num">54</td>
+      <td class="num">5</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td class="handle"><a href="https://www.instagram.com/foodie_softc/" target="_blank">@foodie_softc</a></td>
+      <td><a href="https://www.instagram.com/reel/DcLmjYDpgbm/" target="_blank">DcLmjYDpgbm</a></td>
+      <td class="num">317</td>
+      <td class="num">45</td>
+      <td class="num">1</td>
+      <td class="num">99</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td class="handle"><a href="https://www.instagram.com/charmmymeow/" target="_blank">@charmmymeow</a></td>
+      <td><a href="https://www.instagram.com/reel/Db8Jt16T7uY/" target="_blank">Db8Jt16T7uY</a></td>
+      <td class="num">482</td>
+      <td class="num">29</td>
+      <td class="num">7</td>
+      <td class="num">71</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td class="handle"><a href="https://www.instagram.com/linkkorea_tw/" target="_blank">@linkkorea_tw</a></td>
+      <td><a href="https://www.instagram.com/reels/DcS2MjwJD_9/" target="_blank">DcS2MjwJD_9</a></td>
+      <td class="num">20</td>
+      <td class="num">0</td>
+      <td class="num">1</td>
+      <td class="num">5</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td class="handle"><a href="https://www.instagram.com/hiyo131131/" target="_blank">@hiyo131131</a></td>
+      <td><a href="https://www.instagram.com/reel/DcfMpSNh43S/" target="_blank">DcfMpSNh43S</a></td>
+      <td class="num">131</td>
+      <td class="num">6</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td class="handle"><a href="https://www.instagram.com/kyn__sta46/" target="_blank">@kyn__sta46</a></td>
+      <td><a href="https://www.instagram.com/reel/DdBjKmCpUCw/" target="_blank">DdBjKmCpUCw</a></td>
+      <td class="num">45</td>
+      <td class="num">9</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td class="handle"><a href="https://www.instagram.com/kenshiro_0209/" target="_blank">@kenshiro_0209</a></td>
+      <td><a href="https://www.instagram.com/reel/Dcg6hMcyQb8/" target="_blank">Dcg6hMcyQb8</a></td>
+      <td class="num">112</td>
+      <td class="num">4</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td class="handle"><a href="https://www.instagram.com/fffwong/" target="_blank">@fffwong</a></td>
+      <td><a href="https://www.instagram.com/reel/DdN6XSWxbmc/" target="_blank">DdN6XSWxbmc</a></td>
+      <td class="num">544</td>
+      <td class="num">8</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td class="handle"><a href="https://www.instagram.com/ori.kimono/" target="_blank">@ori.kimono</a></td>
+      <td><a href="https://www.instagram.com/reel/DcvqlEmpt7H/" target="_blank">DcvqlEmpt7H</a></td>
+      <td class="num">18</td>
+      <td class="num">0</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td class="handle"><a href="https://www.instagram.com/tiger_y719/" target="_blank">@tiger_y719</a></td>
+      <td><a href="https://www.instagram.com/reel/DdD8KsZBuTm/" target="_blank">DdD8KsZBuTm</a></td>
+      <td class="num">33</td>
+      <td class="num">6</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td class="handle"><a href="https://www.instagram.com/rei_make_ai/" target="_blank">@rei_make_ai</a></td>
+      <td><a href="https://www.instagram.com/reel/DclOzuGSdcC/" target="_blank">DclOzuGSdcC</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td class="handle"><a href="https://www.instagram.com/yiyang_food/" target="_blank">@yiyang_food</a></td>
+      <td><a href="https://www.instagram.com/reel/Dd0Y4D7T74_/" target="_blank">Dd0Y4D7T74_</a></td>
+      <td class="num dash">숨김</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="section-title" style="margin-top:32px">XHS / Rednote · 18건</div>
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>계정 / 닉네임</th>
+      <th>링크</th>
+      <th>제목</th>
+      <th class="num">좋아요</th>
+      <th class="num">저장</th>
+      <th class="num">댓글</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>마이쉬안펑</td>
+      <td><a href="https://xhslink.cn/o/44trim38WXd" target="_blank">44trim38WXd</a></td>
+      <td style="font-size:12px;color:var(--ink-2)">🇰🇷来明洞还在纠结吃牛肉还是猪肉？</td>
+      <td class="num">202</td>
+      <td class="num">107</td>
+      <td class="num">11</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>린앙카와</td>
+      <td><a href="http://xhslink.cn/o/7Jixc96SONd" target="_blank">7Jixc96SONd</a></td>
+      <td style="font-size:12px;color:var(--ink-2)">明洞烤肉｜一桌吃遍韩国🇰🇷美味💫</td>
+      <td class="num num-em">853</td>
+      <td class="num num-em">591</td>
+      <td class="num">18</td>
+    </tr>
+    <tr class="error">
+      <td>3</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/9u82GcxI3mT" target="_blank">9u82GcxI3mT</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>4</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a846a12000000003300c844" target="_blank">6a846a12…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>5</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/48ZNy2cjx8" target="_blank">48ZNy2cjx8</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>6</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a88157b000000003400a0fb" target="_blank">6a88157b…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>7</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/9x91yambFgV" target="_blank">9x91yambFgV</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>8</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/3Y6epL8PU3u" target="_blank">3Y6epL8PU3u</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">🇰🇷来首尔必吃🔥明洞一站式打卡韩式BBQ · 접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>9</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6aa0e7f8000000001001d8de" target="_blank">6aa0e7f8…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>10</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/1O7tcuDS9CO" target="_blank">1O7tcuDS9CO</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>11</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a7bce5a0000000028031978" target="_blank">6a7bce5a…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">명동에서의 식사! 바비큐, 낙지, 게살 구이 · 접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Aimee汐</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6ab3b2d10000000014032a19" target="_blank">6ab3b2d1…</a></td>
+      <td style="font-size:12px;color:var(--ink-2)">明洞这家烤肉也太好吃了吧</td>
+      <td class="num">207</td>
+      <td class="num">10</td>
+      <td class="num">4</td>
+    </tr>
+    <tr class="error">
+      <td>13</td>
+      <td class="dash">–</td>
+      <td><a href="http://xhslink.cn/o/11ewKrJLXKS" target="_blank">11ewKrJLXKS</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>14</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a8fa453000000002303fe19" target="_blank">6a8fa453…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>15</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/discovery/item/6a7b1a67000000002c005db3" target="_blank">6a7b1a67…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>16</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a80129f0000000032032d2c" target="_blank">6a80129f…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>孝利 효리</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6aa9057e000000002600922c" target="_blank">6aa9057e…</a></td>
+      <td style="font-size:12px;color:var(--ink-2)">韩国明洞美食探店 🍽️</td>
+      <td class="num">107</td>
+      <td class="num">78</td>
+      <td class="num dash">–</td>
+    </tr>
+    <tr class="error">
+      <td>18</td>
+      <td class="dash">–</td>
+      <td><a href="https://www.xiaohongshu.com/explore/6a96a01c000000002901be3f" target="_blank">6a96a01c…</a></td>
+      <td style="font-size:12px;color:var(--ink-3)">🇰🇷명동 한국 소고기의 최고 기준 ✨ · 접속 불가</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+      <td class="num dash">–</td>
+    </tr>
+  </table>
+  </div>
+
+  <div class="section-title" style="margin-top:32px">TikTok · 1건</div>
+  <div class="table-wrap">
+  <table>
+    <tr>
+      <th>#</th>
+      <th>계정 아이디</th>
+      <th>링크</th>
+      <th>제목</th>
+      <th class="num">좋아요</th>
+      <th class="num">댓글</th>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td class="handle"><a href="https://www.tiktok.com/@teajuuchan" target="_blank">@teajuuchan</a></td>
+      <td><a href="https://www.tiktok.com/@teajuuchan/video/7672016297168801044" target="_blank">7672016297168801044</a></td>
+      <td style="font-size:12px;color:var(--ink-2)">明洞で肉と海鮮を同時に楽しむ店「솥고집」レビュー</td>
+      <td class="num">43</td>
+      <td class="num dash">–</td>
+    </tr>
+  </table>
+  </div>
+
+  <p class="note" style="margin-top:20px">※ 2026-11-11 기준 수집. 일부 계정은 좋아요 비공개 처리. XHS 접속 불가 항목은 토큰 만료 또는 삭제된 게시물로 추정됨.<br>공유/저장은 비로그인 상태에서 확인 가능한 수치만 기재.</p>
+</div>
+</body>
+</html>
