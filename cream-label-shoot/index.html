@@ -15,26 +15,27 @@
     padding-inline: max(20px, env(safe-area-inset-left,0px)) max(20px, env(safe-area-inset-right,0px));
     padding-block: 40px 64px;
   }
-  .wrap { max-width: 600px; margin-inline: auto; }
-  .brand {
-    font-size: clamp(32px, 10vw, 60px);
-    font-weight: 700; letter-spacing: -0.02em;
-    color: var(--c); line-height: 1; margin-bottom: 6px;
-  }
+  .wrap { max-width: 640px; margin-inline: auto; }
+  .brand { font-size: clamp(32px, 10vw, 60px); font-weight: 700; letter-spacing: -0.02em; color: var(--c); line-height: 1; margin-bottom: 6px; }
   .tagline { font-size: 13px; font-weight: 600; color: #777; margin-bottom: 32px; }
-  .list { display: flex; flex-direction: column; gap: 10px; }
-  .item {
-    display: flex; align-items: center; justify-content: space-between;
-    border: 2px solid #111; border-radius: 8px;
-    padding: 16px 18px; gap: 12px;
-  }
+  .list { display: flex; flex-direction: column; gap: 12px; }
+  .item { border: 2px solid #111; border-radius: 10px; padding: 16px 18px; }
+  .item-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
   .id a { font-size: 16px; font-weight: 700; color: #111; text-decoration: none; }
   .id a:hover { color: var(--c); }
-  .shoot { font-size: 12px; color: #888; margin-top: 5px; font-weight: 600; }
-  .num {
-    font-size: 22px; font-weight: 700; color: #ddd;
-    flex-shrink: 0; min-width: 28px; text-align: right;
-  }
+  .meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-top: 5px; }
+  .shoot { font-size: 12px; color: #888; font-weight: 600; }
+  .upload-link { font-size: 12px; font-weight: 700; color: var(--c); text-decoration: none; }
+  .upload-link:hover { text-decoration: underline; }
+  .num { font-size: 22px; font-weight: 700; color: #ddd; flex-shrink: 0; }
+  .results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; padding-top: 12px; border-top: 1px solid #eee; }
+  .stat-label { font-size: 11px; color: #999; font-weight: 600; letter-spacing: 0.04em; }
+  .stat-val { font-size: 15px; font-weight: 700; color: #111; display: block; margin-top: 2px; }
+  .stat-val.hi { color: var(--c); }
+  .result-set { margin-top: 12px; padding-top: 12px; border-top: 1px solid #eee; display: flex; flex-direction: column; gap: 10px; }
+  .result-label { font-size: 10px; font-weight: 700; color: #bbb; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+  .results-inline { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .pending { font-size: 12px; color: #ccc; font-weight: 600; margin-top: 10px; padding-top: 10px; border-top: 1px solid #f0f0f0; }
 </style>
 </head>
 <body>
@@ -43,48 +44,114 @@
   <p class="tagline">촬영 리스트 · 6명 · 코엑스점</p>
 
   <div class="list">
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/_bbangya_bbangya_/" target="_blank">_bbangya_bbangya_</a></div>
-        <div class="shoot">11.5 1시</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/_bbangya_bbangya_/" target="_blank">_bbangya_bbangya_</a></div>
+          <div class="meta">
+            <span class="shoot">11.5 1시</span>
+            <a class="upload-link" href="https://www.instagram.com/p/DfbFCyYqNc-/" target="_blank">↗ 업로드</a>
+          </div>
+        </div>
+        <div class="num">1</div>
       </div>
-      <div class="num">1</div>
+      <div class="results">
+        <div><div class="stat-label">조회수</div><div class="stat-val">6만</div></div>
+        <div><div class="stat-label">저장</div><div class="stat-val">349</div></div>
+        <div><div class="stat-label">공유</div><div class="stat-val">615</div></div>
+      </div>
     </div>
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/reneve__/" target="_blank">reneve__</a></div>
-        <div class="shoot">11.5 2시</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/reneve__/" target="_blank">reneve__</a></div>
+          <div class="meta">
+            <span class="shoot">11.5 2시</span>
+            <a class="upload-link" href="https://www.instagram.com/reel/DfbCXsqtMGl/" target="_blank">↗ 업로드</a>
+          </div>
+        </div>
+        <div class="num">2</div>
       </div>
-      <div class="num">2</div>
+      <div class="results">
+        <div><div class="stat-label">조회수</div><div class="stat-val hi">15.3만</div></div>
+        <div><div class="stat-label">저장</div><div class="stat-val">731</div></div>
+        <div><div class="stat-label">공유</div><div class="stat-val">1,983</div></div>
+      </div>
     </div>
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/dama.dessert/reels/" target="_blank">dama.dessert</a></div>
-        <div class="shoot">11.5 2시</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/dama.dessert/reels/" target="_blank">dama.dessert</a></div>
+          <div class="meta">
+            <span class="shoot">11.5 2시</span>
+            <a class="upload-link" href="https://www.instagram.com/reel/DfWtU-6SAs3/" target="_blank">↗ 업로드</a>
+          </div>
+        </div>
+        <div class="num">3</div>
       </div>
-      <div class="num">3</div>
+      <div class="results">
+        <div><div class="stat-label">조회수</div><div class="stat-val hi">40.1만</div></div>
+        <div><div class="stat-label">저장</div><div class="stat-val">1,692</div></div>
+        <div><div class="stat-label">공유</div><div class="stat-val">12,000</div></div>
+      </div>
     </div>
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">hid_zip</a></div>
-        <div class="shoot">11.6 2시</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/hid_zip/reels/" target="_blank">hid_zip</a></div>
+          <div class="meta">
+            <span class="shoot">11.6 2시</span>
+            <a class="upload-link" href="https://www.instagram.com/reel/DfbDqQGzzdU/" target="_blank">↗ 업로드</a>
+          </div>
+        </div>
+        <div class="num">4</div>
       </div>
-      <div class="num">4</div>
+      <div class="result-set">
+        <div>
+          <div class="result-label">1차</div>
+          <div class="results-inline">
+            <div><div class="stat-label">조회수</div><div class="stat-val">69.5만</div></div>
+            <div><div class="stat-label">저장</div><div class="stat-val">2,540</div></div>
+            <div><div class="stat-label">공유</div><div class="stat-val">11,000</div></div>
+          </div>
+        </div>
+        <div>
+          <div class="result-label">2차</div>
+          <div class="results-inline">
+            <div><div class="stat-label">조회수</div><div class="stat-val hi">136.5만</div></div>
+            <div><div class="stat-label">저장</div><div class="stat-val">6,137</div></div>
+            <div><div class="stat-label">공유</div><div class="stat-val">30,000</div></div>
+          </div>
+        </div>
+      </div>
     </div>
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/mat.terview/reels/" target="_blank">mat.terview</a></div>
-        <div class="shoot">11.7 2시</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/mat.terview/reels/" target="_blank">mat.terview</a></div>
+          <div class="meta"><span class="shoot">11.7 2시</span></div>
+        </div>
+        <div class="num">5</div>
       </div>
-      <div class="num">5</div>
+      <div class="pending">결과 대기중</div>
     </div>
+
     <div class="item">
-      <div>
-        <div class="id"><a href="https://www.instagram.com/biteofyommy/" target="_blank">biteofyommy</a></div>
-        <div class="shoot">11.14 12시30분</div>
+      <div class="item-top">
+        <div>
+          <div class="id"><a href="https://www.instagram.com/biteofyommy/" target="_blank">biteofyommy</a></div>
+          <div class="meta"><span class="shoot">11.14 12시30분</span></div>
+        </div>
+        <div class="num">6</div>
       </div>
-      <div class="num">6</div>
+      <div class="pending">결과 대기중</div>
     </div>
+
   </div>
 </div>
 </body>
