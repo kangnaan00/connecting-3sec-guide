@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>솥고집 拍攝指南</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<style>
+:root {
+  --bg: #111008;
+  --surface: #1C1510;
+  --surface2: #251D14;
+  --border: #362A1A;
+  --fg: #F0E6D2;
+  --muted: #8A7A68;
+  --amber: #E8863A;
+  --red: #C44B2B;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+    --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #FBF7F0; --surface: #EFE8DA; --surface2: #E5DACC;
+  --border: #CEC0A8; --fg: #1A1208; --muted: #7A6A52;
+  color-scheme: light;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  background: var(--bg); color: var(--fg);
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 15px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left,0px));
+  padding-right: max(16px, env(safe-area-inset-right,0px));
+  padding-block: 0 56px;
+}
+.hd { padding: 44px 0 28px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+.hd-eye { font-size: 11px; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; }
+.hd-title { font-family: "Noto Serif TC", serif; font-size: clamp(1.9rem, 5.5vw, 3rem); font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+.hd-title em { color: var(--amber); font-style: normal; }
+.hd-sub { color: var(--muted); font-size: 14px; max-width: 500px; }
+.sec-title {
+  font-family: "Noto Serif TC", serif;
+  font-size: 1.25rem; font-weight: 700;
+  color: var(--fg); margin-bottom: 6px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sec-desc { color: var(--muted); font-size: 13.5px; margin-bottom: 20px; line-height: 1.6; }
+.sec-desc b { color: var(--amber); }
+section { margin-bottom: 44px; }
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: 10px; }
+.menu-item {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px;
+  display: flex; align-items: center; gap: 10px;
+  font-weight: 700; font-size: 14px;
+}
+.menu-item span:first-child { font-size: 20px; }
+.pick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 520px) { .pick-grid { grid-template-columns: 1fr; } }
+.pick-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden;
+}
+.pick-badge {
+  display: inline-block;
+  background: var(--amber); color: #fff;
+  font-size: 12px; font-weight: 900;
+  border-radius: 20px; padding: 4px 12px;
+  letter-spacing: .03em; margin-bottom: 8px;
+}
+.pick-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; }
+.pick-title { font-family: "Noto Serif TC", serif; font-size: 18px; font-weight: 900; line-height: 1.3; }
+.pick-desc { font-size: 13px; color: var(--muted); line-height: 1.55; }
+.pick-video {
+  width: 100%; border-radius: 8px; overflow: hidden;
+  background: #000; aspect-ratio: 9/16;
+}
+.pick-video video { width: 100%; height: 100%; display: block; object-fit: cover; }
+.shot {
+  display: grid; grid-template-columns: 60px 1fr;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; overflow: hidden; margin-bottom: 12px;
+  align-items: stretch;
+}
+.shot-num-col {
+  background: var(--surface2);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 4px; padding: 14px 8px; border-right: 1px solid var(--border);
+}
+.shot-num { font-size: 11px; font-weight: 900; color: var(--amber); letter-spacing: .03em; text-align: center; }
+.shot-time { font-size: 10px; color: var(--muted); text-align: center; }
+.shot-info { padding: 16px 18px; display: flex; flex-direction: column; gap: 6px; }
+.shot-info h3 { font-family: "Noto Serif TC", serif; font-size: 17px; font-weight: 900; }
+.shot-info p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.store-info {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px 22px; margin-bottom: 20px;
+}
+.store-name { font-family: "Noto Serif TC", serif; font-size: 24px; font-weight: 900; margin-bottom: 4px; }
+.store-cat { font-size: 13px; color: var(--amber); font-weight: 700; margin-bottom: 14px; }
+.store-details { display: flex; flex-direction: column; gap: 6px; font-size: 15px; color: var(--muted); margin-bottom: 16px; }
+.store-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.store-tag { background: var(--amber); color: #fff; font-size: 17px; font-weight: 900; border-radius: 20px; padding: 6px 16px; }
+.footer { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); line-height: 1.8; }
+</style>
+</head>
+<body>
+
+<div class="store-info">
+  <p class="store-name">솥고집 明洞店</p>
+  <p class="store-cat">三層肉專門店</p>
+  <div class="store-details">
+    <span>📍 首爾特別市中區明洞길 55 2樓</span>
+    <span>🕐 營業時間 ~晚上11:00</span>
+  </div>
+  <p style="font-size:16px;font-weight:900;color:var(--fg);margin-bottom:10px;">📌 必要Hashtag</p>
+  <div class="store-tags">
+    <span class="store-tag">#솥고집</span>
+    <span class="store-tag">#명동</span>
+    <span class="store-tag">#명동맛집</span>
+  </div>
+</div>
+
+<header class="hd">
+  <p class="hd-eye">📋 솥고집 拍攝指南</p>
+  <h1 class="hd-title"><em>솥고집</em> 影片拍攝指南</h1>
+  <p class="hd-sub">請參考以下順序和角度進行拍攝。最重要的是呈現自然的反應和個人風格。</p>
+</header>
+
+<section>
+  <h2 class="sec-title">🎬 縮圖二選一 — 選擇開場畫面</h2>
+  <p class="sec-desc">請從以下兩種中<b>選擇一種</b>作為影片的第一個畫面。</p>
+  <div class="pick-grid">
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">開場 1</span>
+        <p class="pick-title">🥬 放入泡菜的開場</p>
+        <p class="pick-desc">將大量泡菜放上鍋的視覺衝擊。以震撼的規模感開場。</p>
+        <div class="pick-video"><video src="../sotgojip-guide/hook1.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">開場 2</span>
+        <p class="pick-title">🧀 起司炒飯開場</p>
+        <p class="pick-desc">起司與雞蛋融合的炒飯特寫。以細膩的美食感開場。</p>
+        <div class="pick-video"><video src="../sotgojip-guide/hook2.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">📹 拍攝參考影片</h2>
+  <p class="sec-desc">拍攝前請參考以下影片。熟悉構成和流程後，以自己的風格拍攝即可。</p>
+  <div class="pick-grid">
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">參考影片 1</span>
+        <p class="pick-title">以泡菜開場</p>
+        <div class="pick-video"><video src="../sotgojip-guide/ref1.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+    <div class="pick-card">
+      <div class="pick-body">
+        <span class="pick-badge">參考影片 2</span>
+        <p class="pick-title">以起司炒飯開場</p>
+        <div class="pick-video"><video src="../sotgojip-guide/ref2.mp4" controls playsinline preload="metadata"></video></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">🍽️ 提供菜單</h2>
+  <p class="sec-desc">請將以下菜單逐一拍入影片中。</p>
+  <div class="menu-grid">
+    <div class="menu-item"><span>🥬</span><span>泡菜三層肉</span></div>
+    <div class="menu-item"><span>🌶️</span><span>辣椒醬三層肉</span></div>
+    <div class="menu-item"><span>🧀</span><span>起司炒飯</span></div>
+    <div class="menu-item"><span>🫕</span><span>泡菜鍋</span></div>
+  </div>
+</section>
+
+<section>
+  <h2 class="sec-title">📸 必拍場景 12個鏡頭</h2>
+  <p class="sec-desc">請參考參考影片，拍攝以下全部12個場景。</p>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 01</span>
+      <span class="shot-time">0–1秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>整塊泡菜放入鍋中的場景</h3>
+      <p>一次性將整塊泡菜放上鍋的衝擊性開場。要展現出規模感。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 02</span>
+      <span class="shot-time">2–3秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>用夾子夾起的場景</h3>
+      <p>用兩支夾子夾起泡菜塊的特寫。泡菜質感要清晰呈現。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 03</span>
+      <span class="shot-time">4–5秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>切開並烤熟的場景</h3>
+      <p>用夾子將泡菜和三層肉切開，在鍋上一起烤熟的場景。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 04</span>
+      <span class="shot-time">6秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>辣椒醬三層肉一口氣推入的場景</h3>
+      <p>一次性將辣椒醬醃製三層肉推上烤盤的場景。鍋面要填滿。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 05</span>
+      <span class="shot-time">6–7秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>翻面烤熟的場景</h3>
+      <p>用夾子翻轉辣椒醬三層肉，烤兩面的場景。醬料的光澤是重點。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 06</span>
+      <span class="shot-time">7–8秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>整塊放在飯上夾起的場景</h3>
+      <p>將整塊肉放在鍋飯上後，用夾子一起夾起的場景。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 07</span>
+      <span class="shot-time">8–9秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>泡菜炒飯登場的場景</h3>
+      <p>用紙箔包裹的炒飯出現在烤盤上的場景。要看到雞蛋和海苔。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 08</span>
+      <span class="shot-time">11秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>對折包起的場景</h3>
+      <p>將紙對折包住炒飯的場景。同時呈現起司融化的樣子。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 09</span>
+      <span class="shot-time">12秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>舀一勺起司拉絲的場景</h3>
+      <p>用湯匙舀起炒飯時，起司拉成長絲的高潮鏡頭。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 10</span>
+      <span class="shot-time">13–14秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>泡菜鍋中放入一碗飯的場景</h3>
+      <p>將一碗飯放入鍋中泡菜鍋的場景。飯浮在湯上的瞬間。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 11</span>
+      <span class="shot-time">14–15秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>壓拌混合的場景</h3>
+      <p>用湯匙將飯和湯汁、肉壓在一起攪拌的場景。湯汁滲入飯中的感覺。</p>
+    </div>
+  </div>
+
+  <div class="shot">
+    <div class="shot-num-col">
+      <span class="shot-num">場景 12</span>
+      <span class="shot-time">15秒</span>
+    </div>
+    <div class="shot-info">
+      <h3>飯和肉一起舀起的收尾鏡頭</h3>
+      <p>用湯匙一次舀起飯和三層肉的收尾鏡頭。</p>
+    </div>
+  </div>
+
+</section>
+
+<div class="footer">
+  <b>提交方式：</b>先分享粗剪版（無字幕／BGM也OK）→ 最終版 9:16 / 1080p以上<br>
+  <b>必要Hashtag：</b>#솥고집 #명동 #명동맛집
+</div>
+
+</body>
+</html>
