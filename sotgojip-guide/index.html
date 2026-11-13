@@ -97,32 +97,31 @@ section { margin-bottom: 44px; }
 
 /* SHOT LIST */
 .shot {
-  display: grid; grid-template-columns: 160px 1fr; gap: 0;
+  display: flex; flex-direction: column;
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 12px; overflow: hidden; margin-bottom: 18px;
 }
-@media (max-width: 540px) { .shot { grid-template-columns: 1fr; } }
 .shot-img-wrap {
   position: relative; background: #000;
-  aspect-ratio: 9/16; max-height: 200px;
+  aspect-ratio: 9/16;
   overflow: hidden;
 }
 .shot-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .shot-num {
-  position: absolute; top: 10px; left: 10px;
-  background: rgba(0,0,0,.72); color: #fff;
-  font-size: 11px; font-weight: 700; border-radius: 20px;
-  padding: 2px 9px; letter-spacing: .05em;
+  position: absolute; top: 12px; left: 12px;
+  background: rgba(0,0,0,.75); color: #fff;
+  font-size: 15px; font-weight: 900; border-radius: 20px;
+  padding: 5px 14px; letter-spacing: .03em;
 }
 .shot-time {
-  position: absolute; bottom: 10px; left: 10px;
+  position: absolute; bottom: 12px; left: 12px;
   background: var(--amber); color: #fff;
-  font-size: 10px; font-weight: 700; border-radius: 20px;
-  padding: 2px 8px;
+  font-size: 13px; font-weight: 700; border-radius: 20px;
+  padding: 4px 11px;
 }
-.shot-info { padding: 18px 20px; display: flex; flex-direction: column; gap: 8px; }
-.shot-info h3 { font-family: "Noto Serif KR", serif; font-size: 15px; font-weight: 700; }
-.shot-info p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.shot-info { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+.shot-info h3 { font-family: "Noto Serif KR", serif; font-size: 22px; font-weight: 900; }
+.shot-info p { font-size: 16px; color: var(--muted); line-height: 1.6; }
 .shot-info ul { list-style: none; display: flex; flex-direction: column; gap: 5px; padding: 0; }
 .shot-info li { font-size: 13px; display: flex; gap: 7px; align-items: flex-start; }
 .shot-info li::before { content: "✓"; color: var(--amber); font-weight: 700; flex-shrink: 0; }
