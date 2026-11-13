@@ -201,6 +201,61 @@ body {
   margin-top: 1px;
 }
 
+/* ── VIDEO SECTION ── */
+.video-section {
+  margin-bottom: 36px;
+}
+.section-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 10px;
+}
+.video-wrap {
+  background: #000;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  aspect-ratio: 9/16;
+  max-width: 340px;
+}
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── MENU SECTION ── */
+.menu-section {
+  margin-bottom: 36px;
+}
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+.menu-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.menu-icon { font-size: 20px; flex-shrink: 0; }
+.menu-name {
+  font-family: "Noto Serif KR", serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.3;
+}
+
 /* ── FOOTER ── */
 .footer-note {
   margin-top: 40px;
@@ -217,6 +272,24 @@ body {
   <h1 class="site-title"><span>솥고집</span> 영상 가이드라인</h1>
   <p class="site-desc">한국 삼겹살 맛집 콘텐츠 촬영 필수컷 가이드. 아래 순서와 앵글을 기준으로 촬영하되, 자연스러운 리액션과 본인 스타일을 살려주세요.</p>
 </header>
+
+<div class="video-section">
+  <p class="section-label">🎬 레퍼런스 영상</p>
+  <div class="video-wrap">
+    <video src="guide1.mp4" controls playsinline preload="metadata"></video>
+  </div>
+</div>
+
+<div class="menu-section">
+  <p class="section-label">🍽️ 제공 메뉴</p>
+  <div class="menu-grid">
+    <div class="menu-item"><span class="menu-icon">🥬</span><span class="menu-name">김치삼겹</span></div>
+    <div class="menu-item"><span class="menu-icon">🌶️</span><span class="menu-name">고추장삼겹</span></div>
+    <div class="menu-item"><span class="menu-icon">🧀</span><span class="menu-name">치즈볶음밥</span></div>
+    <div class="menu-item"><span class="menu-icon">🫕</span><span class="menu-name">김치찌개</span></div>
+    <div class="menu-item"><span class="menu-icon">🥚</span><span class="menu-name">계란찜</span></div>
+  </div>
+</div>
 
 <div class="notice">
   <span class="notice-icon">🚨</span>
