@@ -211,15 +211,44 @@ body {
   letter-spacing: .15em;
   text-transform: uppercase;
   color: var(--amber);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+}
+.video-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+@media (max-width: 500px) {
+  .video-row { grid-template-columns: 1fr; }
+}
+.video-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.video-card-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--fg);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.video-card-label .badge {
+  background: var(--amber);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 900;
+  border-radius: 20px;
+  padding: 2px 8px;
+  letter-spacing: .04em;
 }
 .video-wrap {
   background: #000;
-  border-radius: 14px;
+  border-radius: 12px;
   overflow: hidden;
   border: 1px solid var(--border);
   aspect-ratio: 9/16;
-  max-width: 340px;
 }
 .video-wrap video {
   width: 100%;
@@ -274,9 +303,26 @@ body {
 </header>
 
 <div class="video-section">
-  <p class="section-label">🎬 레퍼런스 영상</p>
-  <div class="video-wrap">
-    <video src="guide1.mp4" controls playsinline preload="metadata"></video>
+  <p class="section-label">🎬 레퍼런스 영상 — 훅 참고</p>
+  <div class="video-row">
+    <div class="video-card">
+      <div class="video-card-label">
+        <span class="badge">훅 1</span>
+        김치 넣는 장면 훅
+      </div>
+      <div class="video-wrap">
+        <video src="hook1.mp4" controls playsinline preload="metadata"></video>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-card-label">
+        <span class="badge">훅 2</span>
+        치즈볶음밥 훅
+      </div>
+      <div class="video-wrap">
+        <video src="hook2.mp4" controls playsinline preload="metadata"></video>
+      </div>
+    </div>
   </div>
 </div>
 
