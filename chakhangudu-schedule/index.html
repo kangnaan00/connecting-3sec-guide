@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>착한구두 서울성수점 인플루언서 일정</title>
+<title>착한구두 인플루언서 일정</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
   :root {
@@ -48,7 +48,33 @@
     margin-inline: auto;
   }
   h1 { font-size: 20px; font-weight: 700; margin: 0 0 4px; }
-  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 24px; }
+  .meta { font-size: 12px; color: var(--fg-dim); margin-bottom: 20px; }
+
+  .tabs {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--fg-dim);
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 14px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.15s;
+  }
+  .tab-btn.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
 
   .date-group { margin-bottom: 24px; }
   .date-label {
@@ -90,6 +116,7 @@
   }
   .badge-confirmed { color: #fff; background: #4f46e5; }
   .badge-ceo { color: #fff; background: #16a34a; }
+  .badge-done { color: #fff; background: #6b7280; }
   .badge-prepaid { color: #111; background: #facc15; margin-left: 4px; }
   @media (max-width: 480px) {
     .row { grid-template-columns: 1fr; }
@@ -98,8 +125,16 @@
 </style>
 </head>
 <body>
-<h1>착한구두 서울성수점</h1>
-<p class="meta">총 12명 · 2026년 11월</p>
+<h1>착한구두 인플루언서 일정</h1>
+<p class="meta">2026년 11월</p>
+
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('seongsu')">서울성수점</button>
+  <button class="tab-btn" onclick="switchTab('daegu')">대구점</button>
+</div>
+
+<!-- 서울성수점 -->
+<div id="tab-seongsu" class="tab-panel active">
 
 <div class="date-group">
   <div class="date-label">11/14 (금)</div>
@@ -259,5 +294,109 @@
 </div>
 
 <p class="count">총 12명 · 예산 합계 535만</p>
+</div>
+
+<!-- 대구점 -->
+<div id="tab-daegu" class="tab-panel">
+
+<div class="date-group">
+  <div class="date-label">11/12 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">jijunghappy</div>
+      <div class="link"><a href="https://www.instagram.com/jijunghappy/" target="_blank">instagram.com/jijunghappy/</a></div>
+      <div class="badge badge-done">촬영완료</div>
+    </div>
+    <div class="row-right">
+      <div class="time">오후 12시</div>
+      <div class="sub">40만</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">m.m_jyori</div>
+      <div class="link"><a href="https://www.instagram.com/m.m_jyori/" target="_blank">instagram.com/m.m_jyori/</a></div>
+      <div class="badge badge-confirmed">방문일정확정</div>
+    </div>
+    <div class="row-right">
+      <div class="time">오후 2시</div>
+      <div class="sub">60만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">11/18 (화)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">dongne_mukstagram</div>
+      <div class="link"><a href="https://www.instagram.com/dongne_mukstagram/reels/" target="_blank">instagram.com/dongne_mukstagram/reels/</a></div>
+      <div class="badge badge-confirmed">방문일정확정</div>
+    </div>
+    <div class="row-right">
+      <div class="time">오후 12시</div>
+      <div class="sub">30만+20만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">11/19 (수)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">jjulini_</div>
+      <div class="link"><a href="https://www.instagram.com/jjulini_/" target="_blank">instagram.com/jjulini_/</a></div>
+      <div class="badge badge-confirmed">방문일정확정</div>
+      <span class="badge badge-prepaid">선임금</span>
+    </div>
+    <div class="row-right">
+      <div class="time">오후 3시</div>
+      <div class="sub">75만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">11/23 (일)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">yoon.min.ga.0513</div>
+      <div class="link"><a href="https://www.instagram.com/yoon.min.ga.0513/" target="_blank">instagram.com/yoon.min.ga.0513/</a></div>
+      <div class="badge badge-confirmed">방문일정확정</div>
+    </div>
+    <div class="row-right">
+      <div class="time">오후 1시</div>
+      <div class="sub">35만</div>
+    </div>
+  </div>
+</div>
+
+<div class="date-group">
+  <div class="date-label">11/28 (금)</div>
+  <div class="row">
+    <div class="row-left">
+      <div class="id">hyozero_919</div>
+      <div class="link"><a href="https://www.instagram.com/hyozero_919/" target="_blank">instagram.com/hyozero_919/</a></div>
+      <div class="badge badge-ceo">대표님확정</div>
+    </div>
+    <div class="row-right">
+      <div class="time">미정</div>
+      <div class="sub">40만</div>
+    </div>
+  </div>
+</div>
+
+<p class="count">총 6명 · 예산 합계 300만</p>
+</div>
+
+<script>
+function switchTab(name) {
+  document.querySelectorAll('.tab-btn').forEach(function(btn, i) {
+    btn.classList.toggle('active', (i === 0 && name === 'seongsu') || (i === 1 && name === 'daegu'));
+  });
+  document.getElementById('tab-seongsu').classList.toggle('active', name === 'seongsu');
+  document.getElementById('tab-daegu').classList.toggle('active', name === 'daegu');
+}
+</script>
 </body>
 </html>
