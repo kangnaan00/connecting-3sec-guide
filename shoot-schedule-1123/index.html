@@ -1,279 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>루프808 불닭방어캐비어김밥 · 촬영 일정 & 가이드</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=IBM+Plex+Mono:wght@500&display=swap">
-<style>
-:root{
-  --paper:#F7F6F2; --ink:#1B1C1F; --ink-2:#4A4C52; --ink-3:#7C7E86;
-  --line:#DDDCD5; --panel:#FFFFFF; --panel-2:#EEEDE7;
-  --blue:#1E4FD0; --blue-soft:#E4EAFB;
-  --red:#C4361F; --red-soft:#F8E5E0;
-  --amber:#8A5A00; --amber-soft:#F6ECD2;
-  --green:#1a6b3a; --green-soft:#E6F4EC;
-  --shadow:0 1px 2px rgba(20,22,30,.06), 0 6px 18px rgba(20,22,30,.06);
-}
-@media (prefers-color-scheme: dark){
-  :root{
-    --paper:#141518; --ink:#EDECE6; --ink-2:#B9B8B0; --ink-3:#83848C;
-    --line:#2C2D33; --panel:#1C1D22; --panel-2:#24252B;
-    --blue:#7A9BFF; --blue-soft:#1C2645;
-    --red:#FF8A70; --red-soft:#3A1F19;
-    --amber:#E8B85A; --amber-soft:#3A2E12;
-    --green:#5ec27a; --green-soft:#142218;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 6px 18px rgba(0,0,0,.35);
-  }
-}
-*{box-sizing:border-box}
-body{background:var(--paper);color:var(--ink);font-family:"Noto Sans KR",-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;font-size:15px;line-height:1.65;padding-inline:16px;padding-block:0 64px;-webkit-font-smoothing:antialiased}
-.wrap{max-width:760px;margin:0 auto}
-h1,h2,h3{text-wrap:balance;margin:0;line-height:1.25}
-p{margin:0}
-a{color:var(--blue)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>촬영 리스트</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f0f0; padding: 20px; }
+    h1 { font-size: 17px; font-weight: 700; margin-bottom: 20px; color: #111; }
 
-.head{padding-block:36px 24px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-h1{font-size:clamp(22px,5vw,32px);font-weight:900;letter-spacing:-.01em}
-.meta{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:16px;font-size:13px;color:var(--ink-3)}
-.meta b{color:var(--ink-2);font-weight:500}
+    .day-group { margin-bottom: 24px; }
+    .day-label { font-size: 13px; font-weight: 700; color: #555; margin-bottom: 10px; letter-spacing: 0.3px; }
 
-section{padding-block:32px;border-bottom:1px solid var(--line)}
-section:last-of-type{border-bottom:0}
-h2{font-size:20px;font-weight:900;letter-spacing:-.01em}
-h2 .n{color:var(--ink-3);font-weight:500;margin-right:8px}
-
-/* schedule cards */
-.sched{display:grid;gap:12px;margin-top:18px}
-.scard{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;align-items:center;gap:16px;box-shadow:var(--shadow)}
-.time-box{background:var(--blue);color:#fff;border-radius:8px;padding:10px 14px;text-align:center;flex-shrink:0;min-width:62px}
-.time-box .date{font-size:11px;font-weight:700;opacity:.8;letter-spacing:.05em}
-.time-box .hour{font-size:22px;font-weight:900;line-height:1}
-.scard-info{flex:1;min-width:0}
-.scard-handle{font-size:16px;font-weight:900;color:var(--ink)}
-.scard-handle .at{color:var(--ink-3);font-weight:400}
-.scard-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
-.badge{display:inline-block;font-size:12px;font-weight:700;padding:3px 9px;border-radius:5px}
-.badge.conf{background:var(--green-soft);color:var(--green)}
-.badge.price{background:var(--blue-soft);color:var(--blue)}
-.badge.cpv{background:var(--amber-soft);color:var(--amber)}
-.badge.sv{background:var(--panel-2);color:var(--ink-2)}
-@media (prefers-color-scheme: dark){.badge.conf{color:#5ec27a}}
-
-/* scene cards */
-.scenes{display:grid;gap:18px;margin-top:22px}
-.scene{background:var(--panel);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden}
-.scene-h{display:flex;align-items:baseline;gap:12px;padding:14px 18px 10px;border-bottom:1px solid var(--line)}
-.scene-h .num{font-size:12px;font-weight:700;color:var(--ink-3);letter-spacing:.08em}
-.scene-h h3{font-size:16px;font-weight:900;flex:1 1 auto;margin:0}
-.scene-b{display:grid;grid-template-columns:200px 1fr;gap:18px;padding:16px 18px 18px}
-@media (max-width:600px){.scene-b{grid-template-columns:1fr;gap:12px;padding:12px}}
-.clip video{width:100%;aspect-ratio:9/16;background:#000;border-radius:8px;display:block}
-.clip .cap{font-size:11.5px;color:var(--ink-3);margin-top:6px;line-height:1.4}
-.clip.none .ph{aspect-ratio:9/16;border:1.5px dashed var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;color:var(--ink-3);padding:10px}
-.rows{display:grid;gap:11px;align-content:start}
-.line{padding:10px 12px;background:var(--panel-2);border-radius:8px;font-size:14px;line-height:1.55}
-.line .q{color:var(--ink-3);font-size:11px;font-weight:700;letter-spacing:.06em;display:block;margin-bottom:3px}
-.row{display:grid;grid-template-columns:52px 1fr;gap:8px;font-size:13.5px;align-items:start}
-.row .val{line-height:1.55}
-.row .val b{font-weight:700}
-
-.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.05em;padding:2px 7px;border-radius:4px;vertical-align:middle}
-.tag.must{background:var(--blue);color:#fff}
-.tag.opt{background:var(--panel-2);color:var(--ink-2)}
-.tag.cta{background:var(--green);color:#fff}
-.tag.no{background:var(--red);color:#fff}
-@media (prefers-color-scheme: dark){.tag.must,.tag.cta,.tag.no{color:#111}}
-
-/* selling points */
-.sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-@media (max-width:500px){.sp-grid{grid-template-columns:1fr}}
-.sp{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
-.sp h3{font-size:14px;font-weight:900;margin-bottom:8px;color:var(--blue)}
-.sp ul{margin:0;padding-left:18px;display:grid;gap:5px;font-size:14px}
-
-.pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
-.pill{padding:7px 14px;border-radius:999px;background:var(--green-soft);color:var(--green);font-weight:700;font-size:13.5px;border:1.5px solid var(--green)}
-@media (prefers-color-scheme: dark){.pill{color:#5ec27a;border-color:#5ec27a;background:#142218}}
-
-.check{list-style:none;padding:0;margin-top:14px;display:grid;border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--panel)}
-.check li{display:flex;gap:12px;align-items:flex-start;padding:10px 14px;border-bottom:1px solid var(--line);font-size:14px}
-.check li:last-child{border-bottom:0}
-.check .box{flex:0 0 17px;height:17px;border:2px solid var(--ink-3);border-radius:4px;margin-top:3px}
-
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
-</style>
+    .item { background: #fff; border-radius: 12px; padding: 14px; margin-bottom: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.07); }
+    .id-row { display: flex; align-items: center; gap: 8px; }
+    .id a { font-size: 15px; font-weight: 700; color: #111; text-decoration: none; }
+    .id a:hover { text-decoration: underline; }
+    .time { font-size: 13px; font-weight: 600; color: #888; }
+    .link-row { margin: 4px 0 10px; }
+    .link-row a { font-size: 12px; color: #0066cc; text-decoration: none; }
+    .link-row a:hover { text-decoration: underline; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+    .stat { background: #f8f8f8; border-radius: 7px; padding: 6px 10px; }
+    .stat-label { font-size: 10px; color: #999; margin-bottom: 1px; }
+    .stat-value { font-size: 13px; font-weight: 700; color: #111; }
+    .status { display: inline-block; background: #fff3cd; color: #856404; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px; margin-bottom: 6px; }
+  </style>
 </head>
 <body>
-<div class="wrap">
+  <h1>📋 촬영 리스트</h1>
 
-<header class="head">
-  <div class="eyebrow">루프808 · 불닭방어캐비어김밥</div>
-  <h1>촬영 일정 & 콘텐츠 가이드</h1>
-  <div class="meta">
-    <span><b>촬영일</b> 11월 25일 (화)</span>
-    <span><b>캠페인</b> 불닭방어캐비어김밥 · 꽃게탕</span>
-  </div>
-</header>
+  <!-- 11월 24일 -->
+  <div class="day-group">
+    <div class="day-label">11월 24일</div>
 
-<section>
-  <h2><span class="n">1</span>촬영 일정</h2>
-  <div class="sched">
-
-    <div class="scard">
-      <div class="time-box">
-        <div class="date">11/25</div>
-        <div class="hour">1시</div>
+    <div class="item">
+      <div class="id-row">
+        <div class="id"><a href="https://www.instagram.com/anotherdoor_travel/" target="_blank">@anotherdoor_travel</a></div>
+        <div class="time">12시</div>
       </div>
-      <div class="scard-info">
-        <div class="scard-handle"><span class="at">@</span>rozy.road</div>
-        <div class="scard-meta">
-          <span class="badge conf">확정</span>
-          <span class="badge price">25만원</span>
-          <span class="badge cpv">CPV 0.5</span>
-          <span class="badge sv">저장공유 160</span>
-          <span class="badge sv">평균 481K</span>
-        </div>
-      </div>
+      <div class="link-row"><a href="https://www.instagram.com/p/DXmN9c_Eay7/" target="_blank">instagram.com/p/DXmN9c_Eay7</a></div>
     </div>
 
-    <div class="scard">
-      <div class="time-box">
-        <div class="date">11/25</div>
-        <div class="hour">3시</div>
+    <div class="item">
+      <div class="id-row">
+        <div class="id"><a href="https://www.instagram.com/rorocouple_trip/" target="_blank">@rorocouple_trip</a></div>
+        <div class="time">2시</div>
       </div>
-      <div class="scard-info">
-        <div class="scard-handle"><span class="at">@</span>jin_in_place</div>
-        <div class="scard-meta">
-          <span class="badge conf">확정</span>
-          <span class="badge price">15만원</span>
-          <span class="badge cpv">CPV 0.4</span>
-          <span class="badge sv">저장공유 48</span>
-          <span class="badge sv">평균 337K</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section>
-  <h2><span class="n">2</span>콘텐츠 가이드 · 장면 순서</h2>
-
-  <div class="scenes">
-
-    <article class="scene">
-      <div class="scene-h"><span class="num">장면 1</span><h3>후킹</h3></div>
-      <div class="scene-b">
-        <div class="clip">
-          <video controls playsinline preload="metadata" src="videos/ref.mp4"></video>
-          <p class="cap"><b>참고 영상</b> · 루프808 제공</p>
-        </div>
-        <div class="rows">
-          <div class="line"><span class="q">멘트 예시 A</span>"겨울에 야장 못 가잖아요, 근데 여기 가면 돼요"</div>
-          <div class="line"><span class="q">멘트 예시 B</span>"연말에 방어 먹을 곳 찾고 있으면 여기 무조건"</div>
-          <div class="line"><span class="q">멘트 예시 C</span>"데이트 장소 고민이면 루프808 무조건 가세요"</div>
-          <div class="row"><span class="tag must">필수</span><span class="val">첫 3초 안에 <b>방어 비주얼</b> 또는 <b>캐비어 올라간 김밥</b> 클로즈업.</span></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="scene">
-      <div class="scene-h"><span class="num">장면 2</span><h3>방어 소구점</h3></div>
-      <div class="scene-b">
-        <div class="clip">
-          <video controls playsinline preload="metadata" src="videos/muk_tteul.mp4"></video>
-          <p class="cap"><b>@muk_tteul</b> · 참고</p>
-        </div>
-        <div class="rows">
-          <div class="line"><span class="q">멘트</span>"9kg 대방어에 우니, 연어알까지"</div>
-          <div class="line"><span class="q">멘트</span>"캐비어 추가가 5,000원인데 1회 추가까지 5,000원이에요"</div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>9kg 대방어</b> 비주얼. 크기 느껴지게.</span></div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>캐비어·우니·연어알</b> 클로즈업.</span></div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>불닭 캐비어 방어(소금) 김밥</b> 한 입 컷.</span></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="scene">
-      <div class="scene-h"><span class="num">장면 3</span><h3>꽃게탕 소구점</h3></div>
-      <div class="scene-b">
-        <div class="clip">
-          <video controls playsinline preload="metadata" src="videos/muk_jeong.mp4"></video>
-          <p class="cap"><b>@muk_jeong</b> · 참고</p>
-        </div>
-        <div class="rows">
-          <div class="line"><span class="q">멘트</span>"꽃게가 한가득이에요, 라면사리 추가까지"</div>
-          <div class="line"><span class="q">멘트</span>"뜨끈한 국물이 겨울에 진짜 딱이에요"</div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>꽃게 가득한 탕</b> 클로즈업.</span></div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>라면사리</b> 넣는 컷.</span></div>
-          <div class="row"><span class="tag must">필수</span><span class="val"><b>뜨끈한 국물</b> 떠먹는 리액션.</span></div>
-        </div>
-      </div>
-    </article>
-
-    <article class="scene">
-      <div class="scene-h"><span class="num">장면 4</span><h3>매장 CTA</h3></div>
-      <div class="scene-b">
-        <div class="clip none"><div class="ph">매장 외관·<br>간판 컷</div></div>
-        <div class="rows">
-          <div class="line"><span class="q">CTA 멘트</span>"겨울에 야장 못 가잖아요 — 루프808 오면 돼요"</div>
-          <div class="line"><span class="q">CTA 멘트</span>"연말 분위기에 방어 먹으러 여기 꼭 와보세요"</div>
-          <div class="line"><span class="q">CTA 멘트</span>"데이트 장소 찾는다면 무조건 여기"</div>
-          <div class="row"><span class="tag cta">CTA</span><span class="val">매장 <b>외관·간판</b> 컷 필수.</span></div>
-          <div class="row"><span class="tag cta">CTA</span><span class="val">겨울·연말·데이트 키워드 1개 이상.</span></div>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<section>
-  <h2><span class="n">3</span>핵심 소구점</h2>
-  <div class="sp-grid">
-    <div class="sp">
-      <h3>🐟 방어</h3>
-      <ul>
-        <li><b>9kg 대방어</b></li>
-        <li>우니 · 연어알</li>
-        <li><b>캐비어 5,000원</b> (1회 추가까지)</li>
-        <li>불닭 캐비어 방어(소금) 김밥</li>
-      </ul>
-    </div>
-    <div class="sp">
-      <h3>🦀 꽃게탕</h3>
-      <ul>
-        <li><b>꽃게 한가득</b></li>
-        <li>라면사리 추가까지</li>
-        <li>뜨끈한 국물</li>
-      </ul>
+      <div class="link-row"><a href="https://www.instagram.com/rorocouple_trip?igsh=MTNvdzI0Z2pqcXZvYw%3D%3D" target="_blank">instagram.com/rorocouple_trip</a></div>
     </div>
   </div>
-  <div class="pills" style="margin-top:16px">
-    <span class="pill">겨울에 야장 못 가잖아요</span>
-    <span class="pill">연말 분위기</span>
-    <span class="pill">데이트 장소</span>
-    <span class="pill">방어 먹으러</span>
+
+  <!-- 11월 28일 -->
+  <div class="day-group">
+    <div class="day-label">11월 28일</div>
+
+    <div class="item">
+      <div class="id-row">
+        <div class="id"><a href="https://www.instagram.com/honey___pick/" target="_blank">@honey___pick</a></div>
+        <div class="time">2시</div>
+      </div>
+      <div class="link-row"><a href="https://www.instagram.com/honey___pick/reels/" target="_blank">instagram.com/honey___pick/reels</a></div>
+    </div>
   </div>
-</section>
 
-<section>
-  <h2><span class="n">4</span>납품 전 체크리스트</h2>
-  <ul class="check">
-    <li><span class="box"></span>첫 3초 안에 방어 비주얼 또는 캐비어 김밥 클로즈업</li>
-    <li><span class="box"></span>9kg 대방어 크기 느껴지는 컷</li>
-    <li><span class="box"></span>캐비어·우니·연어알 클로즈업</li>
-    <li><span class="box"></span>불닭 캐비어 방어(소금) 김밥 한 입 컷</li>
-    <li><span class="box"></span>꽃게 가득한 탕 비주얼</li>
-    <li><span class="box"></span>라면사리 컷</li>
-    <li><span class="box"></span>겨울·연말·데이트 키워드 1개 이상</li>
-    <li><span class="box"></span>매장 외관·간판 컷</li>
-    <li><span class="box"></span>#ad 또는 #광고 자막 포함</li>
-  </ul>
-</section>
-
-</div>
 </body>
 </html>
