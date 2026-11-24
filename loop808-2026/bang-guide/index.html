@@ -4,213 +4,191 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>방어 촬영 가이드</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
 <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
     --bg: #0d0d0d;
     --surface: #181818;
-    --surface2: #222222;
     --border: #2a2a2a;
     --fg: #f0ede9;
-    --fg-muted: #888;
-    --accent: #c8a35a;
-    --accent-bg: #1f1a0e;
-    --tag-bg: #262626;
-    --tag-fg: #aaa;
-    --num: #c8a35a;
+    --muted: #777;
+    --gold: #c8a35a;
+    --gold-bg: #1f1a0e;
   }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     background: var(--bg);
     color: var(--fg);
     font-family: 'Inter', system-ui, sans-serif;
-    font-size: 14px;
-    padding: 32px 20px 60px;
-    padding-left: max(20px, env(safe-area-inset-left, 0px));
-    padding-right: max(20px, env(safe-area-inset-right, 0px));
+    padding: 24px 16px 60px;
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
   }
-  .page { max-width: 540px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+  .page { max-width: 480px; margin: 0 auto; }
 
-  .hero {
+  /* 비디오 플레이어 */
+  .player-wrap {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #000;
+    aspect-ratio: 9/16;
+    max-height: 56vh;
+  }
+  video {
+    width: 100%; height: 100%; object-fit: cover;
+    display: block;
+  }
+  .shot-label {
+    position: absolute; bottom: 14px; left: 14px;
+    background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
+    border: 1px solid rgba(200,163,90,0.4);
+    border-radius: 8px; padding: 6px 12px;
+    font-size: 13px; font-weight: 600; color: var(--gold);
+    pointer-events: none;
+  }
+
+  /* 헤더 */
+  .header { margin: 20px 0 16px; }
+  .header .eyebrow { font-size: 11px; font-weight: 600; color: var(--gold); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 6px; }
+  .header h1 { font-size: 18px; font-weight: 700; letter-spacing: -0.02em; }
+
+  /* 샷 카드 그리드 */
+  .shots { display: flex; flex-direction: column; gap: 8px; }
+  .shot {
     background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    padding: 24px 20px 20px;
-    margin-bottom: 4px;
-  }
-  .hero .eyebrow { font-size: 11px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 8px; }
-  .hero h1 { font-size: 22px; font-weight: 700; line-height: 1.25; letter-spacing: -0.02em; }
-  .hero .sub { font-size: 13px; color: var(--fg-muted); margin-top: 8px; line-height: 1.6; }
-
-  .section-label {
-    font-size: 11px; font-weight: 600; color: var(--fg-muted);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    padding: 0 2px; margin-top: 8px; margin-bottom: 2px;
-  }
-
-  .shot-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
+    border: 1.5px solid var(--border);
     border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 14px;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .shot.active {
+    border-color: var(--gold);
+    background: var(--gold-bg);
   }
   .shot-num {
-    width: 28px; height: 28px; border-radius: 50%;
-    background: var(--accent-bg); border: 1.5px solid var(--accent);
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    background: var(--border); border: 1.5px solid var(--border);
     display: flex; align-items: center; justify-content: center;
-    font-size: 13px; font-weight: 700; color: var(--accent);
-    flex-shrink: 0;
+    font-size: 12px; font-weight: 700; color: var(--muted);
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
   }
-  .shot-body { flex: 1; min-width: 0; }
-  .shot-title { font-size: 15px; font-weight: 700; line-height: 1.3; }
-  .shot-desc { font-size: 13px; color: var(--fg-muted); margin-top: 5px; line-height: 1.65; }
-  .shot-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
-  .tag {
-    font-size: 11px; padding: 3px 8px; border-radius: 5px;
-    background: var(--tag-bg); color: var(--tag-fg); font-weight: 500;
+  .shot.active .shot-num {
+    background: var(--gold-bg); border-color: var(--gold); color: var(--gold);
   }
-  .tag.gold { background: var(--accent-bg); color: var(--accent); }
-
-  .tip-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .tip-card .tip-title { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
-  .tip-list { display: flex; flex-direction: column; gap: 8px; }
-  .tip-item { font-size: 13px; color: var(--fg-muted); line-height: 1.6; display: flex; gap: 8px; }
-  .tip-item::before { content: "·"; color: var(--accent); font-weight: 700; flex-shrink: 0; }
-
-  .vibe-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px;
-  }
-  .vibe-row { display: flex; gap: 8px; flex-wrap: wrap; }
-  .vibe-pill {
-    font-size: 12px; padding: 6px 12px; border-radius: 20px;
-    border: 1px solid var(--border); color: var(--fg-muted); font-weight: 500;
-  }
-  .vibe-pill.active { border-color: var(--accent); color: var(--accent); background: var(--accent-bg); }
+  .shot-info { flex: 1; min-width: 0; }
+  .shot-name { font-size: 14px; font-weight: 700; }
+  .shot-time { font-size: 11px; color: var(--muted); margin-top: 2px; font-variant-numeric: tabular-nums; }
+  .shot-arrow { color: var(--muted); font-size: 16px; flex-shrink: 0; transition: color 0.15s; }
+  .shot.active .shot-arrow { color: var(--gold); }
 </style>
 </head>
 <body>
 <div class="page">
 
-  <div class="hero">
-    <div class="eyebrow">루프808 · 방어 촬영 가이드</div>
-    <h1>방어 한판에<br>진심을 담아 담아 🐟</h1>
-    <div class="sub">방어 한마리 통째로, 프리미엄 토핑 플레이팅까지<br>인스타 저장 유발 컷 위주로 담아주세요</div>
+  <div class="player-wrap">
+    <video id="vid" src="guide.mp4" playsinline preload="metadata"></video>
+    <div class="shot-label" id="lbl">▶ 샷 선택</div>
   </div>
 
-  <div class="section-label">필수 컷</div>
+  <div class="header">
+    <div class="eyebrow">루프808 · 방어 필수컷</div>
+    <h1>촬영 가이드</h1>
+  </div>
 
-  <div class="shot-card">
-    <div class="shot-num">1</div>
-    <div class="shot-body">
-      <div class="shot-title">생 방어 홀 샷</div>
-      <div class="shot-desc">방어를 양손으로 들고 카메라 향해 세우는 샷. 길이감·신선도 강조. 주방 배경 그대로도 OK.</div>
-      <div class="shot-tags">
-        <span class="tag gold">오프닝 컷</span>
-        <span class="tag">세로 세움</span>
-        <span class="tag">양손 그립</span>
+  <div class="shots" id="shots">
+    <div class="shot" data-start="0" data-end="3" data-label="생 방어 홀 샷">
+      <div class="shot-num">1</div>
+      <div class="shot-info">
+        <div class="shot-name">생 방어 홀 샷</div>
+        <div class="shot-time">0:00 – 0:03</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="shot-card">
-    <div class="shot-num">2</div>
-    <div class="shot-body">
-      <div class="shot-title">토핑 올리는 과정 샷</div>
-      <div class="shot-desc">캐비어·연어알·성게 등 프리미엄 토핑을 회 위에 올리는 순간. 접시 위에서 떨어지는 클로즈업.</div>
-      <div class="shot-tags">
-        <span class="tag gold">저장 유발</span>
-        <span class="tag">클로즈업</span>
-        <span class="tag">슬로우 추천</span>
+    <div class="shot" data-start="3" data-end="8" data-label="토핑 올리기">
+      <div class="shot-num">2</div>
+      <div class="shot-info">
+        <div class="shot-name">토핑 올리기</div>
+        <div class="shot-time">0:03 – 0:08</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="shot-card">
-    <div class="shot-num">3</div>
-    <div class="shot-body">
-      <div class="shot-title">완성 플레이팅 오버헤드</div>
-      <div class="shot-desc">성게·연어알·레몬 얹은 방어회 한상 정면/위에서. 풀 플레이팅이 꽉 찬 느낌으로.</div>
-      <div class="shot-tags">
-        <span class="tag gold">썸네일 컷</span>
-        <span class="tag">탑뷰</span>
-        <span class="tag">45도 가능</span>
+    <div class="shot" data-start="8" data-end="14" data-label="완성 플레이팅">
+      <div class="shot-num">3</div>
+      <div class="shot-info">
+        <div class="shot-name">완성 플레이팅</div>
+        <div class="shot-time">0:08 – 0:14</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="shot-card">
-    <div class="shot-num">4</div>
-    <div class="shot-body">
-      <div class="shot-title">젓가락 집는 클로즈업</div>
-      <div class="shot-desc">젓가락으로 방어회 한 점 집어 올리는 순간. 결·마블링·촉촉함이 보여야 함.</div>
-      <div class="shot-tags">
-        <span class="tag">클로즈업</span>
-        <span class="tag">맛 강조</span>
+    <div class="shot" data-start="14" data-end="20" data-label="회 클로즈업">
+      <div class="shot-num">4</div>
+      <div class="shot-info">
+        <div class="shot-name">회 클로즈업</div>
+        <div class="shot-time">0:14 – 0:20</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="shot-card">
-    <div class="shot-num">5</div>
-    <div class="shot-body">
-      <div class="shot-title">방어 김밥(롤) 컷</div>
-      <div class="shot-desc">깍둑 방어 얹은 김밥 형태 메뉴. 단면 클로즈업 또는 집어 올리는 샷.</div>
-      <div class="shot-tags">
-        <span class="tag">사이드 메뉴</span>
-        <span class="tag">단면 컷</span>
+    <div class="shot" data-start="20" data-end="26" data-label="방어 김밥">
+      <div class="shot-num">5</div>
+      <div class="shot-info">
+        <div class="shot-name">방어 김밥</div>
+        <div class="shot-time">0:20 – 0:26</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="shot-card">
-    <div class="shot-num">6</div>
-    <div class="shot-body">
-      <div class="shot-title">야외 감성 공간 샷</div>
-      <div class="shot-desc">전구 조명 가득한 텐트 공간. 테이블 세팅 or 인물 포함. 저녁 조명 활용 필수.</div>
-      <div class="shot-tags">
-        <span class="tag gold">분위기 컷</span>
-        <span class="tag">저녁</span>
-        <span class="tag">전구 조명</span>
+    <div class="shot" data-start="26" data-end="33" data-label="젓가락·쌈">
+      <div class="shot-num">6</div>
+      <div class="shot-info">
+        <div class="shot-name">젓가락·쌈 먹기</div>
+        <div class="shot-time">0:26 – 0:33</div>
       </div>
+      <div class="shot-arrow">▶</div>
     </div>
-  </div>
-
-  <div class="section-label">무드 키워드</div>
-
-  <div class="vibe-card">
-    <div class="vibe-row">
-      <span class="vibe-pill active">럭셔리 회식</span>
-      <span class="vibe-pill active">성게·캐비어</span>
-      <span class="vibe-pill active">한겨울 방어철</span>
-      <span class="vibe-pill">감성 야외 텐트</span>
-      <span class="vibe-pill">전구 무드등</span>
-      <span class="vibe-pill">한 마리 통째로</span>
-    </div>
-  </div>
-
-  <div class="section-label">촬영 팁</div>
-
-  <div class="tip-card">
-    <div class="tip-list">
-      <div class="tip-item">방어회는 흰 접시에 담길 때 색감 최고 — 흰 배경 클로즈업 적극 활용</div>
-      <div class="tip-item">토핑 올리는 장면은 슬로우모션(1/4배속 이상) 추천</div>
-      <div class="tip-item">전구 조명 공간은 ISO 올리지 말고 조명에 가까이서 촬영</div>
-      <div class="tip-item">오프닝은 반드시 생 방어 홀샷으로 — 임팩트 최우선</div>
-      <div class="tip-item">캡션 키워드: #방어 #방어회 #겨울방어 #성게 #캐비어 #루프808</div>
+    <div class="shot" data-start="33" data-end="39" data-label="야외 텐트 공간">
+      <div class="shot-num">7</div>
+      <div class="shot-info">
+        <div class="shot-name">야외 텐트 공간</div>
+        <div class="shot-time">0:33 – 0:39</div>
+      </div>
+      <div class="shot-arrow">▶</div>
     </div>
   </div>
 
 </div>
+
+<script>
+  const vid = document.getElementById('vid');
+  const lbl = document.getElementById('lbl');
+  const shots = document.querySelectorAll('.shot');
+  let activeEnd = null;
+  let activeEl = null;
+
+  shots.forEach(el => {
+    el.addEventListener('click', () => {
+      const start = parseFloat(el.dataset.start);
+      const end   = parseFloat(el.dataset.end);
+      const label = el.dataset.label;
+
+      if (activeEl) activeEl.classList.remove('active');
+      el.classList.add('active');
+      activeEl = el;
+      activeEnd = end;
+      lbl.textContent = label;
+
+      vid.currentTime = start;
+      vid.play();
+    });
+  });
+
+  vid.addEventListener('timeupdate', () => {
+    if (activeEnd !== null && vid.currentTime >= activeEnd) {
+      vid.pause();
+    }
+  });
+</script>
 </body>
 </html>
